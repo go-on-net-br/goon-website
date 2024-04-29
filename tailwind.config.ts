@@ -14,6 +14,6 @@ const config: Config = {
       colors: { primary: "#003EF9" },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
 export default config;
