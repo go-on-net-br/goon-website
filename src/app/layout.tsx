@@ -23,8 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${montserrat.variable} font-montserrat`}>
         <Topbar />
-
-        {children}
+        <main className="container mx-auto">{children}</main>
       </body>
     </html>
   );

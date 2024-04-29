@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.glider-dot {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+  }
+  
+  .glider-dot.active {
+    background-color: white !important;
+  }
+  * {
+    scroll-behavior: smooth;
+  }

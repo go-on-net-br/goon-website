@@ -5,27 +5,32 @@ export interface DateAttributes {
 }
 
 export interface Media {
-  id: number;
-  name: string;
-  alternativeText: string;
-  caption: string;
-  width: number;
-  height: number;
-  formats: {
-    thumbnail: MediaFormat;
-    small: MediaFormat;
-    medium: MediaFormat;
-    large: MediaFormat;
+  data: {
+    id: number;
+    attributes: {
+      id: number;
+      name: string;
+      alternativeText: string;
+      caption: string;
+      width: number;
+      height: number;
+      formats: {
+        thumbnail: MediaFormat;
+        small: MediaFormat;
+        medium: MediaFormat;
+        large: MediaFormat;
+      };
+      hash: string;
+      ext: string;
+      mime: string;
+      size: number;
+      url: string;
+      previewUrl: string;
+      provider: string;
+      createdAt: Date;
+      updatedAt: Date;
+    };
   };
-  hash: string;
-  ext: string;
-  mime: string;
-  size: number;
-  url: string;
-  previewUrl: string;
-  provider: string;
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 export interface MediaFormat {
