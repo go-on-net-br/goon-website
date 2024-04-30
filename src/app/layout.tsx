@@ -20,10 +20,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${montserrat.variable} font-montserrat bg-[#F5F5F5]`}>
+    <html lang="en" className="bg-[#F5F5F5]">
+      <body className={`${montserrat.variable} font-montserrat]`}>
         <Topbar />
-        <main className="container mx-auto">{children}</main>
+        <main className="container mx-auto  font-montserrat">{children}</main>
       </body>
     </html>
   );

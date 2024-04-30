@@ -37,6 +37,9 @@ export default async function HomePage() {
           E muito mais...
         </p>
       </section>
+      <section className="mt-16">
+        <HomeCards />
+      </section>
     </>
   );
 }
