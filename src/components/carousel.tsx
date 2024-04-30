@@ -1,26 +1,12 @@
 "use client";
 
-import { Media } from "@/types/common";
 import { Carrossel } from "@/types/components";
-import Image from "next/image";
 import Glider from "react-glider";
 import "glider-js/glider.min.css";
 import { useEffect, useRef, useState } from "react";
 import arrow_left from "../../public/arrow_left.svg";
-
-function CarouselImage({ image }: { image: Media }) {
-  const imageInfo = image?.data?.attributes ?? {};
-
-  return (
-    <Image
-      src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${imageInfo.url}`}
-      width={imageInfo.width}
-      height={imageInfo.height}
-      alt={imageInfo.alternativeText ?? ""}
-      className="w-full h-[450px] object-contain object-center m-auto"
-    />
-  );
-}
+import ApiImage from "./ApiImage";
+import Image from "next/image";
 
 export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
   const dotsEl = useRef<HTMLDivElement>(null);
@@ -33,6 +19,8 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
       setIsReady(true);
     }
   }, []);
+
+  const imgStyles = "w-full h-[450px] object-contain object-center m-auto";
 
   return (
     <div className="relative h-[450px]">
@@ -59,10 +47,10 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
                 >
                   {slide?.URL ? (
                     <a href={slide?.URL} className="h-fit">
-                      <CarouselImage image={slide.Midia} />
+                      <ApiImage contentStyles={imgStyles} image={slide.Midia} />
                     </a>
                   ) : (
-                    <CarouselImage image={slide.Midia} />
+                    <ApiImage contentStyles={imgStyles} image={slide.Midia} />
                   )}
                 </div>
               );

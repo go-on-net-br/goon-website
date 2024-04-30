@@ -1,4 +1,6 @@
+import Badge from "@/components/badge";
 import Carousel from "@/components/carousel";
+import HomeCards from "@/components/homeCards";
 import { Home } from "@/types/home";
 
 async function getHomeData(): Promise<Home> {
@@ -20,7 +22,21 @@ async function getHomeData(): Promise<Home> {
 export default async function HomePage() {
   const data = await getHomeData();
   const { Carrossel } = data?.attributes ?? {};
+
   return (
-      <Carousel carousel={Carrossel} />
+    <>
+      <section>
+        <Carousel carousel={Carrossel} />
+      </section>
+      <section className="mt-16">
+        <h1 className="text-primary text-3xl mx-auto block w-fit">
+          Soluções para <u className="font-bold">todos os projetos</u>
+        </h1>
+        <Badge />
+        <p className="text-primary font-light mx-auto block w-fit mt-16 ">
+          E muito mais...
+        </p>
+      </section>
+    </>
   );
 }
