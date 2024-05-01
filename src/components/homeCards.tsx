@@ -3,17 +3,17 @@ import Link from "next/link";
 export default function HomeCards() {
   const cards = [
     {
-      src: "before:bg-[url('/sejaRevenda.webp')]",
-      text: "Seja revenda",
+      src: "after:bg-[url('/sejaRevenda.webp')]",
+      text: "Seja uma revenda",
       href: "/revendas",
     },
     {
-      src: "before:bg-[url('/nossasMarcas.webp')]",
+      src: "after:bg-[url('/nossasMarcas.webp')]",
       text: "Nossas marcas",
       href: "/marcas",
     },
     {
-      src: "before:bg-[url('/ondeComprar.webp')]",
+      src: "after:bg-[url('/ondeComprar.webp')]",
       text: "Onde comprar",
       href: "/onde-comprar",
     },
@@ -24,9 +24,9 @@ export default function HomeCards() {
         return (
           <Link key={card.text.slice(0, 4) + i} href={card?.href}>
             <div
-              className={`relative h-[375px] w-[280px] rounded-3xl before:absolute before:top-0 before:z-0 before:block before:h-full before:w-full  before:rounded-3xl before:opacity-50 after:rounded-3xl ${card.src} transition-all before:bg-cover before:bg-center before:bg-no-repeat before:blur-sm before:content-[''] after:absolute after:top-0 after:z-[1] after:h-full after:w-full after:bg-[#003ef9ad] after:content-[''] hover:scale-105`}
+              className={`card relative h-[475px] w-[350px] rounded-3xl shadow-md transition-all before:absolute before:top-0  before:z-[0] before:h-full before:w-full before:rounded-3xl before:bg-[#003ef9] before:content-[''] after:absolute after:top-0 after:z-[1] after:block after:h-full after:w-full after:rounded-3xl ${card.src} after:bg-cover after:bg-center after:bg-no-repeat after:opacity-[14%] after:content-[''] hover:scale-105`}
             >
-              <p className="absolute bottom-0 left-0 right-0 top-0 z-10 m-auto block h-fit w-fit text-center text-4xl font-bold uppercase text-white">
+              <p className="absolute bottom-0 left-0 right-0 top-0 z-10 m-auto block h-fit w-56 text-center text-4xl font-bold uppercase text-white">
                 {card.text}
               </p>
             </div>
