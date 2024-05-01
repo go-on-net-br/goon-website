@@ -24,7 +24,7 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
 
   return (
     <div className="relative h-[450px]">
-      <div className="md:static absolute w-[calc(100vw-1.5rem)] md:w-auto">
+      <div className="absolute w-[calc(100vw-1.5rem)] md:static md:w-auto">
         {isReady && (
           <Glider
             arrows={{
@@ -43,7 +43,7 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
               return (
                 <div
                   key={slide?.Titulo}
-                  className="carousel-item relative w-full h-fit"
+                  className="carousel-item relative h-fit w-full"
                 >
                   {slide?.URL ? (
                     <a href={slide?.URL} className="h-fit">
@@ -60,10 +60,10 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
         <button
           ref={leftArrowEl}
           aria-label="navegar para a esquerda"
-          className="hidden md:block absolute z-10 md:h-[450px] bottom-0 left-1"
+          className="absolute bottom-0 left-1 z-10 hidden md:block md:h-[450px]"
         >
           <Image
-            className="shadow z-10 w-10 h-10 invert object-contain"
+            className="z-10 h-10 w-10 object-contain shadow invert"
             alt="flecha apontada para esquerda"
             src={arrow_left}
           />
@@ -71,16 +71,16 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
         <button
           ref={rightArrowEl}
           aria-label="navegar para a direita"
-          className="hidden md:block absolute md:h-[450px] bottom-0 md:right-1 z-10"
+          className="absolute bottom-0 z-10 hidden md:right-1 md:block md:h-[450px]"
         >
           <Image
-            className="shadow w-10 h-10 invert object-contain scale-x-[-1]"
+            className="h-10 w-10 scale-x-[-1] object-contain shadow invert"
             alt="flecha apontada para direita"
             src={arrow_left}
           />
         </button>
         <div
-          className="absolute bottom-[40px] right-0 left-0"
+          className="absolute bottom-[40px] left-0 right-0"
           ref={dotsEl}
           id="dots"
         ></div>

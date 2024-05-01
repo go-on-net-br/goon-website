@@ -17,15 +17,15 @@ export default function Badge() {
   ];
 
   return (
-    <div className="flex justify-evenly items-center mt-16 flex-wrap gap-10">
+    <div className="mt-16 flex flex-wrap items-center justify-evenly gap-10">
       {badges?.map((badge, i) => (
         <div className="flex flex-col gap-3" key={badge?.text.slice(0, 5) + i}>
           <Image
             src={badge?.src}
             alt={badge?.text}
-            className="w-12 h-w-12 object-contain"
+            className="h-w-12 w-12 object-contain"
           />
-          <p className="text-primary font-medium text-lg whitespace-pre">
+          <p className="whitespace-pre text-lg font-medium text-primary">
             {badge?.text}
           </p>
         </div>

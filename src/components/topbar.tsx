@@ -22,11 +22,11 @@ export default function Topbar() {
 
   return (
     <nav className="border-gray-200 bg-primary">
-      <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+      <div className="mx-auto flex max-w-screen-xl items-center justify-between p-4">
         <Link href="/">
           <Image
             src={goOnSvg}
-            className="h-8 object-contain w-fit"
+            className="h-8 w-fit object-contain"
             alt="GoOn logo"
           />
         </Link>

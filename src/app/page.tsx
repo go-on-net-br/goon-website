@@ -10,7 +10,7 @@ async function getHomeData(): Promise<Home> {
       headers: {
         Authorization: `${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
       },
-    }
+    },
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -29,11 +29,11 @@ export default async function HomePage() {
         <Carousel carousel={Carrossel} />
       </section>
       <section className="mt-16">
-        <h1 className="text-primary text-3xl mx-auto block w-fit">
+        <h1 className="mx-auto block w-fit text-3xl text-primary">
           Soluções para <u className="font-bold">todos os projetos</u>
         </h1>
         <Badge />
-        <p className="text-primary font-light mx-auto block w-fit mt-16 ">
+        <p className="mx-auto mt-16 block w-fit font-light text-primary ">
           E muito mais...
         </p>
       </section>

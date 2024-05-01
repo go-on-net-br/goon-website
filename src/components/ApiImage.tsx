@@ -3,7 +3,7 @@ import NextImage from "next/image";
 
 export default function ApiImage({
   image,
-  contentStyles = '',
+  contentStyles = "",
 }: {
   image: Media;
   contentStyles?: string;
