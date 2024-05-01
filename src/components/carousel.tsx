@@ -47,10 +47,10 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
                 >
                   {slide?.URL ? (
                     <a href={slide?.URL} className="h-fit">
-                      <ApiImage contentStyles={imgStyles} image={slide.Midia} />
+                      <ApiImage contentStyles={imgStyles} image={slide.Midia.data} />
                     </a>
                   ) : (
-                    <ApiImage contentStyles={imgStyles} image={slide.Midia} />
+                    <ApiImage contentStyles={imgStyles} image={slide.Midia.data} />
                   )}
                 </div>
               );

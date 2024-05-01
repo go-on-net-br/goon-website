@@ -8,7 +8,8 @@ export default function ApiImage({
   image: Media;
   contentStyles?: string;
 }) {
-  const imageInfo = image?.data?.attributes ?? {};
+  const imageInfo = image?.attributes ?? {};
+
   return (
     <NextImage
       src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${imageInfo.url}`}
