@@ -43,7 +43,7 @@ export default function AboutBanner({
                 </div>
             </div>
         </div>
-        <div className="w-full flex justify-center mt-[-17px]">
+        <div className="w-full flex justify-center mt-[-24px]">
             <div className="badge badge-lg bg-white uppercase py-6 px-10 text-primary font-bold text-md border-0 shadow-lg">
                 Nossa história começa aqui
             </div>
