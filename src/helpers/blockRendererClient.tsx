@@ -11,14 +11,12 @@ export default function BlockRendererClient({
 }: {
   readonly content: BlocksContent;
 }) {
-  console.log(content)
   if (!content) return null;
   return (
     <BlocksRenderer
       content={content}
       blocks={{
         image: ({ image }) => {
-          console.log(image);
           return (
             <Image
               src={image.url}
