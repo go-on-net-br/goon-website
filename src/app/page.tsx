@@ -5,29 +5,14 @@ import { Home } from "@/types/home";
 import Image from "next/image";
 import separator from "../../public/separator.svg";
 import HomeBlog from "@/components/homeBlog";
-
-async function getHomeData(): Promise<Home> {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/home?populate=deep`,
-    {
-      headers: {
-        Authorization: `${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
-      },
-    },
-  );
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json().then((res) => res.data);
-}
+import fetchDataFromApi from "@/helpers/fetchFromApi";
 
 export default async function HomePage() {
-  const data = await getHomeData();
+  const data = await fetchDataFromApi<Home>("home");
   const { Carrossel } = data?.attributes ?? {};
 
   return (
-    <>
+    <div className="container mx-auto max-w-screen-xl">
       <section>
         <Carousel carousel={Carrossel} />
       </section>
@@ -52,6 +37,6 @@ export default async function HomePage() {
       <section className="mb-16">
         <HomeBlog />
       </section>
-    </>
+    </div>
   );
 }
