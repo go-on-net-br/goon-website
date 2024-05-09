@@ -1,15 +1,14 @@
 import { Sobre } from "@/types/sobre";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
-import AboutBanner from "./components/banner";
+import AboutBanner from "../../components/about/banner";
 
 export default async function Page() {
+  const data = await fetchDataFromApi<Sobre>("sobre");
+  const { inicial } = data.attributes;
 
-    const data = await fetchDataFromApi<Sobre>('sobre');
-    const { inicial } = data.attributes;
-
-    return (
-        <>
-            <AboutBanner inicial={inicial}></AboutBanner>
-        </>
-    )
+  return (
+    <>
+      <AboutBanner inicial={inicial}></AboutBanner>
+    </>
+  );
 }
