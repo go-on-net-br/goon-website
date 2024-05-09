@@ -51,7 +51,7 @@ export default function AboutBanner({
                   <Image
                     src={icon?.src}
                     className="h-8 w-8 object-contain"
-                    alt={icon?.text}
+                    alt={"ícone da rede social " + icon?.text}
                   />
                 </a>
               ))}
@@ -62,7 +62,7 @@ export default function AboutBanner({
           </div>
         </div>
       </section>
-      <div className="mt-[-24px] flex w-full justify-center">
+      <div className="-mt-6 flex w-full justify-center">
         <div className="text-md badge badge-lg border-0 bg-white px-10 py-6 font-bold uppercase text-primary shadow-lg">
           Nossa história começa aqui
         </div>
