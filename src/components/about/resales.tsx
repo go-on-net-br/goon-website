@@ -12,8 +12,8 @@ export default function AboutResales({
   const separatorStyle = "w-12";
   const { Titulo, Foto, Corpo } = resales;
   return (
-    <section className="bg-primary p-10">
-      <div className="container">
+    <section className="flex justify-center bg-primary p-10">
+      <div className="container max-w-screen-lg	">
         <div className="w- flex flex-row gap-8">
           <ApiImage contentStyles={imgStyles} image={Foto.data}></ApiImage>
           <div className="flex flex-col justify-center gap-8">
