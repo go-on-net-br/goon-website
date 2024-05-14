@@ -6,7 +6,7 @@ export interface Sobre {
   attributes: DateAttributes & {
     inicial: any;
     Pilar: Pilares[];
-    Revendas?: Revendas;
+    Revendas: Revendas;
     Card: Corporativo[];
     Informacoes: Corporativo[];
     Contato: Contato[];

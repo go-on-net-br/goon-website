@@ -13,9 +13,7 @@ export default async function Page() {
     <>
       <AboutBanner inicial={inicial}></AboutBanner>
       <AboutPillars pillars={Pilar}></AboutPillars>
-      {Revendas != undefined && (
-        <AboutResales resales={Revendas}></AboutResales>
-      )}
+      <AboutResales resales={Revendas}></AboutResales>
     </>
   );
 }
