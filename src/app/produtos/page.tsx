@@ -2,7 +2,7 @@ import Image from "next/image";
 import image from "../../../public/produtos.png";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import { Produto } from "@/types/produto";
-import ProductsFilter from "@/components/productsfilter";
+import ProductsFilter from "@/components/products/filter";
 
 export default async function Page() {
   const products = await fetchDataFromApi<Produto[]>("produtos");
