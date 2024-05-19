@@ -1,9 +1,9 @@
-import headsetIcon from "../../public/headset.svg";
-import controllerIcon from "../../public/controller.svg";
-import lockIcon from "../../public/lock.svg";
-import smartHomeIcon from "../../public/smartHome.svg";
-import soundIcon from "../../public/sound.svg";
-import winnerBadgeIcon from "../../public/winnerBadge.svg";
+import headsetIcon from "../../../public/headset.svg";
+import controllerIcon from "../../../public/controller.svg";
+import lockIcon from "../../../public/lock.svg";
+import smartHomeIcon from "../../../public/smartHome.svg";
+import soundIcon from "../../../public/sound.svg";
+import winnerBadgeIcon from "../../../public/winnerBadge.svg";
 import Image from "next/image";
 
 export default function Badge() {

@@ -1,11 +1,12 @@
-import Badge from "@/components/badge";
-import Carousel from "@/components/carousel";
-import HomeCards from "@/components/homeCards";
+import Badge from "@/components/home/badge";
+import Carousel from "@/components/home/carousel";
+import HomeCards from "@/components/home/homeCards";
 import { Home } from "@/types/home";
 import Image from "next/image";
 import separator from "../../public/separator.svg";
-import HomeBlog from "@/components/homeBlog";
+import HomeBlog from "@/components/home/homeBlog";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
+import InfiniteScroll from "@/components/infiniteScroll";
 
 export default async function HomePage() {
   const data = await fetchDataFromApi<Home>("home");

@@ -4,8 +4,8 @@ import { Carrossel } from "@/types/components";
 import Glider from "react-glider";
 import "glider-js/glider.min.css";
 import { useEffect, useRef, useState } from "react";
-import arrow_left from "../../public/arrow_left.svg";
-import ApiImage from "./ApiImage";
+import arrow_left from "../../../public/arrow_left.svg";
+import ApiImage from "../ApiImage";
 import Image from "next/image";
 
 export default function Carousel({ carousel }: { carousel: Carrossel[] }) {

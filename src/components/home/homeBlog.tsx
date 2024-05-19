@@ -1,5 +1,5 @@
 import { Blog } from "@/types/blog";
-import ApiImage from "./ApiImage";
+import ApiImage from "../ApiImage";
 import universalSlugify from "@/helpers/universalSlugify";
 
 async function getBlogData(): Promise<Blog[]> {
