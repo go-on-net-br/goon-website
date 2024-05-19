@@ -13,7 +13,7 @@ export default async function HomePage() {
 
   return (
     <div className="container mx-auto max-w-screen-xl">
-      <section>
+      <section className="mt-12">
         <Carousel carousel={Carrossel} />
       </section>
       <section className="mt-16">

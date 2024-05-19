@@ -47,10 +47,16 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
                 >
                   {slide?.URL ? (
                     <a href={slide?.URL} className="h-fit">
-                      <ApiImage contentStyles={imgStyles} image={slide.Midia.data} />
+                      <ApiImage
+                        contentStyles={imgStyles}
+                        image={slide.Midia.data}
+                      />
                     </a>
                   ) : (
-                    <ApiImage contentStyles={imgStyles} image={slide.Midia.data} />
+                    <ApiImage
+                      contentStyles={imgStyles}
+                      image={slide.Midia.data}
+                    />
                   )}
                 </div>
               );
@@ -63,7 +69,7 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
           className="absolute bottom-0 left-1 z-10 hidden md:block md:h-[450px]"
         >
           <Image
-            className="z-10 h-10 w-10 object-contain shadow invert"
+            className="z-10 h-10 w-10 object-contain"
             alt="flecha apontada para esquerda"
             src={arrow_left}
           />
@@ -74,7 +80,7 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
           className="absolute bottom-0 z-10 hidden md:right-1 md:block md:h-[450px]"
         >
           <Image
-            className="h-10 w-10 scale-x-[-1] object-contain shadow invert"
+            className="h-10 w-10 scale-x-[-1] object-contain"
             alt="flecha apontada para direita"
             src={arrow_left}
           />
