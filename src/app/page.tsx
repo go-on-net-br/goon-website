@@ -7,10 +7,15 @@ import separator from "../../public/separator.svg";
 import HomeBlog from "@/components/home/homeBlog";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import InfiniteScroll from "@/components/infiniteScroll";
+import { Marca } from "@/types/marca";
+import ApiImage from "@/components/ApiImage";
+import Link from "next/link";
+import universalSlugify from "@/helpers/universalSlugify";
 
 export default async function HomePage() {
-  const data = await fetchDataFromApi<Home>("home");
-  const { Carrossel } = data?.attributes ?? {};
+  const homeData = await fetchDataFromApi<Home>("home");
+  const brandsData = await fetchDataFromApi<Marca[]>("marcas");
+  const { Carrossel } = homeData?.attributes ?? {};
 
   return (
     <div className="container mx-auto max-w-screen-xl">
@@ -37,6 +42,30 @@ export default async function HomePage() {
       />
       <section className="mb-16">
         <HomeBlog />
+      </section>
+      <section>
+        <Link href="marcas">
+          <h2 className="mb-6 text-center text-4xl text-primary">
+            Marcas{" "}
+            <b className="underline decoration-4 underline-offset-8">
+              Exclusivas Go On
+            </b>
+          </h2>
+        </Link>
+        <InfiniteScroll>
+          {brandsData?.map((brand) => {
+            const { Logotipo, Marca } = brand.attributes;
+
+            return (
+              <Link href={`marcas/${universalSlugify(Marca)}`} key={brand?.id}>
+                <ApiImage
+                  image={Logotipo.data}
+                  contentStyles="object-contain mx-6 max-w-64"
+                />
+              </Link>
+            );
+          })}
+        </InfiniteScroll>
       </section>
     </div>
   );
