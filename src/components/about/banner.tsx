@@ -1,40 +1,14 @@
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 import Image from "next/image";
 import goOnSvg from "../../../public/go_on_logo.svg";
-import instagramIcon from "../../../public/instagram.svg";
-import linkedInIcon from "../../../public/linkedin.svg";
-import youtubeIcon from "../../../public/youtube.svg";
-import facebookIcon from "../../../public/facebook.svg";
 import BlockRendererClient from "@/helpers/blockRendererClient";
+import SocialNetworks from "../socialNetworks";
 
 export default function AboutBanner({
   inicial,
 }: {
   readonly inicial: BlocksContent;
 }) {
-  const externalLinks = [
-    {
-      text: "instagram",
-      src: instagramIcon,
-      url: "https://www.instagram.com/goonbrasil_/",
-    },
-    {
-      text: "linkedin",
-      src: linkedInIcon,
-      url: "https://www.linkedin.com/company/goonbrasil/",
-    },
-    {
-      text: "youtube",
-      src: youtubeIcon,
-      url: "https://www.youtube.com/channel/UCt-5PLtA0-4VWYrDajETigQ",
-    },
-    {
-      text: "facebook",
-      src: facebookIcon,
-      url: "https://www.facebook.com/goonautomacao",
-    },
-  ];
-
   return (
     <>
       <section className="flex flex-col items-center bg-primary">
@@ -42,19 +16,7 @@ export default function AboutBanner({
           <Image src={goOnSvg} alt="GoOn logo" className="object-contain" />
           <div className="flex flex-col items-center justify-center gap-4">
             <div className="flex gap-9 border-b border-white px-2 pb-2">
-              {externalLinks?.map((icon) => (
-                <a
-                  key={"externalLink" + icon?.text}
-                  href={icon?.url}
-                  target="_blank"
-                >
-                  <Image
-                    src={icon?.src}
-                    className="h-8 w-8 object-contain"
-                    alt={"ícone da rede social " + icon?.text}
-                  />
-                </a>
-              ))}
+              <SocialNetworks iconStyle="h-8 w-8" />
             </div>
             <div className="mb-8 w-3/4 text-white">
               <BlockRendererClient content={inicial} />

@@ -1,3 +1,4 @@
+import universalSlugify from "@/helpers/universalSlugify";
 import { Contato } from "@/types/components";
 
 export default function AboutContact({
@@ -15,7 +16,10 @@ export default function AboutContact({
           </h3>
           <div className="flex flex-col items-start">
             {contact?.map((contact, i) => (
-              <p className="text-primary">
+              <p
+                className="text-primary"
+                key={universalSlugify(contact.Destinatario)}
+              >
                 {contact.Destinatario} -{" "}
                 <a
                   className="text-base italic underline"
