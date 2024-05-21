@@ -8,7 +8,7 @@ export default function AboutPillars({
 }) {
   const imgStyles = "h-40 w-40 object-contain object-center";
   return (
-    <section className="flex flex-col items-center py-12">
+    <section className="container flex max-w-screen-xl flex-col items-center py-12">
       <div className="container flex flex-col items-center gap-8">
         <h2 className="text-3xl font-bold text-primary">Pilares da Empresa</h2>
         <div className="grid-lines-3 grid grid-cols-3 justify-center gap-10">

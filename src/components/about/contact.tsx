@@ -7,7 +7,7 @@ export default function AboutContact({
   readonly contact: Contato[];
 }) {
   return (
-    <section className="mb-8 flex justify-center">
+    <section className="container mx-auto mb-8 flex max-w-screen-xl justify-center">
       <div className="container mb-12 flex flex-col items-center gap-8">
         <div className="flex flex-col items-center gap-8 border-y border-primary px-16 py-12">
           <h3 className="text-3xl text-primary">

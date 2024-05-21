@@ -8,7 +8,7 @@ export default function AboutInformation({
   readonly information: Corporativo[];
 }) {
   return (
-    <section className="my-32 flex flex-col items-center gap-32">
+    <section className="my-32 flex flex-col items-center gap-32 overflow-hidden">
       {information?.map((info, i) => (
         <div
           className={
