@@ -3,17 +3,22 @@ import image from "../../../public/produtos.png";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import { Produto } from "@/types/produto";
 import ProductsFilter from "@/components/products/filter";
+import ProductsItem from "@/components/products/item";
 
 export default async function Page() {
-  const products = await fetchDataFromApi<Produto[]>("produtos");
+  const productsFromApi = await fetchDataFromApi<Produto[]>("produtos");
 
   const brands = Array.from(
-    new Set(products.map((p) => p?.attributes?.marca?.data?.attributes?.Marca)),
+    new Set(
+      productsFromApi.map((p) => p?.attributes?.marca?.data?.attributes?.Marca),
+    ),
   );
 
   const categories = Array.from(
     new Set(
-      products.map((p) => p.attributes?.categoria?.data?.attributes?.Titulo),
+      productsFromApi.map(
+        (p) => p.attributes?.categoria?.data?.attributes?.Titulo,
+      ),
     ),
   );
 
@@ -37,6 +42,9 @@ export default async function Page() {
         <div className="container flex flex-col items-center rounded-3xl bg-[#F5F5F5]">
           <ProductsFilter brands={brands} categories={categories} />
         </div>
+        {productsFromApi?.map((product, i) => (
+          <ProductsItem product={product} />
+        ))}
       </section>
     </>
   );
