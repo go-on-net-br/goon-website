@@ -1,6 +1,7 @@
 import { Blog } from "@/types/blog";
 import ApiImage from "../ApiImage";
 import universalSlugify from "@/helpers/universalSlugify";
+import BlueBgBox from "../blueBgBox";
 
 async function getBlogData(): Promise<Blog[]> {
   const res = await fetch(
@@ -20,36 +21,38 @@ async function getBlogData(): Promise<Blog[]> {
 export default async function HomeBlog() {
   const blogPosts = await getBlogData();
   return (
-    <div
-      className={`relative h-[1000px] w-full before:absolute before:top-0 before:z-[0]  before:h-[650px] before:w-full before:bg-[#003ef9] before:content-[''] after:absolute after:top-0 after:z-[1] after:block after:h-[650px] after:w-full after:bg-[url('/blogSection.webp')] after:bg-cover after:bg-center after:bg-no-repeat after:opacity-[14%] after:content-['']`}
+    <BlueBgBox
+      bgImage="/smartphoneApp.webp"
+      boxStyles={`h-[1000px] w-full before:!h-[650px] after:!h-[650px]`}
     >
       <div className="relative z-10 pt-16 text-center uppercase text-white">
         <h2 className="text-5xl font-medium">
           Conheça o nosso blog especializado <br />
-          <span className="text-xl font-normal underline underline-offset-[16px] normal-case">
+          <span className="text-xl font-normal normal-case underline underline-offset-[16px]">
             E aprenda tudo sobre o universo das casas inteligentes
           </span>
         </h2>
         <h3 className="mt-16 text-4xl font-bold">últimas notícias</h3>
-        <div className="flex justify-evenly mt-12 gap-6 px-6">
+        <div className="mt-12 flex justify-evenly gap-6 px-6">
           {blogPosts.map((post) => {
-            const {
-              Capa,
-              Titulo,
-              Resumo,
-            } = post?.attributes;
+            const { Capa, Titulo, Resumo } = post?.attributes;
 
             return (
               <div key={post?.id}>
-                <div className="card max-w-[450px] shadow-lg bg-[#F8F8F8]">
-                  <figure className="px-6 pt-6 rounded-3xl">
+                <div className="card max-w-[450px] bg-[#F8F8F8] shadow-lg">
+                  <figure className="rounded-3xl px-6 pt-6">
                     <ApiImage image={Capa.data} />
                   </figure>
-                  <div className="card-body text-[#4E4E4E] normal-case">
+                  <div className="card-body normal-case text-[#4E4E4E]">
                     <h4 className="card-title font-bold">{Titulo}</h4>
-                    <p className="text-sm mt-5">{Resumo}</p>
-                    <div className="card-actions mt-5 mx-auto">
-                      <a href={`/blog/${universalSlugify(Titulo)}`} className="btn btn-link">Veja mais</a>
+                    <p className="mt-5 text-sm">{Resumo}</p>
+                    <div className="card-actions mx-auto mt-5">
+                      <a
+                        href={`/blog/${universalSlugify(Titulo)}`}
+                        className="btn btn-link"
+                      >
+                        Veja mais
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -58,6 +61,6 @@ export default async function HomeBlog() {
           })}
         </div>
       </div>
-    </div>
+    </BlueBgBox>
   );
 }
