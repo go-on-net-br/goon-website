@@ -6,6 +6,9 @@ import Image from "next/image";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import { Projeto } from "@/types/projeto";
 import ProjectListing from "@/components/projects/projectListing";
+import GradientFooter from "@/components/gradientFooter";
+import separator from "../../../public/separator_white.svg";
+import Link from "next/link";
 
 export default async function Projetos() {
   const projectsData = await fetchDataFromApi<Projeto[]>("projetos");
@@ -65,9 +68,30 @@ export default async function Projetos() {
           })}
         </div>
       </BlueBgBox>
-      <div className="container relative z-[1] mx-auto -mt-10 max-w-screen-xl rounded-3xl bg-white px-6 py-64">
+      <div className="container relative z-[1] mx-auto -mt-10 max-w-screen-xl rounded-3xl bg-white px-9 py-64">
         <ProjectListing projects={projectsData} />
       </div>
+      <GradientFooter bgImage="/blueprint_zoom.webp" boxStyles="text-3xl">
+        <div className="box-border flex h-full w-[820px] flex-col justify-center pl-9 text-white">
+          <Image
+            src={separator}
+            alt="separador"
+            aria-label="separador"
+            className="mb-6"
+          />
+          <h2 className="text-6xl font-bold uppercase">
+            Quer um projeto para o seu ambiente?
+          </h2>
+          <p className="mb-6 mt-4 text-2xl">
+            Encontre a Revenda Credenciada mais próxima de você
+          </p>
+          <Link href="/rede-credenciada">
+            <button className="btn btn-secondary btn-sm w-fit text-primary">
+              Veja Rede Credenciada
+            </button>
+          </Link>
+        </div>
+      </GradientFooter>
     </>
   );
 }

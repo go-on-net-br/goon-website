@@ -28,6 +28,16 @@ const config: Config = {
       },
     },
   },
+  daisyui: {
+    themes: [
+      {
+        myTheme: {
+          primary: "#003EF9",
+          secondary: "#f3f4f6",
+        },
+      },
+    ],
+  },
   plugins: [require("daisyui")],
 };
 export default config;
