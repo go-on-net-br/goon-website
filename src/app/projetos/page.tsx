@@ -3,8 +3,12 @@ import IotSvg from "../../../public/iot.svg";
 import BlueprintSvg from "../../../public/blueprint.svg";
 import BlueBgBox from "@/components/blueBgBox";
 import Image from "next/image";
+import fetchDataFromApi from "@/helpers/fetchFromApi";
+import { Projeto } from "@/types/projeto";
+import ProjectCarrousel from "@/components/projects/projectCarrousel";
 
 export default async function Projetos() {
+  const projectsData = await fetchDataFromApi<Projeto[]>("projetos");
 
   const cards = [
     {
@@ -62,6 +66,17 @@ export default async function Projetos() {
         </div>
       </BlueBgBox>
       <div className="container relative z-[1] mx-auto -mt-10 max-w-screen-xl rounded-3xl bg-white px-6 py-64">
+        <div className="flex flex-col gap-24">
+          {projectsData.map((project, i) => {
+            return (
+              <ProjectCarrousel
+                project={project}
+                index={i}
+                key={project.attributes.Titulo}
+              />
+            );
+          })}
+        </div>
       </div>
     </>
   );
