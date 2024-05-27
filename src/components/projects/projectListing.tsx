@@ -1,14 +1,17 @@
-"use client"
+"use client";
 
 import { Projeto } from "@/types/projeto";
 import ProjectCarrousel from "./projectCarrousel";
-import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import universalSlugify from "@/helpers/universalSlugify";
 
 export default function ProjectListing({ projects }: { projects: Projeto[] }) {
-  const [selectedType, setSelectedType] = useState("Todos");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const type = searchParams.get("tipo") ?? "todos";
   const filteredProjects = projects.filter(
     (project) =>
-      selectedType === "Todos" || project.attributes.Tipo === selectedType,
+      type === "todos" || universalSlugify(project.attributes.Tipo) === type,
   );
 
   const possibleTypes = Array.from(
@@ -21,20 +24,20 @@ export default function ProjectListing({ projects }: { projects: Projeto[] }) {
         <p className="mx-auto mb-3 w-fit text-primary">Filtrar por:</p>
         <select
           className="select mb-10 w-full max-w-xs border-primary bg-white text-primary"
-          value={selectedType}
+          value={type}
           onChange={(e) => {
-            setSelectedType(e.target.value);
+            router.push(`?tipo=${e.target.value}`, { scroll: false });
           }}
         >
           <option disabled>Tipo de projeto</option>
           {possibleTypes.map((type) => {
             return (
-              <option value={type} key={type}>
+              <option value={universalSlugify(type)} key={type}>
                 {type}
               </option>
             );
           })}
-          <option>Todos</option>
+          <option value="todos">Todos</option>
         </select>
       </div>
       <div className="flex flex-col gap-24">
