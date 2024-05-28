@@ -11,7 +11,7 @@ const config: Config = {
       fontFamily: {
         montserrat: ["var(--font-montserrat)"],
       },
-      colors: { primary: "#003EF9" },
+      colors: { primary: "#003EF9", goOnGrey: "#484848" },
       animation: {
         marquee: "marquee 25s linear infinite",
         marquee2: "marquee2 25s linear infinite",
