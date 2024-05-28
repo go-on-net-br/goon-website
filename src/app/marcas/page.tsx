@@ -35,7 +35,7 @@ export default async function Marcas() {
               </figure>
               <div className="card-body">
                 <div className="relative mx-auto w-fit">
-                  <h2 className="absolute left-0 right-0 top-0 z-0 block">
+                  <h2 className="absolute left-0 right-0 top-0 bottom-0 z-0 block">
                     {Marca}
                   </h2>
                   <ApiImage
