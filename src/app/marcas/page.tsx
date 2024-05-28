@@ -1,6 +1,11 @@
-export default function Marcas() {
+import ApiImage from "@/components/ApiImage";
+import fetchDataFromApi from "@/helpers/fetchFromApi";
+import { Marca } from "@/types/marca";
+
+export default async function Marcas() {
+  const brandsData = await fetchDataFromApi<Marca[]>("marcas");
   return (
-    <div className="container mx-auto max-w-screen-xl">
+    <div className="container mx-auto my-20 max-w-screen-xl px-8">
       <header className="mx-auto my-20 max-w-[890px] text-center text-primary">
         <h1 className="w-fit text-5xl font-bold uppercase ">
           Distribuidores exclusivos{" "}
@@ -13,6 +18,31 @@ export default function Marcas() {
           ainda mais inteligente e funcional.
         </p>
       </header>
+      <section className="align-center mx-auto flex flex-wrap justify-center gap-8">
+        {brandsData?.map((brand) => {
+          const { Capa, Logotipo, Marca, Resumo } = brand.attributes;
+
+          return (
+            <div className="card w-96 bg-base-100 shadow-xl" key={Marca}>
+              <figure>
+                <ApiImage image={Capa.data} />
+              </figure>
+              <div className="card-body">
+                <div className="relative mx-auto w-fit">
+                  <h2 className="absolute left-0 right-0 top-0 z-0 block">
+                    {Marca}
+                  </h2>
+                  <ApiImage
+                    image={Logotipo.data}
+                    contentStyles="relative top-0 left-0 z-10 bg-white h-20 object-contain"
+                  />
+                </div>
+                <p className="pt-2">{Resumo}</p>
+              </div>
+            </div>
+          );
+        })}
+      </section>
     </div>
   );
 }
