@@ -31,7 +31,9 @@ export default function ProjectCarrousel({
               <div
                 key={pic.id}
                 className={
-                  currPic === i ? " border-4 border-primary" : " cursor-pointer"
+                  currPic === i
+                    ? " border-4 border-primary"
+                    : " cursor-pointer border-4 border-white"
                 }
                 onClick={() => setCurrPic(i)}
               >
