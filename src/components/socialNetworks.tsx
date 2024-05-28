@@ -1,44 +1,27 @@
-import instagramIcon from "../../public/instagram.svg";
-import linkedInIcon from "../../public/linkedin.svg";
-import youtubeIcon from "../../public/youtube.svg";
-import facebookIcon from "../../public/facebook.svg";
+import SocialIconMap from "@/components/socialNetworks/socialIconMap";
+import { Rede } from "@/types/common";
 import Image from "next/image";
 
 export default function SocialNetworks({ iconStyle }: { iconStyle: string }) {
-  const externalLinks = [
-    {
-      text: "instagram",
-      src: instagramIcon,
-      url: "https://www.instagram.com/goonbrasil_/",
-    },
-    {
-      text: "linkedin",
-      src: linkedInIcon,
-      url: "https://www.linkedin.com/company/goonbrasil/",
-    },
-    {
-      text: "youtube",
-      src: youtubeIcon,
-      url: "https://www.youtube.com/channel/UCt-5PLtA0-4VWYrDajETigQ",
-    },
-    {
-      text: "facebook",
-      src: facebookIcon,
-      url: "https://www.facebook.com/goonautomacao",
-    },
-  ];
+  const externalLinks: Record<Exclude<Rede, "Tiktok">, string> = {
+    Instagram: "https://www.instagram.com/goonbrasil_/",
+    LinkedIn: "https://www.linkedin.com/company/goonbrasil/",
+    YouTube: "https://www.youtube.com/channel/UCt-5PLtA0-4VWYrDajETigQ",
+    Facebook: "https://www.facebook.com/goonautomacao",
+  };
 
   return (
     <>
-      {externalLinks?.map((icon) => (
-        <a key={"externalLink" + icon?.text} href={icon?.url} target="_blank">
-          <Image
-            src={icon?.src}
-            className={iconStyle + " object-contain"}
-            alt={"ícone da rede social " + icon?.text}
-          />
-        </a>
-      ))}
+      {Object.entries(externalLinks)?.map(([name, url]) => {
+        return (
+          <a key={name} href={url} target="_blank">
+            <SocialIconMap
+              iconStyle={iconStyle + " fill-white object-contain"}
+              networkTitle={name as Rede}
+            />
+          </a>
+        );
+      })}
     </>
   );
 }
