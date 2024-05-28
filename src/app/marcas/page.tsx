@@ -1,6 +1,8 @@
 import ApiImage from "@/components/ApiImage";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
+import universalSlugify from "@/helpers/universalSlugify";
 import { Marca } from "@/types/marca";
+import Link from "next/link";
 
 export default async function Marcas() {
   const brandsData = await fetchDataFromApi<Marca[]>("marcas");
@@ -23,7 +25,11 @@ export default async function Marcas() {
           const { Capa, Logotipo, Marca, Resumo } = brand.attributes;
 
           return (
-            <div className="card w-96 bg-base-100 shadow-xl" key={Marca}>
+            <Link
+              href={"marcas/" + universalSlugify(Marca)}
+              className="card w-96 cursor-pointer bg-base-100 shadow-xl transition-all hover:scale-105"
+              key={Marca}
+            >
               <figure>
                 <ApiImage image={Capa.data} />
               </figure>
@@ -39,7 +45,7 @@ export default async function Marcas() {
                 </div>
                 <p className="pt-2">{Resumo}</p>
               </div>
-            </div>
+            </Link>
           );
         })}
       </section>
