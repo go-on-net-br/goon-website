@@ -4,6 +4,7 @@ import universalSlugify from "@/helpers/universalSlugify";
 import { Marca } from "@/types/marca";
 import SocialIconMap from "@/components/socialNetworks/socialIconMap";
 import BlockRendererClient from "@/helpers/blockRendererClient";
+import Link from "next/link";
 
 export async function generateStaticParams() {
   const brands = await fetchDataFromApi<Marca[]>("marcas");
@@ -22,10 +23,12 @@ export default async function BrandPage({
 }) {
   //since this api call is already cached, reusing it is better than calling another API endpoint
   const brands = await fetchDataFromApi<Marca[]>("marcas");
+  const { slug } = params;
 
   const thisBrand = brands.find(
-    (brand) => universalSlugify(brand.attributes.Marca) === params?.slug,
+    (brand) => universalSlugify(brand.attributes.Marca) === slug,
   )!;
+
   const { Sobre, Logotipo, Redes, Marca } = thisBrand?.attributes;
   return (
     <div className="container mx-auto mb-20 max-w-screen-xl px-8">
@@ -79,14 +82,16 @@ export default async function BrandPage({
                   </div>
                 )}
                 {i === arr.length - 1 && (
-                  <button
-                    className={
-                      "btn btn-primary mx-auto w-72" +
-                      (arr.length === 1 ? " " : " mt-12")
-                    }
-                  >
-                    Vejas os produtos
-                  </button>
+                  <Link href={`/produtos?marca=${slug}`}>
+                    <button
+                      className={
+                        "btn btn-primary mx-auto w-72" +
+                        (arr.length === 1 ? " " : " mt-12")
+                      }
+                    >
+                      Vejas os produtos
+                    </button>
+                  </Link>
                 )}
               </div>
             </div>
