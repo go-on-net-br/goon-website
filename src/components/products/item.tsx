@@ -116,9 +116,12 @@ export default function ProductsItem({
               </div>
               <BlockRendererClient content={tabContent}></BlockRendererClient>
             </div>
-            <button className="btn btn-primary w-fit uppercase">
+            <a
+              href="/rede-credenciada"
+              className="btn btn-primary w-fit uppercase"
+            >
               Onde comprar
-            </button>
+            </a>
             <a
               href={
                 "/projetos?produto=" +
