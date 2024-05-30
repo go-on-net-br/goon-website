@@ -1,9 +1,8 @@
-import { Produto } from "@/types/produto";
-import ApiImage from "../ApiImage";
 import { useState } from "react";
 import { Media } from "@/types/common";
-import arrow_left from "../../../public/arrow_left.svg";
 import Image from "next/image";
+import ApiImage from "../ApiImage";
+import arrow_left from "../../../public/arrow_left.svg";
 
 export default function ProductsCarousel({ media }: { media: Media[] }) {
   const [page, setPage] = useState(0);

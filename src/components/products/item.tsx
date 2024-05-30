@@ -1,9 +1,9 @@
 import { Produto } from "@/types/produto";
-import ApiImage from "../ApiImage";
 import { useState } from "react";
 import BlockRendererClient from "@/helpers/blockRendererClient";
-import ProductsCarousel from "./carousel";
 import universalSlugify from "@/helpers/universalSlugify";
+import ApiImage from "../ApiImage";
+import ProductsCarousel from "./carousel";
 
 export default function ProductsItem({
   product,

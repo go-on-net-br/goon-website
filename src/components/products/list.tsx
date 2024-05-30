@@ -1,8 +1,8 @@
 "use client";
 import { Produto } from "@/types/produto";
-import ProductsItem from "./item";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import ProductsItem from "./item";
 import universalSlugify from "@/helpers/universalSlugify";
 
 export default function ProductsList({

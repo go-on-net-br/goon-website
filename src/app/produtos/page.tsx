@@ -1,11 +1,11 @@
-import Image from "next/image";
-import image from "../../../public/blueprint.webp";
-import fetchDataFromApi from "@/helpers/fetchFromApi";
 import { Produto } from "@/types/produto";
+import Image from "next/image";
+import Link from "next/link";
+import blueprintImage from "../../../public/blueprint.webp";
+import separator from "../../../public/separator_white.svg";
+import fetchDataFromApi from "@/helpers/fetchFromApi";
 import ProductsList from "@/components/products/list";
 import GradientFooter from "@/components/gradientFooter";
-import separator from "../../../public/separator_white.svg";
-import Link from "next/link";
 
 export default async function Page() {
   const productsFromApi = await fetchDataFromApi<Produto[]>("produtos");
@@ -15,7 +15,7 @@ export default async function Page() {
         <Image
           className="max-h-72 min-h-56 object-cover opacity-25"
           alt="mãos apontando para uma folha de projeto"
-          src={image}
+          src={blueprintImage}
         />
       </section>
       <section className="flex flex-col items-center px-4 py-16">
