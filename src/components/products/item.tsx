@@ -3,6 +3,7 @@ import ApiImage from "../ApiImage";
 import { useState } from "react";
 import BlockRendererClient from "@/helpers/blockRendererClient";
 import ProductsCarousel from "./carousel";
+import universalSlugify from "@/helpers/universalSlugify";
 
 export default function ProductsItem({
   product,
@@ -118,7 +119,13 @@ export default function ProductsItem({
             <button className="btn btn-primary w-fit uppercase">
               Onde comprar
             </button>
-            <a className="w-fit border-b-2 border-primary font-semibold text-primary hover:cursor-pointer">
+            <a
+              href={
+                "/projetos?produto=" +
+                universalSlugify(product.attributes.Titulo)
+              }
+              className="w-fit border-b-2 border-primary font-semibold text-primary hover:cursor-pointer"
+            >
               Veja esse produto em um Projeto
             </a>
           </div>
