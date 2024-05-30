@@ -45,7 +45,7 @@ export default function ProductsList({
       <button
         key={"productPage" + i}
         className={
-          "btn " +
+          "btn border-0 " +
           (totalPages > 1 ? "join-item " : "") +
           (page === i ? "btn-primary" : "")
         }
