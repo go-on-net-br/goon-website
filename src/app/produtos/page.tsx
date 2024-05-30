@@ -1,5 +1,5 @@
 import Image from "next/image";
-import image from "../../../public/produtos.png";
+import image from "../../../public/blueprint.webp";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import { Produto } from "@/types/produto";
 import ProductsList from "@/components/products/list";
