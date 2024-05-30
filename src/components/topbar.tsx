@@ -14,6 +14,7 @@ export default function Topbar() {
     "projetos",
     "produtos",
     "credenciamento",
+    "termos e garantia",
     "sobre",
     "contato",
   ];
@@ -22,7 +23,7 @@ export default function Topbar() {
 
   return (
     <nav className="border-gray-200 bg-primary">
-      <div className="mx-auto flex max-w-screen-xl items-center justify-between p-4">
+      <div className="mx-auto flex max-w-screen-2xl items-center justify-between p-4">
         <Link href="/">
           <Image
             src={goOnSvg}
