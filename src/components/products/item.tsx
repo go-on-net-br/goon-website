@@ -2,6 +2,7 @@ import { Produto } from "@/types/produto";
 import ApiImage from "../ApiImage";
 import { useState } from "react";
 import BlockRendererClient from "@/helpers/blockRendererClient";
+import ProductsCarousel from "./carousel";
 
 export default function ProductsItem({
   product,
@@ -67,24 +68,7 @@ export default function ProductsItem({
         <div className=" modal-box flex min-w-fit max-w-3xl flex-row gap-4">
           {/* Carrossel */}
           <div className="card flex w-96 min-w-96 flex-col justify-center bg-white">
-            <div className="carousel h-full w-full">
-              {product.attributes?.FotoseVideos?.data?.map((pic, i) => (
-                <div
-                  id={"product_" + product.id + "slide" + i}
-                  key={"product_" + product.id + "_image_" + i}
-                  className="carousel-item relative flex h-full w-full flex-col justify-center"
-                >
-                  <ApiImage contentStyles="object-contain py-12" image={pic} />
-                  <p className="absolute bottom-2 left-1/2 -translate-x-1/2 transform align-text-bottom text-xl text-primary">
-                    <a href={"#slide" + (i - 1)}>{"< "}</a>
-                    <span className="text-base font-light">
-                      {i + 1} de {product.attributes.FotoseVideos.data.length}
-                    </span>
-                    <a href={"#slide" + (i + 1)}>{" >"}</a>
-                  </p>
-                </div>
-              ))}
-            </div>
+            <ProductsCarousel media={product.attributes.FotoseVideos.data} />
           </div>
 
           {/* Informações */}
