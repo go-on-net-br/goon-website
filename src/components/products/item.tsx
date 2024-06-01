@@ -15,9 +15,9 @@ export default function ProductsItem({
 
   return (
     <>
-      <div className="flex flex-col items-center justify-end">
+      <div className="flex max-w-full flex-col items-center justify-end">
         {productImage !== undefined && (
-          <div className="flex h-80 w-96 flex-col items-center justify-end">
+          <div className="flex h-80 w-96 max-w-full flex-col items-center justify-end px-2 md:px-0">
             <ApiImage
               contentStyles="object-contain max-h-80 max-w-96"
               image={productImage}

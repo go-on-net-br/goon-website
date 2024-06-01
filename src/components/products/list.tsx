@@ -86,7 +86,7 @@ export default function ProductsList({
       <div className="container flex flex-col items-center rounded-3xl bg-[#F5F5F5]">
         <div className="flex flex-col items-center gap-4 py-8">
           <p className="text-primary">Filtrar por:</p>
-          <div className="flex justify-center gap-2">
+          <div className="flex flex-col justify-center gap-2 md:flex-row">
             <select
               onChange={(e) => setBrand(e.target.value)}
               value={brand}
