@@ -1,3 +1,4 @@
+"use client";
 import { Produto } from "@/types/produto";
 import { useState } from "react";
 import BlockRendererClient from "@/helpers/blockRendererClient";
@@ -11,7 +12,8 @@ export default function ProductsItem({
   readonly product: Produto;
 }) {
   const productImage = product?.attributes?.FotoseVideos?.data.find(
-    (e) => e.attributes.ext === ".png",
+    (e) =>
+      ![".mp4", ".mov", ".avi", ".wmv", ".WebM"].includes(e.attributes.ext),
   );
   const modalId = "product_modal_" + product.id;
 
