@@ -16,16 +16,16 @@ export default function ProjectCarrousel({
   return (
     <div
       className={
-        (index % 2 && "flex-row-reverse") +
-        " flex  items-center justify-between gap-8"
+        (index % 2 ? "md:flex-row-reverse " : "md:flex-row ") +
+        " flex flex-col items-center justify-between gap-8"
       }
     >
-      <div className="flex w-[600px] flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-4 md:w-[600px]">
         <ApiImage
           image={media.data[currPic]}
-          contentStyles="object-contain h-[600px] w-full"
+          contentStyles="object-contain h-[300px] md:h-[600px] w-full"
         />
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-1 md:gap-4">
           {media.data.map((pic, i) => {
             return (
               <div
@@ -39,21 +39,21 @@ export default function ProjectCarrousel({
               >
                 <ApiImage
                   image={pic}
-                  contentStyles="object-cover w-[104px] h-[104px]"
+                  contentStyles="object-cover w-14 h-14 md:w-[104px] md:h-[104px]"
                 />
               </div>
             );
           })}
         </div>
       </div>
-      <div className="w-[540px]">
+      <div className="w-full md:w-[540px]">
         <header className="mb-6 text-primary">
-          <h2 className="mb-3 text-5xl font-bold">{Titulo}</h2>
+          <h2 className="mb-3 text-2xl font-bold md:text-5xl">{Titulo}</h2>
           <p className="text-2xl font-normal uppercase">
             By {revenda?.data?.attributes?.Titulo}
           </p>
         </header>
-        <p className="text-xl text-black">{Sobre}</p>
+        <p className="text-black md:text-xl">{Sobre}</p>
       </div>
     </div>
   );
