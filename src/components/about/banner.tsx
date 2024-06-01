@@ -12,13 +12,13 @@ export default function AboutBanner({
   return (
     <>
       <section className="flex flex-col items-center bg-primary">
-        <div className="container flex h-auto w-full flex-col items-center justify-center gap-24 bg-primary p-6 pt-36">
-          <Image src={goOnSvg} alt="GoOn logo" className="object-contain" />
+        <div className="container flex h-auto w-full flex-col items-center justify-center gap-24 bg-primary p-4 pt-10 md:pt-36">
+          <Image src={goOnSvg} alt="GoOn logo" className="object-contain p-6" />
           <div className="flex flex-col items-center justify-center gap-4">
             <div className="flex gap-9 border-b border-white px-2 pb-2">
               <SocialNetworks iconStyle="h-8 w-8" />
             </div>
-            <div className="mb-8 w-3/4 text-white">
+            <div className="mb-8 text-justify text-white md:w-3/4 md:text-start">
               <BlockRendererClient content={inicial} />
             </div>
           </div>

@@ -14,7 +14,7 @@ export default function AboutResales({
   return (
     <section className="flex justify-center bg-primary p-10">
       <div className="container mx-auto max-w-screen-xl">
-        <div className="w- flex flex-row gap-8">
+        <div className="w- flex flex-col gap-8 md:flex-row">
           <ApiImage contentStyles={imgStyles} image={Foto.data}></ApiImage>
           <div className="flex flex-col justify-center gap-8">
             <Image

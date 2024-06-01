@@ -11,7 +11,7 @@ export default function AboutPillars({
     <section className="container flex max-w-screen-xl flex-col items-center py-12">
       <div className="container flex flex-col items-center gap-8">
         <h2 className="text-3xl font-bold text-primary">Pilares da Empresa</h2>
-        <div className="grid-lines-3 grid grid-cols-3 justify-center gap-10">
+        <div className="grid-lines-3 grid grid-cols-1 justify-center gap-10 md:grid-cols-3">
           {pillars?.map((pillar, i) => (
             <div
               className="flex w-72 flex-col items-center justify-start gap-5"
