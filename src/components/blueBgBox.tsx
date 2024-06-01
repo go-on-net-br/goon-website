@@ -3,11 +3,11 @@ import { ReactNode } from "react";
 export default function BlueBgBox({
   children,
   bgImage,
-  boxStyles,
+  boxStyles = "",
 }: {
   children: ReactNode;
   bgImage: string;
-  boxStyles: string;
+  boxStyles?: string;
 }) {
   return (
     <div

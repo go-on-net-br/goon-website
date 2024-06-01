@@ -1,3 +1,9 @@
+import headsetIcon from "../../public/headset.svg";
+import controllerIcon from "../../public/controller.svg";
+import lockIcon from "../../public/lock.svg";
+import smartHomeIcon from "../../public/smartHome.svg";
+import soundIcon from "../../public/sound.svg";
+import winnerBadgeIcon from "../../public/winnerBadge.svg";
 import Badge from "@/components/home/badge";
 import Carousel from "@/components/home/carousel";
 import HomeCards from "@/components/home/homeCards";
@@ -17,6 +23,15 @@ export default async function HomePage() {
   const brandsData = await fetchDataFromApi<Marca[]>("marcas");
   const { Carrossel } = homeData?.attributes ?? {};
 
+  const badges = [
+    { src: winnerBadgeIcon, text: "Distribuição\nExclusiva" },
+    { src: smartHomeIcon, text: "Automação\nResidencial" },
+    { src: soundIcon, text: "Sistema\nde Som" },
+    { src: lockIcon, text: "Segurança\npara os projetos" },
+    { src: controllerIcon, text: "Controle\nTotal" },
+    { src: headsetIcon, text: "Suporte\nEspecializado" },
+  ];
+
   return (
     <div className="container mx-auto max-w-screen-xl">
       <section className="mt-12">
@@ -26,7 +41,7 @@ export default async function HomePage() {
         <h2 className="mx-auto block w-fit text-3xl text-primary">
           Soluções para <u className="font-bold">todos os projetos</u>
         </h2>
-        <Badge />
+        <Badge badges={badges} />
         <p className="mx-auto mt-16 block w-fit font-light text-primary ">
           E muito mais...
         </p>
