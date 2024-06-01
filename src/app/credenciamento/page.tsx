@@ -6,10 +6,13 @@ import lockIcon from "../../../public/lockWhite.svg";
 import moneyIcon from "../../../public/money.svg";
 import halfCircle from "../../../public/halfCircle.svg";
 import winnerBadgeIcon from "../../../public/winnerBadgeWhite.svg";
+import separator from "../../../public/separator.svg";
 import Image from "next/image";
 import AccreditationForm from "@/components/accreditation/accreditationForm";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import { Marca } from "@/types/marca";
+import { Depoimento } from "@/types/depoimento";
+import ApiImage from "@/components/ApiImage";
 
 export default async function Credenciamento() {
   const badges = [
@@ -22,6 +25,8 @@ export default async function Credenciamento() {
 
   const brandsData = await fetchDataFromApi<Marca[]>("marcas");
   const brands = brandsData.map((brand) => brand.attributes.Marca);
+
+  const testimoniesData = await fetchDataFromApi<Depoimento[]>("depoimentos");
 
   return (
     <div className="relative">
@@ -93,6 +98,45 @@ export default async function Credenciamento() {
             </p>
           </header>
           <AccreditationForm brands={brands} />
+        </section>
+        <Image
+          src={separator}
+          alt="separador"
+          aria-label="separador"
+          className="mx-auto my-28 h-20 w-36 object-contain"
+        />
+        <section>
+          <h2 className=" mx-auto mb-12 mt-20 max-w-[1050px] text-center text-5xl font-bold uppercase text-primary">
+            Veja o depoimento de nossos <br /> revendedores mais antigos
+          </h2>
+          <div className="flex justify-between gap-4">
+            {testimoniesData.map((testimony) => {
+              const { Cargo, Depoimento, Empresa, Foto, Nome } =
+                testimony?.attributes;
+              return (
+                <div
+                  className="card max-h-[500px] w-96 bg-primary pb-8 text-white shadow-xl"
+                  key={testimony.id}
+                >
+                  <figure className="flex items-center justify-center p-8">
+                    <ApiImage
+                      image={Foto?.data}
+                      contentStyles="object-contain w-40 h-40 rounded-full"
+                    />
+                  </figure>
+                  <div className="card-body pt-0">
+                    <header className="card-title flex-col pb-3 text-center">
+                      <h3 className="text-3xl font-light">{Nome}</h3>
+                      <p className="text-lg font-light">
+                        {Cargo} <span className="font-bold">{Empresa}</span>
+                      </p>
+                    </header>
+                    <p>{Depoimento}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </section>
       </div>
     </div>

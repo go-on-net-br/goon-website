@@ -1,11 +1,7 @@
 "use client";
 
 import Select from "react-select";
-import {
-  Controller,
-  FormProvider,
-  useForm,
-} from "react-hook-form";
+import { Controller, FormProvider, useForm } from "react-hook-form";
 import { AccreditationInputs } from "./fields.model";
 import RequiredInputField from "./requiredInputField";
 
@@ -23,7 +19,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
   return (
     <FormProvider {...methods}>
       <form
-        className="flex flex-wrap gap-4"
+        className="flex flex-wrap justify-center gap-4"
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"

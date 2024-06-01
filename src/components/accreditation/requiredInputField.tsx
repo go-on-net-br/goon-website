@@ -37,7 +37,7 @@ export default function RequiredInputField({
   return (
     <label
       className={
-        "flex w-[45%] flex-col gap-2 " + (errors?.[value] ? "text-red-500" : "")
+        "flex w-[45%] flex-col gap-2 h-24 " + (errors?.[value] ? "text-red-500" : "")
       }
     >
       {errors?.[value]
