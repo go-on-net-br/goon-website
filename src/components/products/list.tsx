@@ -121,11 +121,8 @@ export default function ProductsList({
         </div>
       </div>
       <div className="container mx-auto grid max-w-screen-xl gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-        {shownProductList?.map((product, i) => (
-          <ProductsItem
-            product={product}
-            key={"productItem " + product.attributes.Codigo + "_" + i}
-          />
+        {shownProductList?.map((product) => (
+          <ProductsItem product={product} key={"productItem " + product.id} />
         ))}
       </div>
       <div data-theme="light" className="join my-8">
