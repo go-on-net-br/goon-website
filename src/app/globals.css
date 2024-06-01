@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .glider-dot {
-  background-color: rgba(255, 255, 255, 0.4) !important;
+  background-color: #b3c5fd !important;
 }
 
 .glider-dot.active {
-  background-color: white !important;
+  background-color: #003EF9 !important;
 }
 * {
   scroll-behavior: smooth;

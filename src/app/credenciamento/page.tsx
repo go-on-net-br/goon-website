@@ -12,7 +12,7 @@ import AccreditationForm from "@/components/accreditation/accreditationForm";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import { Marca } from "@/types/marca";
 import { Depoimento } from "@/types/depoimento";
-import ApiImage from "@/components/ApiImage";
+import Testimonies from "@/components/accreditation/testimonies";
 
 export default async function Credenciamento() {
   const badges = [
@@ -109,34 +109,7 @@ export default async function Credenciamento() {
           <h2 className=" mx-auto mb-12 mt-20 max-w-[1050px] text-center text-5xl font-bold uppercase text-primary">
             Veja o depoimento de nossos <br /> revendedores mais antigos
           </h2>
-          <div className="flex justify-between gap-4">
-            {testimoniesData.map((testimony) => {
-              const { Cargo, Depoimento, Empresa, Foto, Nome } =
-                testimony?.attributes;
-              return (
-                <div
-                  className="card max-h-[500px] w-96 bg-primary pb-8 text-white shadow-xl"
-                  key={testimony.id}
-                >
-                  <figure className="flex items-center justify-center p-8">
-                    <ApiImage
-                      image={Foto?.data}
-                      contentStyles="object-contain w-40 h-40 rounded-full"
-                    />
-                  </figure>
-                  <div className="card-body pt-0">
-                    <header className="card-title flex-col pb-3 text-center">
-                      <h3 className="text-3xl font-light">{Nome}</h3>
-                      <p className="text-lg font-light">
-                        {Cargo} <span className="font-bold">{Empresa}</span>
-                      </p>
-                    </header>
-                    <p>{Depoimento}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <Testimonies testimoniesData={testimoniesData} />
         </section>
       </div>
     </div>
