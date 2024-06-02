@@ -37,15 +37,23 @@ export default function Testimonies({
             dots={dotsEl.current}
             rewind
             duration={0.3}
-            slidesToShow={3}
+            slidesToShow={1}
             slidesToScroll={1}
+            responsive={[
+              {
+                breakpoint: 768,
+                settings: {
+                  slidesToShow: 3,
+                },
+              },
+            ]}
           >
             {testimoniesData.map((testimony) => {
               const { Cargo, Depoimento, Empresa, Foto, Nome } =
                 testimony?.attributes;
               return (
                 <div
-                  className="card max-h-[500px] bg-primary pb-8 text-white shadow-xl ml-6"
+                  className="card ml-6 max-h-[500px] bg-primary pb-8 text-white shadow-xl"
                   key={testimony.id}
                 >
                   <figure className="flex items-center justify-center p-8">
@@ -71,7 +79,7 @@ export default function Testimonies({
         <button
           ref={leftArrowEl}
           aria-label="navegar para a esquerda"
-          className="absolute bottom-0 -left-4 z-10 hidden md:block md:h-[450px]"
+          className="absolute -left-4 bottom-0 z-10 hidden md:block md:h-[450px]"
         >
           <Image
             className="z-10 h-10 w-10 object-contain"
@@ -91,7 +99,7 @@ export default function Testimonies({
           />
         </button>
         <div
-          className="absolute -bottom-3 left-0 right-0"
+          className="absolute left-0 right-0 md:-bottom-3"
           ref={dotsEl}
           id="dots"
         ></div>

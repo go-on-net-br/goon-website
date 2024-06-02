@@ -8,7 +8,7 @@ export default function Badge({
   white?: boolean;
 }) {
   return (
-    <div className="mt-16 grid grid-cols-2 items-center justify-center gap-10 md:flex md:flex-wrap md:justify-evenly">
+    <div className="mt-16 flex flex-wrap items-center justify-around gap-10 px-4 md:justify-evenly">
       {badges?.map((badge, i) => (
         <div
           className="flex flex-col items-center gap-3"
@@ -21,7 +21,7 @@ export default function Badge({
           />
           <p
             className={
-              "whitespace-pre text-lg font-medium " +
+              "whitespace-pre text-center text-lg font-medium " +
               (white ? "text-white" : "text-primary")
             }
           >
