@@ -27,13 +27,13 @@ export default function Topbar({
 
   return (
     <div className="drawer">
-      <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+      <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
         <div className="navbar w-full bg-primary">
           <div className="flex-none lg:hidden">
             <label
-              htmlFor="my-drawer-3"
+              htmlFor="my-drawer"
               aria-label="open sidebar"
               className="btn btn-square btn-ghost"
             >
@@ -92,7 +92,7 @@ export default function Topbar({
       </div>
       <div className="drawer-side z-50">
         <label
-          htmlFor="my-drawer-3"
+          htmlFor="my-drawer"
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
@@ -120,6 +120,9 @@ export default function Topbar({
                     href={`/${slug}`}
                     className={`${isActive && "font-bold"} uppercase text-primary`}
                     aria-current="page"
+                    onClick={() => {
+                      document.getElementById("my-drawer")?.click();
+                    }}
                   >
                     {link}
                   </Link>
