@@ -6,19 +6,19 @@ import ContactForm from "@/components/contact/contactForm";
 
 export default function Contato() {
   return (
-    <div className="flex h-[850px] min-h-screen items-center justify-center">
-      <div className="h-[500px] w-screen bg-primary py-20">
-        <section className="container relative mx-auto max-w-screen-xl text-3xl flex items-center h-full">
-          <div className="flex w-2/5 flex-col gap-8">
-            <div className="flex gap-4 items-center tracking-wider text-white">
+    <div className="flex min-h-screen xl:h-[850px] xl:items-center xl:justify-center">
+      <div className="w-screen bg-primary xl:h-[500px] xl:py-20">
+        <section className="container relative flex h-full max-w-screen-xl flex-col items-center text-3xl xl:mx-auto xl:flex-row">
+          <div className="flex flex-col gap-8 py-10 xl:w-2/5 xl:py-0">
+            <div className="flex items-center gap-4 tracking-wider text-white">
               <Image
                 src={phoneIcon}
                 alt="ícone de um telefone"
                 className="h-6 object-contain"
               />
-              <p>(11) 5555-5555</p>
+              <p>(11) 3567-7777</p>
             </div>
-            <div className="flex gap-4 items-center tracking-wider text-white">
+            <div className="flex items-center gap-4 tracking-wider text-white">
               <Image
                 src={mailIcon}
                 alt="ícone de um telefone"
@@ -30,8 +30,8 @@ export default function Contato() {
               <SocialNetworks iconStyle="h-9 w-9" />
             </div>
           </div>
-          <div className="absolute -top-[175px] right-0  w-[712px] bg-white p-8 shadow-2xl">
-            <h1 className=" text-5xl font-bold uppercase text-primary mb-6">
+          <div className="w-full rounded-md bg-white p-8 shadow-2xl xl:absolute xl:-top-[175px] xl:right-0 xl:w-[712px] xl:rounded-none">
+            <h1 className=" mb-6 text-3xl font-bold uppercase text-primary xl:text-5xl">
               Fale conosco
             </h1>
             <div className="text-lg">
