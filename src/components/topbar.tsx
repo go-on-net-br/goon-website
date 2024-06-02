@@ -73,10 +73,10 @@ export default function Topbar({
                 return (
                   <li key={"navbar_" + link}>
                     <Link
-                      href={`/${slug}`}
+                      href={`/${slug === "home" ? "" : slug}`}
                       className={`${
                         isActive && "font-bold"
-                      } uppercase text-white`}
+                      } uppercase !text-white`}
                       aria-current="page"
                     >
                       {link}
@@ -117,7 +117,7 @@ export default function Topbar({
               return (
                 <li key={"sidebar_" + link}>
                   <Link
-                    href={`/${slug}`}
+                    href={`/${slug === "home" ? "" : slug}`}
                     className={`${isActive && "font-bold"} uppercase text-primary`}
                     aria-current="page"
                     onClick={() => {
