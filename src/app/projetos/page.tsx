@@ -40,14 +40,14 @@ export default async function Projetos() {
           bgImage="/blueprint.webp"
           boxStyles="w-screen h-[550px] after:!opacity-[36%]"
         >
-          <div className="mx-auto mt-20 w-[700px] text-center text-white">
+          <header className="mx-auto mt-20 w-[700px] text-center text-white">
             <h1 className="mb-4 text-6xl font-bold">Projetos Referência</h1>
             <p className="text-lg font-light">
               Aqui reunimos projetos incríveis de nossas empresas parceiras para
               que você conheça mais a fundo o que a sua casa inteligente pode
               fazer por você
             </p>
-          </div>
+          </header>
           <div className="container absolute left-0 right-0 mx-auto flex w-full max-w-screen-xl justify-evenly gap-6 pt-32 text-center text-white">
             {cards.map((card) => {
               return (
