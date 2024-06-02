@@ -55,12 +55,12 @@ export default async function HomePage() {
         aria-label="separador"
         className="mx-auto my-28"
       />
-      <section className="mb-16">
+      {/* <section className="mb-16">
         <HomeBlog />
-      </section>
+      </section> */}
       <section>
         <Link href="marcas">
-          <h2 className="mb-6 text-center text-4xl text-primary">
+          <h2 className="mb-6 text-center text-3xl text-primary md:text-4xl">
             Marcas{" "}
             <b className="underline decoration-4 underline-offset-8">
               Exclusivas Go On

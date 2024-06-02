@@ -23,7 +23,7 @@ export default async function HomeBlog() {
   return (
     <BlueBgBox
       bgImage="/smartphoneApp.webp"
-      boxStyles={`h-[1000px] w-full before:!h-[650px] after:!h-[650px]`}
+      boxStyles={`md:h-[1000px] w-full before:!h-[650px] after:!h-[650px]`}
     >
       <div className="relative z-10 pt-16 text-center uppercase text-white">
         <h2 className="text-2xl font-medium md:text-5xl">

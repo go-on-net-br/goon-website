@@ -38,7 +38,7 @@ export default async function Projetos() {
       <section>
         <BlueBgBox
           bgImage="/blueprint.webp"
-          boxStyles="w-screen h-[550px] after:!opacity-[36%]"
+          boxStyles="w-screen pb-20 md:pb-0 md:h-[550px] after:!opacity-[36%]"
         >
           <div className="mx-auto mt-20 text-center text-white md:w-[700px]">
             <h1 className="mb-4 text-4xl font-bold md:text-6xl">
@@ -50,7 +50,7 @@ export default async function Projetos() {
               fazer por você
             </p>
           </div>
-          <div className="container absolute left-0 right-0 mx-auto flex w-full max-w-screen-xl flex-col items-center justify-evenly gap-6 pt-32 text-center text-white md:flex-row md:items-start">
+          <div className="container left-0 right-0 mx-auto flex w-full max-w-screen-xl flex-col items-center justify-evenly gap-6 pt-8 text-center text-white md:absolute md:flex-row md:items-start md:pt-32">
             {cards.map((card) => {
               return (
                 <div
