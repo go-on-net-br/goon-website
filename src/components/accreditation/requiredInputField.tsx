@@ -8,19 +8,24 @@ import {
   validEmail,
   normalizePhoneNumber,
 } from "@/helpers/inputMasks";
+import { ContactInputs } from "../contact/contactInputs.model";
+
+interface RequiredFields extends ContactInputs, AccreditationInputs {}
 
 export default function RequiredInputField({
   value,
   type,
+  fullWidth = false,
 }: {
-  value: keyof AccreditationInputs;
+  value: keyof RequiredFields;
   type: string;
+  fullWidth?: boolean;
 }) {
   const {
     register,
     formState: { errors },
     setValue,
-  } = useFormContext<AccreditationInputs>();
+  } = useFormContext<RequiredFields>();
 
   const labelMap: Record<typeof value, string> = {
     nome: "Nome",
@@ -32,14 +37,16 @@ export default function RequiredInputField({
     endereco: "Endereço",
     complemento: "Complemento",
     marcas: "Marcas",
+    mensagem: "Mensagem",
+    tema: "tema",
   };
 
+  let fieldStyles = "flex h-24 flex-col " + (fullWidth ? "w-full" : "w-[45%]");
+
+  fullWidth;
+
   return (
-    <label
-      className={
-        "flex w-[45%] flex-col gap-2 h-24 " + (errors?.[value] ? "text-red-500" : "")
-      }
-    >
+    <label className={fieldStyles + (errors?.[value] ? " text-red-500" : "")}>
       {errors?.[value]
         ? `${labelMap[value]}* - ` + errors?.[value]?.message
         : `${labelMap[value]}*`}
