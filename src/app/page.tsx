@@ -38,11 +38,11 @@ export default async function HomePage() {
         <Carousel carousel={Carrossel} />
       </section>
       <section className="mt-16">
-        <h2 className="mx-auto block w-fit text-3xl text-primary">
+        <h2 className="mx-auto block w-fit text-center text-3xl text-primary">
           Soluções para <u className="font-bold">todos os projetos</u>
         </h2>
         <Badge badges={badges} />
-        <p className="mx-auto mt-16 block w-fit font-light text-primary ">
+        <p className="mx-auto mt-16 block text-center font-light text-primary md:w-fit ">
           E muito mais...
         </p>
       </section>

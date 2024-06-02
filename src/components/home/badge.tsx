@@ -8,9 +8,12 @@ export default function Badge({
   white?: boolean;
 }) {
   return (
-    <div className="mt-16 flex flex-wrap items-center justify-evenly gap-10">
+    <div className="mt-16 grid grid-cols-2 items-center justify-center gap-10 md:flex md:flex-wrap md:justify-evenly">
       {badges?.map((badge, i) => (
-        <div className="flex flex-col gap-3" key={badge?.text.slice(0, 5) + i}>
+        <div
+          className="flex flex-col items-center gap-3"
+          key={badge?.text.slice(0, 5) + i}
+        >
           <Image
             src={badge?.src}
             alt={badge?.text}
