@@ -15,13 +15,13 @@ export default function NetworkMap({
   resellerData: Revenda[];
 }) {
   const redMarker = icon({
-    iconUrl: "/red-marker-icon.png",
+    iconUrl: "/red-marker-icon.webp",
     shadowUrl: "marker-shadow.png",
     iconSize: [25, 41],
     iconAnchor: [13, 40],
   });
   const blueMarker = icon({
-    iconUrl: "/blue-marker-icon.png",
+    iconUrl: "/blue-marker-icon.webp",
     shadowUrl: "marker-shadow.png",
     iconSize: [25, 41],
     iconAnchor: [13, 40],
