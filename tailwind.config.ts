@@ -34,6 +34,7 @@ const config: Config = {
         myTheme: {
           primary: "#003EF9",
           secondary: "#f3f4f6",
+          info: "#484848",
         },
       },
     ],

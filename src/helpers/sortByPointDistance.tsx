@@ -1,3 +1,5 @@
+import { Revenda } from "@/types/revenda";
+
 function calculateDistance(
   coords1: number[],
   coords2: number[],
@@ -37,12 +39,20 @@ function calculateDistance(
 }
 
 function sortPointsByDistance(
-  points: number[][],
+  resellerData: Revenda[],
   coords: number[],
-): number[][] {
-  return points.sort((a, b) => {
-    const distanceA = calculateDistance(coords, a);
-    const distanceB = calculateDistance(coords, b);
+): Revenda[] {
+  return resellerData.sort((a, b) => {
+    const pointsA = [
+      parseFloat(a?.attributes?.Coordenadas?.lat ?? ""),
+      parseFloat(a?.attributes?.Coordenadas?.lng ?? ""),
+    ]
+    const pointsB = [
+        parseFloat(b?.attributes?.Coordenadas?.lat ?? ""),
+        parseFloat(b?.attributes?.Coordenadas?.lng ?? ""),
+      ]
+    const distanceA = calculateDistance(coords, pointsA);
+    const distanceB = calculateDistance(coords, pointsB);
 
     if (distanceA === undefined || distanceB === undefined) {
       return 0;
@@ -53,10 +63,10 @@ function sortPointsByDistance(
 }
 
 export function listClosestResellers(
-  resellersCoords: number[][],
+  resellerData: Revenda[],
   locationCoords: number[],
   n = 3,
 ) {
-  const sortedResellers = sortPointsByDistance(resellersCoords, locationCoords);
+  const sortedResellers = sortPointsByDistance(resellerData, locationCoords);
   return sortedResellers.slice(0, n);
 }

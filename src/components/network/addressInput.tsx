@@ -17,7 +17,7 @@ export default function AddressInput({
 
     setLoading(true);
     const url = encodeURI(
-      `https://nominatim.openstreetmap.org/search?format=json&q=${address}`,
+      `https://nominatim.openstreetmap.org/search?format=json&q=${address}, Brazil`,
     );
     return await fetch(url)
       .then((val) => val.json())
@@ -41,12 +41,13 @@ export default function AddressInput({
     <div className="flex flex-col gap-4">
       <input
         ref={inputRef}
-        className="input input-bordered input-primary w-full rounded-lg"
+        className="input input-bordered input-primary mt-4 w-full rounded-lg"
         name="address"
+        placeholder="Insira o logradouro"
       />
       <button
         className={
-          "btn w-40 " + (loading ? "pointer-events-none" : "btn-primary")
+          "btn btn-md w-40 " + (loading ? "pointer-events-none" : "btn-primary")
         }
         onClick={async () => {
           await fetchData();
