@@ -74,6 +74,7 @@ export default function NetworkMap({
             {closestResellers.map((reseller) => {
               return (
                 <StoreInfo
+                  userMarkerCoords={userMarkerLocation}
                   reseller={reseller}
                   setMapCenter={setMapCenter}
                   key={reseller?.id}

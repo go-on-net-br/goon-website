@@ -2,6 +2,7 @@ import showRoomAudio from "../../../public/showRoomAudio.webp";
 import showRoomAudioAutomacao from "../../../public/showRoomAudioAutomacao.webp";
 import showRoomAutomacao from "../../../public/showRoomAutomacao.webp";
 import addHttpsIfNotPresent from "@/helpers/addHttpsIfNotPresent";
+import { calculateDistance } from "@/helpers/sortByPointDistance";
 import { Revenda } from "@/types/revenda";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,9 +11,11 @@ import { Dispatch, SetStateAction } from "react";
 export default function StoreInfo({
   reseller,
   setMapCenter,
+  userMarkerCoords,
 }: {
   reseller: Revenda;
   setMapCenter: Dispatch<SetStateAction<[number, number]>>;
+  userMarkerCoords: [number, number];
 }) {
   const {
     Titulo,
@@ -26,13 +29,19 @@ export default function StoreInfo({
   } = reseller?.attributes ?? {};
 
   const { lat = "", lng = "" } = Coordenadas ?? {};
+
+  const resellerCoords = [parseFloat(lat), parseFloat(lng)];
   return (
     <div
-      onClick={() => setMapCenter([parseFloat(lat), parseFloat(lng)])}
+      onClick={() => setMapCenter(resellerCoords as [number, number])}
       key={reseller?.id}
       className="cursor-pointer p-6 transition-all hover:bg-gray-200"
     >
-      <h4 className="mb-1 text-xl font-bold">{Titulo}</h4>
+      <h4 className="text-xl font-bold">{Titulo}</h4>
+      <p className="text-sm italic mb-3">
+        {calculateDistance(userMarkerCoords, resellerCoords)?.toFixed(2)}km de
+        distância
+      </p>
       <p className="whitespace-pre-line">{Endereco}</p>
       {(ShowroomAudio || ShowroomAutomacao) && (
         <div className="my-4 flex gap-2">
@@ -63,7 +72,7 @@ export default function StoreInfo({
         {Telefone && <p>{Telefone}</p>}
         {Email && <p>{Email}</p>}
         {Site && (
-          <Link className="underline w-fit" href={addHttpsIfNotPresent(Site)}>
+          <Link className="w-fit underline" href={addHttpsIfNotPresent(Site)}>
             {Site}
           </Link>
         )}

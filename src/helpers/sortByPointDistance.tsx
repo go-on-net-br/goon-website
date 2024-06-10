@@ -1,6 +1,6 @@
 import { Revenda } from "@/types/revenda";
 
-function calculateDistance(
+export function calculateDistance(
   coords1: number[],
   coords2: number[],
 ): number | undefined {
