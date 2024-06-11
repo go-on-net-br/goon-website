@@ -53,7 +53,7 @@ export default function ProjectCarrousel({
             By {revenda?.data?.attributes?.Titulo}
           </p>
         </header>
-        <p className="text-black md:text-xl">{Sobre}</p>
+        <p className="text-black md:text-lg">{Sobre}</p>
       </div>
     </div>
   );

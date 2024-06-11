@@ -1,6 +1,6 @@
-import showRoomAudio from "../../../public/showRoomAudio.webp";
-import showRoomAudioAutomacao from "../../../public/showRoomAudioAutomacao.webp";
-import showRoomAutomacao from "../../../public/showRoomAutomacao.webp";
+import showRoomAudio from "../../../public/showRoomAudio.svg";
+import showRoomAudioAutomacao from "../../../public/showRoomAudioAutomacao.svg";
+import showRoomAutomacao from "../../../public/showRoomAutomacao.svg";
 import addHttpsIfNotPresent from "@/helpers/addHttpsIfNotPresent";
 import { calculateDistance } from "@/helpers/sortByPointDistance";
 import { Revenda } from "@/types/revenda";
@@ -49,21 +49,21 @@ export default function StoreInfo({
             <Image
               src={showRoomAudio}
               alt="Medalha dizendo 'Revenda autorizada: show Room de Áudio'"
-              className="object-contain"
+              className="object-contain w-24 h-24"
             />
           )}
           {ShowroomAutomacao && (
             <Image
               src={showRoomAutomacao}
               alt="Medalha dizendo 'Revenda autorizada: show Room de Automação'"
-              className="object-contain"
+              className="object-contain w-24 h-24"
             />
           )}
           {ShowroomAudio && ShowroomAutomacao && (
             <Image
               src={showRoomAudioAutomacao}
               alt="Medalha dizendo 'Revenda autorizada: show Room de Áudio e Automação'"
-              className="object-contain"
+              className="object-contain w-24 h-24"
             />
           )}
         </div>

@@ -7,17 +7,14 @@ export default function AddressInput({
 }: {
   setUserMarkerLocation: Dispatch<SetStateAction<[number, number]>>;
 }) {
-  const inputRef = useRef<HTMLInputElement>(null);
-
+  const [inputVal, setInputVal] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined);
 
   const fetchData = async () => {
-    const address = inputRef?.current?.value;
-
     setLoading(true);
     const url = encodeURI(
-      `https://nominatim.openstreetmap.org/search?format=json&q=${address}, Brazil`,
+      `https://nominatim.openstreetmap.org/search?format=json&q=${inputVal}, Brazil`,
     );
     return await fetch(url)
       .then((val) => val.json())
@@ -37,18 +34,25 @@ export default function AddressInput({
       .finally(() => setLoading(false));
   };
 
+  const disabledBtn = loading || inputVal?.length === 0;
+
   return (
     <div className="flex flex-col gap-4">
       <input
-        ref={inputRef}
+        value={inputVal}
+        onChange={(e) => {
+          setInputVal(e?.target?.value);
+        }}
         className="input input-bordered input-primary mt-4 w-full rounded-lg"
         name="address"
         placeholder="Insira o logradouro"
       />
       <button
         className={
-          "btn btn-md w-40 " + (loading ? "pointer-events-none" : "btn-primary")
+          "btn btn-md w-40 " +
+          (disabledBtn ? "pointer-events-none !text-gray-600" : "btn-primary")
         }
+        disabled={disabledBtn}
         onClick={async () => {
           await fetchData();
         }}
