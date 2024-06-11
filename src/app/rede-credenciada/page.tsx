@@ -3,6 +3,7 @@ import BlueBgBox from "@/components/blueBgBox";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import { Marca } from "@/types/marca";
 import { Revenda } from "@/types/revenda";
+import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
 const MapWithNoSSR = dynamic(() => import("@/components/network/map"), {
@@ -13,6 +14,11 @@ const MapWithNoSSR = dynamic(() => import("@/components/network/map"), {
     </section>
   ),
 });
+
+
+export const metadata: Metadata = {
+  title:'Rede credenciada',
+};
 
 export default async function RedeCredenciada() {
   const resellerData = await fetchDataFromApi<Revenda[]>("revendas");

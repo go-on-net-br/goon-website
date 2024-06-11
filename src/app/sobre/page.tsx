@@ -6,6 +6,12 @@ import AboutResales from "@/components/about/resales";
 import AboutMVV from "@/components/about/mvv";
 import AboutInformation from "@/components/about/information";
 import AboutContact from "@/components/about/contact";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title:'Sobre',
+};
 
 export default async function Page() {
   const data = await fetchDataFromApi<Sobre>("sobre");

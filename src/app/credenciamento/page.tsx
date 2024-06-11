@@ -13,6 +13,12 @@ import fetchDataFromApi from "@/helpers/fetchFromApi";
 import { Marca } from "@/types/marca";
 import { Depoimento } from "@/types/depoimento";
 import Testimonies from "@/components/accreditation/testimonies";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title:'Credenciamento',
+};
 
 export default async function Credenciamento() {
   const badges = [

@@ -2,7 +2,13 @@ import ApiImage from "@/components/ApiImage";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import universalSlugify from "@/helpers/universalSlugify";
 import { Marca } from "@/types/marca";
+import { Metadata } from "next";
 import Link from "next/link";
+
+
+export const metadata: Metadata = {
+  title:'Marcas',
+};
 
 export default async function Marcas() {
   const brandsData = await fetchDataFromApi<Marca[]>("marcas");

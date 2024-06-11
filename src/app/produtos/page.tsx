@@ -4,6 +4,12 @@ import blueprintImage from "../../../public/blueprint.webp";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import ProductsList from "@/components/products/list";
 import BeAReseller from "@/components/beAResellerFooter";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title:'Produtos',
+};
 
 export default async function Page() {
   const productsFromApi = await fetchDataFromApi<Produto[]>("produtos");

@@ -2,6 +2,12 @@ import BlueBgBox from "@/components/blueBgBox";
 import TermsTabs from "@/components/terms/tabs";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import { TermoEAviso } from "@/types/termo-e-aviso";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title:'Avisos, termos e garantias',
+};
 
 export default async function Page() {
   const apiData = await fetchDataFromApi<TermoEAviso>("termo-e-aviso");

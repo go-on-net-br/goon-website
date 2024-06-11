@@ -3,6 +3,12 @@ import mailIcon from "../../../public/mail.svg";
 import phoneIcon from "../../../public/phone.svg";
 import SocialNetworks from "@/components/socialNetworks";
 import ContactForm from "@/components/contact/contactForm";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title:'Contato',
+};
 
 export default function Contato() {
   return (

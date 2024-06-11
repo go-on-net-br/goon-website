@@ -5,6 +5,31 @@ import { Marca } from "@/types/marca";
 import SocialIconMap from "@/components/socialNetworks/socialIconMap";
 import BlockRendererClient from "@/helpers/blockRendererClient";
 import Link from "next/link";
+import { Metadata, ResolvingMetadata } from "next";
+
+export async function generateMetadata(
+  { params }: { params: { slug: string } },
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const brands = await fetchDataFromApi<Marca[]>("marcas");
+  const thisBrand = brands.find(
+    (brand) => universalSlugify(brand?.attributes?.Marca) === params?.slug,
+  );
+
+  const { Marca, Logotipo, Resumo } = thisBrand?.attributes!;
+
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: Marca,
+    description: Resumo,
+    openGraph: {
+      images: [Logotipo?.data?.attributes?.url, ...previousImages],
+      type: "article",
+      authors: "Go On",
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const brands = await fetchDataFromApi<Marca[]>("marcas");

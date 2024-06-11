@@ -9,6 +9,12 @@ import ProjectListing from "@/components/projects/projectListing";
 import GradientFooter from "@/components/gradientFooter";
 import separator from "../../../public/separator_white.svg";
 import Link from "next/link";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title:'Projetos',
+};
 
 export default async function Projetos() {
   const projectsData = await fetchDataFromApi<Projeto[]>("projetos");
