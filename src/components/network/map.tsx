@@ -8,6 +8,9 @@ import AddressInput from "./addressInput";
 import { useEffect, useState } from "react";
 import { listClosestResellers } from "@/helpers/sortByPointDistance";
 import StoreInfo from "./storeInfo";
+import useMobileCheck from "@/hooks/useMobileCheck";
+import { GestureHandling } from "leaflet-gesture-handling";
+import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
 
 export default function NetworkMap({
   resellerData,
@@ -55,6 +58,9 @@ export default function NetworkMap({
 
     useEffect(() => {
       map.setView(coords, 13);
+      map.addHandler("gestureHandling", GestureHandling);
+      // @ts-expect-error typescript does not see additional handler here
+      map.gestureHandling.enable();
     }, [map, coords]);
 
     return null;
