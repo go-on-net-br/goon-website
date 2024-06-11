@@ -6,7 +6,7 @@ export default function HomeCards() {
     {
       src: "/laptop.webp",
       text: "Seja uma revenda",
-      href: "/revendas",
+      href: "/credenciamento",
     },
     {
       src: "/products.webp",
@@ -16,7 +16,7 @@ export default function HomeCards() {
     {
       src: "/handshake.webp",
       text: "Onde comprar",
-      href: "/onde-comprar",
+      href: "/rede-credenciada",
     },
   ];
   return (
