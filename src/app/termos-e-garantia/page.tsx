@@ -12,9 +12,11 @@ export default async function Page() {
           bgImage="/containers.webp"
           boxStyles="w-screen pb-24 after:!opacity-[10%]"
         >
-          <div className="mx-auto mt-20 w-[700px] text-center text-white">
-            <h1 className="mb-4 text-6xl font-bold">Termos & Garantia</h1>
-            <p className="text-lg font-light">
+          <div className="mx-auto mt-8 text-center text-white md:mt-20 md:w-[700px]">
+            <h1 className="mb-4 text-4xl font-bold md:text-6xl">
+              Termos & Garantia
+            </h1>
+            <p className="p-4 font-light md:p-0 md:text-lg">
               Aqui reunimos projetos incríveis de nossas empresas parceiras para
               que você conheça mais a fundo o que a sua casa inteligente pode
               fazer por você

@@ -32,12 +32,12 @@ export default async function Credenciamento() {
     <div className="relative">
       <BlueBgBox bgImage="/meeting_upview.webp" boxStyles="relative w-full">
         <div className="container relative z-20 mx-auto my-20 max-w-screen-xl">
-          <section>
+          <section className="px-4 md:p-0">
             <header className="mx-auto mt-20 max-w-[1050px] text-center text-white">
-              <h1 className="mb-4 text-7xl font-bold uppercase">
+              <h1 className="mb-4 text-3xl font-bold uppercase md:text-7xl">
                 Seja um revendedor
                 <br />
-                <span className="text-5xl font-light">
+                <span className="text-2xl font-light md:text-5xl">
                   E trabalhe com as melhores marcas
                 </span>
               </h1>
@@ -54,7 +54,7 @@ export default async function Credenciamento() {
             </header>
           </section>
           <section className="mt-16">
-            <h2 className="mx-auto block w-fit text-3xl text-white">
+            <h2 className="mx-auto block w-full text-center text-3xl text-white md:w-fit">
               Por que se tornar um{" "}
               <u className="font-bold">revendedor Go On?</u>
             </h2>
@@ -83,17 +83,17 @@ export default async function Credenciamento() {
             src={halfCircle}
             alt="half circle"
             aria-hidden
-            className=" h-[375px] w-full object-fill object-top"
+            className=" h32 w-full object-fill object-top md:h-[375px]"
           />
         </div>
       </BlueBgBox>
-      <div className="container mx-auto my-20 min-h-96 max-w-screen-xl bg-[#F5f5f5]">
+      <div className="container mx-auto min-h-96 max-w-screen-xl bg-[#F5f5f5] md:my-20">
         <section>
-          <header className="mx-auto mb-12 mt-20 max-w-[1050px] text-center text-primary">
+          <header className="mx-auto mb-12 mt-4 max-w-[1050px] text-center text-primary md:mt-20">
             <h2 className="mb-4 text-5xl font-bold uppercase">
               Dê o primeiro passo agora
             </h2>
-            <p className="mx-auto w-fit text-justify text-2xl font-light uppercase">
+            <p className="mx-auto w-fit px-4 text-center text-2xl font-light uppercase">
               Preencha o formulário e entraremos em contato
             </p>
           </header>
@@ -103,10 +103,10 @@ export default async function Credenciamento() {
           src={separator}
           alt="separador"
           aria-label="separador"
-          className="mx-auto my-28 h-20 w-36 object-contain"
+          className="mx-auto my-12 h-20 w-36 object-contain md:my-28"
         />
-        <section>
-          <h2 className=" mx-auto mb-12 mt-20 max-w-[1050px] text-center text-5xl font-bold uppercase text-primary">
+        <section className="pb-8 md:pb-0">
+          <h2 className="mx-auto mb-12 mt-20 max-w-[1050px] text-center text-5xl font-bold uppercase text-primary">
             Veja o depoimento de nossos <br /> revendedores mais antigos
           </h2>
           <Testimonies testimoniesData={testimoniesData} />

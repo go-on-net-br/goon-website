@@ -7,14 +7,14 @@ import Link from "next/link";
 export default async function Marcas() {
   const brandsData = await fetchDataFromApi<Marca[]>("marcas");
   return (
-    <div className="container mx-auto my-20 max-w-screen-xl px-8">
-      <header className="mx-auto my-20 max-w-[890px] text-center text-primary">
-        <h1 className="w-fit text-5xl font-bold uppercase ">
+    <div className="container mx-auto my-10 max-w-screen-xl px-8 md:my-20">
+      <header className="mx-auto my-10 max-w-[890px] text-center text-primary md:my-20">
+        <h1 className="w-full text-2xl font-bold uppercase md:w-fit md:text-5xl ">
           Distribuidores exclusivos{" "}
           <span className="font-normal normal-case">das</span>
           <br /> melhores marcas do mercado
         </h1>
-        <p className="mt-6 text-xl font-light">
+        <p className="mt-6 font-light md:text-xl">
           Rodamos o mundo buscando as melhores empresas, com credibilidade,
           qualidade e produtos inovadores para tornar a casa dos brasileiros
           ainda mais inteligente e funcional.
@@ -35,7 +35,7 @@ export default async function Marcas() {
               </figure>
               <div className="card-body">
                 <div className="relative mx-auto w-fit">
-                  <h2 className="absolute left-0 right-0 top-0 bottom-0 z-0 block">
+                  <h2 className="absolute bottom-0 left-0 right-0 top-0 z-0 block">
                     {Marca}
                   </h2>
                   <ApiImage
@@ -43,7 +43,7 @@ export default async function Marcas() {
                     contentStyles="relative top-0 left-0 z-10 bg-white h-20 object-contain"
                   />
                 </div>
-                <p className="pt-2">{Resumo}</p>
+                <p className="pt-2 text-sm md:text-base">{Resumo}</p>
               </div>
             </Link>
           );

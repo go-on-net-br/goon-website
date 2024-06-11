@@ -24,7 +24,7 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
 
   return (
     <div className="relative h-[450px]">
-      <div className="absolute w-[calc(100vw-1.5rem)] md:static md:w-auto">
+      <div className="absolute w-full md:static md:w-auto">
         {isReady && (
           <Glider
             arrows={{

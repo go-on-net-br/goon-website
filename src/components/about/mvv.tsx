@@ -2,8 +2,8 @@ import { Corporativo } from "@/types/components";
 
 export default function AboutMVV({ mvv }: { readonly mvv: Corporativo[] }) {
   return (
-    <section className="container mx-auto flex max-w-screen-xl justify-center py-12">
-      <div className="flex flex-row justify-center gap-10">
+    <section className="container flex max-w-screen-xl justify-center px-2 py-12 md:mx-auto">
+      <div className="flex flex-col justify-center gap-4 md:flex-row md:gap-10">
         {mvv?.map((card, i) => (
           <div
             className="card card-normal bg-primary py-12 shadow-lg"

@@ -25,9 +25,10 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} overflow-x-hidden font-montserrat`}
       >
-        <Topbar />
-        <main className="font-montserrat">{children}</main>
-        <Footer />
+        <Topbar>
+          <main className="font-montserrat">{children}</main>
+          <Footer />
+        </Topbar>
       </body>
     </html>
   );

@@ -23,17 +23,19 @@ export default async function HomeBlog() {
   return (
     <BlueBgBox
       bgImage="/smartphoneApp.webp"
-      boxStyles={`h-[1000px] w-full before:!h-[650px] after:!h-[650px]`}
+      boxStyles={`md:h-[1000px] w-full before:!h-[650px] after:!h-[650px]`}
     >
       <div className="relative z-10 pt-16 text-center uppercase text-white">
-        <h2 className="text-5xl font-medium">
+        <h2 className="text-2xl font-medium md:text-5xl">
           Conheça o nosso blog especializado <br />
-          <span className="text-xl font-normal normal-case underline underline-offset-[16px]">
+          <span className=" text-base font-normal normal-case underline underline-offset-4 md:text-xl md:underline-offset-[16px]">
             E aprenda tudo sobre o universo das casas inteligentes
           </span>
         </h2>
-        <h3 className="mt-16 text-4xl font-bold">últimas notícias</h3>
-        <div className="mt-12 flex justify-evenly gap-6 px-6">
+        <h3 className="mt-16 text-2xl font-bold md:text-4xl">
+          últimas notícias
+        </h3>
+        <div className="mt-12 flex flex-col justify-evenly gap-6 px-6 md:flex-row">
           {blogPosts.map((post) => {
             const { Capa, Titulo, Resumo } = post?.attributes;
 

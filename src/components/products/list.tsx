@@ -84,13 +84,13 @@ export default function ProductsList({
   return (
     <>
       <div className="container flex flex-col items-center rounded-3xl bg-[#F5F5F5]">
-        <div className="flex flex-col items-center gap-4 py-8">
+        <div className="flex w-full flex-col items-center gap-4 py-8">
           <p className="text-primary">Filtrar por:</p>
-          <div className="flex justify-center gap-2">
+          <div className="flex w-full flex-col items-center justify-center gap-2 md:w-auto md:flex-row">
             <select
               onChange={(e) => setBrand(e.target.value)}
               value={brand}
-              className="select select-primary w-48 max-w-sm bg-transparent text-primary"
+              className="select select-primary w-10/12 max-w-sm bg-transparent text-primary md:w-48"
             >
               <option value={"todas"}>Todas marcas</option>
               {allBrands?.map((brand, i) => (
@@ -105,7 +105,7 @@ export default function ProductsList({
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="select select-primary w-48 max-w-sm bg-transparent text-primary"
+              className="select select-primary w-10/12  max-w-sm bg-transparent text-primary md:w-48"
             >
               <option value={"todas"}>Todas categorias</option>
               {allCategories?.map((category, i) => (

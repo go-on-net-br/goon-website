@@ -19,7 +19,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
   return (
     <FormProvider {...methods}>
       <form
-        className="flex flex-wrap justify-center gap-4"
+        className="flex flex-col items-center justify-center gap-4 px-4 md:flex-row md:flex-wrap md:items-start"
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
@@ -39,7 +39,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
         <RequiredInputField type="text" value="cnpj" />
         <RequiredInputField type="text" value="cidadeEUF" />
         <RequiredInputField type="text" value="endereco" />
-        <label className="flex w-[45%] flex-col gap-2 ">
+        <label className="flex h-24 w-full flex-col md:w-[45%]">
           Complemento
           <input
             {...register("complemento")}
@@ -47,7 +47,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
             className="input input-bordered input-primary w-full"
           />
         </label>
-        <label className="flex w-[91%] flex-col gap-2 ">
+        <label className="flex h-24 w-full flex-col md:w-[91%]">
           Marcas de interesse
           <Controller
             control={control}

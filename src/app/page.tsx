@@ -38,11 +38,11 @@ export default async function HomePage() {
         <Carousel carousel={Carrossel} />
       </section>
       <section className="mt-16">
-        <h2 className="mx-auto block w-fit text-3xl text-primary">
+        <h2 className="mx-auto block w-fit text-center text-3xl text-primary">
           Soluções para <u className="font-bold">todos os projetos</u>
         </h2>
         <Badge badges={badges} />
-        <p className="mx-auto mt-16 block w-fit font-light text-primary ">
+        <p className="mx-auto mt-16 block text-center font-light text-primary md:w-fit ">
           E muito mais...
         </p>
       </section>
@@ -55,12 +55,12 @@ export default async function HomePage() {
         aria-label="separador"
         className="mx-auto my-28"
       />
-      <section className="mb-16">
+      {/* <section className="mb-16">
         <HomeBlog />
-      </section>
+      </section> */}
       <section>
         <Link href="marcas">
-          <h2 className="mb-6 text-center text-4xl text-primary">
+          <h2 className="mb-6 text-center text-3xl text-primary md:text-4xl">
             Marcas{" "}
             <b className="underline decoration-4 underline-offset-8">
               Exclusivas Go On

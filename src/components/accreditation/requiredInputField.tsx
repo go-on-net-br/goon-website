@@ -41,7 +41,7 @@ export default function RequiredInputField({
     tema: "tema",
   };
 
-  let fieldStyles = "flex h-24 flex-col " + (fullWidth ? "w-full" : "w-[45%]");
+  let fieldStyles = "flex h-24 flex-col w-full " + (!fullWidth && "md:w-[45%]");
 
   fullWidth;
 

@@ -14,7 +14,7 @@ export default function TermsTabs({ apiData }: { apiData: TermoEAviso }) {
 
   return (
     <>
-      <div className="flex w-full justify-around text-4xl font-semibold text-primary">
+      <div className="flex w-full justify-around text-2xl font-semibold text-primary md:text-4xl">
         <h2
           onClick={() => setSelectedTab("avisos")}
           className={

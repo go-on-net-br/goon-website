@@ -40,17 +40,17 @@ export default async function BrandPage({
             <div
               key={universalSlugify(Titulo)}
               className={
-                (i % 2 && "flex-row-reverse") +
-                " my-20 flex max-h-[800px] items-center justify-between"
+                (i % 2 ? "md:flex-row-reverse " : "md:flex-row ") +
+                "my-10 flex flex-col items-center justify-between md:my-20 md:max-h-[800px] md:flex-row"
               }
             >
-              <div className="flex h-full w-[600px] flex-col items-center gap-4">
+              <div className="flex h-full w-full flex-col items-center gap-4 md:w-[600px]">
                 <ApiImage
                   image={Imagem.data}
                   contentStyles="object-contain h-full w-full"
                 />
               </div>
-              <div className="flex w-[540px] flex-col px-8">
+              <div className="flex w-full flex-col px-8 md:w-[540px]">
                 {i === 0 && (
                   <header className="relative mx-auto mb-12 w-fit">
                     <h1 className="absolute bottom-0 left-0 right-0 top-0 z-0 block">
@@ -62,12 +62,14 @@ export default async function BrandPage({
                     />
                   </header>
                 )}
-                <h2 className=" mb-4 text-3xl  text-primary">{Titulo}</h2>
+                <h2 className=" mb-4 text-center  text-3xl text-primary md:text-start">
+                  {Titulo}
+                </h2>
                 <div className="text-justify">
                   <BlockRendererClient content={corpo} />
                 </div>
                 {i === 0 && (
-                  <div className="my-12 flex h-9 items-center justify-center gap-4">
+                  <div className="my-6 flex h-9 items-center justify-center gap-4 md:my-12">
                     {Redes.map((rede) => {
                       return (
                         <a key={rede?.Rede} href={rede?.URL} target="_blank">

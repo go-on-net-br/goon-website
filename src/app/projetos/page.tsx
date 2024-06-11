@@ -38,17 +38,19 @@ export default async function Projetos() {
       <section>
         <BlueBgBox
           bgImage="/blueprint.webp"
-          boxStyles="w-screen h-[550px] after:!opacity-[36%]"
+          boxStyles="w-screen pb-20 md:pb-0 md:h-[550px] after:!opacity-[36%]"
         >
-          <header className="mx-auto mt-20 w-[700px] text-center text-white">
-            <h1 className="mb-4 text-6xl font-bold">Projetos Referência</h1>
+          <div className="mx-auto mt-20 text-center text-white md:w-[700px]">
+            <h1 className="mb-4 text-4xl font-bold md:text-6xl">
+              Projetos Referência
+            </h1>
             <p className="text-lg font-light">
               Aqui reunimos projetos incríveis de nossas empresas parceiras para
               que você conheça mais a fundo o que a sua casa inteligente pode
               fazer por você
             </p>
-          </header>
-          <div className="container absolute left-0 right-0 mx-auto flex w-full max-w-screen-xl justify-evenly gap-6 pt-32 text-center text-white">
+          </div>
+          <div className="container left-0 right-0 mx-auto flex w-full max-w-screen-xl flex-col items-center justify-evenly gap-6 pt-8 text-center text-white md:absolute md:flex-row md:items-start md:pt-32">
             {cards.map((card) => {
               return (
                 <div
@@ -70,18 +72,18 @@ export default async function Projetos() {
           </div>
         </BlueBgBox>
       </section>
-      <section className="container relative z-[1] mx-auto -mt-10 max-w-screen-xl rounded-3xl bg-white px-9 py-64">
+      <section className="container relative z-[1] mx-auto -mt-10 max-w-screen-xl rounded-3xl bg-white px-9 py-12 md:py-64">
         <ProjectListing projects={projectsData} />
       </section>
       <GradientFooter bgImage="/blueprint_zoom.webp" boxStyles="text-3xl">
-        <div className="box-border flex h-full w-[820px] flex-col justify-center pl-9 text-white">
+        <div className="box-border flex h-full w-full flex-col justify-center px-4 py-6 text-white md:w-[820px] md:p-0 md:pl-9">
           <Image
             src={separator}
             alt="separador"
             aria-label="separador"
             className="mb-6"
           />
-          <h2 className="text-6xl font-bold uppercase">
+          <h2 className="text-2xl font-bold uppercase md:text-6xl">
             Quer um projeto para o seu ambiente?
           </h2>
           <p className="mb-6 mt-4 text-2xl">
