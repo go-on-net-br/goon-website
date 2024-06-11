@@ -11,9 +11,24 @@ import StoreInfo from "./storeInfo";
 
 export default function NetworkMap({
   resellerData,
+  brands,
 }: {
   resellerData: Revenda[];
+  brands: string[];
 }) {
+  const selectOptions = brands.map((brand) => ({
+    value: brand,
+    label: brand,
+  }));
+  const [brandSearched, setBrandSearched] = useState<string>("");
+
+  const resellersWithBrands = resellerData.filter((reseller) => {
+    return reseller?.attributes.marcas?.data?.some(
+      (marca) =>
+        brandSearched === "" || brandSearched === marca?.attributes?.Marca,
+    );
+  });
+
   const redMarker = icon({
     iconUrl: "/red-marker-icon.webp",
     shadowUrl: "marker-shadow.png",
@@ -50,7 +65,7 @@ export default function NetworkMap({
   }
 
   const closestResellers = listClosestResellers(
-    resellerData,
+    resellersWithBrands,
     userMarkerLocation,
     3,
   );
@@ -64,13 +79,29 @@ export default function NetworkMap({
           mais próxima de você
         </h2>
         <AddressInput setUserMarkerLocation={setUserMarkerLocation} />
+
+        <h3 className="mb-4 mt-10 text-2xl font-bold text-primary">
+          Filtrar por
+        </h3>
+        <select
+          onChange={(e) => setBrandSearched(e.target.value)}
+          value={brandSearched}
+          className="select select-primary mb-4 w-full  max-w-sm bg-transparent text-primary"
+        >
+          <option value={""}>Todas marcas</option>
+          {brands?.map((brand) => (
+            <option key={"ProductFilterBy" + brand} value={brand}>
+              {brand}
+            </option>
+          ))}
+        </select>
+        <div className="divider divider-primary"></div>
         <section>
           <h3 className=" mt-6 text-2xl font-bold text-primary">Resultados</h3>
           <p className=" text-sm font-light text-primary">
             Mostrando três resultados mais próximos
           </p>
-          <div className="divider divider-primary"></div>
-          <div className="text-goOnGrey flex flex-col">
+          <div className="flex flex-col text-goOnGrey">
             {closestResellers.map((reseller) => {
               return (
                 <StoreInfo
