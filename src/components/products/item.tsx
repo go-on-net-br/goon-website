@@ -1,11 +1,14 @@
+"use client";
 import { Produto } from "@/types/produto";
 import ApiImage from "../ApiImage";
 import ProductsDialog from "./dialog";
 
 export default function ProductsItem({
   product,
+  handleClick,
 }: {
   readonly product: Produto;
+  handleClick: (action: "open" | "close", productId: number) => void;
 }) {
   const productImage = product?.attributes?.FotoseVideos?.data.find(
     (e) =>
@@ -33,7 +36,7 @@ export default function ProductsItem({
         </p>
         <a
           className="mt-2 text-sm text-primary underline"
-          onClick={() => (document.getElementById(modalId) as any).showModal()}
+          onClick={() => handleClick("open", product.id)}
         >
           Mais informações
         </a>
@@ -44,7 +47,7 @@ export default function ProductsItem({
       <dialog id={modalId} className="modal modal-bottom sm:modal-middle">
         <ProductsDialog product={product} />
         <form method="dialog" className="modal-backdrop">
-          <button>close</button>
+          <button onClick={() => handleClick("close", 0)}>close</button>
         </form>
       </dialog>
     </>

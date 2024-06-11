@@ -18,6 +18,9 @@ export default function ProductsList({
   const [category, setCategory] = useState(
     searchParams.get("categoria") ?? "todas",
   );
+  const [selectedProduct, setSelectedProduct] = useState(
+    parseInt(searchParams.get("id") ?? "0"),
+  );
 
   const [filteredProducts, setFilteredProducts] = useState(
     filterProducts(productsFromApi, category, brand),
@@ -61,7 +64,12 @@ export default function ProductsList({
   useEffect(() => {
     setFilteredProducts(filterProducts(productsFromApi, category, brand));
     let qp = "";
-    if (page === 1 && brand === "todas" && category === "todas") {
+    if (
+      page === 1 &&
+      brand === "todas" &&
+      category === "todas" &&
+      selectedProduct === 0
+    ) {
       router.push("/produtos", { scroll: false });
     } else {
       qp = "?";
@@ -76,10 +84,29 @@ export default function ProductsList({
         qp = qp.length > 1 ? qp + "&" : qp;
         qp += "categoria=" + category;
       }
+      if (selectedProduct != 0) {
+        qp = qp.length > 1 ? qp + "&" : qp;
+        qp += "id=" + selectedProduct;
+      }
       router.push(qp, { scroll: false });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [brand, category, page]);
+  }, [brand, category, page, selectedProduct]);
+
+  const handleItemClick = (action: "open" | "close", productId: number) => {
+    if (action === "open") {
+      (
+        document.getElementById("product_modal_" + productId) as any
+      ).showModal();
+    }
+    setSelectedProduct(productId);
+  };
+
+  useEffect(() => {
+    if (selectedProduct != 0) {
+      handleItemClick("open", selectedProduct);
+    }
+  });
 
   return (
     <>
@@ -122,7 +149,11 @@ export default function ProductsList({
       </div>
       <div className="container mx-auto grid max-w-screen-xl gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
         {shownProductList?.map((product) => (
-          <ProductsItem product={product} key={"productItem " + product.id} />
+          <ProductsItem
+            product={product}
+            key={"productItem " + product.id}
+            handleClick={handleItemClick}
+          />
         ))}
       </div>
       <div data-theme="light" className="join my-8">
