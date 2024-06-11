@@ -81,7 +81,7 @@ export default function NetworkMap({
         <AddressInput setUserMarkerLocation={setUserMarkerLocation} />
 
         <h3 className="mb-4 mt-10 text-2xl font-bold text-primary">
-          Filtrar por
+          Filtrar por marca
         </h3>
         <select
           onChange={(e) => setBrandSearched(e.target.value)}
