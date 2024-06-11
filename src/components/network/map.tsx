@@ -16,10 +16,6 @@ export default function NetworkMap({
   resellerData: Revenda[];
   brands: string[];
 }) {
-  const selectOptions = brands.map((brand) => ({
-    value: brand,
-    label: brand,
-  }));
   const [brandSearched, setBrandSearched] = useState<string>("");
 
   const resellersWithBrands = resellerData.filter((reseller) => {
