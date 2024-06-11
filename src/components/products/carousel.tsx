@@ -15,8 +15,11 @@ export default function ProductsCarousel({ media }: { media: Media[] }) {
 
   return (
     <>
-      <div className="carousel flex h-full w-full flex-col justify-center">
-        <ApiImage contentStyles="object-contain py-12" image={media[page]} />
+      <div className="carousel flex h-full max-h-full w-full max-w-full flex-col justify-center">
+        <ApiImage
+          contentStyles="object-contain py-12 max-h-full max-w-full"
+          image={media[page]}
+        />
         <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 transform items-center gap-2 align-text-bottom text-xl text-primary">
           <button onClick={() => changePage(page - 1)}>
             <Image

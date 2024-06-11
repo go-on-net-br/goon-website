@@ -5,8 +5,11 @@ import Link from "next/link";
 
 export default function BeAReseller() {
   return (
-    <GradientFooter bgImage="/realtor-with-clients.webp" boxStyles="text-3xl">
-      <div className="box-border flex h-full w-[820px] flex-col justify-center pl-9 text-white">
+    <GradientFooter
+      bgImage="/realtor-with-clients.webp"
+      boxStyles="text-3xl py-4 md:py-0"
+    >
+      <div className="box-border flex h-full w-full flex-col justify-center pl-9 text-white md:w-[820px]">
         <Image
           src={separator}
           alt="separador"

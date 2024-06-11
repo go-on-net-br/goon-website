@@ -9,15 +9,14 @@ import dynamic from "next/dynamic";
 const MapWithNoSSR = dynamic(() => import("@/components/network/map"), {
   ssr: false,
   loading: () => (
-    <section className="container relative z-[1] mx-auto -mt-10 mb-16 flex min-h-[1000px] max-w-screen-xl rounded-3xl bg-white px-9 py-16">
+    <section className="container relative z-[1] -mt-10 flex min-h-[1000px] max-w-screen-xl rounded-3xl bg-white px-9 py-16 md:mx-auto md:mb-16">
       <span className="loading loading-spinner m-auto text-primary"></span>
     </section>
   ),
 });
 
-
 export const metadata: Metadata = {
-  title:'Rede credenciada',
+  title: "Rede credenciada",
 };
 
 export default async function RedeCredenciada() {
@@ -32,8 +31,10 @@ export default async function RedeCredenciada() {
           bgImage="/blueprint.webp"
           boxStyles="w-screen h-[300px] after:!opacity-[36%]"
         >
-          <header className="mx-auto mt-20 w-[700px] text-center text-white">
-            <h1 className="mb-4 text-6xl font-bold">Rede Credenciada</h1>
+          <header className="mx-auto mt-20 text-center text-white md:w-[700px]">
+            <h1 className="text-4xl font-bold text-white md:text-5xl">
+              Rede Credenciada
+            </h1>
             <p className="text-lg font-light">
               Aqui reunimos projetos incríveis de nossas empresas parceiras para
               que você conheça mais a fundo o que a sua casa inteligente pode
