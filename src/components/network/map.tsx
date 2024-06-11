@@ -135,7 +135,7 @@ export default function NetworkMap({
         center={[-23.55028, -46.63389]}
         zoom={13}
         scrollWheelZoom={true}
-        className="min-h-[700px] w-full md:h-full md:min-h-[1000px]"
+        className="min-h-[600px] w-full md:h-full md:min-h-[1000px]"
       >
         <FlyMapTo coords={mapCenter ?? userMarkerLocation} />
         <TileLayer
