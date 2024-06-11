@@ -14,5 +14,6 @@ export interface Revenda {
     ShowroomAutomacao?: boolean;
     marcas?: { data: Marca[] };
     projetos: { data: Projeto[] };
+    Coordenadas?: { lat: string; lng: string };
   };
 }

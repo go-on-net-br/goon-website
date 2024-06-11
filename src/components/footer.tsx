@@ -26,10 +26,8 @@ export default function Footer() {
           </div>
         </nav>
       </div>
-      <p className="text-white tracking-wider">
-        Rua Ferreira de Araújo, 741, Conj 108 - Pinheiros, São Paulo - SP,
-        <br />
-        05428-002 (11) 3567-7777 | contato@goon.com.br
+      <p className="tracking-wider text-white">
+        (11) 3567-7777 | contato@goon.com.br
       </p>
     </footer>
   );
