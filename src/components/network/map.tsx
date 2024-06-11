@@ -66,9 +66,37 @@ export default function NetworkMap({
     3,
   );
 
-  return (
-    <section className="container relative z-[1] mx-auto -mt-10 mb-16 flex max-w-screen-xl rounded-3xl bg-white px-9 py-16">
-      <div className="mr-8 flex w-2/3 flex-col">
+  function Results() {
+    return (
+      <>
+        <div className="divider divider-primary hidden md:flex"></div>
+        <section>
+          <h3 className="mt-6 px-6 text-2xl font-bold text-primary md:px-0">
+            Resultados
+          </h3>
+          <p className="px-6 text-sm font-light text-primary md:px-0">
+            Mostrando três resultados mais próximos
+          </p>
+          <div className="flex flex-col text-goOnGrey">
+            {closestResellers.map((reseller) => {
+              return (
+                <StoreInfo
+                  userMarkerCoords={userMarkerLocation}
+                  reseller={reseller}
+                  setMapCenter={setMapCenter}
+                  key={reseller?.id}
+                />
+              );
+            })}
+          </div>
+        </section>
+      </>
+    );
+  }
+
+  function Filter() {
+    return (
+      <>
         <h2 className="text-2xl font-bold text-primary">
           Encontre a revenda
           <br />
@@ -91,31 +119,17 @@ export default function NetworkMap({
             </option>
           ))}
         </select>
-        <div className="divider divider-primary"></div>
-        <section>
-          <h3 className=" mt-6 text-2xl font-bold text-primary">Resultados</h3>
-          <p className=" text-sm font-light text-primary">
-            Mostrando três resultados mais próximos
-          </p>
-          <div className="flex flex-col text-goOnGrey">
-            {closestResellers.map((reseller) => {
-              return (
-                <StoreInfo
-                  userMarkerCoords={userMarkerLocation}
-                  reseller={reseller}
-                  setMapCenter={setMapCenter}
-                  key={reseller?.id}
-                />
-              );
-            })}
-          </div>
-        </section>
-      </div>
+      </>
+    );
+  }
+
+  function Map() {
+    return (
       <MapContainer
         center={[-23.55028, -46.63389]}
         zoom={13}
         scrollWheelZoom={true}
-        className="h-full min-h-[1000px] w-full"
+        className="min-h-[700px] w-full md:h-full md:min-h-[1000px]"
       >
         <FlyMapTo coords={mapCenter ?? userMarkerLocation} />
         <TileLayer
@@ -156,6 +170,31 @@ export default function NetworkMap({
           }
         })}
       </MapContainer>
+    );
+  }
+
+  const isMobile = useMobileCheck();
+
+  return (
+    <section className="container relative z-[1] -mt-10 flex flex-col rounded-3xl bg-white pt-16 md:mx-auto md:mb-16 md:max-w-screen-xl md:flex-row md:px-9 md:py-16">
+      {!isMobile && (
+        <>
+          <div className="align-center mr-8 flex w-full flex-col px-9 md:w-2/3 md:px-0 md:align-top">
+            <Filter />
+            <Results />
+          </div>
+          <Map />
+        </>
+      )}
+      {isMobile && (
+        <>
+          <div className="p-6 pt-0">
+            <Filter />
+          </div>
+          <Map />
+          <Results />
+        </>
+      )}
     </section>
   );
 }
