@@ -92,11 +92,14 @@ export default function ProductsDialog({
           </a>
           <a
             href={
-              "/projetos?produto=" + universalSlugify(product.attributes.Titulo)
+              "/projetos?marca=" +
+              universalSlugify(
+                product.attributes.marca?.data?.attributes?.Marca,
+              )
             }
             className="w-fit border-b-2 border-primary font-semibold text-primary hover:cursor-pointer"
           >
-            Veja esse produto em um Projeto
+            Veja essa marca em projetos
           </a>
         </div>
       </div>

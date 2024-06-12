@@ -11,13 +11,15 @@ import separator from "../../../public/separator_white.svg";
 import Link from "next/link";
 import { Metadata } from "next";
 
-
 export const metadata: Metadata = {
-  title:'Projetos',
+  title: "Projetos",
 };
 
 export default async function Projetos() {
-  const projectsData = await fetchDataFromApi<Projeto[]>("projetos");
+  const projectsData = await fetchDataFromApi<Projeto[]>(
+    "projetos",
+    "populate=*",
+  );
 
   const cards = [
     {
@@ -46,7 +48,7 @@ export default async function Projetos() {
           bgImage="/blueprint.webp"
           boxStyles="w-screen pb-20 md:pb-0 md:h-[550px] after:!opacity-[36%]"
         >
-          <div className="mx-auto mt-20 text-center text-white md:w-[700px]">
+          <div className="mx-2 md:mx-auto mt-20 text-center text-white md:w-[700px]">
             <h1 className="mb-4 text-4xl font-bold md:text-6xl">
               Projetos Referência
             </h1>
