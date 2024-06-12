@@ -5,12 +5,13 @@ import { Revenda } from "@/types/revenda";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import { icon } from "leaflet";
 import AddressInput from "./addressInput";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { listClosestResellers } from "@/helpers/sortByPointDistance";
 import StoreInfo from "./storeInfo";
 import useMobileCheck from "@/hooks/useMobileCheck";
 import { GestureHandling } from "leaflet-gesture-handling";
 import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function NetworkMap({
   resellerData,
@@ -19,7 +20,9 @@ export default function NetworkMap({
   resellerData: Revenda[];
   brands: string[];
 }) {
-  const [brandSearched, setBrandSearched] = useState<string>("");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const brandSearched = searchParams.get("marca") ?? "";
 
   const resellersWithBrands = resellerData.filter((reseller) => {
     return reseller?.attributes.marcas?.data?.some(
@@ -42,16 +45,23 @@ export default function NetworkMap({
     popupAnchor: [-3, -45],
   });
 
-  const [userMarkerLocation, setUserMarkerLocation] = useState<
-    [number, number]
-  >([-23.55028, -46.63389]);
+  const searchParamLat = searchParams.get("lat");
+  const searchParamLon = searchParams.get("lon");
+
+  const searchParamCoords: [number, number] = useMemo(
+    () => [
+      parseFloat(searchParamLat ?? "-23.55028"),
+      parseFloat(searchParamLon ?? "-46.63389"),
+    ],
+    [searchParamLon, searchParamLat],
+  );
 
   const [mapCenter, setMapCenter] =
-    useState<[number, number]>(userMarkerLocation);
+    useState<[number, number]>(searchParamCoords);
 
   useEffect(() => {
-    setMapCenter(userMarkerLocation);
-  }, [userMarkerLocation]);
+    setMapCenter(searchParamCoords);
+  }, [searchParamCoords]);
 
   function FlyMapTo({ coords }: { coords: [number, number] }) {
     const map = useMap();
@@ -68,7 +78,7 @@ export default function NetworkMap({
 
   const closestResellers = listClosestResellers(
     resellersWithBrands,
-    userMarkerLocation,
+    searchParamCoords,
     3,
   );
 
@@ -87,7 +97,7 @@ export default function NetworkMap({
             {closestResellers.map((reseller) => {
               return (
                 <StoreInfo
-                  userMarkerCoords={userMarkerLocation}
+                  userMarkerCoords={searchParamCoords}
                   reseller={reseller}
                   setMapCenter={setMapCenter}
                   key={reseller?.id}
@@ -108,13 +118,18 @@ export default function NetworkMap({
           <br />
           mais próxima de você
         </h2>
-        <AddressInput setUserMarkerLocation={setUserMarkerLocation} />
+        <AddressInput />
 
         <h3 className="mb-4 mt-10 text-2xl font-bold text-primary">
           Filtrar por marca
         </h3>
         <select
-          onChange={(e) => setBrandSearched(e.target.value)}
+          onChange={(e) => {
+            router.push(
+              `?marca=${e?.target?.value}${searchParamLat && searchParamLon ? `&lat=${searchParamLat}&lon=${searchParamLon}` : ""}`,
+              { scroll: false },
+            );
+          }}
           value={brandSearched}
           className="select select-primary mb-4 w-full  max-w-sm bg-transparent text-primary"
         >
@@ -137,17 +152,17 @@ export default function NetworkMap({
         scrollWheelZoom={true}
         className="min-h-[600px] w-full md:h-full md:min-h-[1000px]"
       >
-        <FlyMapTo coords={mapCenter ?? userMarkerLocation} />
+        <FlyMapTo coords={mapCenter ?? searchParamCoords} />
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker
           icon={redMarker}
-          position={userMarkerLocation}
+          position={searchParamCoords}
           eventHandlers={{
             click: () => {
-              setMapCenter(userMarkerLocation);
+              setMapCenter(searchParamCoords);
             },
           }}
         />

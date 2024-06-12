@@ -1,15 +1,14 @@
 "use client";
 
-import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
 
-export default function AddressInput({
-  setUserMarkerLocation,
-}: {
-  setUserMarkerLocation: Dispatch<SetStateAction<[number, number]>>;
-}) {
+export default function AddressInput() {
   const [inputVal, setInputVal] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined);
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   const fetchData = async () => {
     setLoading(true);
@@ -22,7 +21,13 @@ export default function AddressInput({
         if (val?.length > 0) {
           const firstOccur = val?.[0];
           const { lat, lon } = firstOccur;
-          setUserMarkerLocation([lat, lon]);
+          const brand = searchParams.get("marca");
+          router.push(
+            `?lat=${lat}&lon=${lon}${brand ? `&marca=${brand}` : ""}`,
+            {
+              scroll: false,
+            },
+          );
           setErrorMsg(undefined);
         } else {
           setErrorMsg("endereço não encontrado");
