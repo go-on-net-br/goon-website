@@ -13,7 +13,7 @@ export default function AddressInput() {
   const fetchData = async () => {
     setLoading(true);
     const url = encodeURI(
-      `https://nominatim.openstreetmap.org/search?format=json&q=${inputVal}, Brazil`,
+      `https://geocode.maps.co/search?q=address&api_key=665b1e57efbcf548774954qlyb55f7d&q=${inputVal}, Brazil`,
     );
     return await fetch(url)
       .then((val) => val.json())
