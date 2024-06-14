@@ -4,6 +4,7 @@ import ProductsList from "@/components/products/list";
 import BeAReseller from "@/components/beAResellerFooter";
 import { Metadata } from "next";
 import BlueBgBox from "@/components/blueBgBox";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Produtos",
@@ -28,7 +29,9 @@ export default async function Page() {
         </BlueBgBox>
       </section>
       <section className=" -mt-4 flex flex-col items-center">
-        <ProductsList productsFromApi={productsFromApi} />
+        <Suspense>
+          <ProductsList productsFromApi={productsFromApi} />
+        </Suspense>
       </section>
       <section>
         <BeAReseller />

@@ -5,7 +5,7 @@ import { Revenda } from "@/types/revenda";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import { icon } from "leaflet";
 import AddressInput from "./addressInput";
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { listClosestResellers } from "@/helpers/sortByPointDistance";
 import StoreInfo from "./storeInfo";
 import useMobileCheck from "@/hooks/useMobileCheck";
@@ -118,7 +118,9 @@ export default function NetworkMap({
           <br />
           mais próxima de você
         </h2>
-        <AddressInput />
+        <Suspense>
+          <AddressInput />
+        </Suspense>
 
         <h3 className="mb-4 mt-10 text-2xl font-bold text-primary">
           Filtrar por marca

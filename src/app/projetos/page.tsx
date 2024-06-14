@@ -10,6 +10,7 @@ import GradientFooter from "@/components/gradientFooter";
 import separator from "../../../public/separator_white.svg";
 import Link from "next/link";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Projetos",
@@ -48,7 +49,7 @@ export default async function Projetos() {
           bgImage="/blueprint.webp"
           boxStyles="w-screen pb-20 md:pb-0 md:h-[550px] after:!opacity-[36%]"
         >
-          <div className="mx-2 md:mx-auto mt-20 text-center text-white md:w-[700px]">
+          <div className="mx-2 mt-20 text-center text-white md:mx-auto md:w-[700px]">
             <h1 className="mb-4 text-4xl font-bold md:text-6xl">
               Projetos Referência
             </h1>
@@ -81,7 +82,9 @@ export default async function Projetos() {
         </BlueBgBox>
       </section>
       <section className="container relative z-[1] mx-auto -mt-10 max-w-screen-xl rounded-3xl bg-white px-9 py-12 md:py-64">
-        <ProjectListing projects={projectsData} />
+        <Suspense>
+          <ProjectListing projects={projectsData} />
+        </Suspense>
       </section>
       <GradientFooter bgImage="/blueprint_zoom.webp" boxStyles="text-3xl">
         <div className="box-border flex h-full w-full flex-col justify-center px-4 py-6 text-white md:w-[820px] md:p-0 md:pl-9">

@@ -5,6 +5,7 @@ import { Marca } from "@/types/marca";
 import { Revenda } from "@/types/revenda";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
 const MapWithNoSSR = dynamic(() => import("@/components/network/map"), {
   ssr: false,
@@ -43,7 +44,9 @@ export default async function RedeCredenciada() {
           </header>
         </BlueBgBox>
       </section>
-      <MapWithNoSSR resellerData={resellerData} brands={brands} />
+      <Suspense>
+        <MapWithNoSSR resellerData={resellerData} brands={brands} />
+      </Suspense>
       <section>
         <BeAReseller />
       </section>
