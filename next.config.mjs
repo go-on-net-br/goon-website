@@ -10,7 +10,8 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "http",
-        hostname: "http://104.131.160.214",
+        // @ts-ignore
+        hostname: process.env.NEXT_PUBLIC_STRAPI_URL,
         port: "1337",
         pathname: "/uploads/**",
       },
