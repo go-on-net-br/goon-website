@@ -9,7 +9,7 @@ const nextConfig = {
     unoptimized: !isDevelopment,
     remotePatterns: [
       {
-        protocol: "http",
+        protocol: "https",
         // @ts-ignore
         hostname: process.env.NEXT_PUBLIC_STRAPI_URL,
         port: "1337",
