@@ -32,11 +32,11 @@ export default async function RedeCredenciada() {
           bgImage="/blueprint.webp"
           boxStyles="w-screen h-[300px] after:!opacity-[36%]"
         >
-          <header className="mx-auto mt-20 text-center text-white md:w-[700px]">
-            <h1 className="text-4xl font-bold text-white md:text-5xl">
+          <header className="mx-auto mt-8 text-center text-white md:mt-20 md:w-[700px]">
+            <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl">
               Rede Credenciada
             </h1>
-            <p className="text-lg font-light">
+            <p className="text-lg font-light md:text-xl">
               Aqui reunimos projetos incríveis de nossas empresas parceiras para
               que você conheça mais a fundo o que a sua casa inteligente pode
               fazer por você

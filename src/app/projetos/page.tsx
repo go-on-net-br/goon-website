@@ -49,11 +49,11 @@ export default async function Projetos() {
           bgImage="/blueprint.webp"
           boxStyles="w-screen pb-20 md:pb-0 md:h-[550px] after:!opacity-[36%]"
         >
-          <div className="mx-2 mt-20 text-center text-white md:mx-auto md:w-[700px]">
-            <h1 className="mb-4 text-4xl font-bold md:text-6xl">
+          <div className="mx-2 mt-8 text-center text-white md:mx-auto md:mt-20 md:w-[700px]">
+            <h1 className="mb-4 text-4xl font-bold md:text-5xl">
               Projetos Referência
             </h1>
-            <p className="text-lg font-light">
+            <p className="text-lg font-light md:text-xl">
               Aqui reunimos projetos incríveis de nossas empresas parceiras para
               que você conheça mais a fundo o que a sua casa inteligente pode
               fazer por você

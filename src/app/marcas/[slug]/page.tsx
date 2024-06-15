@@ -75,7 +75,7 @@ export default async function BrandPage({
                   contentStyles="object-contain h-full w-full"
                 />
               </div>
-              <div className="flex w-full flex-col px-8 md:w-[540px]">
+              <div className="flex w-full flex-col px-8 py-8 md:w-[540px] md:py-0">
                 {i === 0 && (
                   <header className="relative mx-auto mb-12 w-fit">
                     <h1 className="absolute bottom-0 left-0 right-0 top-0 z-0 block">
