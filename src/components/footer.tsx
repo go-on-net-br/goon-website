@@ -6,7 +6,7 @@ import SocialNetworks from "./socialNetworks";
 export default function Footer() {
   return (
     <footer className="footer footer-center bg-primary p-12 text-primary-content">
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         <aside>
           <Link href="/">
             <Image
@@ -16,7 +16,7 @@ export default function Footer() {
             />
           </Link>
         </aside>
-        <div className="mx-4 h-20 w-1 rounded-full bg-white" />
+        <div className="mx-4 my-4 h-0.5 w-full rounded-full bg-white md:h-20 md:w-1" />
         <nav>
           <p className="mb-3 text-left font-bold text-white">
             Nos encontre aqui
