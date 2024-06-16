@@ -32,16 +32,20 @@ export default function ProductsDialog({
   const inactiveTabStyles =
     "text-xl font-light text-goOnGrey border-b-4 border-white hover:cursor-pointer";
 
+  function Carousel() {
+    return <ProductsCarousel media={product.attributes.FotoseVideos.data} />;
+  }
+
   return (
     <>
       <div className=" modal-box flex min-w-fit max-w-3xl flex-row gap-4">
-        {/* Carrossel */}
-        <div className="card flex w-96 min-w-96 flex-col justify-center bg-white">
-          <ProductsCarousel media={product.attributes.FotoseVideos.data} />
+        {/* Carrossel Dialog (Desktop) */}
+        <div className="card hidden w-96 min-w-96 flex-col justify-center bg-white md:flex">
+          <Carousel />
         </div>
 
-        {/* Informações */}
-        <div className="flex w-96 flex-col items-center  gap-6">
+        {/* Cabeçário */}
+        <div className="flex w-full flex-col items-center gap-6 md:w-96">
           <div className="flex w-full flex-col items-start">
             <h2 className="w-full text-4xl font-bold text-primary">
               {product.attributes.Titulo}
@@ -59,6 +63,14 @@ export default function ProductsDialog({
               </p>
             </div>
           </div>
+
+          {/* Carrossel Botom Sheet (Mobile) */}
+          <div className="flex max-w-full md:hidden">
+            <Carousel />
+          </div>
+
+          {/* Informações */}
+
           <div className="flex flex-col gap-4">
             <div className="flex flex-row justify-around">
               <h3
@@ -101,6 +113,7 @@ export default function ProductsDialog({
           >
             Veja essa marca em projetos
           </a>
+          <div className="h-0 w-4 pb-2"></div>
         </div>
       </div>
     </>

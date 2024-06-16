@@ -17,10 +17,10 @@ export default function ProductsCarousel({ media }: { media: Media[] }) {
     <>
       <div className="carousel flex h-full max-h-full w-full max-w-full flex-col justify-center">
         <ApiImage
-          contentStyles="object-contain py-12 max-h-full max-w-full"
+          contentStyles="object-contain py-12 max-h-[50vh] md:max-h-full max-w-full"
           image={media[page]}
         />
-        <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 transform items-center gap-2 align-text-bottom text-xl text-primary">
+        <div className="flex items-center justify-center gap-2 align-text-bottom text-xl text-primary md:absolute md:bottom-2 md:left-1/2 md:-translate-x-1/2 md:transform">
           <button onClick={() => changePage(page - 1)}>
             <Image
               className=" h-4 w-4 object-contain"

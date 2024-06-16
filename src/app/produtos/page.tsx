@@ -17,11 +17,11 @@ export default async function Page() {
       <section>
         <BlueBgBox
           bgImage="/blueprint.webp"
-          boxStyles="w-screen h-[300px] after:!opacity-[36%]"
+          boxStyles="w-screen h-[260px] md:h-[300px] after:!opacity-[36%]"
         >
-          <div className="mx-auto mt-20 text-center text-white md:w-[700px]">
-            <h1 className="mb-4 text-4xl font-bold md:text-6xl">Produtos</h1>
-            <p className="text-lg font-light">
+          <div className="mx-auto mt-8 text-center text-white md:mt-20 md:w-[700px]">
+            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Produtos</h1>
+            <p className="text-lg font-light md:text-xl">
               Oferecemos uma gama completa de produtos, das melhores marcas que
               irão elevar a experiência do seu projeto
             </p>

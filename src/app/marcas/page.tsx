@@ -5,9 +5,8 @@ import { Marca } from "@/types/marca";
 import { Metadata } from "next";
 import Link from "next/link";
 
-
 export const metadata: Metadata = {
-  title:'Marcas',
+  title: "Marcas",
 };
 
 export default async function Marcas() {
@@ -15,12 +14,12 @@ export default async function Marcas() {
   return (
     <div className="container mx-auto my-10 max-w-screen-xl px-8 md:my-20">
       <header className="mx-auto my-10 max-w-[890px] text-center text-primary md:my-20">
-        <h1 className="w-full text-2xl font-bold uppercase md:w-fit md:text-5xl ">
+        <h1 className="w-full text-4xl font-bold uppercase md:w-fit md:text-5xl ">
           Distribuidores exclusivos{" "}
           <span className="font-normal normal-case">das</span>
           <br /> melhores marcas do mercado
         </h1>
-        <p className="mt-6 font-light md:text-xl">
+        <p className="mt-6 text-xl font-light">
           Rodamos o mundo buscando as melhores empresas, com credibilidade,
           qualidade e produtos inovadores para tornar a casa dos brasileiros
           ainda mais inteligente e funcional.

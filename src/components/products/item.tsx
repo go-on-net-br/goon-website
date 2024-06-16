@@ -35,7 +35,7 @@ export default function ProductsItem({
           {product?.attributes?.marca?.data?.attributes?.Marca}
         </p>
         <a
-          className="mt-2 text-sm text-primary underline"
+          className="mt-2 cursor-pointer text-sm text-primary underline"
           onClick={() => handleClick("open", product.id)}
         >
           Mais informações

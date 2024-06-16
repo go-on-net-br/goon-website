@@ -8,9 +8,10 @@ export default function TermsTabs({ apiData }: { apiData: TermoEAviso }) {
 
   const { Avisos, TermoEGarantia } = apiData.attributes;
 
-  const selectedTabStyles = "font-semibold border-b-4 border-primary w-fit";
+  const selectedTabStyles =
+    "border-b-4 text-center w-fit font-semibold border-primary";
   const unselectedTabStyles =
-    "font-light border-b-4 border-white hover:cursor-pointerw-fit";
+    "border-b-4 text-center w-fit font-light border-white cursor-pointer";
 
   return (
     <>
