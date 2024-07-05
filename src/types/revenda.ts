@@ -15,5 +15,7 @@ export interface Revenda {
     marcas?: { data: Marca[] };
     projetos: { data: Projeto[] };
     Coordenadas?: { lat: string; lng: string };
+    credenciamentoFim?: string;
+    credenciamentoInicio?: string;
   };
 }

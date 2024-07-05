@@ -43,14 +43,20 @@ function sortPointsByDistance(
   coords: number[],
 ): Revenda[] {
   return resellerData.sort((a, b) => {
+    const aLat = a?.attributes?.Coordenadas?.lat;
+    const aLng = a?.attributes?.Coordenadas?.lng;
+
+    const bLat = b?.attributes?.Coordenadas?.lat;
+    const bLng = b?.attributes?.Coordenadas?.lng;
+
     const pointsA = [
-      parseFloat(a?.attributes?.Coordenadas?.lat ?? ""),
-      parseFloat(a?.attributes?.Coordenadas?.lng ?? ""),
-    ]
+      parseFloat(!aLat || aLat === "null" ? "0.0" : aLat),
+      parseFloat(!aLng || aLng === "null" ? "0.0" : aLng),
+    ];
     const pointsB = [
-        parseFloat(b?.attributes?.Coordenadas?.lat ?? ""),
-        parseFloat(b?.attributes?.Coordenadas?.lng ?? ""),
-      ]
+      parseFloat(!bLat || bLat === "null" ? "0.0" : bLat),
+      parseFloat(!bLng || bLng === "null" ? "0.0" : bLng),
+    ];
     const distanceA = calculateDistance(coords, pointsA);
     const distanceB = calculateDistance(coords, pointsB);
 

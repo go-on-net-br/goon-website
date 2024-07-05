@@ -25,6 +25,12 @@ export default function NetworkMap({
   const brandSearched = searchParams.get("marca") ?? "";
 
   const resellersWithBrands = resellerData.filter((reseller) => {
+    if (
+      reseller?.attributes.marcas?.data?.length === 0 &&
+      brandSearched === ""
+    ) {
+      return true;
+    }
     return reseller?.attributes.marcas?.data?.some(
       (marca) =>
         brandSearched === "" || brandSearched === marca?.attributes?.Marca,

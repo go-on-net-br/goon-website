@@ -26,7 +26,14 @@ export default function StoreInfo({
     ShowroomAutomacao,
     Email,
     Coordenadas,
+    credenciamentoInicio,
+    credenciamentoFim,
   } = reseller?.attributes ?? {};
+
+  const credStartSplit = credenciamentoInicio
+    ? credenciamentoInicio?.split("-")
+    : "";
+  const credEndSplit = credenciamentoFim ? credenciamentoFim?.split("-") : "";
 
   const { lat = "", lng = "" } = Coordenadas ?? {};
 
@@ -38,7 +45,7 @@ export default function StoreInfo({
       className="cursor-pointer p-6 transition-all hover:bg-gray-200"
     >
       <h4 className="text-xl font-bold">{Titulo}</h4>
-      <p className="text-sm italic mb-3">
+      <p className="mb-3 text-sm italic">
         {calculateDistance(userMarkerCoords, resellerCoords)?.toFixed(2)}km de
         distância
       </p>
@@ -49,21 +56,21 @@ export default function StoreInfo({
             <Image
               src={showRoomAudio}
               alt="Medalha dizendo 'Revenda autorizada: show Room de Áudio'"
-              className="object-contain w-24 h-24"
+              className="h-24 w-24 object-contain"
             />
           )}
           {ShowroomAutomacao && (
             <Image
               src={showRoomAutomacao}
               alt="Medalha dizendo 'Revenda autorizada: show Room de Automação'"
-              className="object-contain w-24 h-24"
+              className="h-24 w-24 object-contain"
             />
           )}
           {ShowroomAudio && ShowroomAutomacao && (
             <Image
               src={showRoomAudioAutomacao}
               alt="Medalha dizendo 'Revenda autorizada: show Room de Áudio e Automação'"
-              className="object-contain w-24 h-24"
+              className="h-24 w-24 object-contain"
             />
           )}
         </div>
@@ -75,6 +82,14 @@ export default function StoreInfo({
           <Link className="w-fit underline" href={addHttpsIfNotPresent(Site)}>
             {Site}
           </Link>
+        )}
+        {credenciamentoInicio && credenciamentoFim && (
+          <p className="text-sm font-bold mt-4">
+            Revenda credenciada CONTROL4 em{" "}
+            {`${credStartSplit[2]}/${credStartSplit[1]}/${credStartSplit[0]}`}{" "}
+            com certificação válida até{" "}
+            {`${credEndSplit[2]}/${credEndSplit[1]}/${credEndSplit[0]}`}
+          </p>
         )}
       </div>
     </div>
