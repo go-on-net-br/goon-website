@@ -33,8 +33,14 @@ export default function ProjectListing({ projects }: { projects: Projeto[] }) {
   });
 
   const possibleTypes = Array.from(
-    new Set(projects.map((proj) => proj.attributes.Tipo)),
+    new Set(
+      projects.map((proj) => {
+        const lowerCase = proj.attributes.Tipo.toLowerCase();
+        return lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
+      }),
+    ),
   );
+
   const possibleBrands = Array.from(
     new Set(
       projects
@@ -46,6 +52,22 @@ export default function ProjectListing({ projects }: { projects: Projeto[] }) {
         .flat(),
     ),
   );
+
+  function displayCase(str: string) {
+    if (!str) {
+      return "";
+    }
+
+    return str.length === 1
+      ? str.toLowerCase()
+      : str
+          .toLowerCase()
+          .split(" ")
+          .map(function (word) {
+            return word.charAt(0).toUpperCase().concat(word.substr(1));
+          })
+          .join(" ");
+  }
 
   return (
     <>
