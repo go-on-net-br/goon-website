@@ -36,7 +36,12 @@ export default async function Marcas() {
               key={Marca}
             >
               <figure>
-                <ApiImage image={Capa.data} />
+                <div className="flex h-72 w-full items-center justify-center overflow-hidden">
+                  <ApiImage
+                    image={Capa.data}
+                    contentStyles="min-w-full min-h-full object-cover"
+                  />
+                </div>
               </figure>
               <div className="card-body">
                 <div className="relative mx-auto w-fit">

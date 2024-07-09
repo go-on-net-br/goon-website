@@ -17,10 +17,11 @@ export const metadata: Metadata = {
 };
 
 export default async function Projetos() {
-  const projectsData = await fetchDataFromApi<Projeto[]>(
-    "projetos",
-    "populate=*",
-  );
+  const projectsData = (
+    await fetchDataFromApi<Projeto[]>("projetos", "populate=*")
+  ).sort((a, b) => {
+    return a.attributes.createdAt > b.attributes.createdAt ? -1 : 1;
+  });
 
   const cards = [
     {
@@ -59,7 +60,7 @@ export default async function Projetos() {
               fazer por você
             </p>
           </div>
-          <div className="container left-0 right-0 mx-auto flex w-full max-w-screen-xl flex-col items-center justify-evenly gap-6 pt-8 text-center text-white md:absolute md:flex-row md:items-start md:pt-32">
+          <div className="container left-0 right-0 mx-auto flex w-full max-w-screen-xl flex-col items-center justify-evenly gap-6 pt-8 text-center text-white md:absolute md:flex-row md:items-start md:pt-10">
             {cards.map((card) => {
               return (
                 <div
@@ -67,10 +68,14 @@ export default async function Projetos() {
                   key={card.title}
                 >
                   <figure className="px-8 pt-8">
-                    <Image src={card.src} alt={card.title} />
+                    <Image
+                      src={card.src}
+                      alt={card.title}
+                      className="max-w-20"
+                    />
                   </figure>
                   <div className="card-body">
-                    <h2 className="card-title mx-auto mb-2 text-2xl font-medium leading-6">
+                    <h2 className="card-title mx-auto mb-2 text-xl font-medium leading-6">
                       {card.title}
                     </h2>
                     <p>{card.description}</p>
@@ -81,7 +86,7 @@ export default async function Projetos() {
           </div>
         </BlueBgBox>
       </section>
-      <section className="container relative z-[1] mx-auto -mt-10 max-w-screen-xl rounded-3xl bg-white px-9 py-12 md:py-64">
+      <section className="container relative z-[1] mx-auto -mt-10 max-w-screen-xl rounded-3xl bg-white px-9 py-12 md:py-36">
         <Suspense>
           <ProjectListing projects={projectsData} />
         </Suspense>

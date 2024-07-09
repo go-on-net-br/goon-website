@@ -21,10 +21,12 @@ export default function ProjectCarrousel({
       }
     >
       <div className="flex flex-col items-center gap-4 md:w-[600px]">
-        <ApiImage
-          image={media.data[currPic]}
-          contentStyles="object-contain h-[300px] md:h-[600px] w-full"
-        />
+        <div className="flex h-[300px] w-full items-center justify-center overflow-hidden md:h-[600px]">
+          <ApiImage
+            image={media.data[currPic]}
+            contentStyles=" min-h-full min-w-full object-cover"
+          />
+        </div>
         <div className="flex flex-wrap gap-1 md:gap-4">
           {media.data.map((pic, i) => {
             return (
@@ -37,10 +39,9 @@ export default function ProjectCarrousel({
                 }
                 onClick={() => setCurrPic(i)}
               >
-                <ApiImage
-                  image={pic}
-                  contentStyles="object-cover w-14 h-14 md:w-[104px] md:h-[104px]"
-                />
+                <div className="h-16 w-16 overflow-hidden">
+                  <ApiImage image={pic} contentStyles="min-w-full min-h-full" />
+                </div>
               </div>
             );
           })}
