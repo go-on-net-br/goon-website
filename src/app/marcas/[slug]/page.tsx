@@ -69,10 +69,10 @@ export default async function BrandPage({
                 "my-10 flex flex-col items-center justify-between md:my-20 md:max-h-[800px] md:flex-row"
               }
             >
-              <div className="flex h-full w-full flex-col items-center gap-4 md:w-[600px]">
+              <div className="flex h-[450px] w-full flex-col items-center justify-center gap-4 overflow-hidden md:w-[600px]">
                 <ApiImage
                   image={Imagem.data}
-                  contentStyles="object-contain h-full w-full"
+                  contentStyles="object-cover min-h-full min-w-full"
                 />
               </div>
               <div className="flex w-full flex-col px-8 py-8 md:w-[540px] md:py-0">
