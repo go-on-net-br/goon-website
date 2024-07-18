@@ -9,8 +9,8 @@ export interface Produto {
     marca?: { data: Marca };
     categoria?: { data: CategoriasDeProduto };
     FotoseVideos: { data: Media[] };
-    Caracteristicas?: any;
-    Especificacoes?: any;
+    Caracteristicas?: string;
+    Especificacoes?: string;
     Codigo: number;
   };
 }

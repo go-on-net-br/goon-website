@@ -10,6 +10,7 @@ export default function ProductsDialog({
 }: {
   readonly product: Produto;
 }) {
+
   const [selectedTab, setSelectedTab] = useState("chars");
   const [tabContent, setTabContent] = useState(
     product.attributes.Caracteristicas,
@@ -54,12 +55,16 @@ export default function ProductsDialog({
               <p>
                 Empresa:{" "}
                 <span className="font-semibold not-italic">
-                  {product.attributes.marca?.data.attributes.Marca}
+                  {product?.attributes?.marca?.data?.attributes?.Marca}
                 </span>{" "}
-                <span className="not-italic">|</span> Categoria:{" "}
-                <span className="font-semibold not-italic">
-                  {product.attributes.categoria?.data.attributes.Titulo}
-                </span>
+                {product?.attributes?.categoria?.data?.attributes?.Titulo && (
+                  <>
+                    <span className="not-italic">|</span> Categoria:{" "}
+                    <span className="font-semibold not-italic">
+                      {product?.attributes?.categoria?.data?.attributes?.Titulo}
+                    </span>
+                  </>
+                )}
               </p>
             </div>
           </div>
@@ -73,28 +78,32 @@ export default function ProductsDialog({
 
           <div className="flex flex-col gap-4">
             <div className="flex flex-row justify-around">
-              <h3
-                onClick={() => changeTab("chars")}
-                className={
-                  selectedTab === "chars"
-                    ? selectedTabStyles
-                    : inactiveTabStyles
-                }
-              >
-                Características
-              </h3>
-              <h3
-                onClick={() => changeTab("specs")}
-                className={
-                  selectedTab === "specs"
-                    ? selectedTabStyles
-                    : inactiveTabStyles
-                }
-              >
-                Especificações
-              </h3>
+              {product?.attributes?.Caracteristicas && (
+                <h3
+                  onClick={() => changeTab("chars")}
+                  className={
+                    selectedTab === "chars"
+                      ? selectedTabStyles
+                      : inactiveTabStyles
+                  }
+                >
+                  Características
+                </h3>
+              )}
+              {product?.attributes?.Especificacoes && (
+                <h3
+                  onClick={() => changeTab("specs")}
+                  className={
+                    selectedTab === "specs"
+                      ? selectedTabStyles
+                      : inactiveTabStyles
+                  }
+                >
+                  Especificações
+                </h3>
+              )}
             </div>
-            <BlockRendererClient content={tabContent}></BlockRendererClient>
+            <p className="whitespace-pre-line">{tabContent}</p>
           </div>
           <a
             href="/rede-credenciada"
