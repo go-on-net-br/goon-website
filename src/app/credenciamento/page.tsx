@@ -15,15 +15,14 @@ import { Depoimento } from "@/types/depoimento";
 import Testimonies from "@/components/accreditation/testimonies";
 import { Metadata } from "next";
 
-
 export const metadata: Metadata = {
-  title:'Credenciamento',
+  title: "Credenciamento",
 };
 
 export default async function Credenciamento() {
   const badges = [
     { src: winnerBadgeIcon, text: "Empresas Líderes\nno segmento" },
-    { src: lockIcon, text: "Segurança\npara os projetos" },
+    { src: lockIcon, text: "Importação\nSegura e\nLegalizada" },
     { src: headsetIcon, text: "Suporte\nEspecializado" },
     { src: classroomIcon, text: "Treinamentos\nExclusivos" },
     { src: moneyIcon, text: "Descontos e\ncampanhas de\nbenefícios" },
@@ -48,14 +47,12 @@ export default async function Credenciamento() {
                 </span>
               </h1>
               <p className="text-justify text-lg font-light">
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-                The point of using It is a long established fact that a reader
-                will be distracted by the readable content of a page when
-                looking at its layout. The point of using Lorem Ipsum is that it
-                has a more-or-less normal distribution of letters, as opposed to
-                using &apos;Content here, content here&apos;, making it look
-                like readable English.
+                Temos o orgulho de ser uma das principais empresas de
+                distribuição de produtos de áudio, vídeo e automação do Brasil,
+                esse título não é atoa, estamos a anos contruindo um bom
+                relacionamento com revendas e fornecedores em prol de oferecer
+                um serviço seguro, transparente e com as melhores marcas do
+                mercado mundial.
               </p>
             </header>
           </section>

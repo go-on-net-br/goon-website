@@ -28,19 +28,19 @@ export default async function Projetos() {
       src: WorkerSvg,
       title: "Personalização",
       description:
-        "Aqui reunimos projetos incríveis de nossas empresas parceiras para que você conheça mais a fundo o que a sua casa inteligente pode fazer por você",
+        "Através de nossas empresas parceiras você desenvolve um projeto exclusivo para o seu ambiente, pensado para facilitar o dia a dia da sua família e proporcionar a qualidade de vida e paz de espírito que você merece. ",
     },
     {
       src: IotSvg,
       title: "Integração",
       description:
-        "Aqui reunimos projetos incríveis de nossas empresas parceiras para que você conheça mais a fundo o que a sua casa inteligente pode fazer por você",
+        "A integração da automação residencial com os sistemas de áudio e vídeo proporciona uma experiência completa de conforto, praticidade e entretenimento para sua casa. Nossos revendedores estão prontos para tirar sua ideia do papel e tornar seu ambiente completamente inteligente e funcional.",
     },
     {
       src: BlueprintSvg,
       title: "Design e Acabamento",
       description:
-        "Aqui reunimos projetos incríveis de nossas empresas parceiras para que você conheça mais a fundo o que a sua casa inteligente pode fazer por você",
+        "Todos os produtos possuem um design sofisticado que se integram perfeitamente ao seu projeto arquitetônico, através de nossas empresas parceiras você recebe um ambiente rico e com acabamentos de alta qualidade.",
     },
   ];
   return (
@@ -56,15 +56,15 @@ export default async function Projetos() {
             </h1>
             <p className="text-lg font-light md:text-xl">
               Aqui reunimos projetos incríveis de nossas empresas parceiras para
-              que você conheça mais a fundo o que a sua casa inteligente pode
-              fazer por você
+              que você conheça mais a fundo e se inspirar, conhecer o que a sua
+              casa inteligente pode fazer por você.
             </p>
           </div>
           <div className="container left-0 right-0 mx-auto flex w-full max-w-screen-xl flex-col items-center justify-evenly gap-6 pt-8 text-center text-white md:absolute md:flex-row md:items-start md:pt-10">
             {cards.map((card) => {
               return (
                 <div
-                  className="card w-80 rounded-3xl bg-primary shadow-xl"
+                  className="card w-96 md:h-[432px] rounded-3xl bg-primary shadow-xl"
                   key={card.title}
                 >
                   <figure className="px-8 pt-8">
@@ -86,7 +86,7 @@ export default async function Projetos() {
           </div>
         </BlueBgBox>
       </section>
-      <section className="container relative z-[1] mx-auto -mt-10 max-w-screen-xl rounded-3xl bg-white px-9 py-12 md:py-36">
+      <section className="container relative z-[1] mx-auto mt-12 max-w-screen-xl rounded-3xl bg-white px-9 py-12 md:py-36">
         <Suspense>
           <ProjectListing projects={projectsData} />
         </Suspense>

@@ -22,9 +22,7 @@ export default async function Page() {
               Termos & Garantia
             </h1>
             <p className="p-4 font-light md:p-0 md:text-lg">
-              Aqui reunimos projetos incríveis de nossas empresas parceiras para
-              que você conheça mais a fundo o que a sua casa inteligente pode
-              fazer por você
+            Painel de avisos e atualizações de Termos e Garantias
             </p>
           </div>
         </BlueBgBox>

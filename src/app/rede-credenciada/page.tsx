@@ -37,9 +37,8 @@ export default async function RedeCredenciada() {
               Rede Credenciada
             </h1>
             <p className="text-lg font-light md:text-xl">
-              Aqui reunimos projetos incríveis de nossas empresas parceiras para
-              que você conheça mais a fundo o que a sua casa inteligente pode
-              fazer por você
+              Encontre a revenda credenciada mais próxima de você e tenha um
+              projeto completamente personalizado para o seu ambiente.
             </p>
           </header>
         </BlueBgBox>
