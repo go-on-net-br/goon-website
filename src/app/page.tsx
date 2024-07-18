@@ -10,17 +10,24 @@ import HomeCards from "@/components/home/homeCards";
 import { Home } from "@/types/home";
 import Image from "next/image";
 import separator from "../../public/separator.svg";
-import HomeBlog from "@/components/home/homeBlog";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import InfiniteScroll from "@/components/infiniteScroll";
 import { Marca } from "@/types/marca";
+import { Projeto } from "@/types/projeto";
 import ApiImage from "@/components/ApiImage";
 import Link from "next/link";
 import universalSlugify from "@/helpers/universalSlugify";
+import HighlightedProjects from "@/components/home/highlightedProjects";
+import BlueBgBox from "@/components/blueBgBox";
 
 export default async function HomePage() {
   const homeData = await fetchDataFromApi<Home>("home");
   const brandsData = await fetchDataFromApi<Marca[]>("marcas");
+  const projectsData = (
+    await fetchDataFromApi<Projeto[]>("projetos", "populate=*")
+  ).sort((a, b) => {
+    return a.attributes.createdAt > b.attributes.createdAt ? -1 : 1;
+  });
   const { Carrossel } = homeData?.attributes ?? {};
 
   const badges = [
@@ -58,6 +65,23 @@ export default async function HomePage() {
       {/* <section className="mb-16">
         <HomeBlog />
       </section> */}
+      <BlueBgBox
+        bgImage="/manWithPhone.webp"
+        boxStyles="w-full h-[260px] md:h-[385px] after:!opacity-[36%] md:mb-56 overflow-visible mb-72"
+      >
+        <div className="mt-8 w-full px-4 text-center text-white md:mt-20">
+          <h1 className="mb-4 w-full text-3xl font-bold uppercase md:text-4xl">
+            Projetos em destaque
+          </h1>
+          <p className="font-light md:text-xl">
+            Reunimos os melhores projetos desenvolvidos por nossas empresas
+            parcaeiras para que você conheça um pouco mais sobre as diversas
+            possibilidades que um sistema de automação e sonorização pode te
+            oferecer
+          </p>
+        </div>
+        <HighlightedProjects projects={projectsData}></HighlightedProjects>
+      </BlueBgBox>
       <section>
         <Link href="marcas">
           <h2 className="mb-6 text-center text-3xl text-primary md:text-4xl">
