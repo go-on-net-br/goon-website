@@ -1,4 +1,4 @@
-import { DateAttributes, Media, RedesSociais } from "./common";
+import { DateAttributes, Media } from "./common";
 import { SecaoSobre } from "./components";
 import { Produto } from "./produto";
 import { Revenda } from "./revenda";
@@ -11,7 +11,10 @@ export interface Marca {
     Resumo?: string;
     Logotipo: { data: Media };
     Capa: { data: Media };
-    Redes: RedesSociais[];
+    Facebook: string;
+    Instagram: string;
+    LinkedIn: string;
+    Youtube: string;
     revendas?: { data: Revenda[] };
     produtos: { data: Produto[] };
   };

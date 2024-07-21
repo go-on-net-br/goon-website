@@ -6,6 +6,7 @@ import SocialIconMap from "@/components/socialNetworks/socialIconMap";
 import BlockRendererClient from "@/helpers/blockRendererClient";
 import Link from "next/link";
 import { Metadata, ResolvingMetadata } from "next";
+import { Rede, RedesSociais } from "@/types/common";
 
 export async function generateMetadata(
   { params }: { params: { slug: string } },
@@ -54,7 +55,15 @@ export default async function BrandPage({
     (brand) => universalSlugify(brand.attributes.Marca) === slug,
   )!;
 
-  const { Sobre, Logotipo, Redes, Marca } = thisBrand?.attributes;
+  const { Sobre, Logotipo, Marca, Facebook, Instagram, LinkedIn, Youtube } =
+    thisBrand?.attributes;
+
+  const Redes: RedesSociais[] = [
+    { Rede: Rede.Facebook, URL: Facebook },
+    { Rede: Rede.Instagram, URL: Instagram },
+    { Rede: Rede.LinkedIn, URL: LinkedIn },
+    { Rede: Rede.YouTube, URL: Youtube },
+  ];
   return (
     <div className="container mx-auto mb-20 max-w-screen-xl px-8">
       <section>
@@ -96,15 +105,17 @@ export default async function BrandPage({
                 {i === 0 && (
                   <div className="my-6 flex h-9 items-center justify-center gap-4 md:my-12">
                     {Redes.map((rede) => {
-                      return (
-                        <a key={rede?.Rede} href={rede?.URL} target="_blank">
-                          <SocialIconMap
-                            aria-label={"ícone da rede " + rede?.Rede}
-                            networkTitle={rede?.Rede}
-                            iconStyle="h-8 object-contain fill-primary w-8"
-                          />
-                        </a>
-                      );
+                      if (rede.URL) {
+                        return (
+                          <a key={rede?.Rede} href={rede?.URL} target="_blank">
+                            <SocialIconMap
+                              aria-label={"ícone da rede " + rede?.Rede}
+                              networkTitle={rede?.Rede}
+                              iconStyle="h-8 object-contain fill-primary w-8"
+                            />
+                          </a>
+                        );
+                      }
                     })}
                   </div>
                 )}
@@ -116,7 +127,7 @@ export default async function BrandPage({
                         (arr.length === 1 ? " " : " mt-12")
                       }
                     >
-                      Vejas os produtos
+                      Veja os produtos
                     </button>
                   </Link>
                 )}
