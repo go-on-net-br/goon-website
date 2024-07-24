@@ -7,7 +7,7 @@ export default function HighlightedProjectsItem({
   project: Projeto;
 }) {
   return (
-    <div className="card mb-8 w-[360px] bg-base-100 shadow-xl">
+    <div className="card mb-8 mx-6  bg-base-100 shadow-xl">
       <div className="flex flex-col items-center gap-4 p-4">
         <ApiImage
           image={project?.attributes?.media?.data[0]}

@@ -17,11 +17,11 @@ export default function Badge({
           <Image
             src={badge?.src}
             alt={badge?.text}
-            className="h-w-12 w-12 object-contain"
+            className="h-16 w-16 object-contain"
           />
           <p
             className={
-              "whitespace-pre text-center text-lg font-medium " +
+              "whitespace-pre text-center text-lg font-semibold " +
               (white ? "text-white" : "text-primary")
             }
           >

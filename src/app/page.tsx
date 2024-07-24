@@ -17,8 +17,8 @@ import { Projeto } from "@/types/projeto";
 import ApiImage from "@/components/ApiImage";
 import Link from "next/link";
 import universalSlugify from "@/helpers/universalSlugify";
-import HighlightedProjects from "@/components/home/highlightedProjects";
 import BlueBgBox from "@/components/blueBgBox";
+import ProjectsCarousel from "@/components/home/projectsCarousel";
 
 export default async function HomePage() {
   const homeData = await fetchDataFromApi<Home>("home");
@@ -40,20 +40,17 @@ export default async function HomePage() {
   ];
 
   return (
-    <div className="container mx-auto max-w-screen-xl">
-      <section className="mt-12">
+    <div>
+      <section className="container mx-auto mt-12 max-w-screen-xl">
         <Carousel carousel={Carrossel} />
       </section>
-      <section className="mt-16">
-        <h2 className="mx-auto block w-fit text-center text-3xl text-primary">
-          Soluções para <u className="font-bold">todos os projetos</u>
+      <section className="container mx-auto mt-16 max-w-screen-xl">
+        <h2 className=" mx-auto block w-fit text-center text-3xl font-bold text-primary">
+          Soluções para todos os projetos
         </h2>
         <Badge badges={badges} />
-        <p className="mx-auto mt-16 block text-center font-light text-primary md:w-fit ">
-          E muito mais...
-        </p>
       </section>
-      <section className="mt-16">
+      <section className="container mx-auto mt-16 max-w-screen-xl">
         <HomeCards />
       </section>
       <Image
@@ -62,33 +59,38 @@ export default async function HomePage() {
         aria-label="separador"
         className="mx-auto my-28"
       />
-      {/* <section className="mb-16">
-        <HomeBlog />
-      </section> */}
-      <BlueBgBox
-        bgImage="/manWithPhone.webp"
-        boxStyles="w-full h-[260px] md:h-[385px] after:!opacity-[36%] md:mb-56 overflow-visible mb-72"
-      >
-        <div className="mt-8 w-full px-4 text-center text-white md:mt-20">
-          <h1 className="mb-4 w-full text-3xl font-bold uppercase md:text-4xl">
-            Projetos em destaque
-          </h1>
-          <p className="font-light md:text-xl">
-            Reunimos os melhores projetos desenvolvidos por nossas empresas
-            parcaeiras para que você conheça um pouco mais sobre as diversas
-            possibilidades que um sistema de automação e sonorização pode te
-            oferecer
-          </p>
-        </div>
-        <HighlightedProjects projects={projectsData}></HighlightedProjects>
-      </BlueBgBox>
       <section>
+        <BlueBgBox
+          bgImage="/manWithPhone.webp"
+          boxStyles="w-screen h-[575px] md:h-[495px] after:!opacity-[36%] md:mb-56 overflow-visible mb-72"
+        >
+          <div className="container mx-auto max-w-screen-xl">
+            <div className="mb-8 mt-8 w-full px-4 text-center text-white md:mb-24 md:mt-20">
+              <h1 className="mb-4 w-full text-3xl font-semibold uppercase md:text-6xl">
+                Projetos em destaque
+              </h1>
+              <p className="mx-auto font-light md:text-xl">
+                <span className="font-medium">
+                  Explore um universo de possibilidades e inspire-se com os
+                  projetos de automação
+                  <br /> e sonorização que nossas empresas parceiras criaram!
+                </span>
+                <br />
+                <br />
+                Reunimos os melhores projetos desenvolvidos por nossas empresas
+                parcaeiras para que você conheça um pouco mais sobre as diversas
+                possibilidades que um sistema de automação e sonorização pode te
+                oferecer
+              </p>
+            </div>
+            <ProjectsCarousel projectsData={projectsData} />
+          </div>
+        </BlueBgBox>
+      </section>
+      <section className="container mx-auto mt-80 max-w-screen-xl">
         <Link href="marcas">
           <h2 className="mb-6 text-center text-3xl text-primary md:text-4xl">
-            Marcas{" "}
-            <b className="underline decoration-4 underline-offset-8">
-              Exclusivas Go On
-            </b>
+            Marcas <b className="font-bold">Exclusivas</b>
           </h2>
         </Link>
         <InfiniteScroll>
