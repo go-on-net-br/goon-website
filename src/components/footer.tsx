@@ -27,7 +27,7 @@ export default function Footer() {
         </nav>
       </div>
       <p className="tracking-wider text-white">
-        (11) 3567-7777 | contato@goon.com.br
+        (11) 4328-8808 | contato@goon.net.br
       </p>
     </footer>
   );
