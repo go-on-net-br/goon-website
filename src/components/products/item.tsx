@@ -18,7 +18,10 @@ export default function ProductsItem({
 
   return (
     <>
-      <div className="flex max-w-full flex-col items-center justify-end">
+      <div
+        className="flex max-w-full cursor-pointer flex-col items-center justify-end"
+        onClick={() => handleClick("open", product.id)}
+      >
         {productImage !== undefined && (
           <div className="flex h-80 w-96 max-w-full flex-col items-center justify-end px-2 md:px-0">
             <ApiImage
@@ -34,12 +37,7 @@ export default function ProductsItem({
           #{product?.attributes?.Codigo} |{" "}
           {product?.attributes?.marca?.data?.attributes?.Marca}
         </p>
-        <a
-          className="mt-2 cursor-pointer text-sm text-primary underline"
-          onClick={() => handleClick("open", product.id)}
-        >
-          Mais informações
-        </a>
+        <a className="mt-2text-sm text-primary underline">Mais informações</a>
       </div>
 
       {/* Dialog */}

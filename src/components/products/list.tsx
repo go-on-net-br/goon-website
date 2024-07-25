@@ -110,7 +110,7 @@ export default function ProductsList({
 
   return (
     <>
-      <div className="container flex flex-col items-center rounded-3xl bg-[#F5F5F5]">
+      <div className="container flex flex-col items-center rounded-3xl bg-white">
         <div className="flex w-full flex-col items-center gap-4 py-8">
           <p className="text-primary">Filtrar por:</p>
           <div className="flex w-full flex-col items-center justify-center gap-2 md:w-auto md:flex-row">

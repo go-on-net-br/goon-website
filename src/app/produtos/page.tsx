@@ -14,9 +14,9 @@ export default async function Page() {
   const productsFromApi = await fetchDataFromApi<Produto[]>("produtos");
   return (
     <>
-      <section>
+      <section className="bg-white">
         <BlueBgBox
-          bgImage="/blueprint.webp"
+          bgImage="/products.webp"
           boxStyles="w-screen h-[260px] md:h-[300px] after:!opacity-[36%]"
         >
           <div className="mx-auto mt-8 text-center text-white md:mt-20 md:w-[700px]">
