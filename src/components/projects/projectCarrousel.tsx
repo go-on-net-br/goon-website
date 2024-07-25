@@ -13,6 +13,7 @@ export default function ProjectCarrousel({
 }) {
   const { Sobre, Titulo, media, revenda } = project.attributes;
   const [currPic, setCurrPic] = useState(0);
+  const resalerLink = revenda?.data?.attributes?.Site;
   return (
     <div
       className={
@@ -50,9 +51,22 @@ export default function ProjectCarrousel({
       <div className="w-full md:w-[540px]">
         <header className="mb-6 text-primary">
           <h2 className="mb-3 text-2xl font-bold md:text-5xl">{Titulo}</h2>
-          <p className="text-2xl font-normal uppercase">
-            By {revenda?.data?.attributes?.Titulo}
-          </p>
+          {resalerLink && (
+            <a className="text-2xl font-normal" href={resalerLink}>
+              by{" "}
+              <span className="uppercase underline">
+                {revenda?.data?.attributes?.Titulo}
+              </span>
+            </a>
+          )}
+          {revenda?.data?.attributes?.Titulo && !resalerLink && (
+            <p className="text-2xl font-normal">
+              by{" "}
+              <span className="uppercase">
+                {revenda?.data?.attributes?.Titulo}
+              </span>
+            </p>
+          )}
         </header>
         <p className="text-black md:text-lg">{Sobre}</p>
       </div>
