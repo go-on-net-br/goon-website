@@ -30,7 +30,7 @@ export default function Topbar({
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="navbar w-full bg-primary">
+        <div className="navbar h-24 w-full bg-primary px-4">
           <div className="flex-none lg:hidden">
             <label
               htmlFor="my-drawer"
