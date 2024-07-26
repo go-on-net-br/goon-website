@@ -52,7 +52,11 @@ export default function ProjectCarrousel({
         <header className="mb-6 text-primary">
           <h2 className="mb-3 text-2xl font-bold md:text-5xl">{Titulo}</h2>
           {resalerLink && (
-            <a className="text-2xl font-normal" href={resalerLink}>
+            <a
+              className="text-2xl font-normal"
+              href={resalerLink}
+              target="_blank"
+            >
               by{" "}
               <span className="uppercase underline">
                 {revenda?.data?.attributes?.Titulo}

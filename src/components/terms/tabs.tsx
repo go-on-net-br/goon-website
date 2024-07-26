@@ -55,8 +55,8 @@ export default function TermsTabs({ apiData }: { apiData: TermoEAviso }) {
             </div>
           </div>
         )}
-        <a href="tel:(11)3567-7777" className="btn btn-primary btn-lg w-full">
-          SAC (11) 3567-777
+        <a href="tel:(11)4328-8808" className="btn btn-primary btn-lg w-full">
+          SAC (11) 4328-8808
         </a>
       </div>
     </>
