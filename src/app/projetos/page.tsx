@@ -86,7 +86,7 @@ export default async function Projetos() {
           </div>
         </BlueBgBox>
       </section>
-      <section className="container relative z-[1] mx-auto mt-12 max-w-screen-xl rounded-3xl bg-white px-9 py-12 md:py-36">
+      <section className="container relative z-[1] mx-auto max-w-screen-xl rounded-3xl bg-white px-9 py-12 md:-mt-12 md:py-36 md:pt-48">
         <Suspense>
           <ProjectListing projects={projectsData} />
         </Suspense>
