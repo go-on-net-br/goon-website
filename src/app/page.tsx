@@ -44,16 +44,16 @@ export default async function HomePage() {
     <>
       <EmailPopUp />
       <div>
-        <section className="container mx-auto mt-12 max-w-screen-xl">
+        <section className="container mx-auto mt-4 max-w-screen-xl md:mt-12">
           <Carousel carousel={Carrossel} />
         </section>
-        <section className="container mx-auto mt-16 max-w-screen-xl">
-          <h2 className=" mx-auto block w-fit text-center text-3xl font-bold text-primary">
-            Soluções para todos os projetos
+        <section className="container mx-auto mt-16 max-w-screen-xl px-4 md:px-0">
+          <h2 className="  block w-fit text-center text-3xl font-bold text-primary md:mx-auto">
+            Soluções para todos os seus projetos
           </h2>
           <Badge badges={badges} />
         </section>
-        <section className="container mx-auto mt-16 max-w-screen-xl">
+        <section className="container mx-auto mt-16 max-w-screen-xl px-4 md:px-0">
           <HomeCards />
         </section>
         <Image
@@ -65,25 +65,27 @@ export default async function HomePage() {
         <section>
           <BlueBgBox
             bgImage="/manWithPhone.webp"
-            boxStyles="w-screen h-[575px] md:h-[495px] after:!opacity-[36%] md:mb-56 overflow-visible mb-72"
+            boxStyles="w-screen h-[400px] md:h-[495px] after:!opacity-[20%] md:mb-56 overflow-visible mb-72"
           >
             <div className="container mx-auto max-w-screen-xl">
               <div className="mb-8 mt-8 w-full px-4 text-center text-white md:mb-24 md:mt-20">
-                <h1 className="mb-4 w-full text-3xl font-semibold uppercase md:text-6xl">
+                <h1 className="mb-4 w-full text-2xl font-bold uppercase md:text-6xl md:font-semibold">
                   Projetos em destaque
                 </h1>
-                <p className="mx-auto font-light md:text-xl">
+                <p className="mx-auto text-xs font-light md:text-xl">
                   <span className="font-medium">
                     Explore um universo de possibilidades e inspire-se com os
                     projetos de automação
-                    <br /> e sonorização que nossas empresas parceiras criaram!
+                    <br className="hidden md:block" /> e sonorização que nossas
+                    empresas parceiras criaram!
                   </span>
                   <br />
                   <br />
-                  Reunimos os melhores projetos desenvolvidos por nossas
-                  empresas parcaeiras para que você conheça um pouco mais sobre
-                  as diversas possibilidades que um sistema de automação e
-                  sonorização pode te oferecer
+                  Nesta seleção especial, reunimos os melhores trabalhos
+                  desenvolvidos por nossas empresas parceiras. Prepare-se para
+                  se encantar com soluções inteligentes e criativas que
+                  transformam ambientes residenciais, comerciais e industriais
+                  em espaços mais funcionais, agradáveis e eficientes.
                 </p>
               </div>
               <ProjectsCarousel projectsData={projectsData} />

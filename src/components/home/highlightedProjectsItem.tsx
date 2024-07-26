@@ -17,7 +17,7 @@ export default function HighlightedProjectsItem({
           <h2 className="text-lg font-bold text-goOnGrey">
             {project?.attributes?.Titulo}
           </h2>
-          <h3 className="font-light">
+          <h3 className="font-light text-sm md:text-base">
             By {project?.attributes?.revenda?.data?.attributes?.Titulo}
           </h3>
         </div>

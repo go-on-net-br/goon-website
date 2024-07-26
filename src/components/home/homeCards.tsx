@@ -26,9 +26,9 @@ export default function HomeCards() {
           <Link key={card.text.slice(0, 4) + i} href={card?.href}>
             <BlueBgBox
               bgImage={card.src}
-              boxStyles="card h-[475px] w-[350px] rounded-3xl shadow-md transition-all before:rounded-3xl after:rounded-3xl hover:scale-105"
+              boxStyles="card h-44 md:h-[475px] w-[320px] md:w-[350px] rounded-3xl shadow-md transition-all before:rounded-3xl after:rounded-3xl hover:scale-105"
             >
-              <p className="absolute bottom-0 left-0 right-0 top-0 z-10 m-auto block h-fit w-56 text-center text-4xl font-bold uppercase text-white">
+              <p className="absolute bottom-0 left-0 right-0 top-0 z-10 m-auto block h-fit w-56 text-center text-3xl md:text-4xl font-bold uppercase text-white">
                 {card.text}
               </p>
             </BlueBgBox>
