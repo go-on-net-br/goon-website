@@ -35,18 +35,21 @@ export default async function Credenciamento() {
 
   return (
     <div className="relative">
-      <BlueBgBox bgImage="/meeting_upview.webp" boxStyles="relative w-full">
-        <div className="container relative z-20 mx-auto my-20 max-w-screen-xl">
-          <section className="px-4 md:p-0">
-            <header className="mx-auto mt-20 max-w-[1050px] text-center text-white">
-              <h1 className="mb-4 text-3xl font-bold uppercase md:text-7xl">
+      <BlueBgBox bgImage="" boxStyles="relative w-full">
+        <div className="container relative z-20 mx-auto mb-10 mt-20 max-w-screen-xl md:my-20">
+          <section className="px-6 md:p-0">
+            <header className="mx-auto mt-20 text-center text-white md:mb-40 md:max-w-[900px] ">
+              <h1 className="mb-12 text-3xl font-bold uppercase md:text-7xl md:leading-[50px]">
                 Seja um revendedor
                 <br />
-                <span className="text-2xl font-light md:text-5xl">
-                  E trabalhe com as melhores marcas
+                <span className="text-2xl font-light tracking-wider md:text-[38px]">
+                  E trabalhe com as{" "}
+                </span>
+                <span className="text-2xl font-bold tracking-wider md:text-[38px]">
+                  melhores marcas
                 </span>
               </h1>
-              <p className="text-justify text-lg font-light">
+              <p className="text-justify font-normal md:text-lg">
                 Temos o orgulho de ser uma das principais empresas de
                 distribuição de produtos de áudio, vídeo e automação do Brasil,
                 esse título não é atoa, estamos a anos contruindo um bom
@@ -59,7 +62,7 @@ export default async function Credenciamento() {
           <section className="mt-16">
             <h2 className="mx-auto block w-full text-center text-3xl text-white md:w-fit">
               Por que se tornar um{" "}
-              <u className="font-bold">revendedor Go On?</u>
+              <span className="font-bold">Revendedor Go On?</span>
             </h2>
             <Badge badges={badges} white />
             <p className="mx-auto mt-16 block w-fit font-light text-primary ">
@@ -67,7 +70,7 @@ export default async function Credenciamento() {
             </p>
           </section>
           <section>
-            <div className="relative z-20 mt-12 w-full px-5 md:mx-auto md:mt-20 md:max-w-[860px] ">
+            <div className="relative z-20 mt-16 w-full px-5 md:mx-auto md:mt-20 md:max-w-[860px] ">
               <div className="relative  h-0 w-full pb-[56.25%]">
                 <iframe
                   src="https://www.youtube.com/embed/HQaMWP77ImQ?si=VdN7a283gyhion3y"
@@ -81,22 +84,22 @@ export default async function Credenciamento() {
             </div>
           </section>
         </div>
-        <div className="absolute bottom-[-1px] w-full">
+        <div className="absolute bottom-[-3px] w-full">
           <Image
             src={halfCircle}
             alt="half circle"
             aria-hidden
-            className=" h32 w-full object-fill object-top md:h-[375px]"
+            className=" h-32 w-full object-fill object-top md:h-[500px]"
           />
         </div>
       </BlueBgBox>
       <div className="container mx-auto min-h-96 max-w-screen-xl bg-[#F5f5f5] md:my-20">
         <section>
           <header className="mx-auto mb-12 mt-4 max-w-[1050px] text-center text-primary md:mt-20">
-            <h2 className="mb-4 text-5xl font-bold uppercase">
+            <h2 className="mb-4 text-3xl md:text-5xl font-bold uppercase">
               Dê o primeiro passo agora
             </h2>
-            <p className="mx-auto w-fit px-4 text-center text-2xl font-light uppercase">
+            <p className="mx-auto w-fit px-4 text-center md:text-2xl font-light uppercase">
               Preencha o formulário e entraremos em contato
             </p>
           </header>
@@ -106,11 +109,11 @@ export default async function Credenciamento() {
           src={separator}
           alt="separador"
           aria-label="separador"
-          className="mx-auto my-12 h-20 w-36 object-contain md:my-28"
+          className="mx-auto my-12 h-20 w-36 object-contain md:my-20"
         />
         <section className="pb-8 md:pb-0">
-          <h2 className="mx-auto mb-12 mt-20 max-w-[1050px] text-center text-5xl font-bold uppercase text-primary">
-            Veja o depoimento de nossos <br /> revendedores mais antigos
+          <h2 className="mx-auto mb-12 mt-16 max-w-[1050px] px-4 md:px-0 text-center text-xl font-bold uppercase text-primary md:text-5xl">
+            Veja o depoimento de nossos <br className="hidden md:block" /> revendedores mais antigos
           </h2>
           <Testimonies testimoniesData={testimoniesData} />
         </section>
