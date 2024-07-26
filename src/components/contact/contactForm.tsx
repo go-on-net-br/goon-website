@@ -22,9 +22,9 @@ export default function ContactForm() {
         data-netlify="true"
         netlify-honeypot="bot-field"
         data-netlify-recaptcha="true"
-        name="credenciamento"
+        name="contato"
       >
-        <input type="hidden" name="form-name" value="credenciamento" />
+        <input type="hidden" name="form-name" value="contato" />
         <p className="hidden">
           <label>
             Don’t fill this out if you’re human: <input name="bot-field" />
