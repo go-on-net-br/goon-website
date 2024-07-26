@@ -57,7 +57,7 @@ export default function EmailPopUp() {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative m-4 flex cursor-auto flex-col items-center justify-center rounded-[50px] bg-primary py-4 px-6 text-white md:m-0 md:min-h-[545px] md:min-w-[625px] md:max-w-[1000px] md:px-20 md:py-12"
+        className="relative m-4 flex cursor-auto flex-col items-center justify-center rounded-[50px] bg-primary px-6 py-4 text-white md:m-0 md:min-h-[545px] md:min-w-[625px] md:max-w-[1000px] md:px-20 md:py-12"
       >
         <button
           onClick={onClose}
@@ -100,6 +100,8 @@ export default function EmailPopUp() {
               </p>
             </header>
             <form
+              {...{ netlify: true }}
+              encType="application/x-www-form-urlencoded"
               onSubmit={handleSubmit(onSubmit)}
               className="mt-3 flex w-full flex-col justify-center"
               data-netlify="true"

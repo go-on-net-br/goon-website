@@ -23,6 +23,8 @@ export default function ContactForm() {
         netlify-honeypot="bot-field"
         data-netlify-recaptcha="true"
         name="contato"
+        {...{ netlify: true }}
+        encType="application/x-www-form-urlencoded"
       >
         <input type="hidden" name="form-name" value="contato" />
         <p className="hidden">
@@ -44,7 +46,7 @@ export default function ContactForm() {
             : `Mensagem*`}
           <textarea
             required={true}
-            className="input input-bordered input-primary w-full rounded-lg h-full"
+            className="input input-bordered input-primary h-full w-full rounded-lg"
             rows={6}
             {...register("mensagem", {
               validate: (val) => {
