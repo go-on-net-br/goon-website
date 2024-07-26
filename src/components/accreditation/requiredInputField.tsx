@@ -38,7 +38,7 @@ export default function RequiredInputField({
     complemento: "Complemento",
     marcas: "Marcas",
     mensagem: "Mensagem",
-    tema: "tema",
+    tema: "Tema",
   };
 
   let fieldStyles = "flex h-24 flex-col w-full " + (!fullWidth && "md:w-[45%]");

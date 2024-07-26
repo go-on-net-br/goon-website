@@ -53,14 +53,11 @@ export default function TermsTabs({ apiData }: { apiData: TermoEAviso }) {
             <div>
               <BlockRendererClient content={TermoEGarantia} />
             </div>
-            <a
-              href="tel:(11)3567-7777"
-              className="btn btn-primary btn-lg w-full"
-            >
-              SAC (11) 3567-777
-            </a>
           </div>
         )}
+        <a href="tel:(11)3567-7777" className="btn btn-primary btn-lg w-full">
+          SAC (11) 3567-777
+        </a>
       </div>
     </>
   );

@@ -47,7 +47,7 @@ export default async function Projetos() {
     <>
       <section>
         <BlueBgBox
-          bgImage="/blueprint.webp"
+          bgImage="/suburbamNeighborhood.webp"
           boxStyles="w-screen pb-20 md:pb-0 md:h-[550px] after:!opacity-[36%]"
         >
           <div className="mx-2 mt-8 text-center text-white md:mx-auto md:mt-20 md:w-[700px]">
@@ -64,7 +64,7 @@ export default async function Projetos() {
             {cards.map((card) => {
               return (
                 <div
-                  className="card w-96 md:h-[432px] rounded-3xl bg-primary shadow-xl"
+                  className="card w-96 rounded-3xl bg-primary shadow-xl md:h-[390px]"
                   key={card.title}
                 >
                   <figure className="px-8 pt-8">
@@ -75,10 +75,10 @@ export default async function Projetos() {
                     />
                   </figure>
                   <div className="card-body">
-                    <h2 className="card-title mx-auto mb-2 text-xl font-medium leading-6">
+                    <h2 className="card-title mx-auto mb-2 text-3xl font-medium leading-8">
                       {card.title}
                     </h2>
-                    <p>{card.description}</p>
+                    <p className="text-sm">{card.description}</p>
                   </div>
                 </div>
               );
@@ -92,7 +92,7 @@ export default async function Projetos() {
         </Suspense>
       </section>
       <GradientFooter bgImage="/blueprint_zoom.webp" boxStyles="text-3xl">
-        <div className="box-border flex h-full w-full flex-col justify-center px-4 py-6 text-white md:w-[820px] md:p-0 md:pl-9">
+        <div className="box-border flex h-full w-full flex-col justify-center px-4 py-6 text-white md:w-[900px] md:p-0 md:pl-24">
           <Image
             src={separator}
             alt="separador"
