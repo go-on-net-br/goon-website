@@ -6,7 +6,7 @@ export default function AboutMVV({ mvv }: { readonly mvv: Corporativo[] }) {
       <div className="flex flex-col justify-center gap-4 md:flex-row md:gap-10">
         {mvv?.map((card, i) => (
           <div
-            className="card card-normal bg-primary py-12 shadow-lg"
+            className="card card-normal bg-primary py-12 shadow-lg transition-all hover:scale-105"
             key={"aboutMvv_" + card.Titulo}
           >
             <h3 className="text-center text-4xl font-bold uppercase text-white">

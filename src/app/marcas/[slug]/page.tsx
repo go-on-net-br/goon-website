@@ -65,7 +65,7 @@ export default async function BrandPage({
     { Rede: Rede.YouTube, URL: Youtube },
   ];
   return (
-    <div className="container mx-auto mb-20 max-w-screen-xl px-8">
+    <div className="container mx-auto my-10 mb-20 max-w-screen-xl md:px-8">
       <section>
         {Sobre.map((section, i, arr) => {
           const { Imagem, corpo, Titulo } = section;
@@ -75,16 +75,16 @@ export default async function BrandPage({
               key={universalSlugify(Titulo)}
               className={
                 (i % 2 ? "md:flex-row-reverse " : "md:flex-row ") +
-                "my-10 flex flex-col items-center justify-between md:my-20 md:max-h-[800px] md:flex-row"
+                "my-10 flex flex-col md:my-0 md:max-h-[800px] md:flex-row"
               }
             >
-              <div className="flex h-[450px] w-full flex-col items-center justify-center gap-4 overflow-hidden md:w-[600px]">
+              <div className="flex min-h-[200px] w-full max-w-full flex-col justify-center overflow-hidden md:min-h-full md:w-[50%]">
                 <ApiImage
                   image={Imagem.data}
-                  contentStyles="object-cover min-h-full min-w-full"
+                  contentStyles="object-cover md:h-full h-200px min-h-full min-w-full max-h-200px md:max-h-full"
                 />
               </div>
-              <div className="flex w-full flex-col px-8 py-8 md:w-[540px] md:py-0">
+              <div className="flex w-full max-w-full flex-col justify-center px-8 py-8 md:w-[50%] md:py-16">
                 {i === 0 && (
                   <header className="relative mx-auto mb-12 w-fit">
                     <h1 className="absolute bottom-0 left-0 right-0 top-0 z-0 block">
@@ -102,7 +102,7 @@ export default async function BrandPage({
                 <div className="text-justify">
                   <BlockRendererClient content={corpo} />
                 </div>
-                {i === 0 && (
+                {i === 0 && Redes.some((rede) => rede.URL) && (
                   <div className="my-6 flex h-9 items-center justify-center gap-4 md:my-12">
                     {Redes.map((rede) => {
                       if (rede.URL) {
@@ -120,7 +120,10 @@ export default async function BrandPage({
                   </div>
                 )}
                 {i === arr.length - 1 && (
-                  <Link href={`/produtos?marca=${slug}`}>
+                  <Link
+                    href={`/produtos?marca=${slug}`}
+                    className="flex justify-center"
+                  >
                     <button
                       className={
                         "btn btn-primary mx-auto w-72" +

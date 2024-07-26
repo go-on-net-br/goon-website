@@ -10,7 +10,6 @@ export default function ProductsDialog({
 }: {
   readonly product: Produto;
 }) {
-
   const [selectedTab, setSelectedTab] = useState("chars");
   const [tabContent, setTabContent] = useState(
     product.attributes.Caracteristicas,
@@ -39,14 +38,14 @@ export default function ProductsDialog({
 
   return (
     <>
-      <div className=" modal-box flex min-w-fit max-w-3xl flex-row gap-4">
+      <div className=" modal-box flex max-w-3xl flex-row gap-4 md:min-w-[80vw]">
         {/* Carrossel Dialog (Desktop) */}
         <div className="card hidden w-96 min-w-96 flex-col justify-center bg-white md:flex">
           <Carousel />
         </div>
 
         {/* Cabeçário */}
-        <div className="flex w-full flex-col items-center gap-6 md:w-96">
+        <div className="flex w-full flex-col items-center gap-6 md:w-full">
           <div className="flex w-full flex-col items-start">
             <h2 className="w-full text-4xl font-bold text-primary">
               {product.attributes.Titulo}
@@ -76,7 +75,7 @@ export default function ProductsDialog({
 
           {/* Informações */}
 
-          <div className="flex flex-col gap-4">
+          <div className="flex h-full w-full flex-col gap-4 overflow-scroll">
             <div className="flex flex-row justify-around">
               {product?.attributes?.Caracteristicas && (
                 <h3
