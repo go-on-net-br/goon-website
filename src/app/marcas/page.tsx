@@ -13,7 +13,7 @@ export default async function Marcas() {
   const brandsData = await fetchDataFromApi<Marca[]>(
     "marcas",
     "populate=deep",
-    "prioridade",
+    "prioridade:desc",
   );
   return (
     <div className="container mx-auto my-10 max-w-screen-xl px-8 md:my-20">
