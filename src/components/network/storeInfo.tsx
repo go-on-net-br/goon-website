@@ -49,7 +49,7 @@ export default function StoreInfo({
         {calculateDistance(userMarkerCoords, resellerCoords)?.toFixed(2)}km de
         distância
       </p>
-      <p className="whitespace-pre-line">{Endereco}</p>
+      <p className="whitespace-pre-line text-sm">{Endereco}</p>
       {(ShowroomAudio || ShowroomAutomacao) && (
         <div className="my-4 flex gap-2">
           {ShowroomAudio && (
@@ -66,16 +66,9 @@ export default function StoreInfo({
               className="h-24 w-24 object-contain"
             />
           )}
-          {ShowroomAudio && ShowroomAutomacao && (
-            <Image
-              src={showRoomAudioAutomacao}
-              alt="Medalha dizendo 'Revenda autorizada: show Room de Áudio e Automação'"
-              className="h-24 w-24 object-contain"
-            />
-          )}
         </div>
       )}
-      <div className="flex flex-col">
+      <div className="flex flex-col text-sm">
         {Telefone && <p>{Telefone}</p>}
         {Email && <p>{Email}</p>}
         {Site && (
@@ -84,7 +77,7 @@ export default function StoreInfo({
           </Link>
         )}
         {credenciamentoInicio && credenciamentoFim && (
-          <p className="text-sm font-bold mt-4">
+          <p className="mt-4 text-sm font-bold">
             Revenda credenciada CONTROL4 em{" "}
             {`${credStartSplit[2]}/${credStartSplit[1]}/${credStartSplit[0]}`}{" "}
             com certificação válida até{" "}

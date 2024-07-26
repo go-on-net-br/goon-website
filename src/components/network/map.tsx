@@ -92,7 +92,7 @@ export default function NetworkMap({
     return (
       <>
         <div className="divider divider-primary hidden md:flex"></div>
-        <section>
+        <section className="max-h-[600px] overflow-y-auto">
           <h3 className="mt-6 px-6 text-2xl font-bold text-primary md:px-0">
             Resultados
           </h3>
@@ -118,7 +118,7 @@ export default function NetworkMap({
 
   function Filter() {
     return (
-      <>
+      <section>
         <h2 className="text-2xl font-bold text-primary">
           Encontre a revenda
           <br />
@@ -139,7 +139,7 @@ export default function NetworkMap({
             );
           }}
           value={brandSearched}
-          className="select select-primary mb-4 w-full  max-w-sm bg-transparent text-primary"
+          className="select select-primary mb-4 w-full bg-transparent text-primary"
         >
           <option value={""}>Todas marcas</option>
           {brands?.map((brand) => (
@@ -148,7 +148,7 @@ export default function NetworkMap({
             </option>
           ))}
         </select>
-      </>
+      </section>
     );
   }
 

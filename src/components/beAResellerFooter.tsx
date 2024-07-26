@@ -9,7 +9,7 @@ export default function BeAReseller() {
       bgImage="/realtor-with-clients.webp"
       boxStyles="text-3xl py-4 md:py-0"
     >
-      <div className="box-border flex h-full w-full flex-col justify-center pl-9 text-white md:w-[820px]">
+      <div className="box-border flex h-full w-full flex-col justify-center pl-9 text-white md:mx-auto md:container">
         <Image
           src={separator}
           alt="separador"
@@ -17,7 +17,7 @@ export default function BeAReseller() {
           className="mb-6"
         />
         <h2 className="text-2xl font-bold md:text-6xl">
-          Seja uma Revenda Credenciada
+          Seja uma<br/> Revenda Credenciada
         </h2>
         <p className="mb-6 mt-4 text-lg md:text-2xl">
           E trabalhe com as melhores marcas do mercado mundial
