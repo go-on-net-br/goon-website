@@ -12,9 +12,9 @@ export default function AboutResales({
   const separatorStyle = "w-12";
   const { Titulo, Foto, Corpo } = resales;
   return (
-    <section className="flex justify-center bg-primary p-10">
+    <section className="flex justify-center bg-primary px-40 py-10">
       <div className="container mx-auto max-w-screen-xl">
-        <div className="w- flex flex-col gap-8 md:flex-row">
+        <div className="flex flex-col gap-8 md:flex-row">
           <ApiImage contentStyles={imgStyles} image={Foto.data}></ApiImage>
           <div className="flex flex-col justify-center gap-8">
             <Image
