@@ -118,6 +118,7 @@ export default function ProductsList({
               onChange={(e) => setBrand(e.target.value)}
               value={brand}
               className="select select-primary w-10/12 max-w-sm bg-transparent text-primary md:w-48"
+              disabled={!allBrands.some((a) => a)}
             >
               <option value={"todas"}>Todas marcas</option>
               {allBrands?.map((brand, i) => (
@@ -133,6 +134,7 @@ export default function ProductsList({
               value={category}
               onChange={(e) => setCategory(e.target.value)}
               className="select select-primary w-10/12  max-w-sm bg-transparent text-primary md:w-48"
+              disabled={!allCategories.some((a) => a)}
             >
               <option value={"todas"}>Todas categorias</option>
               {allCategories?.map((category, i) => (
