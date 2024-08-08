@@ -43,7 +43,13 @@ export default function ProductsItem({
       {/* Dialog */}
 
       <dialog id={modalId} className="modal modal-bottom sm:modal-middle">
-        <ProductsDialog product={product} />
+        <ProductsDialog product={product}>
+          <form method="dialog" className=" md:hidden">
+            <button className="btn btn-circle btn-ghost btn-outline btn-sm absolute right-2 top-2 text-primary">
+              ✕
+            </button>
+          </form>
+        </ProductsDialog>
         <form method="dialog" className="modal-backdrop">
           <button onClick={() => handleClick("close", 0)}>close</button>
         </form>

@@ -1,14 +1,15 @@
 "use client";
-import BlockRendererClient from "@/helpers/blockRendererClient";
 import ProductsCarousel from "./carousel";
 import universalSlugify from "@/helpers/universalSlugify";
 import { Produto } from "@/types/produto";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 
 export default function ProductsDialog({
   product,
+  children,
 }: {
   readonly product: Produto;
+  children: ReactNode;
 }) {
   const [selectedTab, setSelectedTab] = useState("chars");
   const [tabContent, setTabContent] = useState(
@@ -39,6 +40,7 @@ export default function ProductsDialog({
   return (
     <>
       <div className=" modal-box flex max-w-3xl flex-row gap-4 md:min-w-[80vw]">
+        {children}
         {/* Carrossel Dialog (Desktop) */}
         <div className="card hidden w-96 min-w-96 flex-col justify-center bg-white md:flex">
           <Carousel />
@@ -75,7 +77,7 @@ export default function ProductsDialog({
 
           {/* Informações */}
 
-          <div className="flex h-full w-full flex-col gap-4 overflow-scroll">
+          <div className="flex h-fit w-full flex-col gap-4 md:h-full md:overflow-scroll">
             <div className="flex flex-row justify-around">
               {product?.attributes?.Caracteristicas && (
                 <h3
