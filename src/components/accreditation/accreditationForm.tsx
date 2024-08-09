@@ -21,7 +21,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
       <form
         {...{ netlify: true }}
         encType="application/x-www-form-urlencoded"
-        className="flex flex-col items-center justify-center gap-4 px-4 md:flex-row md:flex-wrap md:items-start"
+        className="flex flex-col items-center justify-center gap-4 px-4 text-sm md:flex-row md:flex-wrap md:items-start md:text-base"
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"

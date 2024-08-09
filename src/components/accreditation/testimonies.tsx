@@ -59,17 +59,17 @@ export default function Testimonies({
                   <figure className="flex items-center justify-center p-8">
                     <ApiImage
                       image={Foto?.data}
-                      contentStyles="object-contain w-40 h-40 rounded-full"
+                      contentStyles="object-contain w-24 h-24 md:w-40 md:h-40 rounded-full"
                     />
                   </figure>
                   <div className="card-body pt-0">
                     <header className="card-title flex-col pb-3 text-center">
-                      <h3 className="text-3xl font-light">{Nome}</h3>
-                      <p className="text-lg font-light">
+                      <h3 className="text-xl font-light md:text-3xl">{Nome}</h3>
+                      <p className="text-base font-light md:text-lg">
                         {Cargo} <span className="font-bold">{Empresa}</span>
                       </p>
                     </header>
-                    <p>{Depoimento}</p>
+                    <p className="text-sm md:text-base">{Depoimento}</p>
                   </div>
                 </div>
               );

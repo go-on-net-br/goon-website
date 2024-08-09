@@ -39,17 +39,17 @@ export default async function Credenciamento() {
         <div className="container relative z-20 mx-auto mb-10 mt-20 max-w-screen-xl md:my-20">
           <section className="px-6 md:p-0">
             <header className="mx-auto mt-20 text-center text-white md:mb-40 md:max-w-[900px] ">
-              <h1 className="mb-12 text-3xl font-bold uppercase md:text-7xl md:leading-[50px]">
+              <h1 className="mb-12 text-2xl font-bold uppercase md:text-7xl md:leading-[50px]">
                 Seja um revendedor
                 <br />
-                <span className="text-2xl font-light tracking-wider md:text-[38px]">
+                <span className="text-base font-light tracking-wider md:text-[38px]">
                   E trabalhe com as{" "}
                 </span>
-                <span className="text-2xl font-bold tracking-wider md:text-[38px]">
+                <span className="text-base font-bold tracking-wider md:text-[38px]">
                   melhores marcas
                 </span>
               </h1>
-              <p className="text-justify font-normal md:text-lg">
+              <p className="text-justify text-sm font-normal md:text-lg">
                 Temos o orgulho de ser uma das principais empresas de
                 distribuição de produtos de áudio, vídeo e automação do Brasil,
                 esse título não é atoa, estamos a anos contruindo um bom
@@ -96,10 +96,10 @@ export default async function Credenciamento() {
       <div className="container mx-auto min-h-96 max-w-screen-xl bg-[#F5f5f5] md:my-20">
         <section>
           <header className="mx-auto mb-12 mt-4 max-w-[1050px] text-center text-primary md:mt-20">
-            <h2 className="mb-4 text-3xl md:text-5xl font-bold uppercase">
+            <h2 className="mb-4 text-xl font-bold uppercase md:text-5xl">
               Dê o primeiro passo agora
             </h2>
-            <p className="mx-auto w-fit px-4 text-center md:text-2xl font-light uppercase">
+            <p className="mx-auto w-fit px-4 text-center text-sm font-light uppercase md:text-2xl">
               Preencha o formulário e entraremos em contato
             </p>
           </header>
@@ -112,8 +112,9 @@ export default async function Credenciamento() {
           className="mx-auto my-12 h-20 w-36 object-contain md:my-20"
         />
         <section className="pb-8 md:pb-0">
-          <h2 className="mx-auto mb-12 mt-16 max-w-[1050px] px-4 md:px-0 text-center text-xl font-bold uppercase text-primary md:text-5xl">
-            Veja o depoimento de nossos <br className="hidden md:block" /> revendedores mais antigos
+          <h2 className="mx-auto mb-12 mt-16 max-w-[1050px] px-4 text-center text-xl font-bold uppercase text-primary md:px-0 md:text-5xl">
+            Veja o depoimento de nossos <br className="hidden md:block" />{" "}
+            revendedores mais antigos
           </h2>
           <Testimonies testimoniesData={testimoniesData} />
         </section>
