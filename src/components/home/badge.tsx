@@ -8,22 +8,22 @@ export default function Badge({
   white?: boolean;
 }) {
   return (
-    <div className="mt-16 flex flex-wrap justify-around gap-9 md:gap-10 px-4 md:justify-evenly">
+    <div className="mx-6 mt-16 flex flex-wrap justify-around gap-9 px-4 md:justify-evenly">
       {badges?.map((badge, i) => (
         <div
-          className="flex flex-col gap-2 md:gap-5 max-w-[76px]"
+          className="flex flex-col gap-2 last:flex-row md:max-w-[140px] md:gap-5 md:last:flex-col"
           key={badge?.text.slice(0, 5) + i}
         >
-          <div className="h-20 w-16 md:w-full p-2">
-          <Image
-            src={badge?.src}
-            alt={badge?.text}
-            className="h-full w-full object-left object-contain"
-          />
+          <div className="h-20 w-16 p-2 last:w-24 md:w-full md:max-w-[76px] md:last:w-16">
+            <Image
+              src={badge?.src}
+              alt={badge?.text}
+              className="h-full w-full object-contain object-left"
+            />
           </div>
           <p
             className={
-              "whitespace-pre-wrap text-sm md:text-lg font-semibold " +
+              "whitespace-pre-wrap text-sm font-semibold md:text-lg " +
               (white ? "text-white" : "text-primary")
             }
           >
