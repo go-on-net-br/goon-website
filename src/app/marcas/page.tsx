@@ -18,10 +18,13 @@ export default async function Marcas() {
   return (
     <div className="container mx-auto my-10 max-w-screen-xl px-8 md:my-20">
       <header className="mx-auto my-10 max-w-[890px] text-center text-primary md:my-20">
-        <h1 className="w-full text-4xl font-bold uppercase md:w-fit md:text-5xl ">
-          Distribuidores exclusivos das melhores marcas do mercado
+        <h1 className="w-full text-2xl font-bold uppercase md:w-fit md:text-5xl ">
+          <span className="text-base md:text-5xl">
+            Distribuidores exclusivos das
+          </span>{" "}
+          melhores marcas do mercado
         </h1>
-        <p className="mt-6 text-xl font-light">
+        <p className="mt-6 text-sm font-light md:text-xl">
           Rodamos o mundo buscando as melhores empresas, com credibilidade,
           qualidade e produtos inovadores para tornar a casa dos brasileiros
           ainda mais inteligente e funcional.

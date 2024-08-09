@@ -65,7 +65,7 @@ export default async function BrandPage({
     { Rede: Rede.YouTube, URL: Youtube },
   ];
   return (
-    <div className="container mx-auto my-10 mb-20 max-w-screen-xl md:px-8">
+    <div className="container mx-auto mb-20 max-w-screen-xl md:my-10 md:px-8">
       <section>
         {Sobre.map((section, i, arr) => {
           const { Imagem, corpo, Titulo } = section;
@@ -75,7 +75,7 @@ export default async function BrandPage({
               key={universalSlugify(Titulo)}
               className={
                 (i % 2 ? "md:flex-row-reverse " : "md:flex-row ") +
-                "my-10 flex flex-col md:my-0 md:max-h-[800px] md:flex-row"
+                "my-10 flex flex-col first:mt-0 md:my-0 md:max-h-[800px] md:flex-row"
               }
             >
               <div className="flex min-h-[200px] w-full max-w-full flex-col justify-center overflow-hidden md:min-h-full md:w-[50%]">
