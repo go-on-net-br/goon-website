@@ -8,7 +8,7 @@ export default function AboutInformation({
   readonly information: Corporativo[];
 }) {
   return (
-    <section className="my-32 flex flex-col items-center gap-32 overflow-hidden">
+    <section className="my-32 flex flex-col items-center gap-8 overflow-hidden md:gap-32">
       {information?.map((info, i) => (
         <div
           className={
@@ -17,25 +17,32 @@ export default function AboutInformation({
           }
           key={"aboutInfo" + i}
         >
-          <Image
-            className={
-              "w-32 object-contain md:w-64 " +
-              (i % 2 ? "md:-mr-64" : "md:-ml-64")
-            }
-            alt="separador"
-            src={separator}
-          />
           <div
             className={
-              "container flex flex-col items-center gap-4 px-4 md:gap-32 md:px-0 " +
-              (i % 2 ? "md:flex-row-reverse" : "md:flex-row")
+              "container flex items-center gap-4 px-4 md:gap-32 md:px-0 " +
+              (i % 2 ? "flex-row-reverse" : "flex-row")
             }
           >
-            <h3 className="text-center text-3xl font-bold uppercase text-primary md:text-start md:text-5xl md:first-line:font-normal">
+            <Image
+              className={
+                "w-64 object-contain " +
+                (i % 2 ? "-mr-32 md:-mr-64" : "-ml-32 md:-ml-64")
+              }
+              alt="separador"
+              src={separator}
+            />
+            <h3
+              className={
+                "text-5xl font-bold uppercase text-primary first-line:font-normal " +
+                (i % 2 ? "text-end" : "text-start")
+              }
+            >
               {info?.Titulo}
             </h3>
-            <p className="text-justify text-lg text-primary">{info?.Corpo}</p>
           </div>
+          <p className="px-4 text-justify text-sm text-primary md:px-0 md:text-lg">
+            {info?.Corpo}
+          </p>
         </div>
       ))}
     </section>

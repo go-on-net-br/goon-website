@@ -27,7 +27,7 @@ export default function AboutBanner({
           </div>
         </div>
         <div className="-mt-6 flex w-full justify-center">
-          <div className="text-md badge badge-lg absolute -bottom-4 border-0 bg-white px-10 py-6 font-bold uppercase text-primary shadow-lg">
+          <div className="badge badge-lg absolute -bottom-4 border-0 bg-white px-10 py-6 text-sm font-bold uppercase text-primary shadow-lg md:text-base">
             Nossa história começa aqui
           </div>
         </div>

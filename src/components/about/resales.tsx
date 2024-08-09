@@ -8,13 +8,13 @@ export default function AboutResales({
 }: {
   readonly resales: Revendas;
 }) {
-  const imgStyles = "w-96 h-auto";
+  const imgStyles = "w-1/2 md:w-96 md:h-auto object-contain";
   const separatorStyle = "w-12";
   const { Titulo, Foto, Corpo } = resales;
   return (
-    <section className="flex justify-center bg-primary px-40 py-10">
+    <section className="flex justify-center bg-primary py-10 md:px-40">
       <div className="container mx-auto max-w-screen-xl">
-        <div className="flex flex-col gap-8 md:flex-row">
+        <div className="flex gap-8">
           <ApiImage contentStyles={imgStyles} image={Foto.data}></ApiImage>
           <div className="flex flex-col justify-center gap-8">
             <Image
@@ -23,8 +23,10 @@ export default function AboutResales({
               className={separatorStyle}
             ></Image>
             <div className="flex flex-col gap-2">
-              <h2 className="text-3xl font-bold text-white">{Titulo}</h2>
-              <p className="text-white">{Corpo}</p>
+              <h2 className="text-lg font-bold text-white md:text-3xl">
+                {Titulo}
+              </h2>
+              <p className="text-[10px] text-white md:text-base">{Corpo}</p>
             </div>
             <Image
               src={separator}
