@@ -11,7 +11,7 @@ export default function HomeBadge({
     <div className="md:mx-6 mt-6 grid grid-cols-3 gap-4 px-4 md:flex md:flex-wrap md:justify-evenly">
       {badges?.map((badge, i) => (
         <div
-          className="flex flex-col items-center gap-2 md:max-w-[140px] md:gap-5"
+          className="flex flex-col items-center gap-2 md:max-w-[140px]"
           key={badge?.text.slice(0, 5) + i}
         >
           <div className="h-20 w-16 p-2 md:w-full md:max-w-[76px]">

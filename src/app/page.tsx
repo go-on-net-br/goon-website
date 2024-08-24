@@ -47,21 +47,15 @@ export default async function HomePage() {
         <section className="container mx-auto mt-4 max-w-screen-xl md:mt-12">
           <Carousel carousel={Carrossel} />
         </section>
-        <section className="container mx-auto mt-16 max-w-screen-xl px-4 md:px-0">
+        <section className="container mx-auto mt-20 max-w-screen-xl px-4 md:px-0">
           <h2 className="  block w-fit text-center text-3xl font-bold text-primary md:mx-auto">
             Soluções para todos os seus projetos
           </h2>
           <HomeBadge badges={badges} />
         </section>
-        <section className="container mx-auto mt-16 max-w-screen-xl px-4 md:px-0">
+        <section className="container mx-auto mt-16 max-w-screen-xl px-4 md:px-0 mb-16 md:mb-28">
           <HomeCards />
         </section>
-        <Image
-          src={separator}
-          alt="separador"
-          aria-label="separador"
-          className="mx-auto my-28"
-        />
         <section>
           <BlueBgBox
             bgImage="/manWithPhone.webp"
@@ -92,7 +86,7 @@ export default async function HomePage() {
             </div>
           </BlueBgBox>
         </section>
-        <section className="container mx-auto mt-80 max-w-screen-xl">
+        <section className="container mx-auto mt-64 md:mt-96 max-w-screen-xl mb-20">
           <Link href="marcas">
             <h2 className="mb-6 text-center text-3xl text-primary md:text-4xl">
               Marcas <b className="font-bold">Exclusivas</b>
@@ -109,7 +103,7 @@ export default async function HomePage() {
                 >
                   <ApiImage
                     image={Logotipo.data}
-                    contentStyles="object-contain mx-6 max-w-64"
+                    contentStyles="object-contain mx-6 max-w-64 max-h-16 over"
                   />
                 </Link>
               );
