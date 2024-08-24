@@ -31,6 +31,15 @@ export default function Topbar({
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
         <div className="navbar h-24 w-full bg-primary px-4">
+          <div className="mx-2 flex-1 px-2">
+            <Link href="/">
+              <Image
+                src={goOnSvg}
+                className="h-6 w-fit object-contain"
+                alt="GoOn logo"
+              />
+            </Link>
+          </div>
           <div className="flex-none lg:hidden">
             <label
               htmlFor="my-drawer"
@@ -52,15 +61,6 @@ export default function Topbar({
                 ></path>
               </svg>
             </label>
-          </div>
-          <div className="mx-2 flex-1 px-2">
-            <Link href="/">
-              <Image
-                src={goOnSvg}
-                className="h-8 w-fit object-contain"
-                alt="GoOn logo"
-              />
-            </Link>
           </div>
           <div className="hidden flex-none lg:block">
             <ul className="menu menu-horizontal">
