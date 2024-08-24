@@ -4,7 +4,7 @@ import lockIcon from "../../public/lock.svg";
 import smartHomeIcon from "../../public/smartHome.svg";
 import soundIcon from "../../public/sound.svg";
 import winnerBadgeIcon from "../../public/winnerBadge.svg";
-import Badge from "@/components/home/badge";
+import HomeBadge from "@/components/home/homeBadges";
 import Carousel from "@/components/home/carousel";
 import HomeCards from "@/components/home/homeCards";
 import { Home } from "@/types/home";
@@ -51,7 +51,7 @@ export default async function HomePage() {
           <h2 className="  block w-fit text-center text-3xl font-bold text-primary md:mx-auto">
             Soluções para todos os seus projetos
           </h2>
-          <Badge badges={badges} />
+          <HomeBadge badges={badges} />
         </section>
         <section className="container mx-auto mt-16 max-w-screen-xl px-4 md:px-0">
           <HomeCards />
