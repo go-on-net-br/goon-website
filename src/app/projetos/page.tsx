@@ -92,17 +92,17 @@ export default async function Projetos() {
         </Suspense>
       </section>
       <GradientFooter bgImage="/blueprint_zoom.webp" boxStyles="text-3xl">
-        <div className="box-border flex h-full w-full flex-col justify-center px-4 py-6 text-white md:w-[900px] md:p-0 md:pl-24">
+        <div className="box-border flex h-full w-full flex-col md:justify-center px-4 py-6 text-white md:w-[900px] md:p-0 md:pl-24">
           <Image
             src={separator}
             alt="separador"
             aria-label="separador"
-            className="mb-6"
+            className="mb-6 w-12 md:w-20"
           />
-          <h2 className="text-2xl font-bold uppercase md:text-6xl">
-            Quer um projeto para o seu ambiente?
+          <h2 className="text-2xl font-bold uppercase md:text-6xl flex md:block flex-col">
+            <span>Quer um projeto</span> <span>para o seu ambiente?</span>
           </h2>
-          <p className="mb-6 mt-4 text-2xl">
+          <p className="mb-2 md:mb-6 mt-2 md:mt-4 text-xs md:text-2xl">
             Encontre a Revenda Credenciada mais próxima de você
           </p>
           <Link href="/rede-credenciada">

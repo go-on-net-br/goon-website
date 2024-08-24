@@ -14,7 +14,7 @@ export default function Badge({
           className="flex flex-col gap-2 last:flex-row md:max-w-[140px] md:gap-5 md:last:flex-col"
           key={badge?.text.slice(0, 5) + i}
         >
-          <div className="h-20 w-16 p-2 last:w-24 md:w-full md:max-w-[76px] md:last:w-16">
+          <div className="h-20 w-24 p-2 md:w-full">
             <Image
               src={badge?.src}
               alt={badge?.text}
@@ -23,7 +23,7 @@ export default function Badge({
           </div>
           <p
             className={
-              "whitespace-pre-wrap text-sm font-semibold md:text-lg " +
+              "whitespace-pre-wrap text-sm !leading-tight font-semibold md:text-lg " +
               (white ? "text-white" : "text-primary")
             }
           >

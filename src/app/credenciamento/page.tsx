@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default async function Credenciamento() {
   const badges = [
-    { src: winnerBadgeIcon, text: "Empresas Líderes\nno segmento" },
+    { src: winnerBadgeIcon, text: "Empresas\nLíderes do\nsegmento" },
     { src: lockIcon, text: "Importação\nSegura e\nLegalizada" },
     { src: headsetIcon, text: "Suporte\nEspecializado" },
     { src: classroomIcon, text: "Treinamentos\nExclusivos" },
