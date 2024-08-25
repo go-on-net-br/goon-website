@@ -60,7 +60,11 @@ export default async function Projetos() {
               casa inteligente pode fazer por você.
             </p>
           </div>
-          <div className="container left-0 right-0 mx-auto flex w-full max-w-screen-xl flex-col items-center justify-evenly gap-6 pt-8 text-center text-white md:absolute md:flex-row md:items-start md:pt-10">
+        </BlueBgBox>
+      </section>
+      <section className="container relative z-[1] mx-auto max-w-screen-xl rounded-3xl bg-white px-9 py-12 md:-mt-12 md:py-36 md:pt-48">
+        <Suspense>
+          <div className="container -top-11 left-0 right-0 mx-auto -mt-32 mb-4 flex w-full max-w-screen-xl flex-col items-center justify-evenly gap-6 pt-8 text-center text-white md:absolute md:-top-64 md:mt-auto md:flex-row md:items-start md:pt-10">
             {cards.map((card) => {
               return (
                 <div
@@ -84,25 +88,21 @@ export default async function Projetos() {
               );
             })}
           </div>
-        </BlueBgBox>
-      </section>
-      <section className="container relative z-[1] mx-auto max-w-screen-xl rounded-3xl bg-white px-9 py-12 md:-mt-12 md:py-36 md:pt-48">
-        <Suspense>
           <ProjectListing projects={projectsData} />
         </Suspense>
       </section>
       <GradientFooter bgImage="/blueprint_zoom.webp" boxStyles="text-3xl">
-        <div className="box-border flex h-full w-full flex-col md:justify-center px-4 py-6 text-white md:w-[900px] md:p-0 md:pl-24">
+        <div className="box-border flex h-full w-full flex-col px-4 py-6 text-white md:w-[900px] md:justify-center md:p-0 md:pl-24">
           <Image
             src={separator}
             alt="separador"
             aria-label="separador"
             className="mb-6 w-12 md:w-20"
           />
-          <h2 className="text-2xl font-bold uppercase md:text-6xl flex md:block flex-col">
+          <h2 className="flex flex-col text-2xl font-bold uppercase md:block md:text-6xl">
             <span>Quer um projeto</span> <span>para o seu ambiente?</span>
           </h2>
-          <p className="mb-2 md:mb-6 mt-2 md:mt-4 text-xs md:text-2xl">
+          <p className="mb-2 mt-2 text-xs md:mb-6 md:mt-4 md:text-2xl">
             Encontre a Revenda Credenciada mais próxima de você
           </p>
           <Link href="/rede-credenciada">

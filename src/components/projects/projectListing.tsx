@@ -71,7 +71,7 @@ export default function ProjectListing({ projects }: { projects: Projeto[] }) {
 
   return (
     <>
-      <div className="mx-auto w-fit">
+      <div className="mx-auto mt-8 w-fit">
         <p className="mx-auto mb-6 w-fit text-lg font-bold text-primary">
           Filtrar por:
         </p>
