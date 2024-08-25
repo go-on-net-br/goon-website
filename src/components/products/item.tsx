@@ -44,7 +44,7 @@ export default function ProductsItem({
 
       <dialog id={modalId} className="modal modal-bottom sm:modal-middle">
         <ProductsDialog product={product}>
-          <form method="dialog" className=" md:hidden">
+          <form method="dialog">
             <button className="btn btn-circle btn-ghost btn-outline btn-sm absolute right-2 top-2 text-primary">
               ✕
             </button>
