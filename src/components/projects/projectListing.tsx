@@ -1,7 +1,7 @@
 "use client";
 
 import { Projeto } from "@/types/projeto";
-import ProjectCarrousel from "./projectCarrousel";
+import ProjectSection from "./ProjectSection";
 import { useRouter, useSearchParams } from "next/navigation";
 import universalSlugify from "@/helpers/universalSlugify";
 
@@ -139,7 +139,7 @@ export default function ProjectListing({ projects }: { projects: Projeto[] }) {
       <div className="flex flex-col gap-24">
         {filteredProjects.map((project, i) => {
           return (
-            <ProjectCarrousel
+            <ProjectSection
               project={project}
               index={i}
               key={project.attributes.Titulo}

@@ -11,8 +11,7 @@ const nextConfig = {
       {
         protocol: "https",
         // @ts-ignore
-        hostname: process.env.NEXT_PUBLIC_STRAPI_URL,
-        port: "1337",
+        hostname: process.env.NEXT_PUBLIC_STRAPI_URL?.split("://")[1],
         pathname: "/uploads/**",
       },
     ],
