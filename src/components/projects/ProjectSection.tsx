@@ -1,8 +1,4 @@
-"use client";
-
 import { Projeto } from "@/types/projeto";
-import ApiImage from "../ApiImage";
-import { useState } from "react";
 import ProjectCarrousel from "./projectCarousel";
 
 export default function ProjectSection({

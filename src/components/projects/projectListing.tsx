@@ -53,25 +53,9 @@ export default function ProjectListing({ projects }: { projects: Projeto[] }) {
     ),
   );
 
-  function displayCase(str: string) {
-    if (!str) {
-      return "";
-    }
-
-    return str.length === 1
-      ? str.toLowerCase()
-      : str
-          .toLowerCase()
-          .split(" ")
-          .map(function (word) {
-            return word.charAt(0).toUpperCase().concat(word.substr(1));
-          })
-          .join(" ");
-  }
-
   return (
     <>
-      <div className="mx-auto mt-8 w-fit">
+      <div className="mx-auto w-fit md:mt-8">
         <p className="mx-auto mb-6 w-fit text-lg font-bold text-primary">
           Filtrar por:
         </p>

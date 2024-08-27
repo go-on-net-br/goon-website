@@ -11,6 +11,8 @@ import separator from "../../../public/separator_white.svg";
 import Link from "next/link";
 import { Metadata } from "next";
 import { Suspense } from "react";
+import InfoCard from "@/components/projects/infoCard";
+import CardsCarousel from "@/components/projects/cardsCarousel";
 
 export const metadata: Metadata = {
   title: "Projetos",
@@ -48,7 +50,7 @@ export default async function Projetos() {
       <section>
         <BlueBgBox
           bgImage="/suburbamNeighborhood.webp"
-          boxStyles="w-screen pb-20 md:pb-0 md:h-[550px] after:!opacity-[36%]"
+          boxStyles="w-screen h-[475px] md:pb-0 md:h-[550px] after:!opacity-[25%]"
         >
           <div className="mx-2 mt-8 text-center text-white md:mx-auto md:mt-20 md:w-[700px]">
             <h1 className="mb-4 text-4xl font-bold md:text-5xl">
@@ -62,32 +64,18 @@ export default async function Projetos() {
           </div>
         </BlueBgBox>
       </section>
-      <section className="container relative z-[1] mx-auto max-w-screen-xl rounded-3xl bg-white px-9 py-12 md:-mt-12 md:py-36 md:pt-48">
-        <Suspense>
-          <div className="container -top-11 left-0 right-0 mx-auto -mt-32 mb-4 flex w-full max-w-screen-xl flex-col items-center justify-evenly gap-6 pt-8 text-center text-white md:absolute md:-top-64 md:mt-auto md:flex-row md:items-start md:pt-10">
-            {cards.map((card) => {
-              return (
-                <div
-                  className="card w-96 rounded-3xl bg-primary shadow-xl md:h-[390px]"
-                  key={card.title}
-                >
-                  <figure className="px-8 pt-8">
-                    <Image
-                      src={card.src}
-                      alt={card.title}
-                      className="max-w-20"
-                    />
-                  </figure>
-                  <div className="card-body">
-                    <h2 className="card-title mx-auto mb-2 text-3xl font-medium leading-8">
-                      {card.title}
-                    </h2>
-                    <p className="text-sm">{card.description}</p>
-                  </div>
-                </div>
-              );
-            })}
+      <section className="container relative z-[1] mx-auto max-w-screen-xl rounded-3xl bg-white px-9 pb-12 pt-56 md:-mt-12 md:py-36 md:pt-48">
+        <div className="container -top-11 left-0 right-0 mx-auto -mt-32 mb-4 hidden w-full max-w-screen-xl flex-col items-center justify-evenly gap-6 pt-8 text-center text-white md:absolute md:-top-64 md:mt-auto md:flex md:flex-row md:items-start md:pt-10">
+          {cards.map((card) => {
+            return <InfoCard card={card} key={card.title} />;
+          })}
+        </div>
+        <div className="absolute -top-24 left-0 right-0 z-[0] mx-auto h-36 w-[calc(100vw-32px)] rounded-2xl bg-white md:hidden">
+          <div className="absolute -top-40 left-0 right-0 mx-auto w-full max-w-96 text-center text-white  ">
+            <CardsCarousel cards={cards} />
           </div>
+        </div>
+        <Suspense>
           <ProjectListing projects={projectsData} />
         </Suspense>
       </section>
