@@ -1,0 +1,31 @@
+<form
+method="POST"
+data-netlify="true"
+netlify-honeypot="bot-field"
+data-netlify-recaptcha="true"
+name="contato"
+encType="application/x-www-form-urlencoded"
+>
+<input type="hidden" name="form-name" value="contato" />
+<p >
+  <label>
+    Don’t fill this out if you’re human: <input name="bot-field" />
+  </label>
+</p>
+<input type="text" value="nome" />
+<input type="email" value="email" />
+<input type="text" value="tema" />
+<label>
+  <textarea
+    required={true}
+    rows={6} >
+</label>
+
+<div>
+  <div data-netlify-recaptcha="true"></div>
+  <input
+    type="submit"
+    value="Enviar"
+  />
+</div>
+</form>

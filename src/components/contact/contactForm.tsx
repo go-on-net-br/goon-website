@@ -1,8 +1,9 @@
 "use client";
 
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { ContactInputs } from "./contactInputs.model";
 import RequiredInputField from "../accreditation/requiredInputField";
+import { useState } from "react";
 
 export default function ContactForm() {
   const methods = useForm<ContactInputs>({
@@ -12,13 +13,34 @@ export default function ContactForm() {
   const {
     register,
     formState: { errors },
+    handleSubmit,
   } = methods;
+
+  const [btnText, setBtnText] = useState("Enviar");
+
+  const onSubmit: SubmitHandler<ContactInputs> = async (data) => {
+    try {
+      setBtnText("Enviando...");
+      const res = await fetch("/contact.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data).toString(),
+      });
+      if (res.status === 200) {
+        setBtnText("Enviado ✓");
+      } else {
+        setBtnText("Erro");
+      }
+    } catch (e) {
+      setBtnText("Erro");
+    }
+  };
 
   return (
     <FormProvider {...methods}>
       <form
+        onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col justify-center"
-        method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
         data-netlify-recaptcha="true"
@@ -61,7 +83,8 @@ export default function ContactForm() {
           <input
             type="submit"
             className="btn btn-outline btn-primary btn-lg my-0 w-1/2 py-0"
-            value="Enviar"
+            value={btnText}
+            disabled={btnText === "carregando"}
           />
         </div>
       </form>
