@@ -50,7 +50,7 @@ export default async function Projetos() {
       <section>
         <BlueBgBox
           bgImage="/suburbamNeighborhood.webp"
-          boxStyles="w-screen h-[475px] md:pb-0 md:h-[550px] after:!opacity-[25%]"
+          boxStyles="w-screen h-[460px] md:pb-0 md:h-[550px] after:!opacity-[25%]"
         >
           <div className="mx-2 mt-8 text-center text-white md:mx-auto md:mt-20 md:w-[700px]">
             <h1 className="mb-4 text-4xl font-bold md:text-5xl">
@@ -70,10 +70,11 @@ export default async function Projetos() {
             return <InfoCard card={card} key={card.title} />;
           })}
         </div>
-        <div className="absolute -top-24 left-0 right-0 z-[0] mx-auto h-36 w-[calc(100vw-32px)] rounded-2xl bg-white md:hidden">
-          <div className="absolute -top-40 left-0 right-0 mx-auto w-full max-w-96 text-center text-white  ">
-            <CardsCarousel cards={cards} />
-          </div>
+        <div
+          style={{ maxWidth: "min(calc(100vw - 48px), 384px)" }}
+          className="absolute -top-44 left-0 right-0 mx-auto w-full text-center text-white md:hidden  "
+        >
+          <CardsCarousel cards={cards} />
         </div>
         <Suspense>
           <ProjectListing projects={projectsData} />

@@ -11,7 +11,7 @@ export default function InfoCard({
 }) {
   return (
     <div
-      className="card mx-2 w-full rounded-3xl bg-primary shadow-xl md:mx-0 md:h-[390px] md:w-96"
+      className="card mx-2 w-full max-w-[calc(100vw-48px)] rounded-3xl bg-primary shadow-xl md:mx-0 md:h-[390px] md:w-96"
       key={card.title}
     >
       <figure className="px-4 pt-4 md:px-8 md:pt-8">
