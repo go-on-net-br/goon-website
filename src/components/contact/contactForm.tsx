@@ -19,12 +19,16 @@ export default function ContactForm() {
   const [btnText, setBtnText] = useState("Enviar");
 
   const onSubmit: SubmitHandler<ContactInputs> = async (data) => {
+    console.log(data);
     try {
       setBtnText("Enviando...");
       const res = await fetch("/contact.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(data).toString(),
+        body: new URLSearchParams({
+          "form-name": "contato",
+          ...data,
+        }).toString(),
       });
       if (res.status === 200) {
         setBtnText("Enviado ✓");
@@ -46,7 +50,6 @@ export default function ContactForm() {
         data-netlify-recaptcha="true"
         name="contato"
       >
-        <input type="hidden" name="form-name" value="contato" />
         <p className="hidden">
           <label>
             Don’t fill this out if you’re human: <input name="bot-field" />
