@@ -19,7 +19,6 @@ export default function ContactForm() {
   const [btnText, setBtnText] = useState("Enviar");
 
   const onSubmit: SubmitHandler<ContactInputs> = async (data) => {
-    console.log(data);
     try {
       setBtnText("Enviando...");
       const res = await fetch("/contact.html", {
@@ -47,7 +46,6 @@ export default function ContactForm() {
         className="flex flex-col justify-center"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        data-netlify-recaptcha="true"
         name="contato"
       >
         <p className="hidden">
@@ -80,12 +78,11 @@ export default function ContactForm() {
         </label>
 
         <div className="flex h-20 w-full items-end justify-center">
-          <div data-netlify-recaptcha="true"></div>
           <input
             type="submit"
             className="btn btn-outline btn-primary btn-lg my-0 w-1/2 py-0"
             value={btnText}
-            disabled={btnText === "carregando"}
+            disabled={btnText !== "Enviar"}
           />
         </div>
       </form>
