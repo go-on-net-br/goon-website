@@ -45,8 +45,6 @@ export default function ContactForm() {
         netlify-honeypot="bot-field"
         data-netlify-recaptcha="true"
         name="contato"
-        {...{ netlify: true }}
-        encType="application/x-www-form-urlencoded"
       >
         <input type="hidden" name="form-name" value="contato" />
         <p className="hidden">
