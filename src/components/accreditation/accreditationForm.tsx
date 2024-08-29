@@ -41,7 +41,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
         marcas: formatMarcas(data.marcas),
       };
 
-      const res = await fetch("/contact.html", {
+      const res = await fetch("/accreditation.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
