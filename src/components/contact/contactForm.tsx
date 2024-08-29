@@ -21,7 +21,7 @@ export default function ContactForm() {
   const onSubmit: SubmitHandler<ContactInputs> = async (data) => {
     try {
       setBtnText("Enviando...");
-      const res = await fetch("/contact.html", {
+      const res = await fetch("/__contact.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
