@@ -11,6 +11,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.goon.net.br/'),
   title: { template: "%s | Go On", default: "Go On" },
   description:
     "A Go On tem em seu portfólio distribuidores exclusivos de um seleto grupo de marcas do mercado de automação residencial, áudio e vídeo. Trabalhamos com o que há de melhor no mercado, garantindo toda a segurança de uma importação legal.",
