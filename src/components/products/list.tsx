@@ -1,112 +1,75 @@
 "use client";
-import { Produto } from "@/types/produto";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import ProductsItem from "./item";
-import universalSlugify from "@/helpers/universalSlugify";
+import { CategoriasDeProduto } from "@/types/categorias-de-produto";
+import { Marca } from "@/types/marca";
+import Pagination from "./pagination";
+import useFetchProduct from "@/helpers/useFetchProduct";
 
 export default function ProductsList({
-  productsFromApi,
+  allCategories,
+  allBrands,
 }: {
-  productsFromApi: Produto[];
+  readonly allCategories: CategoriasDeProduto[];
+  readonly allBrands: Marca[];
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const [page, setPage] = useState(parseInt(searchParams.get("pagina") ?? "1"));
+  const [currPage, setCurrPage] = useState(
+    parseInt(searchParams.get("pagina") ?? "1"),
+  );
   const [brand, setBrand] = useState(searchParams.get("marca") ?? "todas");
   const [category, setCategory] = useState(
     searchParams.get("categoria") ?? "todas",
   );
-  const [selectedProduct, setSelectedProduct] = useState(
-    parseInt(searchParams.get("id") ?? "0"),
-  );
 
-  const [filteredProducts, setFilteredProducts] = useState(
-    filterProducts(productsFromApi, category, brand),
-  );
+  const params = new URLSearchParams(searchParams);
+  const updateUrl = useCallback(() => {
+    brand !== "todas" ? params.set("marca", brand) : params.delete("marca");
 
-  const allCategories = getProductCategories(productsFromApi);
-  const allBrands = getProductBrands(productsFromApi);
+    category !== "todas"
+      ? params.set("categoria", category)
+      : params.delete("categoria");
 
-  const [totalPages, setpagesArray] = useState(
-    Math.ceil(filteredProducts.length / 9),
-  );
+    currPage > 1
+      ? params.set("pagina", currPage.toString())
+      : params.delete("pagina");
 
-  const [shownProductList, setShownProductList] = useState(
-    filteredProducts.slice(page * 9 - 9, page * 9),
-  );
+    router.push(`/produtos?${params.toString()}`, { scroll: true });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [brand, category, currPage]);
 
   useEffect(() => {
-    setShownProductList(filteredProducts.slice(page * 9 - 9, page * 9));
-    setpagesArray(filteredProducts.length / 9);
-  }, [filteredProducts, page]);
+    updateUrl();
+  }, [brand, category, currPage, updateUrl]);
 
-  const pages = [];
-  for (let i = 1; i < totalPages + 1; i++) {
-    pages.push(
-      <button
-        key={"productPage" + i}
-        className={
-          "btn border-0 " +
-          (totalPages > 1 ? "join-item " : "") +
-          (page === i ? "btn-primary" : "")
-        }
-        onClick={() => {
-          setPage(i);
-        }}
-      >
-        {i}
-      </button>,
-    );
-  }
-
-  useEffect(() => {
-    setFilteredProducts(filterProducts(productsFromApi, category, brand));
-    let qp = "";
-    if (
-      page === 1 &&
-      brand === "todas" &&
-      category === "todas" &&
-      selectedProduct === 0
-    ) {
-      router.push("/produtos", { scroll: false });
-    } else {
-      qp = "?";
-      if (page != 1) {
-        qp += "pagina=" + page.toString();
-      }
-      if (brand != "todas") {
-        qp = qp.length > 1 ? qp + "&" : qp;
-        qp += "marca=" + brand;
-      }
-      if (category != "todas") {
-        qp = qp.length > 1 ? qp + "&" : qp;
-        qp += "categoria=" + category;
-      }
-      if (selectedProduct != 0) {
-        qp = qp.length > 1 ? qp + "&" : qp;
-        qp += "id=" + selectedProduct;
-      }
-      router.push(qp, { scroll: false });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [brand, category, page, selectedProduct]);
-
-  const handleItemClick = (action: "open" | "close", productId: number) => {
-    if (action === "open") {
-      (
-        document.getElementById("product_modal_" + productId) as any
-      ).showModal();
-    }
-    setSelectedProduct(productId);
+  const handlePageChange = (num: number) => {
+    setCurrPage(num);
   };
 
-  useEffect(() => {
-    if (selectedProduct != 0) {
-      handleItemClick("open", selectedProduct);
-    }
-  });
+  const handleBrandChange = (newBrand: string) => {
+    setBrand(newBrand);
+    setCurrPage(1);
+  };
+
+  const handleCategoryChange = (newCategory: string) => {
+    setCategory(newCategory);
+    setCurrPage(1);
+  };
+
+  const qp = [];
+  if (brand && brand !== "todas") {
+    qp.push("filters[marca][Marca][$eq]=" + brand);
+  }
+  if (category && category !== "todas") {
+    qp.push("filters[categoria][Titulo]=" + category);
+  }
+  qp.push("pagination[pageSize]=24&pagination[page]=" + (currPage || 1));
+
+  const { data, isLoading, error } = useFetchProduct(qp);
+  const pages = data?.meta?.pagination?.pageCount ?? 0;
 
   return (
     <>
@@ -115,34 +78,32 @@ export default function ProductsList({
           <p className="text-primary">Filtrar por:</p>
           <div className="flex w-full flex-col items-center justify-center gap-2 md:w-auto md:flex-row">
             <select
-              onChange={(e) => setBrand(e.target.value)}
+              onChange={(e) => handleBrandChange(e.target.value)}
               value={brand}
               className="select select-primary w-10/12 max-w-sm bg-transparent text-primary md:w-48"
-              disabled={!allBrands.some((a) => a)}
             >
               <option value={"todas"}>Todas marcas</option>
               {allBrands?.map((brand, i) => (
                 <option
-                  key={"ProductFilterBy" + brand}
-                  value={universalSlugify(brand)}
+                  key={"ProductFilterBy" + brand.id}
+                  value={brand.attributes.slug}
                 >
-                  {brand}
+                  {brand.attributes.Marca}
                 </option>
               ))}
             </select>
             <select
               value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              className="select select-primary w-10/12  max-w-sm bg-transparent text-primary md:w-48"
-              disabled={!allCategories.some((a) => a)}
+              onChange={(e) => handleCategoryChange(e.target.value)}
+              className="select select-primary w-10/12 max-w-sm bg-transparent text-primary md:w-48"
             >
               <option value={"todas"}>Todas categorias</option>
               {allCategories?.map((category, i) => (
                 <option
-                  key={"CategoryFilterBy" + category}
-                  value={universalSlugify(category)}
+                  key={"CategoryFilterBy" + category.id}
+                  value={category.attributes.slug}
                 >
-                  {category}
+                  {category.attributes.Titulo}
                 </option>
               ))}
             </select>
@@ -150,66 +111,21 @@ export default function ProductsList({
         </div>
       </div>
       <div className="container mx-auto grid max-w-screen-xl gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-        {shownProductList?.map((product) => (
-          <ProductsItem
-            product={product}
-            key={"productItem " + product.id}
-            handleClick={handleItemClick}
-          />
-        ))}
+        {isLoading ? (
+          <span className="loading loading-bars loading-lg"></span>
+        ) : (
+          data?.data?.map((product) => (
+            <ProductsItem product={product} key={"productItem " + product.id} />
+          ))
+        )}
       </div>
       <div data-theme="light" className="join my-8">
-        {pages}
+        <Pagination
+          currPage={currPage}
+          totalPages={pages}
+          onPageChange={handlePageChange}
+        />
       </div>
     </>
-  );
-}
-
-function getProductCategories(
-  productsFromApi: Produto[],
-): (string | undefined)[] {
-  return Array.from(
-    new Set(
-      productsFromApi.map(
-        (p) => p.attributes?.categoria?.data?.attributes?.Titulo,
-      ),
-    ),
-  );
-}
-
-function getProductBrands(productsFromApi: Produto[]): (string | undefined)[] {
-  return Array.from(
-    new Set(
-      productsFromApi.map((p) => p?.attributes?.marca?.data?.attributes?.Marca),
-    ),
-  );
-}
-
-function filterProducts(
-  productsFromApi: Produto[],
-  category = "todas",
-  brand = "todas",
-): Produto[] {
-  return productsFromApi.filter(
-    (product) =>
-      // All brands and categories
-      (brand === "todas" && category === "todas") ||
-      // All brands, filtered category
-      (brand === "todas" &&
-        category ===
-          universalSlugify(
-            product.attributes.categoria?.data.attributes.Titulo,
-          )) ||
-      // All categories, filtered brand
-      (category === "todas" &&
-        brand ===
-          universalSlugify(product.attributes.marca?.data.attributes.Marca)) ||
-      // Filtered brand and category
-      (brand ===
-        universalSlugify(product.attributes.marca?.data.attributes.Marca) &&
-        category ===
-          universalSlugify(
-            product.attributes.categoria?.data.attributes.Titulo,
-          )),
   );
 }

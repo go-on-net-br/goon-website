@@ -6,10 +6,10 @@ import { ReactNode, useState } from "react";
 
 export default function ProductsDialog({
   product,
-  children,
+  handleClose,
 }: {
   readonly product: Produto;
-  children: ReactNode;
+  handleClose: () => void;
 }) {
   const [selectedTab, setSelectedTab] = useState("chars");
   const [tabContent, setTabContent] = useState(
@@ -40,7 +40,11 @@ export default function ProductsDialog({
   return (
     <>
       <div className=" modal-box flex max-w-3xl flex-row gap-4 md:min-w-[80vw]">
-        {children}
+        <form method="dialog">
+          <button className="btn btn-circle btn-ghost btn-outline btn-sm absolute right-2 top-2 text-primary" onClick={handleClose}>
+            ✕
+          </button>
+        </form>
         {/* Carrossel Dialog (Desktop) */}
         <div className="card hidden w-96 min-w-96 flex-col justify-center bg-white md:flex">
           <Carousel />

@@ -6,5 +6,6 @@ export interface CategoriasDeProduto {
   attributes: DateAttributes & {
     Titulo: string;
     produtos: { data: Produto[] };
+    slug: string;
   };
 }

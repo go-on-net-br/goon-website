@@ -17,5 +17,6 @@ export interface Marca {
     Youtube: string;
     revendas?: { data: Revenda[] };
     produtos: { data: Produto[] };
+    slug: string;
   };
 }
