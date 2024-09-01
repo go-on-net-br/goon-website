@@ -5,6 +5,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+type BtnTextProps = "Enviar" | "Enviando..." | "Enviado ✓" | "Erro. Tentar novamente"
+
 export default function EmailPopUp() {
   const {
     register,
@@ -13,8 +15,6 @@ export default function EmailPopUp() {
   } = useForm<{ email: string }>();
 
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState<string | null>(null);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -24,26 +24,31 @@ export default function EmailPopUp() {
     return () => clearTimeout(timeout);
   }, []);
 
-  const onSubmit: SubmitHandler<{ email: string }> = (data) => {
-    setIsLoading(true);
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(data).toString(),
-    })
-      .then(() => {
-        setStatus("success");
-      })
-      .catch(() => {
-        setStatus("error");
-      })
-      .finally(() => {
-        setIsLoading(false);
+  const [btnText, setBtnText] = useState<BtnTextProps>("Enviar");
+
+  const onSubmit: SubmitHandler<{ email: string }> = async (data) => {
+    try {
+      setBtnText("Enviando...");
+      const res = await fetch("/__newsletter.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          "form-name": "newsletter",
+          ...data,
+        }).toString(),
       });
+      if (res.status === 200) {
+        setBtnText("Enviado ✓");
+      } else {
+        setBtnText("Erro. Tentar novamente");
+      }
+    } catch (e) {
+      setBtnText("Erro. Tentar novamente");
+    }
   };
 
   const onClose = () => {
-    if (!isLoading) {
+    if (btnText !== "Enviando...") {
       setIsOpen(false);
     }
   };
@@ -71,9 +76,9 @@ export default function EmailPopUp() {
           aria-label="separador"
           className="mx-auto mb-10 mt-4 md:mb-20 md:mt-0"
         />
-        {status ? (
+        {btnText !== "Enviar" ? (
           <h1 className="mb-2 text-center text-2xl font-bold uppercase">
-            {status === "success" ? (
+            {btnText === "Enviado ✓" ? (
               <span>
                 Inscrição realizada
                 <br />
@@ -100,13 +105,11 @@ export default function EmailPopUp() {
               </p>
             </header>
             <form
-              {...{ netlify: true }}
               encType="application/x-www-form-urlencoded"
               onSubmit={handleSubmit(onSubmit)}
               className="mt-3 flex w-full flex-col justify-center"
               data-netlify="true"
               netlify-honeypot="bot-field"
-              data-netlify-recaptcha="true"
               name="newsletter"
             >
               <input type="hidden" name="form-name" value="newsletter" />
@@ -134,16 +137,14 @@ export default function EmailPopUp() {
                 )}
               </label>
               <div className="flex h-20 w-full items-end justify-center">
-                <div data-netlify-recaptcha="true"></div>
-                {isLoading ? (
-                  <span className="loading loading-spinner"></span>
-                ) : (
-                  <input
-                    type="submit"
-                    className="btn btn-outline my-0 bg-white px-9 py-0 text-primary"
-                    value="Enviar"
-                  />
-                )}
+                <input
+                  type="submit"
+                  className="btn btn-outline my-0 bg-white px-9 py-0 text-primary"
+                  value={btnText}
+                  disabled={
+                    !["Enviar", "Erro. Tentar novamente"].includes(btnText)
+                  }
+                />
               </div>
             </form>
           </>

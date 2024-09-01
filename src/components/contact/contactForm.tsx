@@ -32,10 +32,10 @@ export default function ContactForm() {
       if (res.status === 200) {
         setBtnText("Enviado ✓");
       } else {
-        setBtnText("Erro");
+        setBtnText("Erro. Tentar novamente");
       }
     } catch (e) {
-      setBtnText("Erro");
+      setBtnText("Erro. Tentar novamente");
     }
   };
 
@@ -82,7 +82,7 @@ export default function ContactForm() {
             type="submit"
             className="btn btn-outline btn-primary btn-lg my-0 w-1/2 py-0"
             value={btnText}
-            disabled={btnText !== "Enviar"}
+            disabled={!["Enviar", "Erro. Tentar novamente"].includes(btnText)}
           />
         </div>
       </form>
