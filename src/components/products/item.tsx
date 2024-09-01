@@ -2,25 +2,49 @@
 import { Produto } from "@/types/produto";
 import ApiImage from "../ApiImage";
 import ProductsDialog from "./dialog";
+import { useEffect, useRef } from "react";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function ProductsItem({
   product,
-  handleClick,
 }: {
   readonly product: Produto;
-  handleClick: (action: "open" | "close", productId: number) => void;
 }) {
   const productImage = product?.attributes?.FotoseVideos?.data.find(
     (e) =>
       ![".mp4", ".mov", ".avi", ".wmv", ".WebM"].includes(e.attributes.ext),
   );
-  const modalId = "product_modal_" + product.id;
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    if (searchParams.get("id") === product.id.toString()) {
+      dialogRef.current?.showModal();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleClose = () => {
+    const params = new URLSearchParams(searchParams);
+    params.delete("id");
+    dialogRef.current?.close();
+    router.push(`/produtos?${params.toString()}`, { scroll: false });
+  };
+
+  const handleOpen = (id: number) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("id", id.toString());
+    dialogRef.current?.showModal();
+    router.push(`/produtos?${params.toString()}`, { scroll: false });
+  };
 
   return (
     <>
       <div
         className="flex max-w-full cursor-pointer flex-col items-center justify-end"
-        onClick={() => handleClick("open", product.id)}
+        onClick={() => handleOpen(product.id)}
       >
         {productImage !== undefined && (
           <div className="flex h-80 w-96 max-w-full flex-col items-center justify-end px-2 md:px-0">
@@ -40,18 +64,10 @@ export default function ProductsItem({
         <a className="mt-2text-sm text-primary underline">Mais informações</a>
       </div>
 
-      {/* Dialog */}
-
-      <dialog id={modalId} className="modal modal-bottom sm:modal-middle">
-        <ProductsDialog product={product}>
-          <form method="dialog">
-            <button className="btn btn-circle btn-ghost btn-outline btn-sm absolute right-2 top-2 text-primary">
-              ✕
-            </button>
-          </form>
-        </ProductsDialog>
+      <dialog className="modal modal-bottom sm:modal-middle" ref={dialogRef}>
+        <ProductsDialog product={product} handleClose={handleClose} />
         <form method="dialog" className="modal-backdrop">
-          <button onClick={() => handleClick("close", 0)}>close</button>
+          <button onClick={() => handleClose()}>close</button>
         </form>
       </dialog>
     </>

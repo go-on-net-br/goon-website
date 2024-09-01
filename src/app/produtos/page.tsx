@@ -1,17 +1,22 @@
-import { Produto } from "@/types/produto";
-import fetchDataFromApi from "@/helpers/fetchFromApi";
+import { fetchDataFromApiWithParams } from "@/helpers/fetchFromApi";
 import ProductsList from "@/components/products/list";
 import BeAReseller from "@/components/beAResellerFooter";
 import { Metadata } from "next";
 import BlueBgBox from "@/components/blueBgBox";
 import { Suspense } from "react";
+import { CategoriasDeProduto } from "@/types/categorias-de-produto";
+import { Marca } from "@/types/marca";
 
 export const metadata: Metadata = {
   title: "Produtos",
 };
 
 export default async function Page() {
-  const productsFromApi = await fetchDataFromApi<Produto[]>("produtos");
+  const productCategoriesFromApi = await fetchDataFromApiWithParams<
+    CategoriasDeProduto[]
+  >("categorias-de-produtos");
+  const brandsFromApi = await fetchDataFromApiWithParams<Marca[]>("marcas");
+
   return (
     <>
       <section>
@@ -30,7 +35,10 @@ export default async function Page() {
       </section>
       <section className=" -mt-4 flex flex-col items-center bg-white">
         <Suspense>
-          <ProductsList productsFromApi={productsFromApi} />
+          <ProductsList
+            allCategories={productCategoriesFromApi}
+            allBrands={brandsFromApi}
+          />
         </Suspense>
       </section>
       <section>
