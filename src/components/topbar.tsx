@@ -26,7 +26,7 @@ export default function Topbar({
   const pathname = usePathname();
 
   return (
-    <div className="drawer">
+    <div className="drawer drawer-end">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
