@@ -7,5 +7,5 @@ export type AccreditationInputs = {
   cidadeEUF: string;
   endereco: string;
   complemento?: string;
-  marcas: string[];
+  marcas: { value: string; label: string }[];
 };
