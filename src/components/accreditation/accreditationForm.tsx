@@ -68,8 +68,6 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
   };
   const selectOptions = brands.map((brand) => ({ value: brand, label: brand }));
 
-  const controlStyles = "min-h-12 p-2 !rounded-lg !border-primary";
-
   return (
     <FormProvider {...methods}>
       <form
@@ -114,7 +112,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
                     onChange={onChange}
                     onBlur={onBlur}
                     classNames={{
-                      control: () => controlStyles,
+                      control: () => "min-h-12 p-2 !rounded-lg !border-primary",
                     }}
                   />
                 );
@@ -122,6 +120,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
             />
           </label>
         )}
+        <input className="hidden" type="text" {...register("marcas")} />
         <div className="flex h-20 w-full items-end justify-center">
           <input
             type="submit"
