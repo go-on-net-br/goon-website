@@ -1,7 +1,6 @@
 import ApiImage from "@/components/ApiImage";
-import fetchDataFromApi from "@/helpers/fetchFromApi";
+import { getBrands } from "@/helpers/repeatedApiCalls";
 import universalSlugify from "@/helpers/universalSlugify";
-import { Marca } from "@/types/marca";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -10,11 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Marcas() {
-  const brandsData = await fetchDataFromApi<Marca[]>(
-    "marcas",
-    "populate=deep",
-    "prioridade:desc",
-  );
+  const brandsData = await getBrands();
+
   return (
     <div className="container mx-auto my-10 max-w-screen-xl px-8 md:my-20">
       <header className="mx-auto my-10 max-w-[890px] text-center text-primary md:my-20">

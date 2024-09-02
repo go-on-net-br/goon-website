@@ -1,18 +1,17 @@
 import ApiImage from "@/components/ApiImage";
-import fetchDataFromApi from "@/helpers/fetchFromApi";
 import universalSlugify from "@/helpers/universalSlugify";
-import { Marca } from "@/types/marca";
 import SocialIconMap from "@/components/socialNetworks/socialIconMap";
 import BlockRendererClient from "@/helpers/blockRendererClient";
 import Link from "next/link";
 import { Metadata, ResolvingMetadata } from "next";
 import { Rede, RedesSociais } from "@/types/common";
+import { getBrands } from "@/helpers/repeatedApiCalls";
 
 export async function generateMetadata(
   { params }: { params: { slug: string } },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const brands = await fetchDataFromApi<Marca[]>("marcas");
+  const brands = await getBrands();
   const thisBrand = brands.find(
     (brand) => universalSlugify(brand?.attributes?.Marca) === params?.slug,
   );
@@ -33,7 +32,7 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-  const brands = await fetchDataFromApi<Marca[]>("marcas");
+  const brands = await getBrands();
 
   return brands?.map((brand) => {
     return {
@@ -48,7 +47,7 @@ export default async function BrandPage({
   params: { slug: string };
 }) {
   //since this api call is already cached, reusing it is better than calling another API endpoint
-  const brands = await fetchDataFromApi<Marca[]>("marcas");
+  const brands = await getBrands();
   const { slug } = params;
 
   const thisBrand = brands.find(
