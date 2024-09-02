@@ -5,7 +5,11 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-type BtnTextProps = "Enviar" | "Enviando..." | "Enviado ✓" | "Erro. Tentar novamente"
+type BtnTextProps =
+  | "Enviar"
+  | "Enviando..."
+  | "Enviado ✓"
+  | "Erro. Tentar novamente";
 
 export default function EmailPopUp() {
   const {
@@ -27,6 +31,12 @@ export default function EmailPopUp() {
   const [btnText, setBtnText] = useState<BtnTextProps>("Enviar");
 
   const onSubmit: SubmitHandler<{ email: string }> = async (data) => {
+    console.log(
+      new URLSearchParams({
+        "form-name": "newsletter",
+        ...data,
+      }).toString(),
+    );
     try {
       setBtnText("Enviando...");
       const res = await fetch("/__newsletter.html", {
@@ -76,17 +86,13 @@ export default function EmailPopUp() {
           aria-label="separador"
           className="mx-auto mb-10 mt-4 md:mb-20 md:mt-0"
         />
-        {btnText !== "Enviar" ? (
+        {btnText === "Enviado ✓" ? (
           <h1 className="mb-2 text-center text-2xl font-bold uppercase">
-            {btnText === "Enviado ✓" ? (
-              <span>
-                Inscrição realizada
-                <br />
-                com sucesso!
-              </span>
-            ) : (
-              "falha ao realizar inscrição"
-            )}
+            <span>
+              Inscrição realizada
+              <br />
+              com sucesso!
+            </span>
           </h1>
         ) : (
           <>
