@@ -38,7 +38,7 @@ export default function ProductsList({
       : params.delete("pagina");
 
     router.push(`/produtos?${params.toString()}`, { scroll: true });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [brand, category, currPage]);
 
   useEffect(() => {
@@ -110,22 +110,45 @@ export default function ProductsList({
           </div>
         </div>
       </div>
-      <div className="container mx-auto grid max-w-screen-xl gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-        {isLoading ? (
-          <span className="loading loading-bars loading-lg"></span>
-        ) : (
-          data?.data?.map((product) => (
-            <ProductsItem product={product} key={"productItem " + product.id} />
-          ))
-        )}
-      </div>
-      <div data-theme="light" className="join my-8">
-        <Pagination
-          currPage={currPage}
-          totalPages={pages}
-          onPageChange={handlePageChange}
-        />
-      </div>
+      {isLoading ? (
+        // Loading State
+        <div className="mb-24 flex h-64 w-full items-center justify-center px-4">
+          <span className="loading loading-bars loading-lg px-4 text-center text-primary"></span>
+        </div>
+      ) : error ? (
+        // Error State
+        <div className="mb-24 flex h-64 w-full items-center justify-center px-4">
+          <p className="text-center text-lg font-semibold">
+            Ocorreu algum erro. Tente de novo em alguns instantes.
+          </p>
+        </div>
+      ) : data?.data && data.data.length < 1 ? (
+        // Empty State
+        <div className="mb-24 flex h-64 w-full items-center justify-center px-4">
+          <p className="text-lg font-semibold">
+            Não encontramos nenhum produto com esses filtros.
+          </p>
+        </div>
+      ) : (
+        // Data Available
+        <>
+          <div className="container mx-auto grid max-w-screen-xl gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+            {data?.data?.map((product) => (
+              <ProductsItem
+                product={product}
+                key={"productItem " + product.id}
+              />
+            ))}
+          </div>
+          <div data-theme="light" className="join my-8">
+            <Pagination
+              currPage={currPage}
+              totalPages={pages}
+              onPageChange={handlePageChange}
+            />
+          </div>
+        </>
+      )}
     </>
   );
 }
