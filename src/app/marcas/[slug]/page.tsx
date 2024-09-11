@@ -5,18 +5,18 @@ import BlockRendererClient from "@/helpers/blockRendererClient";
 import Link from "next/link";
 import { Metadata, ResolvingMetadata } from "next";
 import { Rede, RedesSociais } from "@/types/common";
-import { getBrands } from "@/helpers/repeatedApiCalls";
+import fetchDataFromApi from "@/helpers/fetchFromApi";
+import { Marca } from "@/types/marca";
 
 export async function generateMetadata(
   { params }: { params: { slug: string } },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const brands = await getBrands();
-  const thisBrand = brands.find(
-    (brand) => universalSlugify(brand?.attributes?.Marca) === params?.slug,
-  );
+  const brandSlug = params?.slug;
 
-  const { Marca, Logotipo, Resumo } = thisBrand?.attributes!;
+  const brandData = await fetchDataFromApi<Marca>(`marcas/${brandSlug}`);
+
+  const { Marca, Logotipo, Resumo } = brandData?.attributes;
 
   const previousImages = (await parent).openGraph?.images || [];
 
@@ -32,8 +32,11 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-  const brands = await getBrands();
-
+  const brands = await fetchDataFromApi<Marca[]>(
+    "marcas",
+    "populate=deep",
+    "prioridade:desc",
+  );
   return brands?.map((brand) => {
     return {
       slug: universalSlugify(brand.attributes.Marca),
@@ -46,16 +49,17 @@ export default async function BrandPage({
 }: {
   params: { slug: string };
 }) {
-  //since this api call is already cached, reusing it is better than calling another API endpoint
-  const brands = await getBrands();
   const { slug } = params;
 
-  const thisBrand = brands.find(
-    (brand) => universalSlugify(brand.attributes.Marca) === slug,
-  )!;
+  const brandData = await fetchDataFromApi<Marca>(
+    `marcas/${slug}`,
+    "populate=deep",
+  );
 
+  
   const { Sobre, Logotipo, Marca, Facebook, Instagram, LinkedIn, Youtube } =
-    thisBrand?.attributes;
+  brandData?.attributes;
+  console.log(Sobre)
 
   const Redes: RedesSociais[] = [
     { Rede: Rede.Facebook, URL: Facebook },

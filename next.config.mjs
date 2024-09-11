@@ -10,8 +10,18 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        // @ts-ignore
-        hostname: process.env.NEXT_PUBLIC_STRAPI_URL?.split("://")[1],
+        hostname: "ogui.ca",
+        pathname: "/uploads/**",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "1337",
+        pathname: "/uploads/**",
+      },
+      {
+        protocol: "https",
+        hostname: "goon.net.br",
         pathname: "/uploads/**",
       },
     ],

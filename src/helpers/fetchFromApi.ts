@@ -9,6 +9,7 @@ export default async function fetchDataFromApi<T>(
       headers: {
         Authorization: `${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
       },
+      cache: "force-cache"
     },
   );
   if (!res.ok) {
