@@ -5,7 +5,6 @@
       data-netlify="true"
       netlify-honeypot="bot-field"
       name="newsletter"
-      hidden
     >
       <input type="hidden" name="form-name" value="newsletter" />
       <p>
@@ -13,7 +12,8 @@
           Don’t fill this out if you’re human: <input name="bot-field" />
         </label>
       </p>
-      <input type="email" value="email" />
+      <label for="email">Your email address</label><br />
+      <input required type="email" value="email" id="email" />
     </form>
   </body>
 </html>

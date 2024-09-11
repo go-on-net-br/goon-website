@@ -86,75 +86,77 @@ export default function EmailPopUp() {
           aria-label="separador"
           className="mx-auto mb-10 mt-4 md:mb-20 md:mt-0"
         />
-        {btnText === "Enviado ✓" ? (
-          <h1 className="mb-2 text-center text-2xl font-bold uppercase">
-            <span>
-              Inscrição realizada
+        <h1
+          className={
+            btnText === "Enviado ✓"
+              ? "mb-2 text-center text-2xl font-bold uppercase"
+              : "hidden"
+          }
+        >
+          <span>
+            Inscrição realizada
+            <br />
+            com sucesso!
+          </span>
+        </h1>
+        <div className={btnText === "Enviado ✓" ? "hidden" : ""}>
+          <header>
+            <h1 className="m-auto mb-2 w-[200px] text-center uppercase md:m-0 md:w-auto">
+              <span className="text-lg font-light md:text-2xl">
+                Fique por dentro de todas as
+              </span>{" "}
               <br />
-              com sucesso!
-            </span>
-          </h1>
-        ) : (
-          <>
-            <header>
-              <h1 className="m-auto mb-2 w-[200px] text-center uppercase md:m-0 md:w-auto">
-                <span className="text-lg font-light md:text-2xl">
-                  Fique por dentro de todas as
-                </span>{" "}
-                <br />
-                <span className="text-2xl font-bold md:text-4xl">
-                  novidades do setor
-                </span>
-              </h1>
-              <p className="text-center text-sm md:text-base">
-                Assine agora a Newsletter Exclusiva “Sua Casa Inteligente”{" "}
-              </p>
-            </header>
-            <form
-              encType="application/x-www-form-urlencoded"
-              onSubmit={handleSubmit(onSubmit)}
-              className="mt-3 flex w-full flex-col justify-center"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-              name="newsletter"
-            >
-              <input type="hidden" name="form-name" value="newsletter" />
-              <p className="hidden">
-                <label>
-                  Don’t fill this out if you’re human:{" "}
-                  <input name="bot-field" />
-                </label>
-              </p>
-
-              <label className="font-lg input input-bordered flex w-full items-center gap-2 rounded-md bg-primary text-white focus-within:outline-none focus:outline-none">
-                <span className="min-w-12 text-sm md:min-w-14 md:text-base">
-                  E-mail
-                </span>
-                <input
-                  id="email"
-                  type="email"
-                  {...register("email", { required: "Email is required" })}
-                  className={`input w-full rounded-xl border-none text-sm focus:outline-none active:outline-none md:text-base ${errors.email ? "border-red-500" : ""}`}
-                />
-                {errors.email && (
-                  <p className="mt-2 text-xs italic text-red-500">
-                    {errors.email.message}
-                  </p>
-                )}
+              <span className="text-2xl font-bold md:text-4xl">
+                novidades do setor
+              </span>
+            </h1>
+            <p className="text-center text-sm md:text-base">
+              Assine agora a Newsletter Exclusiva “Sua Casa Inteligente”{" "}
+            </p>
+          </header>
+          <form
+            encType="application/x-www-form-urlencoded"
+            onSubmit={handleSubmit(onSubmit)}
+            className="mt-3 flex w-full flex-col justify-center"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            name="newsletter"
+          >
+            <input type="hidden" name="form-name" value="newsletter" />
+            <p className="hidden">
+              <label>
+                Don’t fill this out if you’re human: <input name="bot-field" />
               </label>
-              <div className="flex h-20 w-full items-end justify-center">
-                <input
-                  type="submit"
-                  className="btn btn-outline my-0 bg-white px-9 py-0 text-primary"
-                  value={btnText}
-                  disabled={
-                    !["Enviar", "Erro. Tentar novamente"].includes(btnText)
-                  }
-                />
-              </div>
-            </form>
-          </>
-        )}
+            </p>
+
+            <label className="font-lg input input-bordered flex w-full items-center gap-2 rounded-md bg-primary text-white focus-within:outline-none focus:outline-none">
+              <span className="min-w-12 text-sm md:min-w-14 md:text-base">
+                E-mail
+              </span>
+              <input
+                id="email"
+                type="email"
+                {...register("email", { required: "Email is required" })}
+                className={`input w-full rounded-xl border-none text-sm focus:outline-none active:outline-none md:text-base ${errors.email ? "border-red-500" : ""}`}
+              />
+              {errors.email && (
+                <p className="mt-2 text-xs italic text-red-500">
+                  {errors.email.message}
+                </p>
+              )}
+            </label>
+            <div className="flex h-20 w-full items-end justify-center">
+              <input
+                type="submit"
+                className="btn btn-outline my-0 bg-white px-9 py-0 text-primary"
+                value={btnText}
+                disabled={
+                  !["Enviar", "Erro. Tentar novamente"].includes(btnText)
+                }
+              />
+            </div>
+          </form>
+        </div>
         <Image
           src={separator_white}
           alt="separador"
