@@ -8,8 +8,6 @@ import HomeBadge from "@/components/home/homeBadges";
 import Carousel from "@/components/home/carousel";
 import HomeCards from "@/components/home/homeCards";
 import { Home } from "@/types/home";
-import Image from "next/image";
-import separator from "../../public/separator.svg";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import InfiniteScroll from "@/components/infiniteScroll";
 import { Marca } from "@/types/marca";
@@ -23,9 +21,15 @@ import EmailPopUp from "@/components/home/emailPopup";
 
 export default async function HomePage() {
   const homeData = await fetchDataFromApi<Home>("home");
-  const brandsData = await fetchDataFromApi<Marca[]>("marcas");
+  const brandsData = await fetchDataFromApi<Marca[]>(
+    "marcas",
+    "populate[Logotipo][fields][0]=width&populate[Logotipo][fields][1]=height&populate[Logotipo][fields][2]=url&fields[0]=Marca",
+  );
   const projectsData = (
-    await fetchDataFromApi<Projeto[]>("projetos", "populate=*")
+    await fetchDataFromApi<Projeto[]>(
+      "projetos",
+      "populate[media][fields][0]=width&populate[media][fields][1]=height&populate[media][fields][2]=url&populate[revenda][fields][0]=Titulo",
+    )
   ).sort((a, b) => {
     return a.attributes.createdAt > b.attributes.createdAt ? -1 : 1;
   });
@@ -53,7 +57,7 @@ export default async function HomePage() {
           </h2>
           <HomeBadge badges={badges} />
         </section>
-        <section className="container mx-auto mt-16 max-w-screen-xl px-4 md:px-0 mb-16 md:mb-28">
+        <section className="container mx-auto mb-16 mt-16 max-w-screen-xl px-4 md:mb-28 md:px-0">
           <HomeCards />
         </section>
         <section>
@@ -86,7 +90,7 @@ export default async function HomePage() {
             </div>
           </BlueBgBox>
         </section>
-        <section className="container mx-auto mt-64 md:mt-96 max-w-screen-xl mb-20">
+        <section className="container mx-auto mb-20 mt-64 max-w-screen-xl md:mt-96">
           <Link href="marcas">
             <h2 className="mb-6 text-center text-3xl text-primary md:text-4xl">
               Marcas <b className="font-bold">Exclusivas</b>
