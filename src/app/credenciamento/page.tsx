@@ -28,7 +28,7 @@ export default async function Credenciamento() {
     { src: moneyIcon, text: "Descontos e\ncampanhas de\nbenefícios" },
   ];
 
-  const brandsData = await fetchDataFromApi<Marca[]>("marcas");
+  const brandsData = await fetchDataFromApi<Marca[]>("marcas", "fields[0]=Marca");
   const brands = brandsData.map((brand) => brand.attributes.Marca);
 
   const testimoniesData = await fetchDataFromApi<Depoimento[]>("depoimentos");

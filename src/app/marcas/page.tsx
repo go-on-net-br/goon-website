@@ -1,5 +1,6 @@
 import ApiImage from "@/components/ApiImage";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
+import { buildMediaQPs } from "@/helpers/qpHelper";
 import universalSlugify from "@/helpers/universalSlugify";
 import { Marca } from "@/types/marca";
 import { Metadata } from "next";
@@ -10,9 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default async function Marcas() {
-  const brandsData =   await fetchDataFromApi<Marca[]>(
+  const brandsData = await fetchDataFromApi<Marca[]>(
     "marcas",
-    "populate=deep",
+    `${buildMediaQPs("Logotipo")}&${buildMediaQPs("Capa")}&fields[0]=Marca&fields[1]=Resumo`,
     "prioridade:desc",
   );
 

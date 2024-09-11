@@ -21,9 +21,15 @@ export const metadata: Metadata = {
 };
 
 export default async function RedeCredenciada() {
-  const resellerData = await fetchDataFromApi<Revenda[]>("revendas");
-  const brandsData = await fetchDataFromApi<Marca[]>("marcas");
-  const brands = brandsData.map((brand) => brand.attributes.Marca);
+  const resellerData = await fetchDataFromApi<Revenda[]>(
+    "revendas",
+    "populate[marcas][fields][0]=Marca",
+  );
+  const brandsData = await fetchDataFromApi<Marca[]>(
+    "marcas",
+    "field[0]=Marca",
+  );
+  const brands = brandsData.map((brand) => brand.attributes.Marca).sort();
 
   return (
     <div>

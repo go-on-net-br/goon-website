@@ -18,17 +18,18 @@ import universalSlugify from "@/helpers/universalSlugify";
 import BlueBgBox from "@/components/blueBgBox";
 import ProjectsCarousel from "@/components/home/projectsCarousel";
 import EmailPopUp from "@/components/home/emailPopup";
+import { buildMediaQPs } from "@/helpers/qpHelper";
 
 export default async function HomePage() {
   const homeData = await fetchDataFromApi<Home>("home");
   const brandsData = await fetchDataFromApi<Marca[]>(
     "marcas",
-    "populate[Logotipo][fields][0]=width&populate[Logotipo][fields][1]=height&populate[Logotipo][fields][2]=url&fields[0]=Marca",
+    `${buildMediaQPs("Logotipo")}&fields[0]=Marca`,
   );
   const projectsData = (
     await fetchDataFromApi<Projeto[]>(
       "projetos",
-      "populate[media][fields][0]=width&populate[media][fields][1]=height&populate[media][fields][2]=url&populate[revenda][fields][0]=Titulo",
+      `${buildMediaQPs("media")}&fields[0]=Titulo`,
     )
   ).sort((a, b) => {
     return a.attributes.createdAt > b.attributes.createdAt ? -1 : 1;
