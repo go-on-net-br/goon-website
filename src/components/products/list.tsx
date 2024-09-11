@@ -10,9 +10,14 @@ import useFetchProduct from "@/helpers/useFetchProduct";
 export default function ProductsList({
   allCategories,
   allBrands,
+  brandsAndCatsMap,
 }: {
-  readonly allCategories: CategoriasDeProduto[];
-  readonly allBrands: Marca[];
+  allCategories: CategoriasDeProduto[];
+  allBrands: Marca[];
+  brandsAndCatsMap: {
+    brandsByCategoryMap: Map<string, Set<string>>;
+    categoriesByBrandMap: Map<string, Set<string>>;
+  };
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -28,17 +33,14 @@ export default function ProductsList({
   const params = new URLSearchParams(searchParams);
   const updateUrl = useCallback(() => {
     brand !== "todas" ? params.set("marca", brand) : params.delete("marca");
-
     category !== "todas"
       ? params.set("categoria", category)
       : params.delete("categoria");
-
     currPage > 1
       ? params.set("pagina", currPage.toString())
       : params.delete("pagina");
 
     router.push(`/produtos?${params.toString()}`, { scroll: true });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [brand, category, currPage]);
 
   useEffect(() => {
@@ -52,6 +54,8 @@ export default function ProductsList({
   const handleBrandChange = (newBrand: string) => {
     setBrand(newBrand);
     setCurrPage(1);
+    // Reset category to "todas" when brand changes
+    setCategory("todas");
   };
 
   const handleCategoryChange = (newCategory: string) => {
@@ -71,6 +75,20 @@ export default function ProductsList({
   const { data, isLoading, error } = useFetchProduct(qp);
   const pages = data?.meta?.pagination?.pageCount ?? 0;
 
+  const { brandsByCategoryMap, categoriesByBrandMap } = brandsAndCatsMap;
+
+  // Filter available categories based on selected brand
+  const availableCategories =
+    brand === "todas"
+      ? allCategories
+      : Array.from(categoriesByBrandMap.get(brand) || [])
+          .map((categoryName) =>
+            allCategories.find(
+              (category) => category.attributes.Titulo === categoryName,
+            ),
+          )
+          .filter(Boolean);
+
   return (
     <>
       <div className="container flex flex-col items-center rounded-3xl bg-white">
@@ -83,12 +101,12 @@ export default function ProductsList({
               className="select select-primary w-10/12 max-w-sm bg-transparent text-primary md:w-48"
             >
               <option value={"todas"}>Todas marcas</option>
-              {allBrands?.map((brand, i) => (
+              {allBrands?.map((brand) => (
                 <option
-                  key={"ProductFilterBy" + brand.id}
-                  value={brand.attributes.slug}
+                  key={"ProductFilterBy" + brand?.id}
+                  value={brand?.attributes.Marca}
                 >
-                  {brand.attributes.Marca}
+                  {brand?.attributes.Marca}
                 </option>
               ))}
             </select>
@@ -98,12 +116,12 @@ export default function ProductsList({
               className="select select-primary w-10/12 max-w-sm bg-transparent text-primary md:w-48"
             >
               <option value={"todas"}>Todas categorias</option>
-              {allCategories?.map((category, i) => (
+              {availableCategories?.map((category) => (
                 <option
-                  key={"CategoryFilterBy" + category.id}
-                  value={category.attributes.slug}
+                  key={"CategoryFilterBy" + category?.id}
+                  value={category?.attributes.Titulo}
                 >
-                  {category.attributes.Titulo}
+                  {category?.attributes.Titulo}
                 </option>
               ))}
             </select>
@@ -111,26 +129,22 @@ export default function ProductsList({
         </div>
       </div>
       {isLoading ? (
-        // Loading State
         <div className="mb-24 flex h-64 w-full items-center justify-center px-4">
           <span className="loading loading-bars loading-lg px-4 text-center text-primary"></span>
         </div>
       ) : error ? (
-        // Error State
         <div className="mb-24 flex h-64 w-full items-center justify-center px-4">
           <p className="text-center text-lg font-semibold">
             Ocorreu algum erro. Tente de novo em alguns instantes.
           </p>
         </div>
       ) : data?.data && data.data.length < 1 ? (
-        // Empty State
         <div className="mb-24 flex h-64 w-full items-center justify-center px-4">
           <p className="text-lg font-semibold">
             Não encontramos nenhum produto com esses filtros.
           </p>
         </div>
       ) : (
-        // Data Available
         <>
           <div className="container mx-auto grid max-w-screen-xl gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
             {data?.data?.map((product) => (
