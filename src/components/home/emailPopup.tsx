@@ -63,12 +63,14 @@ export default function EmailPopUp() {
     }
   };
 
-  if (!isOpen) return null;
-
   return (
     <div
       onClick={onClose}
-      className="fixed left-0 top-0 z-30 flex h-full w-full cursor-pointer items-center justify-center bg-[rgba(255,255,255,0.6)] backdrop-blur-md"
+      className={
+        isOpen
+          ? "fixed left-0 top-0 z-30 flex h-full w-full cursor-pointer items-center justify-center bg-[rgba(255,255,255,0.6)] backdrop-blur-md"
+          : "hidden"
+      }
     >
       <div
         onClick={(e) => e.stopPropagation()}

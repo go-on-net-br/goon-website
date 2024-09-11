@@ -49,7 +49,7 @@ export default async function BrandPage({
 
   const brandData = await fetchDataFromApi<Marca>(
     `marcas/${slug}`,
-    "populate=deep",
+    "",
   );
 
   const { Sobre, Logotipo, Marca, Facebook, Instagram, LinkedIn, Youtube } =
