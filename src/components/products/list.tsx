@@ -73,7 +73,8 @@ export default function ProductsList({
   qp.push("pagination[pageSize]=24&pagination[page]=" + (currPage || 1));
 
   const { data, isLoading, error } = useFetchProduct(qp);
-  const pages = data?.meta?.pagination?.pageCount ?? 0;
+  const {data: products, meta} = data ?? {}
+  const pages = meta?.pagination?.pageCount ?? 0;
 
   const { brandsByCategoryMap, categoriesByBrandMap } = brandsAndCatsMap;
 
@@ -138,7 +139,7 @@ export default function ProductsList({
             Ocorreu algum erro. Tente de novo em alguns instantes.
           </p>
         </div>
-      ) : data?.data && data.data.length < 1 ? (
+      ) : (products?.length ?? 0) < 1 ? (
         <div className="mb-24 flex h-64 w-full items-center justify-center px-4">
           <p className="text-lg font-semibold">
             Não encontramos nenhum produto com esses filtros.
@@ -147,7 +148,7 @@ export default function ProductsList({
       ) : (
         <>
           <div className="container mx-auto grid max-w-screen-xl gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-            {data?.data?.map((product) => (
+            {products?.map((product) => (
               <ProductsItem
                 product={product}
                 key={"productItem " + product.id}

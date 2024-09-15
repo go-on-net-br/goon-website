@@ -3,7 +3,6 @@
 import { Projeto } from "@/types/projeto";
 import ProjectSection from "./ProjectSection";
 import { useRouter, useSearchParams } from "next/navigation";
-import universalSlugify from "@/helpers/universalSlugify";
 
 export default function ProjectListing({ projects }: { projects: Projeto[] }) {
   const searchParams = useSearchParams();
@@ -16,17 +15,15 @@ export default function ProjectListing({ projects }: { projects: Projeto[] }) {
       return true;
     } else if (type === "todos") {
       return project.attributes.marcas?.data?.some(
-        (brandInProject) =>
-          universalSlugify(brandInProject.attributes.Marca) === brand,
+        (brandInProject) => brandInProject.attributes.Marca === brand,
       );
     } else if (brand === "todas") {
-      return universalSlugify(project.attributes.Tipo) === type;
+      return project.attributes.Tipo === type;
     } else {
       return (
-        universalSlugify(project.attributes.Tipo) === type &&
+        project.attributes.Tipo === type &&
         project.attributes.marcas?.data?.some(
-          (brandInProject) =>
-            universalSlugify(brandInProject.attributes.Marca) === brand,
+          (brandInProject) => brandInProject.attributes.Marca === brand,
         )
       );
     }
@@ -81,7 +78,7 @@ export default function ProjectListing({ projects }: { projects: Projeto[] }) {
               <option value="todos">Todos</option>
               {possibleTypes.map((type) => {
                 return (
-                  <option value={universalSlugify(type)} key={type}>
+                  <option value={type} key={type}>
                     {type}
                   </option>
                 );
@@ -111,7 +108,7 @@ export default function ProjectListing({ projects }: { projects: Projeto[] }) {
               <option value="todas">Todas</option>
               {possibleBrands.map((possibleBrand, i) => {
                 return (
-                  <option value={universalSlugify(possibleBrand)} key={i}>
+                  <option value={possibleBrand} key={i}>
                     {possibleBrand}
                   </option>
                 );

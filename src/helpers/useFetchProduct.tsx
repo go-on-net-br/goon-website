@@ -1,7 +1,8 @@
 import { Produto } from "@/types/produto";
 import useSWR, { Fetcher } from "swr";
+import { buildMediaQPs } from "./qpHelper";
 
-const API_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/produtos?populate=deep`;
+const API_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/produtos?populate[marca][fields][0]=Marca&populate[categoria][fields][0]=Titulo&${buildMediaQPs("FotoseVideos")}`;
 const fetcher: Fetcher<
   {
     data: Produto[];

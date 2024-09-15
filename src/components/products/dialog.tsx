@@ -41,7 +41,10 @@ export default function ProductsDialog({
     <>
       <div className=" modal-box flex max-w-3xl flex-row gap-4 md:min-w-[80vw]">
         <form method="dialog">
-          <button className="btn btn-circle btn-ghost btn-outline btn-sm absolute right-2 top-2 text-primary" onClick={handleClose}>
+          <button
+            className="btn btn-circle btn-ghost btn-outline btn-sm absolute right-2 top-2 text-primary"
+            onClick={handleClose}
+          >
             ✕
           </button>
         </form>
@@ -119,9 +122,7 @@ export default function ProductsDialog({
           <a
             href={
               "/projetos?marca=" +
-              universalSlugify(
-                product.attributes.marca?.data?.attributes?.Marca,
-              )
+              product.attributes.marca?.data?.attributes?.Marca
             }
             className="w-fit border-b-2 border-primary font-semibold text-primary hover:cursor-pointer"
           >
