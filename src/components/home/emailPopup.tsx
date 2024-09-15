@@ -21,8 +21,29 @@ export default function EmailPopUp() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    const checkPopupVisibility = () => {
+      const lastClosed = localStorage.getItem("popupLastClosed");
+      const emailSent = localStorage.getItem("emailSent");
+
+      if (emailSent === "true") {
+        return false;
+      }
+
+      if (lastClosed) {
+        const timeSinceClosed = Date.now() - parseInt(lastClosed, 10);
+        if (timeSinceClosed < 24 * 60 * 60 * 1000) {
+          // 24 hours in milliseconds
+          return false;
+        }
+      }
+
+      return true;
+    };
+
     const timeout = setTimeout(() => {
-      setIsOpen(true);
+      if (checkPopupVisibility()) {
+        setIsOpen(true);
+      }
     }, 8000);
 
     return () => clearTimeout(timeout);
@@ -31,12 +52,6 @@ export default function EmailPopUp() {
   const [btnText, setBtnText] = useState<BtnTextProps>("Enviar");
 
   const onSubmit: SubmitHandler<{ email: string }> = async (data) => {
-    console.log(
-      new URLSearchParams({
-        "form-name": "newsletter",
-        ...data,
-      }).toString(),
-    );
     try {
       setBtnText("Enviando...");
       const res = await fetch("/__newsletter.html", {
@@ -49,6 +64,7 @@ export default function EmailPopUp() {
       });
       if (res.status === 200) {
         setBtnText("Enviado ✓");
+        localStorage.setItem("emailSent", "true");
       } else {
         setBtnText("Erro. Tentar novamente");
       }
@@ -60,6 +76,7 @@ export default function EmailPopUp() {
   const onClose = () => {
     if (btnText !== "Enviando...") {
       setIsOpen(false);
+      localStorage.setItem("popupLastClosed", Date.now().toString());
     }
   };
 

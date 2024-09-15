@@ -126,7 +126,7 @@ export default async function BrandPage({
                   )}
                   {i === arr.length - 1 && (
                     <Link
-                      href={`/produtos?marca=${slug}`}
+                      href={`/produtos?marca=${Marca}`}
                       className="flex justify-center"
                     >
                       <button
