@@ -47,7 +47,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <EmailPopUp />
+      {/* <EmailPopUp /> */}
       <div>
         <section className="container mx-auto mt-4 max-w-screen-xl md:mt-12">
           <Carousel carousel={Carrossel} />

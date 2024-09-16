@@ -21,6 +21,7 @@ const fetcher: Fetcher<
     headers: {
       Authorization: `${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
     },
+    next: { revalidate: 1800 },
   }).then((r) => r.json());
 
 export default function useFetchProduct(qp: string[]) {
