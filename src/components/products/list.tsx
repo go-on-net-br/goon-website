@@ -5,7 +5,7 @@ import ProductsItem from "./item";
 import { CategoriasDeProduto } from "@/types/categorias-de-produto";
 import { Marca } from "@/types/marca";
 import Pagination from "./pagination";
-import useFetchProduct from "@/helpers/useFetchProduct";
+import useFetchProduct from "@/hooks/useFetchProduct";
 
 export default function ProductsList({
   allCategories,

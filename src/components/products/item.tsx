@@ -2,7 +2,7 @@
 import { Produto } from "@/types/produto";
 import ApiImage from "../ApiImage";
 import ProductsDialog from "./dialog";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 
@@ -17,18 +17,16 @@ export default function ProductsItem({
   );
   const searchParams = useSearchParams();
   const router = useRouter();
+  const [showDialog, setShowDialog] = useState(
+    searchParams.get("id") === product.id.toString(),
+  );
   const dialogRef = useRef<HTMLDialogElement>(null);
-
-  useEffect(() => {
-    if (searchParams.get("id") === product.id.toString()) {
-      dialogRef.current?.showModal();
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const timeoutRef = useRef<number | null>(null);
 
   const handleClose = () => {
     const params = new URLSearchParams(searchParams);
     params.delete("id");
+    setShowDialog(false);
     dialogRef.current?.close();
     router.push(`/produtos?${params.toString()}`, { scroll: false });
   };
@@ -36,14 +34,28 @@ export default function ProductsItem({
   const handleOpen = (id: number) => {
     const params = new URLSearchParams(searchParams);
     params.set("id", id.toString());
-    dialogRef.current?.showModal();
+    setShowDialog(true);
     router.push(`/produtos?${params.toString()}`, { scroll: false });
   };
+
+  useEffect(() => {
+    if (showDialog) {
+      timeoutRef.current = window.setTimeout(() => {
+        dialogRef.current?.showModal();
+      }, 5);
+
+      return () => {
+        if (typeof timeoutRef.current === "number") {
+          window.clearTimeout(timeoutRef.current);
+        }
+      };
+    }
+  }, [showDialog]);
 
   return (
     <>
       <div
-        className="flex max-w-full cursor-pointer flex-col items-center justify-end"
+        className="flex h-[400px] max-w-full cursor-pointer flex-col items-center justify-end"
         onClick={() => handleOpen(product.id)}
       >
         {productImage !== undefined && (
@@ -63,13 +75,14 @@ export default function ProductsItem({
         </p>
         <a className="mt-2text-sm text-primary underline">Mais informações</a>
       </div>
-
-      <dialog className="modal modal-bottom sm:modal-middle" ref={dialogRef}>
-        <ProductsDialog product={product} handleClose={handleClose} />
-        <form method="dialog" className="modal-backdrop">
-          <button onClick={() => handleClose()}>close</button>
-        </form>
-      </dialog>
+      {showDialog && (
+        <dialog className="modal modal-bottom sm:modal-middle" ref={dialogRef}>
+          <ProductsDialog product={product} handleClose={handleClose} />
+          <form method="dialog" className="modal-backdrop">
+            <button onClick={() => handleClose()}>close</button>
+          </form>
+        </dialog>
+      )}
     </>
   );
 }
