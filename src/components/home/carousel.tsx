@@ -20,10 +20,11 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
     }
   }, []);
 
-  const imgStyles = "w-full h-[150px] md:h-[450px] object-contain object-center m-auto";
+  const imgStyles =
+    "w-full h-[150px] md:h-[450px] object-contain object-center m-auto";
 
   return (
-    <div className="relative h-[150px] mx-4 md:h-[450px]">
+    <div className="relative mx-4 h-[150px] md:h-[450px]">
       <div className="absolute w-full md:static md:w-auto">
         {isReady && (
           <Glider
@@ -38,6 +39,7 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
             duration={0.3}
             slidesToShow={1}
             slidesToScroll={1}
+            scrollLock
           >
             {carousel?.map((slide, i) => {
               return (
