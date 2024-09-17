@@ -15,6 +15,7 @@ export default function ProductsItem({
     (e) =>
       ![".mp4", ".mov", ".avi", ".wmv", ".WebM"].includes(e.attributes.ext),
   );
+  
   const searchParams = useSearchParams();
   const router = useRouter();
   const [showDialog, setShowDialog] = useState(
