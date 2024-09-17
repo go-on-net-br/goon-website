@@ -57,8 +57,8 @@ export default function Contato() {
           <TalkToUsForm />
         </section>
       </div>
-      <div className="mx-4 flex w-full flex-col items-center xl:hidden">
-        <section className="h-full w-1/2 bg-primary">
+      <div className="mx-8 flex w-full flex-col items-center xl:hidden">
+        <section className="mx-4 h-full w-full bg-primary sm:w-3/5">
           <ContactInfo />
           <div className="absolute left-0 w-screen px-4">
             <TalkToUsForm />
