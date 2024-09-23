@@ -20,6 +20,7 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
     }
   }, []);
 
+  const startAt = Math.round(Math.random() * carousel.length);
   const imgStyles =
     "w-full h-[150px] md:h-[450px] object-contain object-center m-auto";
 
@@ -32,6 +33,7 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
               prev: leftArrowEl.current,
               next: rightArrowEl.current,
             }}
+            scrollToPage={startAt}
             hasArrows
             hasDots
             dots={dotsEl.current}
