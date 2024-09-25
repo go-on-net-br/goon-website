@@ -21,7 +21,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "goon.net.br",
+        hostname: "dashboard.goon.net.br",
         pathname: "/uploads/**",
       },
     ],

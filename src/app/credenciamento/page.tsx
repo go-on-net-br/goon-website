@@ -28,7 +28,10 @@ export default async function Credenciamento() {
     { src: moneyIcon, text: "Descontos e\ncampanhas de\nbenefícios" },
   ];
 
-  const brandsData = await fetchDataFromApi<Marca[]>("marcas", "fields[0]=Marca");
+  const brandsData = await fetchDataFromApi<Marca[]>(
+    "marcas",
+    "fields[0]=Marca",
+  );
   const brands = brandsData.map((brand) => brand.attributes.Marca);
 
   const testimoniesData = await fetchDataFromApi<Depoimento[]>("depoimentos");
@@ -111,13 +114,13 @@ export default async function Credenciamento() {
           aria-label="separador"
           className="mx-auto my-12 h-20 w-36 object-contain md:my-20"
         />
-        <section className="pb-8 md:pb-0">
+        {/* <section className="pb-8 md:pb-0">
           <h2 className="mx-auto mb-12 mt-16 max-w-[1050px] px-4 text-center text-xl font-bold uppercase text-primary md:px-0 md:text-5xl">
             Veja o depoimento de nossos <br className="hidden md:block" />{" "}
             revendedores mais antigos
           </h2>
           <Testimonies testimoniesData={testimoniesData} />
-        </section>
+        </section> */}
       </div>
     </div>
   );
