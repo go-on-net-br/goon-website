@@ -73,7 +73,7 @@ export default function ProductsList({
   qp.push("pagination[pageSize]=24&pagination[page]=" + (currPage || 1));
 
   const { data, isLoading, error } = useFetchProduct(qp);
-  const {data: products, meta} = data ?? {}
+  const { data: products, meta } = data ?? {};
   const pages = meta?.pagination?.pageCount ?? 0;
 
   const { brandsByCategoryMap, categoriesByBrandMap } = brandsAndCatsMap;
@@ -102,14 +102,18 @@ export default function ProductsList({
               className="select select-primary w-10/12 max-w-sm bg-transparent text-primary md:w-48"
             >
               <option value={"todas"}>Todas marcas</option>
-              {allBrands?.map((brand) => (
-                <option
-                  key={"ProductFilterBy" + brand?.id}
-                  value={brand?.attributes.Marca}
-                >
-                  {brand?.attributes.Marca}
-                </option>
-              ))}
+              {allBrands
+                .sort((a, b) =>
+                  a.attributes.Marca > b.attributes.Marca ? 1 : -1,
+                )
+                ?.map((brand) => (
+                  <option
+                    key={"ProductFilterBy" + brand?.id}
+                    value={brand?.attributes.Marca}
+                  >
+                    {brand?.attributes.Marca}
+                  </option>
+                ))}
             </select>
             <select
               value={category}
