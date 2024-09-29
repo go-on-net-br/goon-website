@@ -7,10 +7,13 @@ import {
   normalizeCnpjNumber,
   validEmail,
   normalizePhoneNumber,
+  normalizeCepNumber,
 } from "@/helpers/inputMasks";
 import { ContactInputs } from "../contact/contactInputs.model";
 
-interface RequiredFields extends ContactInputs, AccreditationInputs {}
+interface RequiredFields extends ContactInputs, AccreditationInputs {
+  CEP: string;
+}
 
 export default function RequiredInputField({
   value,
@@ -39,6 +42,7 @@ export default function RequiredInputField({
     marcas: "Marcas",
     mensagem: "Mensagem",
     tema: "Tema",
+    CEP: "CEP",
   };
 
   let fieldStyles = "flex h-24 flex-col w-full " + (!fullWidth && "md:w-[45%]");
@@ -65,8 +69,10 @@ export default function RequiredInputField({
                 return "E-mail inválido";
               }
               if (value === "celular" && val.length !== 15) {
-                console.log(val);
                 return "Celular inválido";
+              }
+              if (value === "CEP" && val.length !== 9) {
+                return "CEP inválido";
               }
             }
           },
@@ -76,6 +82,9 @@ export default function RequiredInputField({
             }
             if (value === "celular") {
               setValue("celular", normalizePhoneNumber(e?.target?.value));
+            }
+            if (value === "CEP") {
+              setValue("CEP", normalizeCepNumber(e.target.value));
             }
           },
         })}

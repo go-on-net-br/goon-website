@@ -20,6 +20,15 @@ export const normalizeCnpjNumber = (value: String | undefined) => {
     .replace(/(-\d{2})\d+?$/, "$1");
 };
 
+export const normalizeCepNumber = (value: String | undefined) => {
+  if (!value) return "";
+
+  return value
+    .replace(/[\D]/g, "") // Remove qualquer caractere que não seja número
+    .replace(/(\d{5})(\d{3})/, "$1-$2") // Adiciona o hífen entre os primeiros 5 e os últimos 3 dígitos
+    .slice(0, 9); // Limita o valor a 9 caracteres (00000-000)
+};
+
 export function validCnpj(cnpj: string) {
   const cleanCnpj = cnpj.replace(/[^\d]+/g, "");
 
