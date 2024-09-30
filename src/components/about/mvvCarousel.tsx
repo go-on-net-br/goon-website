@@ -28,9 +28,11 @@ export default function MvvCarrousel({ mvv }: { readonly mvv: Corporativo[] }) {
             slidesToScroll={1}
           >
             {mvv?.map((card) => (
-              <MvvCard title={card.Titulo} key={card.Titulo}>
-                {card.Corpo}
-              </MvvCard>
+              <div className="mx-3"  key={card.Titulo}>
+                <MvvCard title={card.Titulo}>
+                  {card.Corpo}
+                </MvvCard>
+              </div>
             ))}
           </Glider>
         )}{" "}

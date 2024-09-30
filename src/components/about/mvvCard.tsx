@@ -9,13 +9,13 @@ export default function MvvCard({
 }) {
   return (
     <div
-      className="card card-normal mx-2 bg-primary py-12 shadow-lg transition-all md:mx-0"
+      className="card card-normal flex h-full flex-col bg-primary py-12 shadow-lg transition-all"
       key={"aboutMvv_" + title}
     >
-      <h3 className="text-center text-4xl font-bold uppercase text-white">
+      <h3 className="px-4 text-center text-4xl font-bold uppercase text-white">
         {title}
       </h3>
-      <div className="card-body">
+      <div className="card-body flex-grow">
         <p className="text-center text-white">{children}</p>
       </div>
     </div>
