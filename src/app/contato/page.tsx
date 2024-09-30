@@ -34,7 +34,7 @@ function ContactInfo() {
           alt="ícone de um telefone"
           className="h-6 object-contain"
         />
-        <p>(11) 4328-88087</p>
+        <p>(11) 4328-8808</p>
       </div>
       <div className="flex items-center gap-4 tracking-wider text-white">
         <Image
