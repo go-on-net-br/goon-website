@@ -30,7 +30,7 @@ export default function Topbar({
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="navbar h-24 w-full bg-primary px-4">
+        <div className="navbar h-24 w-full bg-goOnBlack px-4">
           <div className="mx-2 flex-1 px-2">
             <Link href="/">
               <Image
@@ -96,8 +96,8 @@ export default function Topbar({
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="menu min-h-full w-80 bg-white p-0">
-          <div className="min-wifull bg-primary p-4">
+        <div className="menu min-h-full w-80 bg-goOnBlack p-0">
+          <div className="min-wifull bg-goOnBlack p-4">
             <Link href="/">
               <Image
                 src={goOnSvg}
@@ -106,7 +106,7 @@ export default function Topbar({
               />
             </Link>
           </div>
-          <ul className="min-h-full w-80 bg-white p-4">
+          <ul className="min-h-full w-80 bg-goOnBlack p-4">
             {/* Sidebar content here */}
             {links.map((link) => {
               const slug = universalSlugify(link);

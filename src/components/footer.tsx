@@ -5,7 +5,7 @@ import SocialNetworks from "./socialNetworks";
 
 export default function Footer() {
   return (
-    <footer className="footer footer-center bg-primary p-8 text-primary-content md:p-12">
+    <footer className="footer footer-center bg-goOnBlack p-8 text-primary-content md:p-12">
       <div className="flex md:flex-row">
         <aside className="w-[49%] md:w-auto">
           <Link href="/">
