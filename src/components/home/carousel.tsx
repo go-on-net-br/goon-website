@@ -67,33 +67,32 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
             })}
           </Glider>
         )}
-        <button
-          ref={leftArrowEl}
-          aria-label="navegar para a esquerda"
-          className="absolute bottom-0 left-1 z-10 hidden md:block md:h-[450px]"
-        >
-          <Image
-            className="z-10 h-10 w-10 object-contain"
-            alt="flecha apontada para esquerda"
-            src={arrow_left}
-          />
-        </button>{" "}
-        <button
-          ref={rightArrowEl}
-          aria-label="navegar para a direita"
-          className="absolute bottom-0 z-10 hidden md:right-1 md:block md:h-[450px]"
-        >
-          <Image
-            className="h-10 w-10 scale-x-[-1] object-contain"
-            alt="flecha apontada para direita"
-            src={arrow_left}
-          />
-        </button>
-        <div
-          className="absolute -bottom-12 left-0 right-0"
-          ref={dotsEl}
-          id="dots"
-        ></div>
+        <div className="absolute bottom-5 left-0 right-0 flex items-center justify-center gap-3">
+          <button
+            ref={leftArrowEl}
+            aria-label="navegar para a esquerda"
+            className=""
+          >
+            <Image
+              className="z-10 h-6 w-6   rounded-none border-none bg-transparent object-contain p-0 shadow-lg"
+              alt="flecha apontada para esquerda"
+              src={arrow_left}
+            />
+          </button>
+          <div className="" ref={dotsEl} id="dots"></div>
+
+          <button
+            ref={rightArrowEl}
+            aria-label="navegar para a direita"
+            className=""
+          >
+            <Image
+              className="h-6 w-6 scale-x-[-1]  rounded-none border-none bg-transparent object-contain p-0 shadow-lg"
+              alt="flecha apontada para direita"
+              src={arrow_left}
+            />
+          </button>
+        </div>
       </div>
     </div>
   );
