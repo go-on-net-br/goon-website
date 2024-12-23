@@ -1,19 +1,21 @@
+import goOnSvg from "../../../public/go_on_logo.svg";
 import BlueBgBox from "@/components/blueBgBox";
 import Badge from "@/components/home/badge";
-import headsetIcon from "../../../public/headsetWhite.svg";
-import classroomIcon from "../../../public/classroom.svg";
-import lockIcon from "../../../public/lockWhite.svg";
-import moneyIcon from "../../../public/money.svg";
-import halfCircle from "../../../public/halfCircle.svg";
-import winnerBadgeIcon from "../../../public/winnerBadgeWhite.svg";
+import winnerBadge from "../../../public/winnerBadge.svg";
+import contentWebsite from "../../../public/contentWebsite.svg";
+import support from "../../../public/support.svg";
+import webinar from "../../../public/webinar.svg";
+import cheers from "../../../public/cheers.svg";
+import money from "../../../public/money.svg";
+import globe from "../../../public/globe.svg";
+import maintenance from "../../../public/maintenance.svg";
 import separator from "../../../public/separator.svg";
 import Image from "next/image";
 import AccreditationForm from "@/components/accreditation/accreditationForm";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import { Marca } from "@/types/marca";
-import { Depoimento } from "@/types/depoimento";
-import Testimonies from "@/components/accreditation/testimonies";
 import { Metadata } from "next";
+import { Credenciamento as CredenciamentoProps } from "@/types/credenciamento";
 
 export const metadata: Metadata = {
   title: "Credenciamento",
@@ -21,11 +23,27 @@ export const metadata: Metadata = {
 
 export default async function Credenciamento() {
   const badges = [
-    { src: winnerBadgeIcon, text: "Empresas\nLíderes do\nsegmento" },
-    { src: lockIcon, text: "Importação\nSegura e\nLegalizada" },
-    { src: headsetIcon, text: "Suporte\nEspecializado" },
-    { src: classroomIcon, text: "Treinamentos\nExclusivos" },
-    { src: moneyIcon, text: "Descontos e\ncampanhas de\nbenefícios" },
+    { src: winnerBadge, text: "Marcas\n exclusivas", fontSize: "lg" },
+    { src: contentWebsite, text: "Conteúdos\n exclusivos", fontSize: "lg" },
+    {
+      src: support,
+      text: "Suporte comercial \nEspecializado",
+      fontSize: "md",
+    },
+    {
+      src: globe,
+      text: "Importação \nlegal e segura",
+      fontSize: "lg",
+    },
+    { src: maintenance, text: "Assistência\ntécnica", fontSize: "lg" },
+    { src: money, text: "Descontos \ne benefícios", fontSize: "lg" },
+    { src: cheers, text: "Eventos e\ncampanhas", fontSize: "lg" },
+    { src: webinar, text: "Treinamentos\ne webinars", fontSize: "md" },
+    {
+      src: money,
+      text: "Condições especiais\ne Campanhas",
+      fontSize: "md",
+    },
   ];
 
   const brandsData = await fetchDataFromApi<Marca[]>(
@@ -34,7 +52,8 @@ export default async function Credenciamento() {
   );
   const brands = brandsData.map((brand) => brand.attributes.Marca);
 
-  const testimoniesData = await fetchDataFromApi<Depoimento[]>("depoimentos");
+  const data = await fetchDataFromApi<CredenciamentoProps>("credenciamento");
+  const { video1, video2 } = data.attributes;
 
   return (
     <div className="relative">
@@ -42,35 +61,35 @@ export default async function Credenciamento() {
         <div className="container relative z-20 mx-auto mb-10 mt-20 max-w-screen-xl md:my-20">
           <section className="px-6 md:p-0">
             <header className="mx-auto mt-20 text-center text-white md:mb-40 md:max-w-[900px] ">
-              <h1 className="mb-12 text-2xl font-bold uppercase md:text-7xl md:leading-[50px]">
-                Seja um revendedor
-                <br />
-                <span className="text-base font-light tracking-wider md:text-[38px]">
-                  E trabalhe com as{" "}
-                </span>
-                <span className="text-base font-bold tracking-wider md:text-[38px]">
-                  melhores marcas
-                </span>
-              </h1>
+              <div className="mb-12 box-content flex items-center justify-center gap-8">
+                <h1 className="text-2xl font-bold uppercase md:text-7xl">
+                  Revendedor
+                </h1>
+                <Image
+                  src={goOnSvg}
+                  alt={"Logotipo da GoOn"}
+                  className="h-16 w-auto object-contain"
+                />
+              </div>
               <p className="text-justify text-sm font-normal md:text-lg">
                 Temos o orgulho de ser uma das principais empresas de
-                distribuição de produtos de áudio, vídeo e automação do Brasil,
-                esse título não é atoa, estamos a anos contruindo um bom
-                relacionamento com revendas e fornecedores em prol de oferecer
-                um serviço seguro, transparente e com as melhores marcas do
-                mercado mundial.
+                distribuição de produtos de áudio, vídeo e automação.
+                Reconhecidos por nossa excelência, somos a melhor escolha para
+                revendas e integradores que buscam produtos de alta qualidade e
+                um atendimento excepcional. Nossa expertise no mercado nos
+                permite oferecer as melhores soluções para seus projetos.
               </p>
             </header>
           </section>
           <section className="mt-16">
-            <h2 className="mx-auto block w-full text-center text-3xl text-white md:w-fit">
-              Por que se tornar um{" "}
-              <span className="font-bold">Revendedor Go On?</span>
+            <h2 className="mx-auto block w-full text-center text-3xl font-extralight uppercase tracking-wider text-white md:w-fit">
+              Por que se tornar um revendedor Go On?
             </h2>
-            <Badge badges={badges} white />
-            <p className="mx-auto mt-16 block w-fit font-light text-primary ">
-              E muito mais...
+            <p className="mx-auto block w-full text-center text-white md:w-fit">
+              Conheça alguns dos muitos diferenciais que oferecemos para nossas
+              empresas parceiras
             </p>
+            <Badge badges={badges} white />
           </section>
           <section>
             <div className="relative z-20 mt-16 w-full px-5 md:mx-auto md:mt-20 md:max-w-[860px] ">
@@ -86,15 +105,7 @@ export default async function Credenciamento() {
               </div>
             </div>
           </section>
-        </div>
-        <div className="absolute bottom-[-3px] w-full">
-          <Image
-            src={halfCircle}
-            alt="half circle"
-            aria-hidden
-            className=" h-32 w-full object-fill object-top md:h-[500px]"
-          />
-        </div>
+        </div> 
       </BlueBgBox>
       <div className="container mx-auto min-h-96 max-w-screen-xl bg-[#F5f5f5] md:my-20">
         <section>

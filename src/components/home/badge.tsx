@@ -4,33 +4,52 @@ export default function Badge({
   badges,
   white = false,
 }: {
-  badges: { src: any; text: string }[];
+  badges: { src: any; text: string; fontSize: string }[];
   white?: boolean;
 }) {
   return (
-    <div className="mx-6 mt-16 flex flex-wrap justify-around gap-9 px-4 md:justify-evenly">
-      {badges?.map((badge, i) => (
-        <div
-          className="flex flex-col gap-2 last:flex-row md:max-w-[140px] md:gap-5 md:last:flex-col"
-          key={badge?.text.slice(0, 5) + i}
-        >
-          <div className="h-20 w-24 p-2 md:w-full">
-            <Image
-              src={badge?.src}
-              alt={badge?.text}
-              className="h-full w-full object-contain object-left"
-            />
-          </div>
-          <p
-            className={
-              "whitespace-pre-wrap text-sm !leading-tight font-semibold md:text-lg " +
-              (white ? "text-white" : "text-primary")
-            }
+    <div className="mx-auto grid w-full grid-cols-2 md:grid-cols-3 gap-2">
+      {badges?.map((badge, i) => {
+        let fontSize = "text-sm md:text-xl ";
+        if (badge.fontSize === "md") {
+          fontSize = "text-xs md:text-lg ";
+        }
+        if (badge.fontSize === "sm") {
+          fontSize = "text-xxs md:text-md ";
+        }
+
+        const badgeText = badge.text.split("\n");
+        return (
+          <div
+            className={"mx-auto flex w-80 gap-2 " + (i === badges.length - 1 ? "col-span-2 md:col-span-1 " : "")}
+            key={badge?.text.slice(0, 5) + i}
           >
-            {badge?.text}
-          </p>
-        </div>
-      ))}
+            <div className="h-14 md:h-16 md:w-24 p-2">
+              <Image
+                src={badge?.src}
+                alt={badge?.text}
+                className="ml-auto h-full w-fit object-contain object-left"
+              />
+            </div>
+            <p className="flex flex-col uppercase tracking-widest justify-center">
+              {badgeText.map((txt, txtI) => {
+                return (
+                  <span
+                    key={txt + txtI}
+                    className={
+                      (white ? "text-white " : "text-primary ") +
+                      fontSize +
+                      (txtI === 0 ? "font-extralight" : "font-semibold")
+                    }
+                  >
+                    {txt}
+                  </span>
+                );
+              })}
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 }
