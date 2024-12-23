@@ -18,7 +18,7 @@ export default function Badge({
           fontSize = "text-xs md:text-lg ";
         }
         if (badge.fontSize === "sm") {
-          fontSize = "text-[10px] md:text-md ";
+          fontSize = "text-[10px] md:text-sm ";
         }
 
         const badgeText = badge.text.split("\n");
