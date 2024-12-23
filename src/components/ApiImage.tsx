@@ -4,9 +4,11 @@ import NextImage from "next/image";
 export default function ApiImage({
   image,
   contentStyles = "",
+  alt,
 }: {
   image: Media;
   contentStyles?: string;
+  alt?: string;
 }) {
   const imageInfo = image?.attributes ?? {};
 
@@ -15,7 +17,7 @@ export default function ApiImage({
       src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${imageInfo.url}`}
       width={imageInfo?.width}
       height={imageInfo?.height}
-      alt={imageInfo.alternativeText ?? ""}
+      alt={alt ?? imageInfo.alternativeText ?? ""}
       className={contentStyles}
     />
   );

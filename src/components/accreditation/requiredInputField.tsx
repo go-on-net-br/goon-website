@@ -45,9 +45,9 @@ export default function RequiredInputField({
     CEP: "CEP",
   };
 
-  let fieldStyles = "flex h-24 flex-col w-full " + (!fullWidth && "md:w-[45%]");
-
-  fullWidth;
+  let fieldStyles =
+    "flex font-light tracking-wider h-24 flex-col w-full " +
+    (!fullWidth && "md:w-[45%]");
 
   return (
     <label className={fieldStyles + (errors?.[value] ? " text-red-500" : "")}>
@@ -57,7 +57,7 @@ export default function RequiredInputField({
       <input
         required={true}
         type={type}
-        className="input input-bordered input-primary w-full rounded-lg"
+        className="border-goOnBlue input input-bordered input-primary w-full rounded-lg"
         {...register(value, {
           validate: (val) => {
             if (val?.length === 0) return "Campo obrigatório";
