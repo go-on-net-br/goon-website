@@ -20,15 +20,19 @@ export default function HomeCards() {
     },
   ];
   return (
-    <div className="flex flex-wrap justify-evenly gap-6">
+    <div className="flex flex-col justify-evenly md:flex-row">
       {cards.map((card, i) => {
         return (
-          <Link key={card.text.slice(0, 4) + i} href={card?.href}>
+          <Link
+            key={card.text.slice(0, 4) + i}
+            href={card?.href}
+            className="md:w-1/3"
+          >
             <BlueBgBox
               bgImage={card.src}
-              boxStyles="card h-44 md:h-[475px] w-[320px] md:w-[350px] rounded-3xl shadow-md transition-all before:rounded-3xl after:rounded-3xl hover:scale-105"
+              boxStyles="h-44 md:h-[475px] w-full transition-all hover:scale-105 hover:z-10"
             >
-              <p className="absolute bottom-0 left-0 right-0 top-0 z-10 m-auto block h-fit w-56 text-center text-3xl md:text-4xl font-bold uppercase text-white">
+              <p className="absolute bottom-0 left-0 right-0 top-0 z-10 m-auto block h-fit w-56 text-center text-3xl font-bold uppercase text-white first-line:font-normal md:text-4xl">
                 {card.text}
               </p>
             </BlueBgBox>
