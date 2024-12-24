@@ -62,16 +62,17 @@ export default async function Credenciamento() {
   return (
     <div className="relative text-white">
       <div className="container relative z-20 mx-auto mb-10 mt-20 max-w-screen-xl md:my-20">
-        <section className="px-6 md:p-0">
-          <header className="mx-auto text-center text-white md:mb-32 md:max-w-[900px] ">
+        <section className="px-6 md:p-0 md:mb-32 mb-20">
+          <header className="mx-auto text-center text-white md:max-w-[900px] ">
             <div className="mb-12 box-content flex items-center justify-center gap-4 md:gap-8">
               <h1 className="text-3xl font-bold uppercase md:text-7xl">
-                Revendedor
+                Revendedor <span className="hidden"> Go On</span>
               </h1>
               <Image
                 src={goOnSvg}
                 alt={"Logotipo da GoOn"}
                 className="h-7 w-auto object-contain md:h-16"
+                aria-hidden
               />
             </div>
             <p className="text-justify text-sm font-normal md:text-lg">
@@ -85,25 +86,25 @@ export default async function Credenciamento() {
           </header>
         </section>
         <section>
-          <h2 className="mx-auto block w-full text-center text-3xl font-extralight uppercase tracking-wider text-white md:w-fit">
+          <h2 className="mx-auto block w-full text-center text-xl md:text-3xl font-extralight uppercase tracking-wider text-white md:w-fit">
             Por que se tornar um revendedor Go On?
           </h2>
-          <p className="mx-auto mb-6 block w-full text-center text-white md:w-fit">
+          <p className="mx-auto mb-6 block w-full text-center text-white md:w-fit mt-6 text-xs md:text-base px-2">
             Conheça alguns dos muitos diferenciais que oferecemos para nossas
             empresas parceiras
           </p>
           <Badge badges={badges} white />
         </section>
         <section className="mt-32">
-          <h2 className="mx-auto mb-12 block w-full text-center text-3xl font-extralight uppercase tracking-wider text-white md:w-fit">
+          <h2 className="mx-auto mb-12 block w-full text-center text-lg md:text-3xl font-extralight uppercase tracking-wider text-white md:w-fit">
             Trabalhe com as melhores marcas
           </h2>
-          <div className="m-auto grid w-fit grid-cols-4 gap-8 md:grid-cols-6">
+          <div className="m-auto grid w-fit grid-cols-4 gap-5 md:gap-8 md:grid-cols-6">
             {brandsData.map((brand) => {
               const { Logotipo, Marca, slug } = brand?.attributes;
               return (
                 <Link key={slug} href={`marcas/${slug}`}>
-                  <div className="h-16 w-28 justify-self-center">
+                  <div className=" h-6 md:h-16 md:w-28 w-[72px] justify-self-center">
                     <ApiImage
                       image={Logotipo.data}
                       contentStyles="brightness-0 invert object-contain w-full h-full"
@@ -120,9 +121,9 @@ export default async function Credenciamento() {
             className="mx-auto my-20 w-7"
           />
         </section>
-        <section className="text-goOnBlack container mx-auto min-h-96 max-w-screen-xl bg-primary pb-12 pt-1">
+        <section className="text-goOnBlack container mx-auto min-h-96 max-w-screen-xl bg-primary pb-12 pt-12">
           <header className="mx-auto mb-12 max-w-[1050px] text-center  md:mt-16">
-            <h2 className="mb-4 text-xl font-bold uppercase md:text-5xl">
+            <h2 className="mb-4 text-2xl font-bold uppercase md:text-5xl">
               O primeiro passo é agora
             </h2>
             <p className="mx-auto w-fit px-4 text-center text-sm font-light uppercase tracking-wider md:text-2xl">
@@ -134,7 +135,7 @@ export default async function Credenciamento() {
 
         {(video1 || video2) && (
           <section>
-            <h2 className="mx-auto mb-12 mt-12 block w-full text-center text-3xl font-extralight uppercase tracking-wider text-white md:w-fit">
+            <h2 className="mx-auto mb-12 mt-12 block w-full text-center text-xl md:text-3xl font-extralight uppercase tracking-wider text-white md:w-fit">
               Conheça um pouco de nossa estrutura
             </h2>
             {video1 && (
