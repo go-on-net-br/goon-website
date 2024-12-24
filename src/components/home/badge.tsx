@@ -26,7 +26,9 @@ export default function Badge({
           <div
             className={
               "mx-auto flex w-80 gap-2 " +
-              (i === badges.length - 1 ? "col-span-2 md:col-span-1 " : "")
+              (i === badges.length - 1 && badges.length % 2 === 1
+                ? "col-span-2 md:col-span-1 "
+                : "")
             }
             key={badge?.text.slice(0, 5) + i}
           >
