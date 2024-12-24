@@ -5,7 +5,10 @@ import SocialNetworks from "./socialNetworks";
 
 export default function Footer() {
   return (
-    <footer className="footer footer-center bg-goOnBlack p-8 text-primary-content md:p-12">
+    <footer
+      style={{ "--bgImage": `url('/footer_bg.webp')` } as any}
+      className="bg-goOnBlack footer footer-center bg-[image:var(--bgImage)]  bg-contain bg-center bg-repeat-x p-8 text-primary-content md:p-12"
+    >
       <div className="flex md:flex-row">
         <aside className="w-[49%] md:w-auto">
           <Link href="/">
@@ -26,7 +29,7 @@ export default function Footer() {
           </div>
         </nav>
       </div>
-      <div className="flex max-w-96 w-full justify-evenly tracking-wider text-white">
+      <div className="flex w-full max-w-96 justify-evenly tracking-wider text-white">
         <p>+55 (11) 4328-8808</p>
         <span> | </span>
         <span>contato@goon.net.br</span>
