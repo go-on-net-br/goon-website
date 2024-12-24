@@ -61,8 +61,8 @@ export default async function Credenciamento() {
 
   return (
     <div className="relative text-white">
-      <div className="container relative z-20 mx-auto mb-10 mt-20 max-w-screen-xl md:my-20">
-        <section className="px-6 md:p-0 md:mb-32 mb-20">
+      <div className="relative z-20 mx-auto mb-10 mt-20 md:my-20">
+        <section className="container  mx-auto mb-20 max-w-screen-xl px-6 md:mb-32 md:p-0">
           <header className="mx-auto text-center text-white md:max-w-[900px] ">
             <div className="mb-12 box-content flex items-center justify-center gap-4 md:gap-8">
               <h1 className="text-3xl font-bold uppercase md:text-7xl">
@@ -85,26 +85,26 @@ export default async function Credenciamento() {
             </p>
           </header>
         </section>
-        <section>
-          <h2 className="mx-auto block w-full text-center text-xl md:text-3xl font-extralight uppercase tracking-wider text-white md:w-fit">
+        <section className="container  mx-auto max-w-screen-xl">
+          <h2 className="mx-auto block w-full text-center text-xl font-extralight uppercase tracking-wider text-white md:w-fit md:text-3xl">
             Por que se tornar um revendedor Go On?
           </h2>
-          <p className="mx-auto mb-6 block w-full text-center text-white md:w-fit mt-6 text-xs md:text-base px-2">
+          <p className="mx-auto mb-6 mt-6 block w-full px-2 text-center text-xs text-white md:w-fit md:text-base">
             Conheça alguns dos muitos diferenciais que oferecemos para nossas
             empresas parceiras
           </p>
           <Badge badges={badges} white />
         </section>
-        <section className="mt-32">
-          <h2 className="mx-auto mb-12 block w-full text-center text-lg md:text-3xl font-extralight uppercase tracking-wider text-white md:w-fit">
+        <section className="container  mx-auto mt-32 max-w-screen-xl">
+          <h2 className="mx-auto mb-12 block w-full text-center text-lg font-extralight uppercase tracking-wider text-white md:w-fit md:text-3xl">
             Trabalhe com as melhores marcas
           </h2>
-          <div className="m-auto grid w-fit grid-cols-4 gap-5 md:gap-8 md:grid-cols-6">
+          <div className="m-auto grid w-fit grid-cols-4 gap-5 md:grid-cols-6 md:gap-8">
             {brandsData.map((brand) => {
               const { Logotipo, Marca, slug } = brand?.attributes;
               return (
                 <Link key={slug} href={`marcas/${slug}`}>
-                  <div className=" h-6 md:h-16 md:w-28 w-[72px] justify-self-center">
+                  <div className=" h-6 w-[72px] justify-self-center md:h-16 md:w-28">
                     <ApiImage
                       image={Logotipo.data}
                       contentStyles="brightness-0 invert object-contain w-full h-full"
@@ -121,21 +121,23 @@ export default async function Credenciamento() {
             className="mx-auto my-20 w-7"
           />
         </section>
-        <section className="text-goOnBlack container mx-auto min-h-96 max-w-screen-xl bg-primary pb-12 pt-12">
-          <header className="mx-auto mb-12 max-w-[1050px] text-center  md:mt-16">
-            <h2 className="mb-4 text-2xl font-bold uppercase md:text-5xl">
-              O primeiro passo é agora
-            </h2>
-            <p className="mx-auto w-fit px-4 text-center text-sm font-light uppercase tracking-wider md:text-2xl">
-              Preencha o formulário e entraremos em contato
-            </p>
-          </header>
-          <AccreditationForm brands={brands} />
+        <section className="text-goOnBlack relative mx-auto min-h-96 w-full bg-primary pb-12 pt-12">
+          <div className="container  mx-auto max-w-screen-xl">
+            <header className="mx-auto mb-12 max-w-[1050px] text-center  md:mt-16">
+              <h2 className="mb-4 text-2xl font-bold uppercase md:text-5xl">
+                O primeiro passo é agora
+              </h2>
+              <p className="mx-auto w-fit px-4 text-center text-sm font-light uppercase tracking-wider md:text-2xl">
+                Preencha o formulário e entraremos em contato
+              </p>
+            </header>
+            <AccreditationForm brands={brands} />
+          </div>
         </section>
 
         {(video1 || video2) && (
-          <section>
-            <h2 className="mx-auto mb-12 mt-12 block w-full text-center text-xl md:text-3xl font-extralight uppercase tracking-wider text-white md:w-fit">
+          <section className="container  mx-auto max-w-screen-xl">
+            <h2 className="mx-auto mb-12 mt-12 block w-full text-center text-xl font-extralight uppercase tracking-wider text-white md:w-fit md:text-3xl">
               Conheça um pouco de nossa estrutura
             </h2>
             {video1 && (
