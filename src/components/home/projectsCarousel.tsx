@@ -55,7 +55,7 @@ export default function ProjectsCarousel({
             })}
           </Glider>
         )}
-        <div className="absolute bottom-6 left-0 right-0 flex items-center justify-center gap-3">
+        <div className="absolute -bottom-2 left-0 right-0 flex items-center justify-center gap-3 md:bottom-6">
           <button
             ref={leftArrowEl}
             aria-label="navegar para a esquerda"

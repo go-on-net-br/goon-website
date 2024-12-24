@@ -6,7 +6,6 @@ import money from "../../public/money.svg";
 import winnerBadge from "../../public/winnerBadge.svg";
 import goOnSvg from "../../public/go_on_logo.svg";
 import minimalSeparator from "../../public/minimal_separator.svg";
-import BlueBgBox from "@/components/blueBgBox";
 import ApiImage from "@/components/ApiImage";
 import InfiniteScroll from "@/components/infiniteScroll";
 import Badge, { BadgeProps } from "@/components/home/badge";
@@ -83,7 +82,7 @@ export default async function HomePage() {
         <section className="container mx-auto mt-20 max-w-screen-xl px-4 md:px-0">
           <Badge badges={badges} white />
         </section>
-        <section className="container mx-auto mb-16 mt-16 max-w-screen-xl px-4 md:mb-28 md:px-0">
+        <section className="container mb-16 mt-16 max-w-screen-xl md:mx-auto md:mb-28 md:px-0">
           <div className="flex w-full justify-center">
             <Image
               src={minimalSeparator}
@@ -95,10 +94,6 @@ export default async function HomePage() {
         </section>
         <section>
           <div className="h-full w-full bg-goOnBlack">
-            {/* <BlueBgBox
-            bgImage="/manWithPhone.webp"
-            boxStyles="w-screen h-[400px] md:h-[495px] after:!opacity-[20%] md:mb-56 overflow-visible mb-72"
-          > */}
             <div className=" container mx-auto h-[330px] max-w-screen-xl overflow-visible md:h-[470px]">
               <div className="mb-8 mt-8 w-full px-4 text-center text-white md:mb-24 md:mt-20">
                 <Image
@@ -128,7 +123,6 @@ export default async function HomePage() {
               <ProjectsCarousel projectsData={projectsData} />
             </div>
           </div>
-          {/* </BlueBgBox> */}
           <div className="h-40 w-full bg-white"></div>
         </section>
         <div className="w-full bg-white">
