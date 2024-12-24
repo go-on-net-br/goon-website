@@ -52,9 +52,7 @@ export default async function HomePage() {
     <>
       {/* <EmailPopUp /> */}
       <div>
-        <section className="w-full">
-          <Carousel carousel={Carrossel} />
-        </section>
+        <Carousel carousel={Carrossel} />
         <div className="flex w-full justify-center">
           <Image
             src={minimalSeparator}
@@ -136,7 +134,7 @@ export default async function HomePage() {
         <div className="w-full bg-white">
           <section className="container mx-auto max-w-screen-xl pb-20 pt-32 md:pt-40">
             <Link href="marcas">
-              <h2 className="mb-6 text-center text-3xl uppercase text-black md:text-4xl">
+              <h2 className="mb-12 text-center text-3xl uppercase text-black md:text-4xl">
                 Marcas <b className="font-bold">exclusivas</b>
               </h2>
             </Link>

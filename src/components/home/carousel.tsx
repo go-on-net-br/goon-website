@@ -21,12 +21,11 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
   }, []);
 
   const startAt = Math.round(Math.random() * carousel.length);
-  const imgStyles =
-    "w-full h-[150px] md:h-[450px] object-contain object-center m-auto";
+  const imgStyles = "w-full object-contain object-center m-auto";
 
   return (
-    <div className="relative mx-4 h-[150px] md:h-[450px]">
-      <div className="absolute w-full md:static md:w-auto">
+    <div className="relative min-h-fit">
+      <div className="w-full md:static md:w-auto">
         {isReady && (
           <Glider
             arrows={{

@@ -55,33 +55,31 @@ export default function ProjectsCarousel({
             })}
           </Glider>
         )}
-        <button
-          ref={leftArrowEl}
-          aria-label="navegar para a esquerda"
-          className="absolute -left-4 bottom-0 z-10 hidden md:block md:h-[450px]"
-        >
-          <Image
-            className="z-10 h-10 w-10 object-contain"
-            alt="flecha apontada para esquerda"
-            src={arrow_left}
-          />
-        </button>{" "}
-        <button
-          ref={rightArrowEl}
-          aria-label="navegar para a direita"
-          className="absolute bottom-0 z-10 hidden md:-right-11 md:block md:h-[450px]"
-        >
-          <Image
-            className="h-10 w-10 scale-x-[-1] object-contain"
-            alt="flecha apontada para direita"
-            src={arrow_left}
-          />
-        </button>
-        <div
-          className="absolute left-0 right-0 md:-bottom-3"
-          ref={dotsEl}
-          id="dots"
-        ></div>
+        <div className="absolute bottom-6 left-0 right-0 flex items-center justify-center gap-3">
+          <button
+            ref={leftArrowEl}
+            aria-label="navegar para a esquerda"
+            className=""
+          >
+            <Image
+              className="z-10 h-6 w-6 object-contain"
+              alt="flecha apontada para esquerda"
+              src={arrow_left}
+            />
+          </button>
+          <div className="" ref={dotsEl} id="dots"></div>
+          <button
+            ref={rightArrowEl}
+            aria-label="navegar para a direita"
+            className=""
+          >
+            <Image
+              className="h-6 w-6 scale-x-[-1] object-contain"
+              alt="flecha apontada para direita"
+              src={arrow_left}
+            />
+          </button>
+        </div>
       </div>
     </div>
   );
