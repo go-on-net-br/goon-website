@@ -81,7 +81,7 @@ export default function NetworkForm({ brands }: { brands: string[] }) {
     <FormProvider {...methods}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-center justify-center gap-4 px-4 text-sm md:flex-row md:flex-wrap md:items-start md:text-base"
+        className="flex flex-col items-center gap-2 px-4 text-sm md:mx-8 md:flex-row md:flex-wrap md:items-start md:justify-between md:gap-4 md:text-base"
         data-netlify="true"
         netlify-honeypot="bot-field"
         name="redeCredenciada"
@@ -94,18 +94,18 @@ export default function NetworkForm({ brands }: { brands: string[] }) {
         <RequiredInputField type="text" value="nome" />
         <RequiredInputField type="email" value="email" />
         <RequiredInputField type="tel" value="celular" />
-        <RequiredInputField type="text" value="cidadeEUF" />
+        {/* <RequiredInputField type="text" value="cidadeEUF" /> */}
         <RequiredInputField type="tel" value="CEP" />
         <label className="flex h-24 w-full flex-col md:w-[45%]">
-          Qual tipo de projeto?
+          Tipo de projeto
           <input
             {...register("tipoDeProjeto")}
             type="text"
-            className="input input-bordered input-primary w-full"
+            className="input input-bordered input-primary h-[53.24px] w-full border-goOnBlue"
           />
         </label>
         {isMounted && (
-          <label className="flex h-24 w-full flex-col md:w-[91%]">
+          <label className="flex h-24 w-full flex-col md:w-[45%]">
             Marcas de interesse
             <Controller
               control={control}
@@ -119,7 +119,8 @@ export default function NetworkForm({ brands }: { brands: string[] }) {
                     onChange={onChange}
                     onBlur={onBlur}
                     classNames={{
-                      control: () => "min-h-12 p-2 !rounded-lg !border-primary",
+                      control: () =>
+                        "min-h-12 p-2 !rounded-lg !border-goOnBlue",
                     }}
                   />
                 );
@@ -131,7 +132,7 @@ export default function NetworkForm({ brands }: { brands: string[] }) {
         <div className="flex h-20 w-full items-end justify-center">
           <input
             type="submit"
-            className="btn btn-outline btn-primary btn-lg my-0 w-1/2 py-0"
+            className="btn btn-primary btn-lg my-0 w-full bg-goOnBlue py-0 text-white"
             value={btnText}
             disabled={!["Enviar", "Erro. Tentar novamente"].includes(btnText)}
           />
