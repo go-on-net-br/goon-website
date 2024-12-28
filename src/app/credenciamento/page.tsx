@@ -61,8 +61,8 @@ export default async function Credenciamento() {
 
   return (
     <div className="relative text-white">
-      <div className="relative z-20 mx-auto mb-10 mt-20 md:my-20">
-        <section className="container  mx-auto mb-20 max-w-screen-xl px-6 md:mb-32 md:p-0">
+      <div className="bg-goOnBlack relative z-20 mx-auto pb-10 pt-20 md:py-20">
+        <section className="container mx-auto mb-20 max-w-screen-xl px-6 md:mb-32 md:p-0">
           <header className="mx-auto text-center text-white md:max-w-[900px] ">
             <div className="mb-12 box-content flex items-center justify-center gap-4 md:gap-8">
               <h1 className="text-3xl font-bold uppercase md:text-7xl">
