@@ -29,7 +29,7 @@ export default function ProductsDialog({
   }
 
   const selectedTabStyles =
-    "text-xl font-semibold text-primary border-b-4 border-primary hover:cursor-pointer";
+    "text-xl font-semibold text-goOnBlue border-b-4 border-goOnBlue hover:cursor-pointer";
   const inactiveTabStyles =
     "text-xl font-light text-goOnGrey border-b-4 border-white hover:cursor-pointer";
 
@@ -42,7 +42,7 @@ export default function ProductsDialog({
       <div className=" modal-box flex max-w-3xl flex-row gap-4 md:min-w-[80vw]">
         <form method="dialog">
           <button
-            className="btn btn-circle btn-ghost btn-outline btn-sm absolute right-2 top-2 text-primary"
+            className="btn btn-circle btn-ghost btn-outline btn-sm absolute right-2 top-2 text-goOnBlack"
             onClick={handleClose}
           >
             ✕
@@ -56,7 +56,7 @@ export default function ProductsDialog({
         {/* Cabeçário */}
         <div className="flex w-full flex-col items-center gap-6 md:w-full">
           <div className="flex w-full flex-col items-start">
-            <h2 className="w-full text-4xl font-bold text-primary">
+            <h2 className="w-full text-4xl font-bold text-goOnBlack">
               {product.attributes.Titulo}
             </h2>
             <div className="w-full border-t border-goOnGrey  font-light italic text-goOnGrey">
@@ -115,7 +115,7 @@ export default function ProductsDialog({
           </div>
           <a
             href="/rede-credenciada"
-            className="btn btn-primary w-fit uppercase"
+            className="btn btn-primary w-fit bg-goOnBlue uppercase text-white"
           >
             Onde comprar
           </a>
@@ -124,7 +124,7 @@ export default function ProductsDialog({
               "/projetos?marca=" +
               product.attributes.marca?.data?.attributes?.Marca
             }
-            className="w-fit border-b-2 border-primary font-semibold text-primary hover:cursor-pointer"
+            className="w-fit border-b-2 border-goOnBlue font-semibold text-goOnBlue hover:cursor-pointer"
           >
             Veja essa marca em projetos
           </a>
