@@ -28,7 +28,7 @@ export default function CardsCarousel({
   }, []);
 
   return (
-    <div className="relative w-full">
+    <div className="relative my-8 w-full md:my-0">
       <div className="">
         {isReady && (
           <Glider
@@ -43,6 +43,7 @@ export default function CardsCarousel({
             duration={0.3}
             slidesToShow={1}
             slidesToScroll={1}
+            className="overflow-x-hidden"
           >
             {cards.map((card) => {
               return <InfoCard card={card} key={card.title} />;
