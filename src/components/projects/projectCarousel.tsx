@@ -47,33 +47,31 @@ export default function ProjectCarrousel({ project }: { project: Projeto }) {
             })}
           </Glider>
         )}
-        <button
-          ref={leftArrowEl}
-          aria-label="navegar para a esquerda"
-          className="absolute -left-5 bottom-0 top-0 z-10 md:-left-10 md:block"
-        >
-          <Image
-            className="z-10 h-10 w-10 rounded-full border bg-white object-contain p-2 shadow-lg md:rounded-none md:border-none md:bg-transparent md:p-0 md:shadow-none "
-            alt="flecha apontada para esquerda"
-            src={arrow_left}
-          />
-        </button>
-        <button
-          ref={rightArrowEl}
-          aria-label="navegar para a direita"
-          className="absolute -right-5 bottom-0 top-0 z-10 md:-right-11 md:block "
-        >
-          <Image
-            className="h-10 w-10 scale-x-[-1] rounded-full border bg-white object-contain p-2 shadow-lg md:rounded-none md:border-none md:bg-transparent md:p-0 md:shadow-none"
-            alt="flecha apontada para direita"
-            src={arrow_left}
-          />
-        </button>
-        <div
-          className="absolute -bottom-10 left-0 right-0"
-          ref={dotsEl}
-          id="dots"
-        ></div>
+        <div className="absolute -bottom-8 left-0 right-0 flex items-center justify-center gap-3 md:-bottom-8">
+          <button
+            ref={leftArrowEl}
+            aria-label="navegar para a esquerda"
+            className=""
+          >
+            <Image
+              className="z-10 h-6 w-6 object-contain"
+              alt="flecha apontada para esquerda"
+              src={arrow_left}
+            />
+          </button>
+          <div className="" ref={dotsEl} id="dots"></div>
+          <button
+            ref={rightArrowEl}
+            aria-label="navegar para a direita"
+            className=""
+          >
+            <Image
+              className="h-6 w-6 scale-x-[-1] object-contain"
+              alt="flecha apontada para direita"
+              src={arrow_left}
+            />
+          </button>
+        </div>
       </div>
     </div>
   );

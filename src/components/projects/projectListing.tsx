@@ -53,7 +53,7 @@ export default function ProjectListing({ projects }: { projects: Projeto[] }) {
   return (
     <>
       <div className="mx-auto w-fit md:mt-8">
-        <p className="mx-auto mb-6 w-fit text-lg font-bold text-goOnBlue">
+        <p className="mx-auto mb-6 mt-16 w-fit text-lg font-bold text-goOnBlue md:mt-0">
           Filtrar por:
         </p>
         <div className="mx-auto flex w-full gap-10">
