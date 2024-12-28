@@ -10,7 +10,6 @@ import ApiImage from "@/components/ApiImage";
 import InfiniteScroll from "@/components/infiniteScroll";
 import Badge, { BadgeProps } from "@/components/home/badge";
 import Carousel from "@/components/home/carousel";
-import EmailPopUp from "@/components/home/emailPopup";
 import HomeCards from "@/components/home/homeCards";
 import ProjectsCarousel from "@/components/home/projectsCarousel";
 import fetchDataFromApi from "@/helpers/fetchFromApi";

@@ -67,7 +67,7 @@ export default function ContactForm() {
             : `Mensagem*`}
           <textarea
             required={true}
-            className="input input-bordered input-primary h-full w-full rounded-lg"
+            className="input input-bordered input-primary border-goOnBlue h-full w-full rounded-lg"
             rows={6}
             {...register("mensagem", {
               validate: (val) => {
