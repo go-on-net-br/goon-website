@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-goOnBlack overflow-x-hidden">
+    <html lang="en" className="bg-primary overflow-x-hidden">
       <body
         className={`${montserrat.variable} overflow-x-hidden font-montserrat`}
       >
