@@ -6,11 +6,12 @@ export default function AboutPillars({
 }: {
   readonly pillars: Pilares[];
 }) {
-  const imgStyles = "min-h-20 min-w-20 h-40 w-40 object-contain object-center";
+  const imgStyles =
+    "min-h-20 min-w-20 h-40 w-40 object-contain object-center brightness-0";
   return (
     <section className="container mx-auto flex max-w-screen-xl flex-col items-center py-12">
       <div className="container flex flex-col items-center gap-8">
-        <h2 className="hidden text-3xl font-bold text-primary md:block">
+        <h2 className="hidden text-3xl font-bold text-goOnBlue md:block">
           Pilares da Empresa
         </h2>
         <div className="grid-lines-3 grid grid-cols-1 justify-center gap-10 md:grid-cols-3">
@@ -28,11 +29,11 @@ export default function AboutPillars({
                   contentStyles={imgStyles}
                 />
               </div>
-              <div className="flex flex-col items-start md:items-center">
-                <p className="text-xl font-bold text-primary md:h-20 md:text-center md:text-3xl">
+              <div className="flex flex-col items-start text-goOnBlack md:items-center">
+                <p className="text-xl font-bold md:h-20 md:text-center md:text-3xl">
                   {pillar?.Titulo}
                 </p>
-                <p className="text-sm text-black md:text-center md:text-base">
+                <p className="text-justify  text-sm md:text-center md:text-base">
                   {pillar?.Corpo}
                 </p>
               </div>

@@ -8,7 +8,7 @@ export default function AboutInformation({
   readonly information: Corporativo[];
 }) {
   return (
-    <section className="my-32 flex flex-col items-center gap-8 overflow-hidden md:gap-32">
+    <section className="my-32 flex flex-col items-center gap-8 overflow-hidden text-goOnBlack md:gap-32">
       {information?.map((info, i) => (
         <div
           className={
@@ -19,7 +19,7 @@ export default function AboutInformation({
         >
           <div
             className={
-              "container flex items-center gap-4 px-4 md:gap-32 md:px-0 " +
+              "container flex items-center gap-4 px-4 md:gap-12 md:px-0 " +
               (i % 2 ? "flex-row-reverse" : "flex-row")
             }
           >
@@ -33,14 +33,14 @@ export default function AboutInformation({
             />
             <h3
               className={
-                "text-5xl font-bold uppercase text-primary first-line:font-normal " +
+                "text-5xl font-bold uppercase w-56 first-line:font-normal " +
                 (i % 2 ? "text-end" : "text-start")
               }
             >
               {info?.Titulo}
             </h3>
           </div>
-          <p className="px-4 text-justify text-sm text-primary md:px-0 md:text-lg">
+          <p className="px-4 text-justify text-sm md:px-0 md:text-lg">
             {info?.Corpo}
           </p>
         </div>
