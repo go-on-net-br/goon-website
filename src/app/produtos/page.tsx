@@ -61,18 +61,19 @@ export default async function Page() {
       <section>
         <BlueBgBox
           bgImage="/products.webp"
-          boxStyles="w-screen h-[260px] md:h-[300px] after:!opacity-[36%]"
+          boxStyles="w-screen h-[250px] md:pb-0 md:h-[350px] after:!opacity-[25%]"
         >
           <div className="mx-auto mt-8 text-center text-white md:mt-20 md:w-[700px]">
             <h1 className="mb-4 text-4xl font-bold md:text-5xl">Produtos</h1>
-            <p className="text-lg font-light md:text-xl">
-              Oferecemos uma gama completa de produtos, das melhores marcas que
-              irão elevar a experiência do seu projeto
+            <p className="text-md font-light md:text-xl">
+              Oferecemos uma seleção exclusiva de produtos premium, das marcas
+              mais renomadas do mercado, para que você tenha um ambiente rico,
+              seguro e completamente funcional.
             </p>
           </div>
         </BlueBgBox>
       </section>
-      <section className=" -mt-4 flex flex-col items-center bg-white">
+      <section className="container relative z-[1] mx-auto max-w-screen-xl rounded-3xl bg-white pb-12 md:-mt-12 md:px-9 md:py-6">
         <Suspense>
           <ProductsList
             allCategories={productCategoriesFromApi}
