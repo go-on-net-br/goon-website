@@ -57,9 +57,9 @@ export default async function Projetos() {
               Projetos Referência
             </h1>
             <p className="text-lg font-light md:text-xl">
-              Aqui reunimos projetos incríveis de nossas empresas parceiras para
-              que você conheça mais a fundo e se inspirar, conhecer o que a sua
-              casa inteligente pode fazer por você.
+              Reunimos uma seleção de projetos inovadores de nossas empresas
+              parceiras para você conhecer. Desvende as infinitas possibilidades
+              de uma casa inteligente e encontre a solução ideal para o seu lar.
             </p>
           </div>
         </BlueBgBox>
@@ -92,11 +92,11 @@ export default async function Projetos() {
             <span>Quer um projeto</span> <span>para o seu ambiente?</span>
           </h2>
           <p className="mb-2 mt-2 text-xs md:mb-6 md:mt-4 md:text-2xl">
-            Encontre a Revenda Credenciada mais próxima de você
+            Deixe seu contato que indicaremos a revenda mais próxima de você!
           </p>
           <Link href="/rede-credenciada">
-            <button className="btn btn-secondary btn-sm w-fit text-primary">
-              Veja Rede Credenciada
+            <button className="btn btn-secondary btn-sm w-fit text-goOnBlue">
+              Rede Credenciada
             </button>
           </Link>
         </div>
