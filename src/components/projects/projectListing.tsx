@@ -53,19 +53,19 @@ export default function ProjectListing({ projects }: { projects: Projeto[] }) {
   return (
     <>
       <div className="mx-auto w-fit md:mt-8">
-        <p className="mx-auto mb-6 w-fit text-lg font-bold text-primary">
+        <p className="mx-auto mb-6 w-fit text-lg font-bold text-goOnBlue">
           Filtrar por:
         </p>
         <div className="mx-auto flex w-full gap-10">
           <div className="w-full">
             <label
-              className=" mx-auto text-center font-bold text-primary"
+              className=" mx-auto text-center font-bold text-goOnBlue"
               htmlFor="tipo"
             >
               Tipo
             </label>
             <select
-              className="select mb-10 w-full max-w-xs border-primary bg-white text-primary"
+              className="select mb-10 w-full max-w-xs border-goOnBlue bg-white text-goOnBlue"
               value={type}
               name="tipo"
               onChange={(e) => {
@@ -87,13 +87,13 @@ export default function ProjectListing({ projects }: { projects: Projeto[] }) {
           </div>
           <div className="w-full">
             <label
-              className="mx-auto text-center font-bold text-primary"
+              className="mx-auto text-center font-bold text-goOnBlue"
               htmlFor="marca"
             >
               Marcas
             </label>
             <select
-              className="select mb-10 w-full max-w-xs border-primary bg-white text-primary"
+              className="select mb-10 w-full max-w-xs border-goOnBlue bg-white text-goOnBlue"
               value={brand}
               name="marca"
               onChange={(e) => {

@@ -15,7 +15,7 @@ export default function ProductsItem({
     (e) =>
       ![".mp4", ".mov", ".avi", ".wmv", ".WebM"].includes(e.attributes.ext),
   );
-  
+
   const searchParams = useSearchParams();
   const router = useRouter();
   const [showDialog, setShowDialog] = useState(
@@ -67,14 +67,14 @@ export default function ProductsItem({
             ></ApiImage>
           </div>
         )}
-        <p className="text-xl font-bold text-primary">
+        <p className="px-4 text-center text-xl font-bold text-goOnBlack">
           {product?.attributes?.Titulo}
         </p>
         <p className="text-lg text-goOnGrey">
           #{product?.attributes?.Codigo} |{" "}
           {product?.attributes?.marca?.data?.attributes?.Marca}
         </p>
-        <a className="mt-2text-sm text-primary underline">Mais informações</a>
+        <a className="mt-2text-sm text-goOnBlue underline">Mais informações</a>
       </div>
       {showDialog && (
         <dialog className="modal modal-bottom sm:modal-middle" ref={dialogRef}>

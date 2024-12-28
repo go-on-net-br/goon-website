@@ -21,7 +21,8 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
   }, []);
 
   const startAt = Math.round(Math.random() * carousel.length);
-  const imgStyles = "w-full object-contain object-center m-auto";
+  const imgStyles =
+    "h-[450px] w-full object-cover md:object-contain md:h-auto object-center m-auto";
 
   return (
     <div className="relative min-h-fit">
@@ -41,6 +42,7 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
             slidesToShow={1}
             slidesToScroll={1}
             scrollLock
+            className="overflow-x-hidden"
           >
             {carousel?.map((slide, i) => {
               return (

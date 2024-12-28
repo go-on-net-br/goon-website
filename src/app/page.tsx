@@ -39,12 +39,12 @@ export default async function HomePage() {
   const { Carrossel } = homeData?.attributes ?? {};
 
   const badges: BadgeProps[] = [
-    { src: winnerBadge, text: "Distribuição\nExclusiva", fontSize: "lg" },
-    { src: contentWebsite, text: "Conteúdos\nExclusivos", fontSize: "lg" },
-    { src: support, text: "Suporte\nEspecializado", fontSize: "lg" },
-    { src: globe, text: "Segurança de\nImportação", fontSize: "lg" },
-    { src: maintenance, text: "Assistência\nTécnica", fontSize: "lg" },
-    { src: money, text: "Condições\nEspeciais", fontSize: "lg" },
+    { src: winnerBadge, text: "Distribuição\nExclusiva", fontSize: "md" },
+    { src: contentWebsite, text: "Conteúdos\nExclusivos", fontSize: "md" },
+    { src: support, text: "Suporte\nEspecializado", fontSize: "sm" },
+    { src: globe, text: "Segurança de\nImportação", fontSize: "sm" },
+    { src: maintenance, text: "Assistência\nTécnica", fontSize: "md" },
+    { src: money, text: "Condições\nEspeciais", fontSize: "md" },
   ];
 
   return (
