@@ -49,7 +49,7 @@ export default async function HomePage() {
   return (
     <>
       {/* <EmailPopUp /> */}
-      <div>
+      <div className="bg-black">
         <Carousel carousel={Carrossel} />
         <div className="flex w-full justify-center">
           <Image
