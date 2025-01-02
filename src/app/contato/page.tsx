@@ -24,8 +24,8 @@ function TalkToUsForm() {
 
 function ContactInfo() {
   return (
-    <div className="flex flex-col items-center gap-8 py-10 xl:w-2/5 xl:items-start xl:py-0">
-      <p className="text-3xl font-bold uppercase text-goOnBlue xl:hidden">
+    <div className="flex flex-col items-center gap-8 bg-goOnBlack py-10 xl:w-2/5 xl:items-start xl:py-0">
+      <p className="text-3xl font-bold uppercase text-white xl:hidden">
         Fale conosco
       </p>
       <div className="flex items-center gap-4 tracking-wider text-white">

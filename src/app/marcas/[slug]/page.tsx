@@ -47,10 +47,7 @@ export default async function BrandPage({
 }) {
   const { slug } = params;
 
-  const brandData = await fetchDataFromApi<Marca>(
-    `marcas/${slug}`,
-    "",
-  );
+  const brandData = await fetchDataFromApi<Marca>(`marcas/${slug}`, "");
 
   const { Sobre, Logotipo, Marca, Facebook, Instagram, LinkedIn, Youtube } =
     brandData?.attributes;
@@ -116,7 +113,7 @@ export default async function BrandPage({
                               <SocialIconMap
                                 aria-label={"ícone da rede " + rede?.Rede}
                                 networkTitle={rede?.Rede}
-                                iconStyle="h-8 object-contain fill-primary w-8"
+                                iconStyle="h-8 object-contain fill-goOnBlue w-8"
                               />
                             </a>
                           );
@@ -127,11 +124,11 @@ export default async function BrandPage({
                   {i === arr.length - 1 && (
                     <Link
                       href={`/produtos?marca=${Marca}`}
-                      className="flex justify-center"
+                      className="flex justify-start"
                     >
                       <button
                         className={
-                          "btn btn-primary mx-auto w-72" +
+                          "btn btn-primary w-72 bg-goOnBlue text-white" +
                           (arr.length === 1 ? " " : " mt-12")
                         }
                       >
