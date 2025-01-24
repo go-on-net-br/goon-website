@@ -12,7 +12,7 @@ const config: Config = {
         montserrat: ["var(--font-montserrat)"],
       },
       colors: {
-        primary: "#F1F1F1",
+        primary: "#F8F8F8",
         goOnGrey: "#484848",
         goOnBlue: "#003EF9",
         goOnBlack: "#0E0E0E",

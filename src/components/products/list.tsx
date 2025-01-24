@@ -99,7 +99,7 @@ export default function ProductsList({
             <select
               onChange={(e) => handleBrandChange(e.target.value)}
               value={brand}
-              className="select select-primary w-10/12 max-w-sm bg-transparent text-goOnBlue md:w-48"
+              className="select select-primary w-10/12 max-w-sm border-goOnBlue bg-transparent text-goOnBlue md:w-48"
             >
               <option value={"todas"}>Todas marcas</option>
               {allBrands
@@ -118,7 +118,7 @@ export default function ProductsList({
             <select
               value={category}
               onChange={(e) => handleCategoryChange(e.target.value)}
-              className="select select-primary w-10/12 max-w-sm bg-transparent text-goOnBlue md:w-48"
+              className="select select-primary w-10/12 max-w-sm border-goOnBlue bg-transparent text-goOnBlue md:w-48"
             >
               <option value={"todas"}>Todas categorias</option>
               {availableCategories?.map((category) => (

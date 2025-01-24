@@ -28,21 +28,23 @@ function ContactInfo() {
       <p className="text-3xl font-bold uppercase text-white xl:hidden">
         Fale conosco
       </p>
-      <div className="flex items-center gap-4 tracking-wider text-white">
-        <Image
-          src={phoneIcon}
-          alt="ícone de um telefone"
-          className="h-6 object-contain"
-        />
-        <p>(11) 4328-8808</p>
-      </div>
-      <div className="flex items-center gap-4 tracking-wider text-white">
-        <Image
-          src={mailIcon}
-          alt="ícone de um telefone"
-          className="h-6 object-contain"
-        />
-        <p>contato@goon.net.br</p>
+      <div className="flex flex-col items-start gap-8">
+        <div className="flex items-center gap-4 tracking-wider text-white">
+          <Image
+            src={phoneIcon}
+            alt="ícone de um telefone"
+            className="w-6 object-contain xl:w-8"
+          />
+          <p>(11) 4328-8808</p>
+        </div>
+        <div className="flex items-center gap-4 tracking-wider text-white">
+          <Image
+            src={mailIcon}
+            alt="ícone de um telefone"
+            className="w-6 object-contain xl:w-8"
+          />
+          <p>contato@goon.net.br</p>
+        </div>
       </div>
       <div className="flex gap-5 pl-2 pt-4">
         <SocialNetworks iconStyle="h-9 w-9" />

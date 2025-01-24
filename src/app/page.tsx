@@ -1,4 +1,4 @@
-import contentWebsite from "../../public/contentWebsite.svg";
+import webinar from "../../public/webinar.svg";
 import support from "../../public/support.svg";
 import globe from "../../public/globe.svg";
 import maintenance from "../../public/maintenance.svg";
@@ -39,7 +39,7 @@ export default async function HomePage() {
 
   const badges: BadgeProps[] = [
     { src: winnerBadge, text: "Distribuição\nExclusiva", fontSize: "md" },
-    { src: contentWebsite, text: "Conteúdos\nExclusivos", fontSize: "md" },
+    { src: webinar, text: "Webinars E\nTreinamentos", fontSize: "sm" },
     { src: support, text: "Suporte\nEspecializado", fontSize: "sm" },
     { src: globe, text: "Segurança de\nImportação", fontSize: "sm" },
     { src: maintenance, text: "Assistência\nTécnica", fontSize: "md" },
@@ -62,26 +62,28 @@ export default async function HomePage() {
           <Image
             src={goOnSvg}
             alt={"Logotipo da GoOn"}
-            className="h-24 w-auto object-contain"
+            className="h-16 w-auto object-contain"
           />
           <div className="flex flex-col gap-4 text-center text-sm text-white md:text-start">
             <p className="font-semibold">
-              Temos orgulho de ser a melhor empresa de distribuição de produtos
-              de áudio, vídeo e automação residencial do Brasil!
+              Temos orgulho de ser uma das mais relevantes empresas de
+              distribuição de produtos de áudio, vídeo e automação residencial
+              do Brasil!
             </p>
             <p className="font-normal">
-              Nesta seleção especial, reunimos os melhores trabalhos
-              desenvolvidos por nossas empresas parceiras. Prepare-se para se
-              encantar com soluções inteligentes e criativas que transformam
-              ambientes residenciais, comerciais e industriais em espaços mais
-              funcionais, agradáveis e eficientes.
+              Ao longo de nossa trajetória, cultivamos parcerias sólidas com os
+              principais players do mercado global de automação residencial e
+              sistemas de som. Essa rede de confiança nos permite oferecer ao
+              mercado brasileiro produtos e soluções de última geração, sempre
+              com a garantia de uma distribuição legal e transparente e repleta
+              de benefícios.
             </p>
           </div>
         </section>
         <section className="container mx-auto mt-20 max-w-screen-xl px-4 md:px-0">
           <Badge badges={badges} white />
         </section>
-        <section className="container mb-16 mt-16 max-w-screen-xl md:mx-auto md:mb-28 md:px-0">
+        <section className="mb-16 mt-16 w-full md:mx-auto md:mb-28 md:px-0">
           <div className="flex w-full justify-center">
             <Image
               src={minimalSeparator}
@@ -125,7 +127,7 @@ export default async function HomePage() {
           <div className="h-40 w-full bg-white"></div>
         </section>
         <div className="w-full bg-white">
-          <section className="container mx-auto max-w-screen-xl pb-20 pt-32 md:pt-40">
+          <section className="w-full pb-20 pt-32 md:pt-40">
             <Link href="marcas">
               <h2 className="mb-12 text-center text-3xl uppercase text-black md:text-4xl">
                 Marcas <b className="font-bold">exclusivas</b>

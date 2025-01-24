@@ -27,27 +27,22 @@ export const metadata: Metadata = {
 export default async function Credenciamento() {
   const badges: BadgeProps[] = [
     { src: winnerBadge, text: "Marcas\n exclusivas", fontSize: "lg" },
-    {
-      src: globe,
-      text: "Importação \nlegal e segura",
-      fontSize: "sm",
-    },
+    { src: contentWebsite, text: "Conteúdos\n exclusivos", fontSize: "lg" },
     {
       src: support,
       text: "Suporte comercial \nEspecializado",
       fontSize: "sm",
     },
+    { src: webinar, text: "Webinars e\n treinamentos", fontSize: "md" },
+    {
+      src: globe,
+      text: "Importação \nlegal e segura",
+      fontSize: "sm",
+    },
     { src: maintenance, text: "Assistência\ntécnica", fontSize: "lg" },
-    { src: contentWebsite, text: "Conteúdos\n exclusivos", fontSize: "lg" },
 
     { src: money, text: "Descontos \ne benefícios", fontSize: "sm" },
     { src: cheers, text: "Eventos e\ncampanhas", fontSize: "lg" },
-    { src: webinar, text: "Treinamentos\ne webinars", fontSize: "md" },
-    {
-      src: money,
-      text: "Condições especiais\ne Campanhas",
-      fontSize: "md",
-    },
   ];
 
   const brandsData = await fetchDataFromApi<Marca[]>(
@@ -61,7 +56,7 @@ export default async function Credenciamento() {
 
   return (
     <div className="relative text-white">
-      <div className="bg-goOnBlack relative z-20 mx-auto pb-10 pt-20 md:py-20">
+      <div className="relative z-20 mx-auto bg-goOnBlack pb-10 pt-20 md:py-20">
         <section className="container mx-auto mb-20 max-w-screen-xl px-6 md:mb-32 md:p-0">
           <header className="mx-auto text-center text-white md:max-w-[900px] ">
             <div className="mb-12 box-content flex items-center justify-center gap-4 md:gap-8">
@@ -75,13 +70,24 @@ export default async function Credenciamento() {
                 aria-hidden
               />
             </div>
-            <p className="text-justify text-sm font-normal md:text-lg">
-              Temos o orgulho de ser uma das principais empresas de distribuição
-              de produtos de áudio, vídeo e automação. Reconhecidos por nossa
-              excelência, somos a melhor escolha para revendas e integradores
-              que buscam produtos de alta qualidade e um atendimento
-              excepcional. Nossa expertise no mercado nos permite oferecer as
-              melhores soluções para seus projetos.
+            <p className="text-center text-sm font-normal md:text-lg">
+              <span className="font-bold">
+                Go On se orgulha de ser uma das principais empresas de
+                distribuição de produtos de áudio, vídeo e automação residencial
+                do Brasil. Nossa paixão pela inovação nos impulsiona a buscar
+                constantemente as melhores soluções para os projetos dos seus
+                clientes.
+              </span>
+              <br />
+              <br />
+              Através de parcerias sólidas com os maiores players do mercado
+              global, oferecemos um portfólio completo de produtos de última
+              geração, garantindo qualidade, tecnologia e design em cada
+              detalhe. Nossa distribuição legal e transparente assegura a você a
+              melhor experiência de compra e suporte técnico especializado. Na
+              Go On, você encontra muito mais do que produtos. Encontra um
+              parceiro comprometido em oferecer as melhores marcas com diversos
+              benefícios para você, sua empresa e seus clientes.
             </p>
           </header>
         </section>
@@ -121,7 +127,7 @@ export default async function Credenciamento() {
             className="mx-auto my-20 w-7"
           />
         </section>
-        <section className="text-goOnBlack relative mx-auto min-h-96 w-full bg-primary pb-12 pt-12">
+        <section className="relative mx-auto min-h-96 w-full bg-primary pb-12 pt-12 text-goOnBlack">
           <div className="container  mx-auto max-w-screen-xl">
             <header className="mx-auto mb-12 max-w-[1050px] text-center  md:mt-16">
               <h2 className="mb-4 text-2xl font-bold uppercase md:text-5xl">

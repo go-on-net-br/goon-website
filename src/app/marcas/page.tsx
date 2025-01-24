@@ -1,4 +1,5 @@
 import ApiImage from "@/components/ApiImage";
+import BeAReseller from "@/components/beAResellerFooter";
 import BlueBgBox from "@/components/blueBgBox";
 import fetchDataFromApi from "@/helpers/fetchFromApi";
 import { buildMediaQPs } from "@/helpers/qpHelper";
@@ -29,13 +30,13 @@ export default async function Marcas() {
             <h1 className="mb-4 text-4xl font-bold md:text-5xl">Marcas</h1>
             <p className="text-lg font-light md:text-xl">
               Rodamos o mundo buscando as melhores empresas, com credibilidade,
-              qualidade e produtos inovadores para tornar a casa dos brasileiros
-              ainda mais inteligente e funcional.
+              qualidade e produtos inovadores para tornar seus projetos ainda
+              mais inteligentes seguros e funcionais!
             </p>
           </div>
         </BlueBgBox>
       </section>
-      <section className="container relative z-[1] mx-auto max-w-screen-xl rounded-3xl bg-white px-8 pb-12 pt-8 md:-mt-16 md:px-0 md:py-12 md:pt-24">
+      <section className="container relative z-[1] mx-auto max-w-screen-xl rounded-3xl bg-primary px-8 pb-12 pt-8 md:-mt-16 md:px-0 md:py-12 md:pt-24">
         <div className="align-center flex flex-wrap justify-around gap-8 md:gap-16">
           {brandsData?.map((brand) => {
             const { Capa, Logotipo, Marca, Resumo } = brand.attributes;
@@ -69,6 +70,9 @@ export default async function Marcas() {
             );
           })}
         </div>
+      </section>
+      <section>
+        <BeAReseller />
       </section>
     </>
   );

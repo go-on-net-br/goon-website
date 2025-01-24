@@ -57,9 +57,10 @@ export default async function Projetos() {
               Projetos Referência
             </h1>
             <p className="text-lg font-light md:text-xl">
-              Reunimos uma seleção de projetos inovadores de nossas empresas
-              parceiras para você conhecer. Desvende as infinitas possibilidades
-              de uma casa inteligente e encontre a solução ideal para o seu lar.
+              Reunimos uma seleção especial com os melhores projetos de nossas
+              empresas parceiras para você conhecer. Desvende as infinitas
+              possibilidades de uma casa inteligente e encontre a solução ideal
+              para o seu lar.
             </p>
           </div>
         </BlueBgBox>

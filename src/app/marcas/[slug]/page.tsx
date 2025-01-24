@@ -61,7 +61,7 @@ export default async function BrandPage({
 
   const isRepeatedSobre = new Map();
   return (
-    <div className="container mx-auto mb-20 max-w-screen-xl md:my-10 md:px-8">
+    <div className="w-full">
       <section>
         {Sobre.map((section, i, arr) => {
           const { Imagem, corpo, Titulo } = section;
@@ -124,7 +124,7 @@ export default async function BrandPage({
                   {i === arr.length - 1 && (
                     <Link
                       href={`/produtos?marca=${Marca}`}
-                      className="flex justify-start"
+                      className="flex justify-center md:justify-start"
                     >
                       <button
                         className={

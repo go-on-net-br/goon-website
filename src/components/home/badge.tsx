@@ -36,7 +36,7 @@ export default function Badge({
               <Image
                 src={badge?.src}
                 alt={badge?.text}
-                className="ml-auto h-full w-fit object-contain object-left"
+                className="mx-auto h-full w-fit object-contain object-center"
               />
             </div>
             <p className="flex flex-col justify-center uppercase tracking-widest">

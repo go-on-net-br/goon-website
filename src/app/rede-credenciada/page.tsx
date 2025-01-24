@@ -80,7 +80,7 @@ export default async function RedeCredenciada() {
       </BlueBgBox>
       <div className="bg-white py-8 md:w-1/2 md:py-32">
         <div className="text-center text-goOnBlack md:mx-12 md:mb-16 md:text-start">
-          <h1 className="mx-auto mb-4 text-3xl font-bold  md:text-4xl">
+          <h1 className="mx-auto mb-4 text-3xl font-bold  md:text-5xl">
             Rede Credenciada
           </h1>
           <p className="text-md font-light md:text-xl">
