@@ -19,6 +19,7 @@ import { buildMediaQPs } from "@/helpers/qpHelper";
 import ApiImage from "@/components/ApiImage";
 import Link from "next/link";
 import getYTId from "@/helpers/getYoutubeId";
+import AccreditationBadge from "@/components/accreditation/accreditationBadge";
 
 export const metadata: Metadata = {
   title: "Credenciamento",
@@ -99,7 +100,7 @@ export default async function Credenciamento() {
             Conheça alguns dos muitos diferenciais que oferecemos para nossas
             empresas parceiras
           </p>
-          <Badge badges={badges} white />
+          <AccreditationBadge badges={badges} white />
         </section>
         <section className="container  mx-auto mt-32 max-w-screen-xl">
           <h2 className="mx-auto mb-12 block w-full text-center text-lg font-extralight uppercase tracking-wider text-white md:w-fit md:text-3xl">
