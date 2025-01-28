@@ -35,8 +35,6 @@ export default async function HomePage() {
   ).sort((a, b) => {
     return a.attributes.createdAt > b.attributes.createdAt ? -1 : 1;
   });
-  const { Carrossel } = homeData?.attributes ?? {};
-
   const badges: BadgeProps[] = [
     { src: winnerBadge, text: "Distribuição\nExclusiva", fontSize: "md" },
     { src: webinar, text: "Webinars E\nTreinamentos", fontSize: "sm" },
@@ -50,7 +48,7 @@ export default async function HomePage() {
     <>
       {/* <EmailPopUp /> */}
       <div className="bg-goOnBlack">
-        <Carousel carousel={Carrossel} />
+        <Carousel homeProps={homeData} />
         <div className="flex w-full justify-center">
           <Image
             src={minimalSeparator}

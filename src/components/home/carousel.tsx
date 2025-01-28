@@ -1,17 +1,20 @@
 "use client";
 
-import { Carrossel } from "@/types/components";
 import Glider from "react-glider";
 import "glider-js/glider.min.css";
 import { useEffect, useRef, useState } from "react";
 import arrow_left from "../../../public/arrow_left.svg";
 import ApiImage from "../ApiImage";
 import Image from "next/image";
+import { Home } from "@/types/home";
+import useMobileCheck from "@/hooks/useMobileCheck";
 
-export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
+export default function Carousel({ homeProps }: { homeProps: Home }) {
   const dotsEl = useRef<HTMLDivElement>(null);
   const leftArrowEl = useRef<HTMLButtonElement>(null);
   const rightArrowEl = useRef<HTMLButtonElement>(null);
+
+  const { Carrossel: carousel, carrossel_mobile } = homeProps?.attributes ?? {};
 
   const [isReady, setIsReady] = useState(false);
   useEffect(() => {
@@ -22,7 +25,9 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
 
   const startAt = Math.round(Math.random() * carousel.length);
   const imgStyles =
-    "h-[450px] w-full object-cover md:object-contain md:h-auto object-center m-auto";
+    "h-[510px] w-full object-cover md:object-contain md:h-auto object-center m-auto";
+
+  const isMobile = useMobileCheck();
 
   return (
     <div className="relative min-h-fit">
@@ -44,7 +49,7 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
             scrollLock
             className="overflow-x-hidden"
           >
-            {carousel?.map((slide, i) => {
+            {(isMobile ? carrossel_mobile : carousel)?.map((slide, i) => {
               return (
                 <div
                   key={slide?.Titulo}
