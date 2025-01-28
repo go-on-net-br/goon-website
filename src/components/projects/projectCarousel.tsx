@@ -47,14 +47,14 @@ export default function ProjectCarrousel({ project }: { project: Projeto }) {
             })}
           </Glider>
         )}
-        <div className="absolute -bottom-8 left-0 right-0 flex items-center justify-center gap-3 md:-bottom-8">
+        <div className="md:absolute md:-bottom-8 md:left-0 md:right-0 md:flex md:items-center md:justify-center md:gap-3">
           <button
             ref={leftArrowEl}
             aria-label="navegar para a esquerda"
-            className=""
+            className="absolute -left-6 bottom-0 top-0 z-10 md:static"
           >
             <Image
-              className="z-10 h-6 w-6 object-contain"
+              className="z-10 h-8 w-8 rounded-full border bg-white object-contain p-2 shadow-lg md:z-10 md:h-6 md:w-6 md:rounded-none md:border-none md:bg-transparent md:p-0 md:shadow-none"
               alt="flecha apontada para esquerda"
               src={arrow_left}
             />
@@ -63,10 +63,10 @@ export default function ProjectCarrousel({ project }: { project: Projeto }) {
           <button
             ref={rightArrowEl}
             aria-label="navegar para a direita"
-            className=""
+            className="absolute -right-6 bottom-0 top-0 z-10 md:static md:-right-11"
           >
             <Image
-              className="h-6 w-6 scale-x-[-1] object-contain"
+              className="h-8 w-8 scale-x-[-1] rounded-full border bg-white object-contain p-2 shadow-lg md:h-6 md:w-6 md:scale-x-[-1] md:rounded-none md:border-none md:bg-transparent md:p-0 md:shadow-none"
               alt="flecha apontada para direita"
               src={arrow_left}
             />
