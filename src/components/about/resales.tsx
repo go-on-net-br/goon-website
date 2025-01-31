@@ -22,7 +22,7 @@ export default function AboutResales({
               alt="separador"
               className={separatorStyle}
             ></Image>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 mr-4">
               <h2 className="text-lg font-bold text-white md:text-3xl">
                 {Titulo}
               </h2>

@@ -10,15 +10,25 @@ export default function AccreditationBadge({
   badges: BadgeProps[];
   white?: boolean;
 }) {
+  let smallerWid = `${badges[0]?.src?.width}px`;
+  let smallerHei = `${badges[0]?.src?.height}px`;
+  badges.forEach((bdg) => {
+    if (bdg?.src?.width < smallerWid) {
+      smallerWid = `${bdg?.src?.width}px`;
+    }
+    if (bdg?.src?.height < smallerHei) {
+      smallerWid = `${bdg?.src?.height}px`;
+    }
+  });
   return (
     <div className="mx-auto grid w-full grid-cols-2 gap-2 md:grid-cols-4">
       {badges?.map((badge, i) => {
-        let fontSize = "text-sm md:text-xl ";
+        let fontSize = "text-sm md:text-xl !leading-[1.45rem] ";
         if (badge.fontSize === "md") {
-          fontSize = "text-xs md:text-lg ";
+          fontSize = "text-xs md:text-lg !leading-[1.45rem] ";
         }
         if (badge.fontSize === "sm") {
-          fontSize = "text-[10px] md:text-sm ";
+          fontSize = "text-[10px] md:text-sm !leading-[1.25rem] ";
         }
 
         const badgeText = badge.text.split("\n");
@@ -32,7 +42,10 @@ export default function AccreditationBadge({
             }
             key={badge?.text.slice(0, 5) + i}
           >
-            <div className="h-14 p-2 md:h-16 md:w-24">
+            <div
+              className="h-14 p-2 md:h-16"
+              style={{ width: smallerWid, height: smallerHei }}
+            >
               <Image
                 src={badge?.src}
                 alt={badge?.text}
