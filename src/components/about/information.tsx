@@ -25,7 +25,7 @@ export default function AboutInformation({
           >
             <Image
               className={
-                "w-64 object-contain " +
+                "w-52 object-contain md:w-64 " +
                 (i % 2 ? "-mr-32 md:-mr-64" : "-ml-32 md:-ml-64")
               }
               alt="separador"
@@ -33,7 +33,7 @@ export default function AboutInformation({
             />
             <h3
               className={
-                "text-5xl font-bold uppercase w-56 first-line:font-normal " +
+                "w-56 text-3xl font-bold uppercase first-line:font-normal md:text-5xl " +
                 (i % 2 ? "text-end" : "text-start")
               }
             >
