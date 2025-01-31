@@ -65,7 +65,7 @@ export default async function Projetos() {
           </div>
         </BlueBgBox>
       </section>
-      <section className="container relative z-[1] mx-auto max-w-screen-xl rounded-3xl bg-white px-9 pb-12 pt-56 md:-mt-12 md:py-36 md:pt-48">
+      <section className="container relative z-[1] mx-auto max-w-screen-xl rounded-3xl bg-primary px-9 pb-12 pt-56 md:-mt-12 md:py-36 md:pt-48">
         <div className="container -top-11 left-0 right-0 mx-auto -mt-32 mb-4 hidden w-full max-w-screen-xl flex-col items-center justify-evenly gap-6 pt-8 text-center text-white md:absolute md:-top-64 md:mt-auto md:flex md:flex-row md:items-start md:pt-10">
           {cards.map((card) => {
             return <InfoCard card={card} key={card.title} />;

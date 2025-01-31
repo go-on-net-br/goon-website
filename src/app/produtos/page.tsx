@@ -6,7 +6,6 @@ import BlueBgBox from "@/components/blueBgBox";
 import { Suspense } from "react";
 import { CategoriasDeProduto } from "@/types/categorias-de-produto";
 import { Marca } from "@/types/marca";
-import { Produto } from "@/types/produto";
 
 export const metadata: Metadata = {
   title: "Produtos",
@@ -57,7 +56,7 @@ export default async function Page() {
 
   const brandsAndCatsMap = createBrandAndCatDictionary(catAndBrands);
   return (
-    <>
+    <div className="bg-white">
       <section>
         <BlueBgBox
           bgImage="/products.webp"
@@ -85,6 +84,6 @@ export default async function Page() {
       <section>
         <BeAReseller />
       </section>
-    </>
+    </div>
   );
 }
