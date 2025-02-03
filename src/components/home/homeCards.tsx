@@ -5,7 +5,7 @@ export default function HomeCards() {
   const cards = [
     {
       src: "/laptop.webp",
-      text: "Seja uma revenda",
+      text: "Seja um revendedor",
       href: "/credenciamento",
     },
     {

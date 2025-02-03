@@ -42,7 +42,7 @@ export default async function Projetos() {
       src: BlueprintSvg,
       title: "Design e Acabamento",
       description:
-        "Todos os produtos possuem um design sofisticado que se integram perfeitamente ao seu projeto arquitetônico, através de nossas empresas parceiras você recebe um ambiente rico e com acabamentos de alta qualidade.",
+        "Todos os produtos possuem um design sofisticado que se integra perfeitamente ao seu projeto arquitetônico. Através de nossas empresas parceiras, você recebe um ambiente rico e com acabamentos de alta qualidade.",
     },
   ];
   return (
