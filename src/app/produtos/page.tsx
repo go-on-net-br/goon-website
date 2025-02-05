@@ -6,6 +6,7 @@ import BlueBgBox from "@/components/blueBgBox";
 import { Suspense } from "react";
 import { CategoriasDeProduto } from "@/types/categorias-de-produto";
 import { Marca } from "@/types/marca";
+import { Produto } from "@/types/produto";
 
 export const metadata: Metadata = {
   title: "Produtos",
