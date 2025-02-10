@@ -71,27 +71,26 @@ export default async function RedeCredenciada() {
     .sort((a, b) => (a > b ? 1 : -1));
 
   return (
-    <div>
-      <section>
-        <BlueBgBox
-          bgImage="/blueprint.webp"
-          boxStyles="w-screen h-[300px] after:!opacity-[36%]"
-        >
-          <></>
-        </BlueBgBox>
-      </section>
-      <section className=" container relative z-[1] mx-auto -mt-52 max-w-screen-xl rounded-3xl bg-white px-9 pb-12 pt-12 md:-mt-20 md:py-36 md:pt-20">
-        <header className="mx-auto md:w-[880px] text-center text-primary mb-16">
-          <h1 className="mx-auto mb-4 text-4xl font-bold uppercase  md:text-7xl">
-            Deixe o seu contato
+    <section className="flex flex-col-reverse md:flex-row">
+      <BlueBgBox
+        bgImage="/blueprint.webp"
+        boxStyles="w-full h-[350px] md:h-auto md:w-1/2 after:!opacity-[36%]"
+      >
+        <></>
+      </BlueBgBox>
+      <div className="bg-white py-8 md:w-1/2 md:py-32">
+        <div className="text-center text-goOnBlack md:mx-12 md:mb-16 md:text-start">
+          <h1 className="mx-auto mb-4 text-3xl font-bold  md:text-5xl">
+            Rede Credenciada
           </h1>
-          <p className="text-lg font-light uppercase md:text-3xl">
-            E indicamos a{" "}
-            <span className="font-bold">revenda <br className="block md:hidden"/> mais próxima de você</span>
+          <p className="text-md font-light md:text-xl">
+            Queremos te ajudar! Preencha o formulário e nossa equipe encontrará
+            a revenda credenciada mais próxima de você.
           </p>
-        </header>
+        </div>
+        <div className="mx-4 my-8 h-[1px] w-auto bg-goOnBlue md:mx-12"></div>
         <NetworkForm brands={brands} />
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

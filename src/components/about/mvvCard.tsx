@@ -9,7 +9,7 @@ export default function MvvCard({
 }) {
   return (
     <div
-      className="card card-normal flex h-full flex-col bg-primary py-12 shadow-lg transition-all"
+      className="card card-normal flex h-full flex-col bg-goOnBlack py-12 shadow-lg transition-all hover:scale-105 hover:bg-goOnBlue"
       key={"aboutMvv_" + title}
     >
       <h3 className="px-4 text-center text-4xl font-bold uppercase text-white">

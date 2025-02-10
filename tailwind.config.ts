@@ -11,7 +11,12 @@ const config: Config = {
       fontFamily: {
         montserrat: ["var(--font-montserrat)"],
       },
-      colors: { primary: "#003EF9", goOnGrey: "#484848" },
+      colors: {
+        primary: "#F8F8F8",
+        goOnGrey: "#484848",
+        goOnBlue: "#003EF9",
+        goOnBlack: "#0E0E0E",
+      },
       animation: {
         marquee: "marquee 45s linear infinite",
         marquee2: "marquee2 45s linear infinite",
@@ -32,8 +37,8 @@ const config: Config = {
     themes: [
       {
         myTheme: {
-          primary: "#003EF9",
-          secondary: "#f3f4f6",
+          primary: "#0E0E0E",
+          secondary: "#F1F1F1",
           info: "#484848",
         },
       },

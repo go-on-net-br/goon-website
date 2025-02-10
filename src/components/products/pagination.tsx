@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 interface PaginationProps {
   currPage: number;
@@ -35,7 +35,7 @@ export default function Pagination({
     pageArray.push(
       <button
         key={`productPage-${i}`}
-        className={`btn join-item ${currPage === i ? "btn-primary" : ""}`}
+        className={`btn btn-ghost join-item btn-md text-lg ${currPage === i ? "text-goOnBlue underline" : ""}`}
         onClick={() => onPageChange(i)}
       >
         {i}
@@ -45,14 +45,17 @@ export default function Pagination({
 
   if (startPage > 1) {
     pageArray.unshift(
-      <button key="start-ellipsis" className="btn btn-disabled join-item">
+      <button
+        key="start-ellipsis"
+        className="btn btn-disabled btn-ghost join-item btn-md text-lg"
+      >
         ...
       </button>,
     );
     pageArray.unshift(
       <button
         key="start-page"
-        className="btn join-item"
+        className="btn btn-ghost join-item btn-md text-lg"
         onClick={() => onPageChange(1)}
       >
         1
@@ -62,14 +65,17 @@ export default function Pagination({
 
   if (endPage < totalPages) {
     pageArray.push(
-      <button key="end-ellipsis" className="btn btn-disabled join-item">
+      <button
+        key="end-ellipsis"
+        className="btn btn-disabled btn-ghost join-item btn-md text-lg"
+      >
         ...
       </button>,
     );
     pageArray.push(
       <button
         key="end-page"
-        className="btn join-item"
+        className="btn btn-ghost join-item btn-md text-lg"
         onClick={() => onPageChange(totalPages)}
       >
         {totalPages}

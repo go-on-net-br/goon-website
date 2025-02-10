@@ -72,7 +72,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
     <FormProvider {...methods}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-center justify-center gap-4 px-4 text-sm md:flex-row md:flex-wrap md:items-start md:text-base"
+        className="flex flex-col items-center justify-center gap-4 px-4 text-sm md:flex-row md:flex-wrap md:items-start md:text-base "
         data-netlify="true"
         netlify-honeypot="bot-field"
         name="credenciamento"
@@ -89,16 +89,16 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
         <RequiredInputField type="text" value="cnpj" />
         <RequiredInputField type="text" value="cidadeEUF" />
         <RequiredInputField type="text" value="endereco" />
-        <label className="flex h-24 w-full flex-col md:w-[45%]">
+        <label className="flex h-24 w-full flex-col font-light tracking-wider md:w-[45%] ">
           Complemento
           <input
             {...register("complemento")}
             type="text"
-            className="input input-bordered input-primary w-full"
+            className="border-goOnBlue input input-bordered input-primary w-full"
           />
         </label>
         {isMounted && (
-          <label className="flex h-24 w-full flex-col md:w-[91%]">
+          <label className=" flex h-24 w-full flex-col font-light tracking-wider md:w-[91%]">
             Marcas de interesse
             <Controller
               control={control}
@@ -112,7 +112,8 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
                     onChange={onChange}
                     onBlur={onBlur}
                     classNames={{
-                      control: () => "min-h-12 p-2 !rounded-lg !border-primary",
+                      control: () =>
+                        "min-h-12 p-2 !rounded-lg !border-goOnBlue",
                     }}
                   />
                 );
@@ -124,7 +125,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
         <div className="flex h-20 w-full items-end justify-center">
           <input
             type="submit"
-            className="btn btn-outline btn-primary btn-lg my-0 w-1/2 py-0"
+            className="btn btn-outline btn-primary bg-goOnBlue !text-white btn-lg my-0 w-1/2 py-0"
             value={btnText}
             disabled={!["Enviar", "Erro. Tentar novamente"].includes(btnText)}
           />

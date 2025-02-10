@@ -94,12 +94,12 @@ export default function ProductsList({
     <>
       <div className="container flex flex-col items-center rounded-3xl bg-white">
         <div className="flex w-full flex-col items-center gap-4 py-8">
-          <p className="text-primary">Filtrar por:</p>
+          <p className="text-goOnBlack">Filtrar por:</p>
           <div className="flex w-full flex-col items-center justify-center gap-2 md:w-auto md:flex-row">
             <select
               onChange={(e) => handleBrandChange(e.target.value)}
               value={brand}
-              className="select select-primary w-10/12 max-w-sm bg-transparent text-primary md:w-48"
+              className="select select-primary w-10/12 max-w-sm border-goOnBlue bg-transparent text-goOnBlue md:w-48"
             >
               <option value={"todas"}>Todas marcas</option>
               {allBrands
@@ -118,7 +118,7 @@ export default function ProductsList({
             <select
               value={category}
               onChange={(e) => handleCategoryChange(e.target.value)}
-              className="select select-primary w-10/12 max-w-sm bg-transparent text-primary md:w-48"
+              className="select select-primary w-10/12 max-w-sm border-goOnBlue bg-transparent text-goOnBlue md:w-48"
             >
               <option value={"todas"}>Todas categorias</option>
               {availableCategories?.map((category) => (
@@ -135,7 +135,7 @@ export default function ProductsList({
       </div>
       {isLoading ? (
         <div className="mb-24 flex h-64 w-full items-center justify-center px-4">
-          <span className="loading loading-bars loading-lg px-4 text-center text-primary"></span>
+          <span className="loading loading-bars loading-lg px-4 text-center text-goOnBlue"></span>
         </div>
       ) : error ? (
         <div className="mb-24 flex h-64 w-full items-center justify-center px-4">
@@ -159,7 +159,10 @@ export default function ProductsList({
               />
             ))}
           </div>
-          <div data-theme="light" className="join my-8">
+          <div
+            data-theme="light"
+            className="join my-8 flex w-full justify-center"
+          >
             <Pagination
               currPage={currPage}
               totalPages={pages}

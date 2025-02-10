@@ -21,17 +21,17 @@ export default function ProjectSection({
         <ProjectCarrousel project={project} />
       </div>
       <div className="w-full md:w-[540px]">
-        <header className="mb-6 text-primary">
+        <header className="mb-6 text-goOnBlack">
           <h2 className="mb-3 text-center text-2xl font-bold md:text-left md:text-5xl">
             {Titulo}
           </h2>
           {resalerLink && (
             <a
-              className="text-center text-2xl font-normal md:text-left"
+              className="text-center text-2xl font-normal text-goOnBlue md:text-left"
               href={resalerLink}
               target="_blank"
             >
-              by{" "}
+              por{" "}
               <span className="uppercase underline">
                 {revenda?.data?.attributes?.Titulo}
               </span>
@@ -39,7 +39,7 @@ export default function ProjectSection({
           )}
           {revenda?.data?.attributes?.Titulo && !resalerLink && (
             <p className="text-center text-2xl font-normal md:text-left">
-              by{" "}
+              por{" "}
               <span className="uppercase">
                 {revenda?.data?.attributes?.Titulo}
               </span>

@@ -27,7 +27,7 @@ export default async function Page() {
           </div>
         </BlueBgBox>
       </section>
-      <section className="container relative z-[1] mx-auto -mt-10 mb-8 max-w-screen-xl rounded-3xl bg-white px-9 py-8">
+      <section className="container relative z-[1] mx-auto -mt-10 mb-8 max-w-screen-xl rounded-3xl bg-primary px-9 py-8">
         <TermsTabs apiData={apiData} />
       </section>
     </>

@@ -12,7 +12,7 @@ export default function BlueBgBox({
   return (
     <div
       style={{ "--bgImage": `url(${bgImage})` } as any}
-      className={`card relative before:absolute before:top-0  before:z-[0] before:h-full before:w-full before:bg-[#003ef9] before:content-[''] after:absolute after:top-0 after:z-[1] after:block after:h-full after:w-full ${boxStyles} after:bg-[image:var(--bgImage)] after:bg-cover after:bg-center after:bg-no-repeat after:opacity-[14%] after:content-[''] `}
+      className={`card relative before:absolute before:top-0  before:z-[0] before:h-full before:w-full before:bg-goOnBlack before:content-[''] after:absolute after:top-0 after:z-[1] after:block after:h-full after:w-full ${boxStyles} after:bg-[image:var(--bgImage)] after:bg-cover after:bg-center after:bg-no-repeat after:opacity-[14%] after:content-[''] `}
     >
       <div className="relative z-[2] h-full">{children}</div>
     </div>

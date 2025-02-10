@@ -67,7 +67,7 @@ export default function ContactForm() {
             : `Mensagem*`}
           <textarea
             required={true}
-            className="input input-bordered input-primary h-full w-full rounded-lg"
+            className="input input-bordered input-primary h-full w-full rounded-lg border-goOnBlue"
             rows={6}
             {...register("mensagem", {
               validate: (val) => {
@@ -80,7 +80,7 @@ export default function ContactForm() {
         <div className="flex h-20 w-full items-end justify-center">
           <input
             type="submit"
-            className="btn btn-outline btn-primary btn-lg my-0 w-1/2 py-0"
+            className="btn btn-outline btn-lg my-0 w-1/2 py-0 text-goOnBlue"
             value={btnText}
             disabled={!["Enviar", "Erro. Tentar novamente"].includes(btnText)}
           />

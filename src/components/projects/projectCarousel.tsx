@@ -47,33 +47,31 @@ export default function ProjectCarrousel({ project }: { project: Projeto }) {
             })}
           </Glider>
         )}
-        <button
-          ref={leftArrowEl}
-          aria-label="navegar para a esquerda"
-          className="absolute -left-5 bottom-0 top-0 z-10 md:-left-10 md:block"
-        >
-          <Image
-            className="z-10 h-10 w-10 rounded-full border bg-white object-contain p-2 shadow-lg md:rounded-none md:border-none md:bg-transparent md:p-0 md:shadow-none "
-            alt="flecha apontada para esquerda"
-            src={arrow_left}
-          />
-        </button>
-        <button
-          ref={rightArrowEl}
-          aria-label="navegar para a direita"
-          className="absolute -right-5 bottom-0 top-0 z-10 md:-right-11 md:block "
-        >
-          <Image
-            className="h-10 w-10 scale-x-[-1] rounded-full border bg-white object-contain p-2 shadow-lg md:rounded-none md:border-none md:bg-transparent md:p-0 md:shadow-none"
-            alt="flecha apontada para direita"
-            src={arrow_left}
-          />
-        </button>
-        <div
-          className="absolute -bottom-10 left-0 right-0"
-          ref={dotsEl}
-          id="dots"
-        ></div>
+        <div className="md:absolute md:-bottom-8 md:left-0 md:right-0 md:flex md:items-center md:justify-center md:gap-3">
+          <button
+            ref={leftArrowEl}
+            aria-label="navegar para a esquerda"
+            className="absolute -left-6 bottom-0 top-0 z-10 md:static"
+          >
+            <Image
+              className="z-10 h-8 w-8 rounded-full border bg-white object-contain p-2 shadow-lg md:z-10 md:h-6 md:w-6 md:rounded-none md:border-none md:bg-transparent md:p-0 md:shadow-none"
+              alt="flecha apontada para esquerda"
+              src={arrow_left}
+            />
+          </button>
+          <div className="" ref={dotsEl} id="dots"></div>
+          <button
+            ref={rightArrowEl}
+            aria-label="navegar para a direita"
+            className="absolute -right-6 bottom-0 top-0 z-10 md:static md:-right-11"
+          >
+            <Image
+              className="h-8 w-8 scale-x-[-1] rounded-full border bg-white object-contain p-2 shadow-lg md:h-6 md:w-6 md:scale-x-[-1] md:rounded-none md:border-none md:bg-transparent md:p-0 md:shadow-none"
+              alt="flecha apontada para direita"
+              src={arrow_left}
+            />
+          </button>
+        </div>
       </div>
     </div>
   );

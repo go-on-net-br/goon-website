@@ -3,7 +3,7 @@ import Image from "next/image";
 type BadgeTextSize = "sm" | "md" | "lg";
 export type BadgeProps = { src: any; text: string; fontSize: BadgeTextSize };
 
-export default function Badge({
+export default function AccreditationBadge({
   badges,
   white = false,
 }: {
@@ -21,9 +21,9 @@ export default function Badge({
     }
   });
   return (
-    <div className="mx-auto grid w-full grid-cols-2 gap-2 md:grid-cols-3">
+    <div className="mx-auto grid w-full grid-cols-2 gap-2 md:grid-cols-4">
       {badges?.map((badge, i) => {
-        let fontSize = "text-sm md:text-xl !leading-[1.25rem] ";
+        let fontSize = "text-sm md:text-xl !leading-[1.45rem] ";
         if (badge.fontSize === "md") {
           fontSize = "text-xs md:text-lg !leading-[1.45rem] ";
         }

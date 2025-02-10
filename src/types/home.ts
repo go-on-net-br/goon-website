@@ -5,9 +5,6 @@ export interface Home {
   id: number;
   attributes: DateAttributes & {
     Carrossel: Carrossel[];
-    RedesGoOn: RedesSociais[];
-    Endereco: string;
-    telefone: string;
-    contato: string;
+    carrossel_mobile: Carrossel[]
   };
 }

@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.goon.net.br/'),
+  metadataBase: new URL("https://www.goon.net.br/"),
   title: { template: "%s | Go On", default: "Go On" },
   description:
     "A Go On tem em seu portfólio distribuidores exclusivos de um seleto grupo de marcas do mercado de automação residencial, áudio e vídeo. Trabalhamos com o que há de melhor no mercado, garantindo toda a segurança de uma importação legal.",
@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-[#F5F5F5]">
+    <html lang="en" className="bg-primary overflow-x-hidden">
       <body
         className={`${montserrat.variable} overflow-x-hidden font-montserrat`}
       >

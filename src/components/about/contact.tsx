@@ -9,14 +9,14 @@ export default function AboutContact({
   return (
     <section className="container mx-auto mb-8 flex max-w-screen-xl justify-center">
       <div className="container mb-12 flex flex-col items-center gap-8">
-        <div className="flex flex-col items-center gap-4 border-y border-primary px-2 py-6 md:gap-8 md:px-16 md:py-12">
-          <h3 className="text-xl text-primary md:text-3xl">
+        <div className="flex flex-col items-center gap-4 border-y border-goOnBlack px-2 py-6 md:gap-8 md:px-16 md:py-12">
+          <h3 className="text-xl text-goOnBlack md:text-3xl">
             Precisa de <span className="font-bold">Mais Informações?</span>
           </h3>
           <div className="flex flex-col items-start">
             {contact?.map((contact, i) => (
               <p
-                className="text-primary"
+                className="text-goOnBlack"
                 key={universalSlugify(contact.Destinatario)}
               >
                 <span className="font-bold">{contact.Destinatario} - </span>

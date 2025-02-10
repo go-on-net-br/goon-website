@@ -42,7 +42,7 @@ export default async function Projetos() {
       src: BlueprintSvg,
       title: "Design e Acabamento",
       description:
-        "Todos os produtos possuem um design sofisticado que se integram perfeitamente ao seu projeto arquitetônico, através de nossas empresas parceiras você recebe um ambiente rico e com acabamentos de alta qualidade.",
+        "Todos os produtos possuem um design sofisticado que se integra perfeitamente ao seu projeto arquitetônico. Através de nossas empresas parceiras, você recebe um ambiente rico e com acabamentos de alta qualidade.",
     },
   ];
   return (
@@ -57,14 +57,15 @@ export default async function Projetos() {
               Projetos Referência
             </h1>
             <p className="text-lg font-light md:text-xl">
-              Aqui reunimos projetos incríveis de nossas empresas parceiras para
-              que você conheça mais a fundo e se inspirar, conhecer o que a sua
-              casa inteligente pode fazer por você.
+              Reunimos uma seleção especial com os melhores projetos de nossas
+              empresas parceiras para você conhecer. Desvende as infinitas
+              possibilidades de uma casa inteligente e encontre a solução ideal
+              para o seu lar.
             </p>
           </div>
         </BlueBgBox>
       </section>
-      <section className="container relative z-[1] mx-auto max-w-screen-xl rounded-3xl bg-white px-9 pb-12 pt-56 md:-mt-12 md:py-36 md:pt-48">
+      <section className="container relative z-[1] mx-auto max-w-screen-xl rounded-3xl bg-primary px-9 pb-12 pt-56 md:-mt-12 md:py-36 md:pt-48">
         <div className="container -top-11 left-0 right-0 mx-auto -mt-32 mb-4 hidden w-full max-w-screen-xl flex-col items-center justify-evenly gap-6 pt-8 text-center text-white md:absolute md:-top-64 md:mt-auto md:flex md:flex-row md:items-start md:pt-10">
           {cards.map((card) => {
             return <InfoCard card={card} key={card.title} />;
@@ -92,11 +93,11 @@ export default async function Projetos() {
             <span>Quer um projeto</span> <span>para o seu ambiente?</span>
           </h2>
           <p className="mb-2 mt-2 text-xs md:mb-6 md:mt-4 md:text-2xl">
-            Encontre a Revenda Credenciada mais próxima de você
+            Deixe seu contato que indicaremos a revenda mais próxima de você!
           </p>
           <Link href="/rede-credenciada">
-            <button className="btn btn-secondary btn-sm w-fit text-primary">
-              Veja Rede Credenciada
+            <button className="btn btn-secondary btn-sm w-fit text-goOnBlue">
+              Rede Credenciada
             </button>
           </Link>
         </div>

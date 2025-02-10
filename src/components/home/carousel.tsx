@@ -1,17 +1,20 @@
 "use client";
 
-import { Carrossel } from "@/types/components";
 import Glider from "react-glider";
 import "glider-js/glider.min.css";
 import { useEffect, useRef, useState } from "react";
 import arrow_left from "../../../public/arrow_left.svg";
 import ApiImage from "../ApiImage";
 import Image from "next/image";
+import { Home } from "@/types/home";
+import useMobileCheck from "@/hooks/useMobileCheck";
 
-export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
+export default function Carousel({ homeProps }: { homeProps: Home }) {
   const dotsEl = useRef<HTMLDivElement>(null);
   const leftArrowEl = useRef<HTMLButtonElement>(null);
   const rightArrowEl = useRef<HTMLButtonElement>(null);
+
+  const { Carrossel: carousel, carrossel_mobile } = homeProps?.attributes ?? {};
 
   const [isReady, setIsReady] = useState(false);
   useEffect(() => {
@@ -22,11 +25,13 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
 
   const startAt = Math.round(Math.random() * carousel.length);
   const imgStyles =
-    "w-full h-[150px] md:h-[450px] object-contain object-center m-auto";
+    "h-[510px] w-full object-cover md:object-contain md:h-auto object-center m-auto";
+
+  const isMobile = useMobileCheck();
 
   return (
-    <div className="relative mx-4 h-[150px] md:h-[450px]">
-      <div className="absolute w-full md:static md:w-auto">
+    <div className="relative min-h-fit">
+      <div className="w-full md:static md:w-auto">
         {isReady && (
           <Glider
             arrows={{
@@ -42,8 +47,9 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
             slidesToShow={1}
             slidesToScroll={1}
             scrollLock
+            className="overflow-x-hidden"
           >
-            {carousel?.map((slide, i) => {
+            {(isMobile ? carrossel_mobile : carousel)?.map((slide, i) => {
               return (
                 <div
                   key={slide?.Titulo}
@@ -67,33 +73,32 @@ export default function Carousel({ carousel }: { carousel: Carrossel[] }) {
             })}
           </Glider>
         )}
-        <button
-          ref={leftArrowEl}
-          aria-label="navegar para a esquerda"
-          className="absolute bottom-0 left-1 z-10 hidden md:block md:h-[450px]"
-        >
-          <Image
-            className="z-10 h-10 w-10 object-contain"
-            alt="flecha apontada para esquerda"
-            src={arrow_left}
-          />
-        </button>{" "}
-        <button
-          ref={rightArrowEl}
-          aria-label="navegar para a direita"
-          className="absolute bottom-0 z-10 hidden md:right-1 md:block md:h-[450px]"
-        >
-          <Image
-            className="h-10 w-10 scale-x-[-1] object-contain"
-            alt="flecha apontada para direita"
-            src={arrow_left}
-          />
-        </button>
-        <div
-          className="absolute -bottom-12 left-0 right-0"
-          ref={dotsEl}
-          id="dots"
-        ></div>
+        <div className="absolute bottom-5 left-0 right-0 flex items-center justify-center gap-3">
+          <button
+            ref={leftArrowEl}
+            aria-label="navegar para a esquerda"
+            className=""
+          >
+            <Image
+              className="z-10 h-6 w-6   rounded-none border-none bg-transparent object-contain p-0 shadow-lg"
+              alt="flecha apontada para esquerda"
+              src={arrow_left}
+            />
+          </button>
+          <div className="" ref={dotsEl} id="dots"></div>
+
+          <button
+            ref={rightArrowEl}
+            aria-label="navegar para a direita"
+            className=""
+          >
+            <Image
+              className="h-6 w-6 scale-x-[-1]  rounded-none border-none bg-transparent object-contain p-0 shadow-lg"
+              alt="flecha apontada para direita"
+              src={arrow_left}
+            />
+          </button>
+        </div>
       </div>
     </div>
   );

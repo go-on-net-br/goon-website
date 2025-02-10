@@ -1,6 +1,7 @@
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 import Image from "next/image";
 import goOnSvg from "../../../public/go_on_logo.svg";
+import arrowDown from "../../../public/arrow_down.svg";
 import BlockRendererClient from "@/helpers/blockRendererClient";
 import SocialNetworks from "../socialNetworks";
 import BlueBgBox from "../blueBgBox";
@@ -27,8 +28,9 @@ export default function AboutBanner({
           </div>
         </div>
         <div className="-mt-6 flex w-full justify-center">
-          <div className="badge badge-lg absolute -bottom-4 border-0 bg-white px-10 py-6 text-sm font-bold uppercase text-primary shadow-lg md:text-base">
-            Nossa história começa aqui
+          <div className="badge badge-lg absolute -bottom-4 border-0 bg-white px-10 py-6 text-sm font-bold uppercase text-goOnBlack shadow-lg md:text-base">
+            <span>Nossa história começa aqui</span>
+            <Image src={arrowDown} alt="flecha para baixo" className="w-4 h-4 ml-4"></Image>
           </div>
         </div>
       </BlueBgBox>
