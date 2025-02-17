@@ -30,7 +30,7 @@ export default async function HomePage() {
   const projectsData = (
     await fetchDataFromApi<Projeto[]>(
       "projetos",
-      `${buildMediaQPs("media")}&fields[0]=Titulo`,
+      `${buildMediaQPs("media")}&fields[0]=Titulo&populate[revenda][fields][0]=Titulo`,
     )
   ).sort((a, b) => {
     return a.attributes.createdAt > b.attributes.createdAt ? -1 : 1;
