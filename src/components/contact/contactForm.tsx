@@ -80,7 +80,7 @@ export default function ContactForm() {
         <div className="flex h-20 w-full items-end justify-center">
           <input
             type="submit"
-            className="btn btn-outline btn-lg my-0 w-1/2 py-0 text-goOnBlue"
+            className="btn btn-outline btn-lg my-0 w-1/2 py-0 text-goOnBlue hover:text-goOnBlue"
             value={btnText}
             disabled={!["Enviar", "Erro. Tentar novamente"].includes(btnText)}
           />

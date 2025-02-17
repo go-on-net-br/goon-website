@@ -94,7 +94,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
           <input
             {...register("complemento")}
             type="text"
-            className="border-goOnBlue input input-bordered input-primary w-full"
+            className="input input-bordered input-primary w-full border-goOnBlue"
           />
         </label>
         {isMounted && (
@@ -125,7 +125,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
         <div className="flex h-20 w-full items-end justify-center">
           <input
             type="submit"
-            className="btn btn-outline btn-primary bg-goOnBlue !text-white btn-lg my-0 w-1/2 py-0"
+            className="btn btn-outline btn-primary btn-lg my-0 w-1/2 bg-goOnBlue py-0 !text-white hover:bg-goOnBlue disabled:bg-goOnBlue"
             value={btnText}
             disabled={!["Enviar", "Erro. Tentar novamente"].includes(btnText)}
           />

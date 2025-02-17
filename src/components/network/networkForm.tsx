@@ -132,7 +132,7 @@ export default function NetworkForm({ brands }: { brands: string[] }) {
         <div className="flex h-20 w-full items-end justify-center">
           <input
             type="submit"
-            className="btn btn-primary btn-lg my-0 w-full bg-goOnBlue py-0 text-white"
+            className="btn btn-primary btn-lg my-0 w-full bg-goOnBlue py-0 text-white hover:bg-goOnBlue hover:text-white"
             value={btnText}
             disabled={!["Enviar", "Erro. Tentar novamente"].includes(btnText)}
           />

@@ -167,7 +167,7 @@ export default function EmailPopUp() {
             <div className="flex h-20 w-full items-end justify-center">
               <input
                 type="submit"
-                className="btn btn-outline my-0 bg-white px-9 py-0 text-primary"
+                className="btn btn-outline my-0 bg-white px-9 py-0 text-primary hover:bg-white hover:text-white"
                 value={btnText}
                 disabled={
                   !["Enviar", "Erro. Tentar novamente"].includes(btnText)
