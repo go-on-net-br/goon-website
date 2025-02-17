@@ -73,7 +73,7 @@ export default async function HomePage() {
               principais players do mercado global de automação residencial e
               sistemas de som. Essa rede de confiança nos permite oferecer ao
               mercado brasileiro produtos e soluções de última geração, sempre
-              com a garantia de uma distribuição legal e transparente e repleta
+              com a garantia de uma distribuição legal, transparente e repleta
               de benefícios.
             </p>
           </div>
