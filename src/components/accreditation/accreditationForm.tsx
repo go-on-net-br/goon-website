@@ -15,8 +15,11 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
   const methods = useForm<AccreditationInputs>({
     mode: "onBlur",
     shouldFocusError: true,
+    defaultValues: {
+      marcas: [],
+    },
   });
-  const { register, control, handleSubmit } = methods;
+  const { register, control, handleSubmit, reset } = methods;
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => setIsMounted(true), []);
@@ -59,6 +62,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
 
       if (res.status === 200) {
         setBtnText("Enviado ✓");
+        reset();
       } else {
         setBtnText("Erro. Tentar novamente");
       }
@@ -103,7 +107,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
             <Controller
               control={control}
               name="marcas"
-              render={({ field: { onChange, onBlur } }) => {
+              render={({ field: { onChange, onBlur, value } }) => {
                 return (
                   <Select
                     isMulti
@@ -111,6 +115,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
                     options={selectOptions}
                     onChange={onChange}
                     onBlur={onBlur}
+                    value={value}
                     classNames={{
                       control: () =>
                         "min-h-12 p-2 !rounded-lg !border-goOnBlue",
