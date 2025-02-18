@@ -30,7 +30,7 @@ export default async function HomePage() {
   const projectsData = (
     await fetchDataFromApi<Projeto[]>(
       "projetos",
-      `${buildMediaQPs("media")}&fields[0]=Titulo`,
+      `${buildMediaQPs("media")}&fields[0]=Titulo&populate[revenda][fields][0]=Titulo`,
     )
   ).sort((a, b) => {
     return a.attributes.createdAt > b.attributes.createdAt ? -1 : 1;
@@ -73,7 +73,7 @@ export default async function HomePage() {
               principais players do mercado global de automação residencial e
               sistemas de som. Essa rede de confiança nos permite oferecer ao
               mercado brasileiro produtos e soluções de última geração, sempre
-              com a garantia de uma distribuição legal e transparente e repleta
+              com a garantia de uma distribuição legal, transparente e repleta
               de benefícios.
             </p>
           </div>

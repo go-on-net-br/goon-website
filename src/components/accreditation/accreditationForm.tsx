@@ -15,8 +15,11 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
   const methods = useForm<AccreditationInputs>({
     mode: "onBlur",
     shouldFocusError: true,
+    defaultValues: {
+      marcas: [],
+    },
   });
-  const { register, control, handleSubmit } = methods;
+  const { register, control, handleSubmit, reset } = methods;
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => setIsMounted(true), []);
@@ -59,6 +62,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
 
       if (res.status === 200) {
         setBtnText("Enviado ✓");
+        reset();
       } else {
         setBtnText("Erro. Tentar novamente");
       }
@@ -94,7 +98,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
           <input
             {...register("complemento")}
             type="text"
-            className="border-goOnBlue input input-bordered input-primary w-full"
+            className="input input-bordered input-primary w-full border-goOnBlue"
           />
         </label>
         {isMounted && (
@@ -103,7 +107,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
             <Controller
               control={control}
               name="marcas"
-              render={({ field: { onChange, onBlur } }) => {
+              render={({ field: { onChange, onBlur, value } }) => {
                 return (
                   <Select
                     isMulti
@@ -111,6 +115,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
                     options={selectOptions}
                     onChange={onChange}
                     onBlur={onBlur}
+                    value={value}
                     classNames={{
                       control: () =>
                         "min-h-12 p-2 !rounded-lg !border-goOnBlue",
@@ -125,7 +130,7 @@ export default function AccreditationForm({ brands }: { brands: string[] }) {
         <div className="flex h-20 w-full items-end justify-center">
           <input
             type="submit"
-            className="btn btn-outline btn-primary bg-goOnBlue !text-white btn-lg my-0 w-1/2 py-0"
+            className="btn btn-outline btn-primary btn-lg my-0 w-1/2 bg-goOnBlue py-0 !text-white hover:bg-goOnBlue disabled:bg-goOnBlue"
             value={btnText}
             disabled={!["Enviar", "Erro. Tentar novamente"].includes(btnText)}
           />

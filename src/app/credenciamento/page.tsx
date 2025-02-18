@@ -86,7 +86,7 @@ export default async function Credenciamento() {
               geração, garantindo qualidade, tecnologia e design em cada
               detalhe. Nossa distribuição legal e transparente assegura a você a
               melhor experiência de compra e suporte técnico especializado. Na
-              Go On, você encontra muito mais do que produtos. Encontra um
+              Go On, você encontra muito mais do que produtos. Encontre um
               parceiro comprometido em oferecer as melhores marcas com diversos
               benefícios para você, sua empresa e seus clientes.
             </p>
