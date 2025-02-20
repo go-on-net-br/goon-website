@@ -21,7 +21,7 @@ export default function Badge({
     }
   });
   return (
-    <div className="mx-auto grid w-full grid-cols-2 gap-2 md:grid-cols-3">
+    <div className="-ml-5 xs:mx-auto grid w-full grid-cols-2 gap-2 md:grid-cols-3">
       {badges?.map((badge, i) => {
         let fontSize = "text-sm md:text-xl !leading-[1.25rem] ";
         if (badge.fontSize === "md") {
@@ -35,7 +35,7 @@ export default function Badge({
         return (
           <div
             className={
-              "mx-auto flex w-80 gap-2 " +
+              "mx-auto flex w-fit gap-2 xs:scale-100 scale-[87%]" +
               (i === badges.length - 1 && badges.length % 2 === 1
                 ? "col-span-2 md:col-span-1 "
                 : "")
@@ -52,7 +52,7 @@ export default function Badge({
                 className="mx-auto h-full w-fit object-contain object-center"
               />
             </div>
-            <p className="flex flex-col justify-center uppercase tracking-widest">
+            <p className="whitespace-nowrap flex flex-col justify-center uppercase tracking-widest">
               {badgeText.map((txt, txtI) => {
                 return (
                   <span

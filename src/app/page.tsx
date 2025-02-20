@@ -125,7 +125,7 @@ export default async function HomePage() {
           <div className="h-40 w-full bg-white"></div>
         </section>
         <div className="w-full bg-white">
-          <section className="w-full pb-20 pt-32 md:pt-40">
+          <section className="w-full pb-20 pt-40">
             <Link href="marcas">
               <h2 className="mb-12 text-center text-3xl uppercase text-black md:text-4xl">
                 Marcas <b className="font-bold">exclusivas</b>
