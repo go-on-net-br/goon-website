@@ -94,7 +94,7 @@ export default async function BrandPage({
                       />
                     </header>
                   )}
-                  <h2 className=" mb-4 text-center  text-3xl text-primary md:text-start">
+                  <h2 className=" mb-4 text-center  text-3xl text-goOnBlack md:text-start">
                     {Titulo}
                   </h2>
                   <div className="text-justify">
