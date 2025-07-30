@@ -8,15 +8,15 @@
       hidden
     >
       <input type="hidden" name="form-name" value="contato" />
-      <p>
+      <p className="hidden">
         <label>
           Don’t fill this out if you’re human: <input name="bot-field" />
         </label>
       </p>
-      <input type="text" value="nome" />
-      <input type="email" value="email" />
-      <input type="text" value="tema" />
-      <textarea required="true" rows="{6}" value="mensagem"></textarea>
+      <input type="text" name="nome" />
+      <input type="email" name="email" />
+      <input type="text" name="tema" />
+      <textarea required rows="6" name="mensagem"></textarea>
     </form>
   </body>
 </html>
